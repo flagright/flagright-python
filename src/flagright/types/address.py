@@ -15,24 +15,22 @@ class Address(pydantic.BaseModel):
     """
 
     address_lines: typing.List[typing.Any] = pydantic.Field(
-        alias="addressLines", description=("Address lines of the user's residence address\n")
+        alias="addressLines", description="Address lines of the user's residence address"
     )
     postcode: str = pydantic.Field(
-        description=(
-            'Post code of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> \n'
-        )
+        description='Post code of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> '
     )
     city: str = pydantic.Field(
-        description=('City of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> \n')
+        description='City of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> '
     )
     state: typing.Optional[str] = pydantic.Field(
-        description=('State of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> \n')
+        description='State of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> '
     )
     country: str = pydantic.Field(
-        description=('User\'s country of residence <span style="white-space: nowrap">`non-empty`</span> \n')
+        description='User\'s country of residence <span style="white-space: nowrap">`non-empty`</span> '
     )
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description=("Additional information that can be added via tags\n")
+        description="Additional information that can be added via tags"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

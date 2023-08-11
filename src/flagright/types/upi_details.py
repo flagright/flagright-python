@@ -16,16 +16,16 @@ class UpiDetails(pydantic.BaseModel):
 
     method: UpiPaymentMethod
     upi_id: str = pydantic.Field(
-        alias="upiID", description=('UPI Id number <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="upiID", description='UPI Id number <span style="white-space: nowrap">`non-empty`</span> '
     )
     bank_provider: typing.Optional[str] = pydantic.Field(
-        alias="bankProvider", description=('Bank provider name <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="bankProvider", description='Bank provider name <span style="white-space: nowrap">`non-empty`</span> '
     )
     interface_provider: typing.Optional[str] = pydantic.Field(
         alias="interfaceProvider",
-        description=('Interface provider name <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='Interface provider name <span style="white-space: nowrap">`non-empty`</span> ',
     )
-    name: typing.Optional[str] = pydantic.Field(description=("Name of the account holder\n"))
+    name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

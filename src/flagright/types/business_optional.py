@@ -30,12 +30,10 @@ class BusinessOptional(pydantic.BaseModel):
     legal_entity: typing.Optional[LegalEntity] = pydantic.Field(alias="legalEntity")
     share_holders: typing.Optional[typing.List[Person]] = pydantic.Field(
         alias="shareHolders",
-        description=(
-            "Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual\n"
-        ),
+        description="Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual",
     )
     directors: typing.Optional[typing.List[Person]] = pydantic.Field(
-        description=("Director(s) of the company. Must be at least one\n")
+        description="Director(s) of the company. Must be at least one"
     )
     transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
     risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
@@ -47,7 +45,7 @@ class BusinessOptional(pydantic.BaseModel):
     )
     mcc_details: typing.Optional[MccDetails] = pydantic.Field(alias="mccDetails")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description=("Additional information that can be added via tags\n")
+        description="Additional information that can be added via tags"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

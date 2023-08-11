@@ -20,23 +20,21 @@ class IbanDetails(pydantic.BaseModel):
     method: IbanPaymentMethod
     bic: typing.Optional[str] = pydantic.Field(
         alias="BIC",
-        description=(
-            'Identifier for the bank. Can be routing number, BIK number, SWIFT code, BIC number etc. <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='Identifier for the bank. Can be routing number, BIK number, SWIFT code, BIC number etc. <span style="white-space: nowrap">`non-empty`</span> ',
     )
     bank_name: typing.Optional[str] = pydantic.Field(
-        alias="bankName", description=('Name of the bank <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="bankName", description='Name of the bank <span style="white-space: nowrap">`non-empty`</span> '
     )
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     country: typing.Optional[CountryCode]
     iban: typing.Optional[str] = pydantic.Field(
-        alias="IBAN", description=("Account number of the user. Can be account number, IBAN number etc.\n")
+        alias="IBAN", description="Account number of the user. Can be account number, IBAN number etc."
     )
-    name: typing.Optional[str] = pydantic.Field(description=("Name of the bank account holder\n"))
+    name: typing.Optional[str] = pydantic.Field(description="Name of the bank account holder")
     tags: typing.Optional[Tag]
     bank_branch_code: typing.Optional[str] = pydantic.Field(
         alias="bankBranchCode",
-        description=("Branch code of the bank. In some countries, this can be the same as the bank's SWIFT code\n"),
+        description="Branch code of the bank. In some countries, this can be the same as the bank's SWIFT code",
     )
     payment_channel: typing.Optional[str] = pydantic.Field(alias="paymentChannel")
 

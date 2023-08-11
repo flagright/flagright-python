@@ -12,6 +12,7 @@ class CompanyGeneralDetailsUserSegment(str, enum.Enum):
     """
 
     SOLE_PROPRIETORSHIP = "SOLE_PROPRIETORSHIP"
+    LIMITED = "LIMITED"
     SMB = "SMB"
     SMALL = "SMALL"
     MEDIUM = "MEDIUM"
@@ -21,6 +22,7 @@ class CompanyGeneralDetailsUserSegment(str, enum.Enum):
     def visit(
         self,
         sole_proprietorship: typing.Callable[[], T_Result],
+        limited: typing.Callable[[], T_Result],
         smb: typing.Callable[[], T_Result],
         small: typing.Callable[[], T_Result],
         medium: typing.Callable[[], T_Result],
@@ -29,6 +31,8 @@ class CompanyGeneralDetailsUserSegment(str, enum.Enum):
     ) -> T_Result:
         if self is CompanyGeneralDetailsUserSegment.SOLE_PROPRIETORSHIP:
             return sole_proprietorship()
+        if self is CompanyGeneralDetailsUserSegment.LIMITED:
+            return limited()
         if self is CompanyGeneralDetailsUserSegment.SMB:
             return smb()
         if self is CompanyGeneralDetailsUserSegment.SMALL:

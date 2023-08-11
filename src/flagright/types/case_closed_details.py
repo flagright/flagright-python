@@ -12,7 +12,7 @@ class CaseClosedDetails(pydantic.BaseModel):
     case_id: typing.Optional[str] = pydantic.Field(alias="caseId")
     status: typing.Optional[str]
     reasons: typing.Optional[typing.List[str]]
-    reason_description_for_other: typing.Optional[typing.List[str]] = pydantic.Field(alias="reasonDescriptionForOther")
+    reason_description_for_other: typing.Optional[str] = pydantic.Field(alias="reasonDescriptionForOther")
     comment: typing.Optional[str]
     user_id: typing.Optional[str] = pydantic.Field(alias="userId")
     transaction_ids: typing.Optional[typing.List[str]] = pydantic.Field(alias="transactionIds")

@@ -17,12 +17,12 @@ class MpesaDetails(pydantic.BaseModel):
 
     method: MpesaPaymentMethod
     business_short_code: str = pydantic.Field(
-        alias="businessShortCode", description=('Business code <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="businessShortCode", description='Business code <span style="white-space: nowrap">`non-empty`</span> '
     )
     transaction_type: MpesaDetailsTransactionType = pydantic.Field(
-        alias="transactionType", description=("Type of transaction\n")
+        alias="transactionType", description="Type of transaction"
     )
-    phone_number: str = pydantic.Field(alias="phoneNumber", description=("Contact Number of the account holder\n"))
+    phone_number: str = pydantic.Field(alias="phoneNumber", description="Contact Number of the account holder")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

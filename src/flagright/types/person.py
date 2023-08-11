@@ -20,12 +20,12 @@ class Person(pydantic.BaseModel):
 
     general_details: UserDetails = pydantic.Field(alias="generalDetails")
     legal_documents: typing.Optional[typing.List[LegalDocument]] = pydantic.Field(
-        alias="legalDocuments", description=("User's legal identity documents - See Document Model for details\n")
+        alias="legalDocuments", description="User's legal identity documents - See Document Model for details"
     )
     contact_details: typing.Optional[ContactDetails] = pydantic.Field(alias="contactDetails")
     pep_status: typing.Optional[typing.List[PepStatus]] = pydantic.Field(alias="pepStatus")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description=("Additional information that can be added via tags\n")
+        description="Additional information that can be added via tags"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

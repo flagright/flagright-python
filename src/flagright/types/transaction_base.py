@@ -17,17 +17,15 @@ class TransactionBase(pydantic.BaseModel):
     type: typing.Optional[TransactionType]
     transaction_id: str = pydantic.Field(
         alias="transactionId",
-        description=('Unique transaction identifier <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='Unique transaction identifier <span style="white-space: nowrap">`non-empty`</span> ',
     )
-    timestamp: float = pydantic.Field(description=("Timestamp of when transaction took place\n"))
+    timestamp: float = pydantic.Field(description="Timestamp of when transaction took place")
     origin_user_id: typing.Optional[str] = pydantic.Field(
-        alias="originUserId", description=("UserId for where the transaction originates from\n")
+        alias="originUserId", description="UserId for where the transaction originates from"
     )
     destination_user_id: typing.Optional[str] = pydantic.Field(
         alias="destinationUserId",
-        description=(
-            "UserId for transaction's destination. In other words, where the value is being transferred to.\n"
-        ),
+        description="UserId for transaction's destination. In other words, where the value is being transferred to.",
     )
 
     def json(self, **kwargs: typing.Any) -> str:

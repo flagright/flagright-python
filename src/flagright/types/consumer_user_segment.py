@@ -6,12 +6,12 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class UserOptionalUserSegment(str, enum.Enum):
+class ConsumerUserSegment(str, enum.Enum):
     RETAIL = "RETAIL"
     PROFESSIONAL = "PROFESSIONAL"
 
     def visit(self, retail: typing.Callable[[], T_Result], professional: typing.Callable[[], T_Result]) -> T_Result:
-        if self is UserOptionalUserSegment.RETAIL:
+        if self is ConsumerUserSegment.RETAIL:
             return retail()
-        if self is UserOptionalUserSegment.PROFESSIONAL:
+        if self is ConsumerUserSegment.PROFESSIONAL:
             return professional()

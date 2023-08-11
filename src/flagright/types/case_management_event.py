@@ -16,21 +16,21 @@ class CaseManagementEvent(pydantic.BaseModel):
     """
 
     case_status: CaseManagementEventCaseStatus = pydantic.Field(
-        alias="caseStatus", description=("Status of a case. E.g. Open, Closed etc.\n")
+        alias="caseStatus", description="Status of a case. E.g. Open, Closed etc."
     )
-    timestamp: float = pydantic.Field(description=("Timestamp of the event\n"))
+    timestamp: float = pydantic.Field(description="Timestamp of the event")
     case_status_reason: CaseManagementEventCaseStatusReason = pydantic.Field(
         alias="caseStatusReason",
-        description=("Case status reason. E.g. Closed & False Positive, Closed & Investigation Completed etc.\n"),
+        description="Case status reason. E.g. Closed & False Positive, Closed & Investigation Completed etc.",
     )
     transaction_id: typing.Optional[str] = pydantic.Field(
         alias="transactionId",
-        description=('Transaction ID the case pertains to <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='Transaction ID the case pertains to <span style="white-space: nowrap">`non-empty`</span> ',
     )
-    user_id: typing.Optional[str] = pydantic.Field(alias="userId", description=("User ID the case pertains to\n"))
-    event_id: typing.Optional[str] = pydantic.Field(alias="eventId", description=("Event ID the case pertains to\n"))
+    user_id: typing.Optional[str] = pydantic.Field(alias="userId", description="User ID the case pertains to")
+    event_id: typing.Optional[str] = pydantic.Field(alias="eventId", description="Event ID the case pertains to")
     case_status_reason_description: typing.Optional[str] = pydantic.Field(
-        alias="caseStatusReasonDescription", description=("Case status reason description\n")
+        alias="caseStatusReasonDescription", description="Case status reason description"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

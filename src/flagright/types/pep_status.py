@@ -11,7 +11,7 @@ from ..core.datetime_utils import serialize_datetime
 class PepStatus(pydantic.BaseModel):
     is_pep_hit: bool = pydantic.Field(alias="isPepHit")
     pep_country: typing.Optional[str] = pydantic.Field(
-        alias="pepCountry", description=('<span style="white-space: nowrap">`<= 2 characters`</span>\n')
+        alias="pepCountry", description='<span style="white-space: nowrap">`<= 2 characters`</span>'
     )
 
     def json(self, **kwargs: typing.Any) -> str:
