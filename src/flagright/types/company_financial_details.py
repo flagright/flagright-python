@@ -20,7 +20,7 @@ class CompanyFinancialDetails(pydantic.BaseModel):
     )
     expected_turnover_per_month: typing.Optional[Amount] = pydantic.Field(alias="expectedTurnoverPerMonth")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description=("Additional information that can be added via tags\n")
+        description="Additional information that can be added via tags"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

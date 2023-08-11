@@ -14,14 +14,10 @@ class Tag(pydantic.BaseModel):
     """
 
     key: str = pydantic.Field(
-        description=(
-            'Key value when you are creating a custom variable <span style="white-space: nowrap">`non-empty`</span> \n'
-        )
+        description='Key value when you are creating a custom variable <span style="white-space: nowrap">`non-empty`</span> '
     )
     value: str = pydantic.Field(
-        description=(
-            'Value for a given key when you are creating a custom variable <span style="white-space: nowrap">`non-empty`</span> \n'
-        )
+        description='Value for a given key when you are creating a custom variable <span style="white-space: nowrap">`non-empty`</span> '
     )
 
     def json(self, **kwargs: typing.Any) -> str:

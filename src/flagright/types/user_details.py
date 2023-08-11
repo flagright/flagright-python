@@ -18,12 +18,12 @@ class UserDetails(pydantic.BaseModel):
 
     name: ConsumerName
     date_of_birth: typing.Optional[str] = pydantic.Field(
-        alias="dateOfBirth", description=("Date of birth of the user (YYYY-MM-DD)\n")
+        alias="dateOfBirth", description="Date of birth of the user (YYYY-MM-DD)"
     )
     country_of_residence: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfResidence")
     country_of_nationality: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfNationality")
     gender: typing.Optional[UserDetailsGender] = pydantic.Field(
-        description=("Gender of the individual - Male, Female or Non-Binary\n")
+        description="Gender of the individual - Male, Female or Non-Binary"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

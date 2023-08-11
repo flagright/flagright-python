@@ -12,6 +12,7 @@ from .sanctions_details_entity_type import SanctionsDetailsEntityType
 class SanctionsDetails(pydantic.BaseModel):
     name: str
     search_id: str = pydantic.Field(alias="searchId")
+    iban: typing.Optional[str]
     entity_type: typing.Optional[SanctionsDetailsEntityType] = pydantic.Field(alias="entityType")
 
     def json(self, **kwargs: typing.Any) -> str:

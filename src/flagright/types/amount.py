@@ -14,7 +14,7 @@ class Amount(pydantic.BaseModel):
     Model for amount
     """
 
-    amount_value: float = pydantic.Field(alias="amountValue", description=("Numerical value of the transaction\n"))
+    amount_value: float = pydantic.Field(alias="amountValue", description="Numerical value of the transaction")
     amount_currency: CurrencyCode = pydantic.Field(alias="amountCurrency")
 
     def json(self, **kwargs: typing.Any) -> str:

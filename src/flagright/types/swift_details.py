@@ -18,21 +18,21 @@ class SwiftDetails(pydantic.BaseModel):
     method: SwiftPaymentMethod
     swift_code: typing.Optional[str] = pydantic.Field(
         alias="swiftCode",
-        description=('SWIFT code of the financial institution <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='SWIFT code of the financial institution <span style="white-space: nowrap">`non-empty`</span> ',
     )
     account_number: typing.Optional[str] = pydantic.Field(
-        alias="accountNumber", description=('Account number <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="accountNumber", description='Account number <span style="white-space: nowrap">`non-empty`</span> '
     )
     account_type: typing.Optional[str] = pydantic.Field(
-        alias="accountType", description=("Account type. E.g. Checking, Savings etc.\n")
+        alias="accountType", description="Account type. E.g. Checking, Savings etc."
     )
     bank_name: typing.Optional[str] = pydantic.Field(
-        alias="bankName", description=('Name of the bank <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="bankName", description='Name of the bank <span style="white-space: nowrap">`non-empty`</span> '
     )
-    name: typing.Optional[str] = pydantic.Field(description=("Name of the account holder\n"))
+    name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     special_instructions: typing.Optional[str] = pydantic.Field(
-        alias="specialInstructions", description=("Special instructions if any\n")
+        alias="specialInstructions", description="Special instructions if any"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

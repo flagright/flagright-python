@@ -13,9 +13,9 @@ class Date(pydantic.BaseModel):
     Model for date
     """
 
-    day: float = pydantic.Field(description=("Day of date\n"))
-    month: float = pydantic.Field(description=("Month of date\n"))
-    year: float = pydantic.Field(description=("Year of date\n"))
+    day: float = pydantic.Field(description="Day of date")
+    month: float = pydantic.Field(description="Month of date")
+    year: float = pydantic.Field(description="Year of date")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

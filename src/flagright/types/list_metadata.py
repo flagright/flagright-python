@@ -9,8 +9,8 @@ from ..core.datetime_utils import serialize_datetime
 
 
 class ListMetadata(pydantic.BaseModel):
-    name: typing.Optional[str] = pydantic.Field(description=("List name\n"))
-    description: typing.Optional[str] = pydantic.Field(description=("List description\n"))
+    name: typing.Optional[str] = pydantic.Field(description="List name")
+    description: typing.Optional[str] = pydantic.Field(description="List description")
     status: typing.Optional[bool]
     checksum: typing.Optional[str]
 

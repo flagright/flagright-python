@@ -15,16 +15,16 @@ class ContactDetails(pydantic.BaseModel):
     """
 
     email_ids: typing.Optional[typing.List[str]] = pydantic.Field(
-        alias="emailIds", description=("Email addresses of the contacts for a given business customer\n")
+        alias="emailIds", description="Email addresses of the contacts for a given business customer"
     )
     contact_numbers: typing.Optional[typing.List[str]] = pydantic.Field(
-        alias="contactNumbers", description=("Phone numbers to contact a given business customer\n")
+        alias="contactNumbers", description="Phone numbers to contact a given business customer"
     )
     fax_numbers: typing.Optional[typing.List[str]] = pydantic.Field(
-        alias="faxNumbers", description=("Fax numbers to contact a business customer\n")
+        alias="faxNumbers", description="Fax numbers to contact a business customer"
     )
-    websites: typing.Optional[typing.List[str]] = pydantic.Field(description=("Website of the company\n"))
-    addresses: typing.Optional[typing.List[Address]] = pydantic.Field(description=("Address(es) of the company\n"))
+    websites: typing.Optional[typing.List[str]] = pydantic.Field(description="Website of the company")
+    addresses: typing.Optional[typing.List[Address]] = pydantic.Field(description="Address(es) of the company")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
