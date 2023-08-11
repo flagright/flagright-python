@@ -6,7 +6,6 @@ import typing
 import pydantic
 
 from ..core.datetime_utils import serialize_datetime
-from .user_details import UserDetails
 
 
 class UserBase(pydantic.BaseModel):
@@ -15,12 +14,9 @@ class UserBase(pydantic.BaseModel):
     """
 
     user_id: str = pydantic.Field(
-        alias="userId", description=('Unique user ID <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="userId", description='Unique user ID <span style="white-space: nowrap">`non-empty`</span> '
     )
-    user_details: typing.Optional[UserDetails] = pydantic.Field(alias="userDetails")
-    created_timestamp: float = pydantic.Field(
-        alias="createdTimestamp", description=("Timestamp when userId is created\n")
-    )
+    created_timestamp: float = pydantic.Field(alias="createdTimestamp", description="Timestamp when userId is created")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

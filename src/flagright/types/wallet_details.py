@@ -18,21 +18,18 @@ class WalletDetails(pydantic.BaseModel):
     method: WalletPaymentMethod
     wallet_type: str = pydantic.Field(
         alias="walletType",
-        description=(
-            "Wallet type if there are various types of wallets belonging to the same user. E.g. Checking, savings, vault, different currency wallets etc.\n"
-        ),
+        description="Wallet type if there are various types of wallets belonging to the same user. E.g. Checking, savings, vault, different currency wallets etc.",
     )
     wallet_id: typing.Optional[str] = pydantic.Field(
-        alias="walletId",
-        description=('Unique ID of the wallet <span style="white-space: nowrap">`non-empty`</span> \n'),
+        alias="walletId", description='Unique ID of the wallet <span style="white-space: nowrap">`non-empty`</span> '
     )
     payment_channel: typing.Optional[str] = pydantic.Field(
-        alias="paymentChannel", description=("Payment Channel used through wallet\n")
+        alias="paymentChannel", description="Payment Channel used through wallet"
     )
-    name: typing.Optional[str] = pydantic.Field(description=("Name of the account holder for a specific wallet\n"))
+    name: typing.Optional[str] = pydantic.Field(description="Name of the account holder for a specific wallet")
     tags: typing.Optional[Tag]
     wallet_phone_number: typing.Optional[str] = pydantic.Field(
-        alias="walletPhoneNumber", description=("Phone number associated with the wallet, if any\n")
+        alias="walletPhoneNumber", description="Phone number associated with the wallet, if any"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

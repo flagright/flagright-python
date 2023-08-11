@@ -17,20 +17,18 @@ class CompanyRegistrationDetails(pydantic.BaseModel):
 
     registration_identifier: str = pydantic.Field(
         alias="registrationIdentifier",
-        description=(
-            'Commercial registry registration number for the company in its registration country <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='Commercial registry registration number for the company in its registration country <span style="white-space: nowrap">`non-empty`</span> ',
     )
     registration_country: CountryCode = pydantic.Field(alias="registrationCountry")
     tax_identifier: typing.Optional[str] = pydantic.Field(
-        alias="taxIdentifier", description=("Tax ID number of the registered entity\n")
+        alias="taxIdentifier", description="Tax ID number of the registered entity"
     )
     legal_entity_type: typing.Optional[str] = pydantic.Field(
-        alias="legalEntityType", description=("Type of legal entity. Ex: Limited Liability\n")
+        alias="legalEntityType", description="Type of legal entity. Ex: Limited Liability"
     )
     date_of_registration: typing.Optional[str] = pydantic.Field(alias="dateOfRegistration")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description=("Additional information that can be added via tags\n")
+        description="Additional information that can be added via tags"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

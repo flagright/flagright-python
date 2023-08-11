@@ -7,7 +7,7 @@ T_Result = typing.TypeVar("T_Result")
 
 
 class CurrencyCode(str, enum.Enum):
-    ONE = "1INCH"
+    ONE_INCH = "1INCH"
     AAVE = "AAVE"
     ADA = "ADA"
     AED = "AED"
@@ -280,7 +280,7 @@ class CurrencyCode(str, enum.Enum):
 
     def visit(
         self,
-        one: typing.Callable[[], T_Result],
+        one_inch: typing.Callable[[], T_Result],
         aave: typing.Callable[[], T_Result],
         ada: typing.Callable[[], T_Result],
         aed: typing.Callable[[], T_Result],
@@ -551,8 +551,8 @@ class CurrencyCode(str, enum.Enum):
         zmw: typing.Callable[[], T_Result],
         zwl: typing.Callable[[], T_Result],
     ) -> T_Result:
-        if self is CurrencyCode.ONE:
-            return one()
+        if self is CurrencyCode.ONE_INCH:
+            return one_inch()
         if self is CurrencyCode.AAVE:
             return aave()
         if self is CurrencyCode.ADA:

@@ -6,11 +6,14 @@ from .acquisition_channel import AcquisitionChannel
 from .address import Address
 from .alert_closed_details import AlertClosedDetails
 from .amount import Amount
+from .boolean_string import BooleanString
 from .business import Business
 from .business_base import BusinessBase
 from .business_entity_link import BusinessEntityLink
 from .business_optional import BusinessOptional
 from .business_optional_saved_payment_details_item import BusinessOptionalSavedPaymentDetailsItem
+from .business_response import BusinessResponse
+from .business_users_create_response import BusinessUsersCreateResponse
 from .business_users_response import BusinessUsersResponse
 from .business_with_rules_result import BusinessWithRulesResult
 from .card_details import CardDetails
@@ -32,6 +35,8 @@ from .company_general_details import CompanyGeneralDetails
 from .company_general_details_user_segment import CompanyGeneralDetailsUserSegment
 from .company_registration_details import CompanyRegistrationDetails
 from .consumer_name import ConsumerName
+from .consumer_user_segment import ConsumerUserSegment
+from .consumer_users_create_response import ConsumerUsersCreateResponse
 from .consumer_users_response import ConsumerUsersResponse
 from .contact_details import ContactDetails
 from .country_code import CountryCode
@@ -65,11 +70,8 @@ from .mpesa_payment_method import MpesaPaymentMethod
 from .payment_method import PaymentMethod
 from .pep_status import PepStatus
 from .person import Person
-from .post_business_user_response import PostBusinessUserResponse
-from .post_consumer_transaction_response import PostConsumerTransactionResponse
-from .post_consumer_user_response import PostConsumerUserResponse
 from .risk_level import RiskLevel
-from .risk_scoring_result import RiskScoringResult
+from .risk_score_details import RiskScoreDetails
 from .rule_action import RuleAction
 from .rule_failure_exception import RuleFailureException
 from .rule_hit_direction import RuleHitDirection
@@ -87,17 +89,20 @@ from .transaction_amount_details import TransactionAmountDetails
 from .transaction_amount_limit import TransactionAmountLimit
 from .transaction_base import TransactionBase
 from .transaction_count_limit import TransactionCountLimit
+from .transaction_event import TransactionEvent
 from .transaction_event_monitoring_result import TransactionEventMonitoringResult
 from .transaction_limit import TransactionLimit
 from .transaction_limits import TransactionLimits
 from .transaction_limits_payment_method_limits import TransactionLimitsPaymentMethodLimits
 from .transaction_monitoring_result import TransactionMonitoringResult
 from .transaction_state import TransactionState
+from .transaction_status_details import TransactionStatusDetails
 from .transaction_type import TransactionType
 from .transaction_updatable import TransactionUpdatable
 from .transaction_updatable_destination_payment_details import TransactionUpdatableDestinationPaymentDetails
 from .transaction_updatable_origin_payment_details import TransactionUpdatableOriginPaymentDetails
 from .transaction_with_rules_result import TransactionWithRulesResult
+from .transactions_verify_response import TransactionsVerifyResponse
 from .upi_details import UpiDetails
 from .upi_payment_method import UpiPaymentMethod
 from .user import User
@@ -106,14 +111,15 @@ from .user_details import UserDetails
 from .user_details_gender import UserDetailsGender
 from .user_monitoring_result import UserMonitoringResult
 from .user_optional import UserOptional
-from .user_optional_user_segment import UserOptionalUserSegment
 from .user_registration_status import UserRegistrationStatus
+from .user_response import UserResponse
 from .user_state import UserState
 from .user_state_details import UserStateDetails
 from .user_with_rules_result import UserWithRulesResult
 from .wallet_details import WalletDetails
 from .wallet_payment_method import WalletPaymentMethod
 from .webhook_event import WebhookEvent
+from .webhook_event_data import WebhookEventData
 from .webhook_event_type import WebhookEventType
 
 __all__ = [
@@ -123,11 +129,14 @@ __all__ = [
     "Address",
     "AlertClosedDetails",
     "Amount",
+    "BooleanString",
     "Business",
     "BusinessBase",
     "BusinessEntityLink",
     "BusinessOptional",
     "BusinessOptionalSavedPaymentDetailsItem",
+    "BusinessResponse",
+    "BusinessUsersCreateResponse",
     "BusinessUsersResponse",
     "BusinessWithRulesResult",
     "CardDetails",
@@ -149,6 +158,8 @@ __all__ = [
     "CompanyGeneralDetailsUserSegment",
     "CompanyRegistrationDetails",
     "ConsumerName",
+    "ConsumerUserSegment",
+    "ConsumerUsersCreateResponse",
     "ConsumerUsersResponse",
     "ContactDetails",
     "CountryCode",
@@ -182,11 +193,8 @@ __all__ = [
     "PaymentMethod",
     "PepStatus",
     "Person",
-    "PostBusinessUserResponse",
-    "PostConsumerTransactionResponse",
-    "PostConsumerUserResponse",
     "RiskLevel",
-    "RiskScoringResult",
+    "RiskScoreDetails",
     "RuleAction",
     "RuleFailureException",
     "RuleHitDirection",
@@ -204,17 +212,20 @@ __all__ = [
     "TransactionAmountLimit",
     "TransactionBase",
     "TransactionCountLimit",
+    "TransactionEvent",
     "TransactionEventMonitoringResult",
     "TransactionLimit",
     "TransactionLimits",
     "TransactionLimitsPaymentMethodLimits",
     "TransactionMonitoringResult",
     "TransactionState",
+    "TransactionStatusDetails",
     "TransactionType",
     "TransactionUpdatable",
     "TransactionUpdatableDestinationPaymentDetails",
     "TransactionUpdatableOriginPaymentDetails",
     "TransactionWithRulesResult",
+    "TransactionsVerifyResponse",
     "UpiDetails",
     "UpiPaymentMethod",
     "User",
@@ -223,13 +234,14 @@ __all__ = [
     "UserDetailsGender",
     "UserMonitoringResult",
     "UserOptional",
-    "UserOptionalUserSegment",
     "UserRegistrationStatus",
+    "UserResponse",
     "UserState",
     "UserStateDetails",
     "UserWithRulesResult",
     "WalletDetails",
     "WalletPaymentMethod",
     "WebhookEvent",
+    "WebhookEventData",
     "WebhookEventType",
 ]

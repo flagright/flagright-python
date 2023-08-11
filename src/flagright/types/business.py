@@ -3,12 +3,53 @@
 import datetime as dt
 import typing
 
+import pydantic
+
 from ..core.datetime_utils import serialize_datetime
-from .business_base import BusinessBase
-from .business_optional import BusinessOptional
+from .acquisition_channel import AcquisitionChannel
+from .business_entity_link import BusinessEntityLink
+from .business_optional_saved_payment_details_item import BusinessOptionalSavedPaymentDetailsItem
+from .kyc_status_details import KycStatusDetails
+from .legal_entity import LegalEntity
+from .mcc_details import MccDetails
+from .payment_method import PaymentMethod
+from .person import Person
+from .risk_level import RiskLevel
+from .tag import Tag
+from .transaction_limits import TransactionLimits
+from .user_state_details import UserStateDetails
 
 
-class Business(BusinessBase, BusinessOptional):
+class Business(pydantic.BaseModel):
+    user_id: str = pydantic.Field(
+        alias="userId", description='Unique user ID for the user <span style="white-space: nowrap">`non-empty`</span> '
+    )
+    created_timestamp: float = pydantic.Field(
+        alias="createdTimestamp", description="Timestamp when the user was created"
+    )
+    legal_entity: LegalEntity = pydantic.Field(alias="legalEntity")
+    user_state_details: typing.Optional[UserStateDetails] = pydantic.Field(alias="userStateDetails")
+    kyc_status_details: typing.Optional[KycStatusDetails] = pydantic.Field(alias="kycStatusDetails")
+    share_holders: typing.Optional[typing.List[Person]] = pydantic.Field(
+        alias="shareHolders",
+        description="Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual",
+    )
+    directors: typing.Optional[typing.List[Person]] = pydantic.Field(
+        description="Director(s) of the company. Must be at least one"
+    )
+    transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
+    risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
+    allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]] = pydantic.Field(alias="allowedPaymentMethods")
+    linked_entities: typing.Optional[BusinessEntityLink] = pydantic.Field(alias="linkedEntities")
+    acquisition_channel: typing.Optional[AcquisitionChannel] = pydantic.Field(alias="acquisitionChannel")
+    saved_payment_details: typing.Optional[typing.List[BusinessOptionalSavedPaymentDetailsItem]] = pydantic.Field(
+        alias="savedPaymentDetails"
+    )
+    mcc_details: typing.Optional[MccDetails] = pydantic.Field(alias="mccDetails")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
+
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
         return super().json(**kwargs_with_defaults)

@@ -6,6 +6,7 @@ import typing
 import pydantic
 
 from ..core.datetime_utils import serialize_datetime
+from .risk_score_details import RiskScoreDetails
 
 
 class ConsumerUsersResponse(pydantic.BaseModel):
@@ -15,8 +16,9 @@ class ConsumerUsersResponse(pydantic.BaseModel):
 
     user_id: str = pydantic.Field(
         alias="userId",
-        description=('user ID the risk score pertains to <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='user ID the risk score pertains to <span style="white-space: nowrap">`non-empty`</span> ',
     )
+    risk_score_details: typing.Optional[RiskScoreDetails] = pydantic.Field(alias="riskScoreDetails")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

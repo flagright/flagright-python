@@ -17,25 +17,22 @@ class GenericBankAccountDetails(pydantic.BaseModel):
 
     method: GeneralBankAccountPaymentMethod
     account_number: typing.Optional[str] = pydantic.Field(
-        alias="accountNumber",
-        description=('Bank account number <span style="white-space: nowrap">`non-empty`</span> \n'),
+        alias="accountNumber", description='Bank account number <span style="white-space: nowrap">`non-empty`</span> '
     )
     account_type: typing.Optional[str] = pydantic.Field(
-        alias="accountType", description=("Bank account type. E.g. Checking, Savings etc.\n")
+        alias="accountType", description="Bank account type. E.g. Checking, Savings etc."
     )
     bank_name: typing.Optional[str] = pydantic.Field(
-        alias="bankName", description=('Name of the bank <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="bankName", description='Name of the bank <span style="white-space: nowrap">`non-empty`</span> '
     )
     bank_code: typing.Optional[str] = pydantic.Field(
         alias="bankCode",
-        description=(
-            "Unique identifier of the bank. In some countries, this can be the same as the bank's SWIFT code\n"
-        ),
+        description="Unique identifier of the bank. In some countries, this can be the same as the bank's SWIFT code",
     )
-    name: typing.Optional[str] = pydantic.Field(description=("Name of the account holder\n"))
+    name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     special_instructions: typing.Optional[str] = pydantic.Field(
-        alias="specialInstructions", description=("Special instructions to be specified if any\n")
+        alias="specialInstructions", description="Special instructions to be specified if any"
     )
     payment_channel: typing.Optional[str] = pydantic.Field(alias="paymentChannel")
 

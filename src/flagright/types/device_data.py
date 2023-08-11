@@ -15,56 +15,44 @@ class DeviceData(pydantic.BaseModel):
 
     battery_level: typing.Optional[float] = pydantic.Field(
         alias="batteryLevel",
-        description=("Battery level of the device used for a transaction or event at a given timestamp\n"),
+        description="Battery level of the device used for a transaction or event at a given timestamp",
     )
     device_latitude: typing.Optional[float] = pydantic.Field(
-        alias="deviceLatitude", description=("Device latitude at a give timestamp for an event or transaction\n")
+        alias="deviceLatitude", description="Device latitude at a give timestamp for an event or transaction"
     )
     device_longitude: typing.Optional[float] = pydantic.Field(
-        alias="deviceLongitude", description=("Device longitude at a give timestamp for an event or transaction\n")
+        alias="deviceLongitude", description="Device longitude at a give timestamp for an event or transaction"
     )
     ip_address: typing.Optional[str] = pydantic.Field(
         alias="ipAddress",
-        description=(
-            'IP address of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='IP address of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
     )
     device_identifier: typing.Optional[str] = pydantic.Field(
         alias="deviceIdentifier",
-        description=('Device identifier number <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='Device identifier number <span style="white-space: nowrap">`non-empty`</span> ',
     )
     vpn_used: typing.Optional[bool] = pydantic.Field(
-        alias="vpnUsed", description=("Whether VPN was used at a given timestamp for an event or transaction\n")
+        alias="vpnUsed", description="Whether VPN was used at a given timestamp for an event or transaction"
     )
     operating_system: typing.Optional[str] = pydantic.Field(
         alias="operatingSystem",
-        description=(
-            'Operating system of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='Operating system of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
     )
     device_maker: typing.Optional[str] = pydantic.Field(
         alias="deviceMaker",
-        description=(
-            'The maker of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='The maker of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
     )
     device_model: typing.Optional[str] = pydantic.Field(
         alias="deviceModel",
-        description=(
-            'The model of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='The model of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
     )
     device_year: typing.Optional[str] = pydantic.Field(
         alias="deviceYear",
-        description=(
-            'The year the device was manufactured at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='The year the device was manufactured at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
     )
     app_version: typing.Optional[str] = pydantic.Field(
         alias="appVersion",
-        description=(
-            'The version of the app your user is using on their device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='The version of the app your user is using on their device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
     )
 
     def json(self, **kwargs: typing.Any) -> str:

@@ -15,7 +15,7 @@ class TransactionAmountDetails(pydantic.BaseModel):
     Model for transaction amount details
     """
 
-    transaction_amount: float = pydantic.Field(alias="transactionAmount", description=("Amount of the transaction\n"))
+    transaction_amount: float = pydantic.Field(alias="transactionAmount", description="Amount of the transaction")
     transaction_currency: CurrencyCode = pydantic.Field(alias="transactionCurrency")
     country: typing.Optional[CountryCode]
 

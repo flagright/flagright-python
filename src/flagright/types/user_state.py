@@ -8,45 +8,33 @@ T_Result = typing.TypeVar("T_Result")
 
 class UserState(str, enum.Enum):
     UNACCEPTABLE = "UNACCEPTABLE"
-    UNDECIDED = "UNDECIDED"
     TERMINATED = "TERMINATED"
     ACTIVE = "ACTIVE"
-    INACTIVE = "INACTIVE"
     DORMANT = "DORMANT"
     CREATED = "CREATED"
-    DELETED = "DELETED"
     SUSPENDED = "SUSPENDED"
     BLOCKED = "BLOCKED"
 
     def visit(
         self,
         unacceptable: typing.Callable[[], T_Result],
-        undecided: typing.Callable[[], T_Result],
         terminated: typing.Callable[[], T_Result],
         active: typing.Callable[[], T_Result],
-        inactive: typing.Callable[[], T_Result],
         dormant: typing.Callable[[], T_Result],
         created: typing.Callable[[], T_Result],
-        deleted: typing.Callable[[], T_Result],
         suspended: typing.Callable[[], T_Result],
         blocked: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is UserState.UNACCEPTABLE:
             return unacceptable()
-        if self is UserState.UNDECIDED:
-            return undecided()
         if self is UserState.TERMINATED:
             return terminated()
         if self is UserState.ACTIVE:
             return active()
-        if self is UserState.INACTIVE:
-            return inactive()
         if self is UserState.DORMANT:
             return dormant()
         if self is UserState.CREATED:
             return created()
-        if self is UserState.DELETED:
-            return deleted()
         if self is UserState.SUSPENDED:
             return suspended()
         if self is UserState.BLOCKED:

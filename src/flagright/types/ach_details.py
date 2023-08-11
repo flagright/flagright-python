@@ -18,19 +18,19 @@ class AchDetails(pydantic.BaseModel):
     method: AchPaymentMethod
     routing_number: typing.Optional[str] = pydantic.Field(
         alias="routingNumber",
-        description=('Routing number of the bank <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='Routing number of the bank <span style="white-space: nowrap">`non-empty`</span> ',
     )
     account_number: typing.Optional[str] = pydantic.Field(
         alias="accountNumber",
-        description=('Bank account number of the individual <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='Bank account number of the individual <span style="white-space: nowrap">`non-empty`</span> ',
     )
     bank_name: typing.Optional[str] = pydantic.Field(
-        alias="bankName", description=('Name of the bank <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="bankName", description='Name of the bank <span style="white-space: nowrap">`non-empty`</span> '
     )
-    name: typing.Optional[str] = pydantic.Field(description=("Name of the account holder\n"))
+    name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     beneficiary_name: typing.Optional[str] = pydantic.Field(
-        alias="beneficiaryName", description=("Beneficiary name of the account\n")
+        alias="beneficiaryName", description="Beneficiary name of the account"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

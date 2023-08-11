@@ -6,14 +6,14 @@ import typing
 import pydantic
 
 from ..core.datetime_utils import serialize_datetime
-from .user_state_details import UserStateDetails
+from .webhook_event_data import WebhookEventData
 from .webhook_event_type import WebhookEventType
 
 
 class WebhookEvent(pydantic.BaseModel):
     id: str
     type: WebhookEventType
-    data: UserStateDetails
+    data: WebhookEventData
     created_timestamp: float = pydantic.Field(alias="createdTimestamp")
 
     def json(self, **kwargs: typing.Any) -> str:
