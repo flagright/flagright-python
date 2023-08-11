@@ -17,7 +17,7 @@ class ListExisted(pydantic.BaseModel):
 
     list_id: str = pydantic.Field(alias="listId")
     header: ListHeader
-    items: typing.List[ListItem] = pydantic.Field(description=("List items\n"))
+    items: typing.List[ListItem] = pydantic.Field(description="List items")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

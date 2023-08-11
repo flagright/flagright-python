@@ -25,7 +25,7 @@ class LegalEntity(pydantic.BaseModel):
         alias="companyRegistrationDetails"
     )
     reason_for_account_opening: typing.Optional[typing.List[str]] = pydantic.Field(
-        alias="reasonForAccountOpening", description=("Reason for opening the account at financial institution\n")
+        alias="reasonForAccountOpening", description="Reason for opening the account at financial institution"
     )
     contact_details: typing.Optional[ContactDetails] = pydantic.Field(alias="contactDetails")
 

@@ -12,10 +12,10 @@ from .hit_rules_details import HitRulesDetails
 
 class RulesResults(pydantic.BaseModel):
     executed_rules: typing.List[ExecutedRulesResult] = pydantic.Field(
-        alias="executedRules", description=("Unique transaction identifier\n")
+        alias="executedRules", description="Unique transaction identifier"
     )
     hit_rules: typing.List[HitRulesDetails] = pydantic.Field(
-        alias="hitRules", description=("Unique transaction identifier\n")
+        alias="hitRules", description="Unique transaction identifier"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

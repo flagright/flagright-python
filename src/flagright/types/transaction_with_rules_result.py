@@ -8,6 +8,7 @@ import pydantic
 from ..core.datetime_utils import serialize_datetime
 from .executed_rules_result import ExecutedRulesResult
 from .hit_rules_details import HitRulesDetails
+from .rule_action import RuleAction
 from .transaction import Transaction
 
 
@@ -18,6 +19,7 @@ class TransactionWithRulesResult(Transaction):
 
     executed_rules: typing.List[ExecutedRulesResult] = pydantic.Field(alias="executedRules")
     hit_rules: typing.List[HitRulesDetails] = pydantic.Field(alias="hitRules")
+    status: RuleAction
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

@@ -6,15 +6,13 @@ import typing
 import pydantic
 
 from ..core.datetime_utils import serialize_datetime
-from .rules_results import RulesResults
+from .rule_action import RuleAction
 
 
-class PostBusinessUserResponse(RulesResults):
-    message: typing.Optional[str]
-    user_id: str = pydantic.Field(
-        alias="userId",
-        description=('user ID the risk score pertains to <span style="white-space: nowrap">`non-empty`</span> \n'),
-    )
+class TransactionStatusDetails(pydantic.BaseModel):
+    transaction_id: str = pydantic.Field(alias="transactionId")
+    reasons: typing.List[str]
+    status: RuleAction
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

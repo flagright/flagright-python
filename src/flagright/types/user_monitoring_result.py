@@ -10,7 +10,7 @@ from .rules_results import RulesResults
 
 
 class UserMonitoringResult(RulesResults):
-    user_id: str = pydantic.Field(alias="userId", description=("User ID that the results pertain to\n"))
+    user_id: str = pydantic.Field(alias="userId", description="User ID that the results pertain to")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

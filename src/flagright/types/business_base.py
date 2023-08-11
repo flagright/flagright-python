@@ -6,6 +6,7 @@ import typing
 import pydantic
 
 from ..core.datetime_utils import serialize_datetime
+from .legal_entity import LegalEntity
 
 
 class BusinessBase(pydantic.BaseModel):
@@ -14,12 +15,12 @@ class BusinessBase(pydantic.BaseModel):
     """
 
     user_id: str = pydantic.Field(
-        alias="userId",
-        description=('Unique user ID for the user <span style="white-space: nowrap">`non-empty`</span> \n'),
+        alias="userId", description='Unique user ID for the user <span style="white-space: nowrap">`non-empty`</span> '
     )
     created_timestamp: float = pydantic.Field(
-        alias="createdTimestamp", description=("Timestamp when the user was created\n")
+        alias="createdTimestamp", description="Timestamp when the user was created"
     )
+    legal_entity: LegalEntity = pydantic.Field(alias="legalEntity")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

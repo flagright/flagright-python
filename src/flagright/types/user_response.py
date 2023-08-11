@@ -6,20 +6,12 @@ import typing
 import pydantic
 
 from ..core.datetime_utils import serialize_datetime
+from .risk_score_details import RiskScoreDetails
+from .user_with_rules_result import UserWithRulesResult
 
 
-class RiskScoringResult(pydantic.BaseModel):
-    """
-    Model for results from Risk Scoring
-    """
-
-    kyc_risk_score: float = pydantic.Field(alias="kycRiskScore", description=("Quantified KYC risk score\n"))
-    transaction_risk_score: float = pydantic.Field(
-        alias="transactionRiskScore", description=("Quantified action risk score\n")
-    )
-    customer_risk_assessment: typing.Optional[float] = pydantic.Field(
-        alias="customerRiskAssessment", description=("Quantified dynamic risk score\n")
-    )
+class UserResponse(UserWithRulesResult):
+    risk_score_details: typing.Optional[RiskScoreDetails] = pydantic.Field(alias="riskScoreDetails")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

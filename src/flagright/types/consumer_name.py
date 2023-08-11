@@ -14,15 +14,13 @@ class ConsumerName(pydantic.BaseModel):
     """
 
     first_name: str = pydantic.Field(
-        alias="firstName",
-        description=('First name of the user <span style="white-space: nowrap">`non-empty`</span> \n'),
+        alias="firstName", description='First name of the user <span style="white-space: nowrap">`non-empty`</span> '
     )
     middle_name: typing.Optional[str] = pydantic.Field(
-        alias="middleName",
-        description=('Middle name of the user <span style="white-space: nowrap">`non-empty`</span> \n'),
+        alias="middleName", description='Middle name of the user <span style="white-space: nowrap">`non-empty`</span> '
     )
     last_name: typing.Optional[str] = pydantic.Field(
-        alias="lastName", description=('Last name of the user <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="lastName", description='Last name of the user <span style="white-space: nowrap">`non-empty`</span> '
     )
 
     def json(self, **kwargs: typing.Any) -> str:

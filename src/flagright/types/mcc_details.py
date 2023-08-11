@@ -9,8 +9,8 @@ from ..core.datetime_utils import serialize_datetime
 
 
 class MccDetails(pydantic.BaseModel):
-    code: float = pydantic.Field(description=("Merchant code\n"))
-    description: typing.Optional[str] = pydantic.Field(description=("Merchant Description\n"))
+    code: float = pydantic.Field(description="Merchant code")
+    description: typing.Optional[str] = pydantic.Field(description="Merchant Description")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

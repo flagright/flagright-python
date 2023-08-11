@@ -17,21 +17,20 @@ class CompanyGeneralDetails(pydantic.BaseModel):
     """
 
     legal_name: str = pydantic.Field(
-        alias="legalName",
-        description=('Legal name of the company <span style="white-space: nowrap">`non-empty`</span> \n'),
+        alias="legalName", description='Legal name of the company <span style="white-space: nowrap">`non-empty`</span> '
     )
     business_industry: typing.Optional[typing.List[str]] = pydantic.Field(
-        alias="businessIndustry", description=("The industry the business operates in for a business customer\n")
+        alias="businessIndustry", description="The industry the business operates in for a business customer"
     )
     main_products_services_sold: typing.Optional[typing.List[str]] = pydantic.Field(
-        alias="mainProductsServicesSold", description=("The key products and services provided by the company\n")
+        alias="mainProductsServicesSold", description="The key products and services provided by the company"
     )
     user_segment: typing.Optional[CompanyGeneralDetailsUserSegment] = pydantic.Field(
-        alias="userSegment", description=("Segmentation of the business user\n")
+        alias="userSegment", description="Segmentation of the business user"
     )
     user_registration_status: typing.Optional[UserRegistrationStatus] = pydantic.Field(alias="userRegistrationStatus")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description=("Additional information that can be added via tags\n")
+        description="Additional information that can be added via tags"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

@@ -26,34 +26,28 @@ class TransactionUpdatable(pydantic.BaseModel):
     )
     origin_payment_details: typing.Optional[TransactionUpdatableOriginPaymentDetails] = pydantic.Field(
         alias="originPaymentDetails",
-        description=(
-            "Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc.\n"
-        ),
+        description="Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc.",
     )
     destination_payment_details: typing.Optional[TransactionUpdatableDestinationPaymentDetails] = pydantic.Field(
         alias="destinationPaymentDetails",
-        description=(
-            "Payment details of the destination. It can be a bank account number, wallet ID, card fingerprint etc.\n"
-        ),
+        description="Payment details of the destination. It can be a bank account number, wallet ID, card fingerprint etc.",
     )
     related_transaction_ids: typing.Optional[typing.List[str]] = pydantic.Field(
         alias="relatedTransactionIds",
-        description=("IDs of transactions related to this transaction. Ex: refund, split bills\n"),
+        description="IDs of transactions related to this transaction. Ex: refund, split bills",
     )
     product_type: typing.Optional[str] = pydantic.Field(
-        alias="productType", description=("Type of produce being used by the consumer (ex wallets, payments etc)\n")
+        alias="productType", description="Type of produce being used by the consumer (ex wallets, payments etc)"
     )
     promotion_code_used: typing.Optional[bool] = pydantic.Field(
-        alias="promotionCodeUsed", description=("Whether a promotion code was used or not the transaction\n")
+        alias="promotionCodeUsed", description="Whether a promotion code was used or not the transaction"
     )
     reference: typing.Optional[str] = pydantic.Field(
-        description=(
-            'Reference field for the transaction indicating the purpose of the transaction etc. <span style="white-space: nowrap">`non-empty`</span> \n'
-        )
+        description='Reference field for the transaction indicating the purpose of the transaction etc. <span style="white-space: nowrap">`non-empty`</span> '
     )
     device_data: typing.Optional[DeviceData] = pydantic.Field(alias="deviceData")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description=("Additional information that can be added via tags\n")
+        description="Additional information that can be added via tags"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

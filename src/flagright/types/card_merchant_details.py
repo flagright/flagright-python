@@ -14,7 +14,7 @@ class CardMerchantDetails(pydantic.BaseModel):
     mcc: typing.Optional[str] = pydantic.Field(alias="MCC")
     city: typing.Optional[str]
     country: typing.Optional[str] = pydantic.Field(
-        description=('<span style="white-space: nowrap">`<= 2 characters`</span>\n')
+        description='<span style="white-space: nowrap">`<= 2 characters`</span>'
     )
     state: typing.Optional[str]
     post_code: typing.Optional[str] = pydantic.Field(alias="postCode")

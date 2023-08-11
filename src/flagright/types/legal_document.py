@@ -18,27 +18,23 @@ class LegalDocument(pydantic.BaseModel):
 
     document_type: str = pydantic.Field(
         alias="documentType",
-        description=(
-            'User\'s identity document type such as passport, national ID etc. <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='User\'s identity document type such as passport, national ID etc. <span style="white-space: nowrap">`non-empty`</span> ',
     )
     document_number: str = pydantic.Field(
         alias="documentNumber",
-        description=(
-            'User\'s unique identity document number such as passport number <span style="white-space: nowrap">`non-empty`</span> \n'
-        ),
+        description='User\'s unique identity document number such as passport number <span style="white-space: nowrap">`non-empty`</span> ',
     )
     document_issued_date: typing.Optional[float] = pydantic.Field(
         alias="documentIssuedDate",
-        description=("User's identity document issuance date (UNIX timestamp in milliseconds)\n"),
+        description="User's identity document issuance date (UNIX timestamp in milliseconds)",
     )
     document_expiration_date: typing.Optional[float] = pydantic.Field(
         alias="documentExpirationDate",
-        description=("User's identity document expiration date (UNIX timestamp in milliseconds)\n"),
+        description="User's identity document expiration date (UNIX timestamp in milliseconds)",
     )
     document_issued_country: CountryCode = pydantic.Field(alias="documentIssuedCountry")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description=("Additional information that can be added via tags\n")
+        description="Additional information that can be added via tags"
     )
     name_on_document: typing.Optional[ConsumerName] = pydantic.Field(alias="nameOnDocument")
 

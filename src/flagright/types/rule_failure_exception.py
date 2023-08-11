@@ -11,11 +11,11 @@ from ..core.datetime_utils import serialize_datetime
 class RuleFailureException(pydantic.BaseModel):
     exception_name: str = pydantic.Field(
         alias="exceptionName",
-        description=('Unique rule identifier <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='Unique rule identifier <span style="white-space: nowrap">`non-empty`</span> ',
     )
     exception_description: str = pydantic.Field(
         alias="exceptionDescription",
-        description=('Name of the rule <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='Name of the rule <span style="white-space: nowrap">`non-empty`</span> ',
     )
 
     def json(self, **kwargs: typing.Any) -> str:

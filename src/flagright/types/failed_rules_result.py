@@ -15,14 +15,14 @@ class FailedRulesResult(pydantic.BaseModel):
     """
 
     rule_id: str = pydantic.Field(
-        alias="ruleId", description=('Unique rule identifier <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="ruleId", description='Unique rule identifier <span style="white-space: nowrap">`non-empty`</span> '
     )
     rule_name: str = pydantic.Field(
-        alias="ruleName", description=('Name of the rule <span style="white-space: nowrap">`non-empty`</span> \n')
+        alias="ruleName", description='Name of the rule <span style="white-space: nowrap">`non-empty`</span> '
     )
     rule_description: str = pydantic.Field(
         alias="ruleDescription",
-        description=('Description of the rule <span style="white-space: nowrap">`non-empty`</span> \n'),
+        description='Description of the rule <span style="white-space: nowrap">`non-empty`</span> ',
     )
     failure_exception: RuleFailureException = pydantic.Field(alias="failureException")
 
