@@ -15,9 +15,12 @@ import flagright
 from flagright.client import Flagright
 
 
-client = Flagright(api_key='YOUR_API_KEY', environment='https://sandbox.flagright.com')
+client = Flagright(base_url="https://sandbox.flagright.com", api_key="YOUR_API_KEY")
 resposne = client.transactions.verify(request=flagright.Transaction(
-    transactionId='my-transaction-id', type='DEPOSIT', originUserId="origin-user-id", timestamp=1692624734000))
+    transactionId='my-transaction-id',
+    type=flagright.TransactionType.DEPOSIT,
+    timestamp=1692624734000))
 
-print(f'Received response from Flagright! {resposne}')
+
+print(f'Received response from Flagright: "{resposne}"')
 ```
