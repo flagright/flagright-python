@@ -132,7 +132,6 @@ from .resources import (
     transaction_events,
     transactions,
 )
-from .environment import FlagrightEnvironment
 
 __all__ = [
     "AchDetails",
@@ -182,7 +181,6 @@ __all__ = [
     "ExecutedRulesResult",
     "FailedRulesResult",
     "FalsePositiveDetails",
-    "FlagrightEnvironment",
     "GeneralBankAccountPaymentMethod",
     "GenericBankAccountDetails",
     "HitRulesDetails",

@@ -9,7 +9,6 @@ import pydantic
 from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.jsonable_encoder import jsonable_encoder
-from ...environment import FlagrightEnvironment
 from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
@@ -21,9 +20,7 @@ OMIT = typing.cast(typing.Any, ...)
 
 
 class TransactionEventsClient:
-    def __init__(
-        self, *, environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT, client_wrapper: SyncClientWrapper
-    ):
+    def __init__(self, *, environment: str, client_wrapper: SyncClientWrapper):
         self._environment = environment
         self._client_wrapper = client_wrapper
 
@@ -55,7 +52,7 @@ class TransactionEventsClient:
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment.value}/", "events/transaction"),
+            urllib.parse.urljoin(f"{self._environment}/", "events/transaction"),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -87,7 +84,7 @@ class TransactionEventsClient:
         """
         _response = self._client_wrapper.httpx_client.request(
             "GET",
-            urllib.parse.urljoin(f"{self._environment.value}/", f"events/transaction/{event_id}"),
+            urllib.parse.urljoin(f"{self._environment}/", f"events/transaction/{event_id}"),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -105,9 +102,7 @@ class TransactionEventsClient:
 
 
 class AsyncTransactionEventsClient:
-    def __init__(
-        self, *, environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT, client_wrapper: AsyncClientWrapper
-    ):
+    def __init__(self, *, environment: str, client_wrapper: AsyncClientWrapper):
         self._environment = environment
         self._client_wrapper = client_wrapper
 
@@ -139,7 +134,7 @@ class AsyncTransactionEventsClient:
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment.value}/", "events/transaction"),
+            urllib.parse.urljoin(f"{self._environment}/", "events/transaction"),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -171,7 +166,7 @@ class AsyncTransactionEventsClient:
         """
         _response = await self._client_wrapper.httpx_client.request(
             "GET",
-            urllib.parse.urljoin(f"{self._environment.value}/", f"events/transaction/{event_id}"),
+            urllib.parse.urljoin(f"{self._environment}/", f"events/transaction/{event_id}"),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )

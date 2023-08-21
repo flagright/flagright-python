@@ -10,7 +10,6 @@ from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.jsonable_encoder import jsonable_encoder
 from ...core.remove_none_from_dict import remove_none_from_dict
-from ...environment import FlagrightEnvironment
 from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
@@ -24,9 +23,7 @@ OMIT = typing.cast(typing.Any, ...)
 
 
 class TransactionsClient:
-    def __init__(
-        self, *, environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT, client_wrapper: SyncClientWrapper
-    ):
+    def __init__(self, *, environment: str, client_wrapper: SyncClientWrapper):
         self._environment = environment
         self._client_wrapper = client_wrapper
 
@@ -69,7 +66,7 @@ class TransactionsClient:
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment.value}/", "transactions"),
+            urllib.parse.urljoin(f"{self._environment}/", "transactions"),
             params=remove_none_from_dict(
                 {
                     "validateOriginUserId": validate_origin_user_id,
@@ -107,7 +104,7 @@ class TransactionsClient:
         """
         _response = self._client_wrapper.httpx_client.request(
             "GET",
-            urllib.parse.urljoin(f"{self._environment.value}/", f"transactions/{transaction_id}"),
+            urllib.parse.urljoin(f"{self._environment}/", f"transactions/{transaction_id}"),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -125,9 +122,7 @@ class TransactionsClient:
 
 
 class AsyncTransactionsClient:
-    def __init__(
-        self, *, environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT, client_wrapper: AsyncClientWrapper
-    ):
+    def __init__(self, *, environment: str, client_wrapper: AsyncClientWrapper):
         self._environment = environment
         self._client_wrapper = client_wrapper
 
@@ -170,7 +165,7 @@ class AsyncTransactionsClient:
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment.value}/", "transactions"),
+            urllib.parse.urljoin(f"{self._environment}/", "transactions"),
             params=remove_none_from_dict(
                 {
                     "validateOriginUserId": validate_origin_user_id,
@@ -208,7 +203,7 @@ class AsyncTransactionsClient:
         """
         _response = await self._client_wrapper.httpx_client.request(
             "GET",
-            urllib.parse.urljoin(f"{self._environment.value}/", f"transactions/{transaction_id}"),
+            urllib.parse.urljoin(f"{self._environment}/", f"transactions/{transaction_id}"),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )

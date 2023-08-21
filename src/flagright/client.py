@@ -5,7 +5,6 @@ import typing
 import httpx
 
 from .core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from .environment import FlagrightEnvironment
 from .resources.business_user_events.client import AsyncBusinessUserEventsClient, BusinessUserEventsClient
 from .resources.business_users.client import AsyncBusinessUsersClient, BusinessUsersClient
 from .resources.consumer_user_events.client import AsyncConsumerUserEventsClient, ConsumerUserEventsClient
@@ -15,13 +14,7 @@ from .resources.transactions.client import AsyncTransactionsClient, Transactions
 
 
 class Flagright:
-    def __init__(
-        self,
-        *,
-        environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT,
-        api_key: str,
-        timeout: typing.Optional[float] = 60
-    ):
+    def __init__(self, *, environment: str, api_key: str, timeout: typing.Optional[float] = 60):
         self._environment = environment
         self._client_wrapper = SyncClientWrapper(api_key=api_key, httpx_client=httpx.Client(timeout=timeout))
         self.transactions = TransactionsClient(environment=environment, client_wrapper=self._client_wrapper)
@@ -37,13 +30,7 @@ class Flagright:
 
 
 class AsyncFlagright:
-    def __init__(
-        self,
-        *,
-        environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT,
-        api_key: str,
-        timeout: typing.Optional[float] = 60
-    ):
+    def __init__(self, *, environment: str, api_key: str, timeout: typing.Optional[float] = 60):
         self._environment = environment
         self._client_wrapper = AsyncClientWrapper(api_key=api_key, httpx_client=httpx.AsyncClient(timeout=timeout))
         self.transactions = AsyncTransactionsClient(environment=environment, client_wrapper=self._client_wrapper)
