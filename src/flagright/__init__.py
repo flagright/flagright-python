@@ -14,6 +14,7 @@ from .types import (
     BusinessOptional,
     BusinessOptionalSavedPaymentDetailsItem,
     BusinessResponse,
+    BusinessUserSegment,
     BusinessUsersCreateResponse,
     BusinessUsersResponse,
     BusinessWithRulesResult,
@@ -33,7 +34,6 @@ from .types import (
     CheckPaymentMethod,
     CompanyFinancialDetails,
     CompanyGeneralDetails,
-    CompanyGeneralDetailsUserSegment,
     CompanyRegistrationDetails,
     ConsumerName,
     ConsumerUserSegment,
@@ -132,6 +132,7 @@ from .resources import (
     transaction_events,
     transactions,
 )
+from .environment import FlagrightEnvironment
 
 __all__ = [
     "AchDetails",
@@ -148,6 +149,7 @@ __all__ = [
     "BusinessOptional",
     "BusinessOptionalSavedPaymentDetailsItem",
     "BusinessResponse",
+    "BusinessUserSegment",
     "BusinessUsersCreateResponse",
     "BusinessUsersResponse",
     "BusinessWithRulesResult",
@@ -167,7 +169,6 @@ __all__ = [
     "CheckPaymentMethod",
     "CompanyFinancialDetails",
     "CompanyGeneralDetails",
-    "CompanyGeneralDetailsUserSegment",
     "CompanyRegistrationDetails",
     "ConsumerName",
     "ConsumerUserSegment",
@@ -181,6 +182,7 @@ __all__ = [
     "ExecutedRulesResult",
     "FailedRulesResult",
     "FalsePositiveDetails",
+    "FlagrightEnvironment",
     "GeneralBankAccountPaymentMethod",
     "GenericBankAccountDetails",
     "HitRulesDetails",

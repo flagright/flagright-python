@@ -20,8 +20,7 @@ OMIT = typing.cast(typing.Any, ...)
 
 
 class TransactionEventsClient:
-    def __init__(self, *, environment: str, client_wrapper: SyncClientWrapper):
-        self._environment = environment
+    def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
     def create(self, *, request: TransactionEvent) -> TransactionEventMonitoringResult:
@@ -52,7 +51,7 @@ class TransactionEventsClient:
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment}/", "events/transaction"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/transaction"),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -84,7 +83,7 @@ class TransactionEventsClient:
         """
         _response = self._client_wrapper.httpx_client.request(
             "GET",
-            urllib.parse.urljoin(f"{self._environment}/", f"events/transaction/{event_id}"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"events/transaction/{event_id}"),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -102,8 +101,7 @@ class TransactionEventsClient:
 
 
 class AsyncTransactionEventsClient:
-    def __init__(self, *, environment: str, client_wrapper: AsyncClientWrapper):
-        self._environment = environment
+    def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
     async def create(self, *, request: TransactionEvent) -> TransactionEventMonitoringResult:
@@ -134,7 +132,7 @@ class AsyncTransactionEventsClient:
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment}/", "events/transaction"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/transaction"),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -166,7 +164,7 @@ class AsyncTransactionEventsClient:
         """
         _response = await self._client_wrapper.httpx_client.request(
             "GET",
-            urllib.parse.urljoin(f"{self._environment}/", f"events/transaction/{event_id}"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"events/transaction/{event_id}"),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )

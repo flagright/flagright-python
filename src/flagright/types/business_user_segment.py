@@ -6,11 +6,7 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class CompanyGeneralDetailsUserSegment(str, enum.Enum):
-    """
-    Segmentation of the business user
-    """
-
+class BusinessUserSegment(str, enum.Enum):
     SOLE_PROPRIETORSHIP = "SOLE_PROPRIETORSHIP"
     LIMITED = "LIMITED"
     SMB = "SMB"
@@ -29,17 +25,17 @@ class CompanyGeneralDetailsUserSegment(str, enum.Enum):
         large: typing.Callable[[], T_Result],
         unknown: typing.Callable[[], T_Result],
     ) -> T_Result:
-        if self is CompanyGeneralDetailsUserSegment.SOLE_PROPRIETORSHIP:
+        if self is BusinessUserSegment.SOLE_PROPRIETORSHIP:
             return sole_proprietorship()
-        if self is CompanyGeneralDetailsUserSegment.LIMITED:
+        if self is BusinessUserSegment.LIMITED:
             return limited()
-        if self is CompanyGeneralDetailsUserSegment.SMB:
+        if self is BusinessUserSegment.SMB:
             return smb()
-        if self is CompanyGeneralDetailsUserSegment.SMALL:
+        if self is BusinessUserSegment.SMALL:
             return small()
-        if self is CompanyGeneralDetailsUserSegment.MEDIUM:
+        if self is BusinessUserSegment.MEDIUM:
             return medium()
-        if self is CompanyGeneralDetailsUserSegment.LARGE:
+        if self is BusinessUserSegment.LARGE:
             return large()
-        if self is CompanyGeneralDetailsUserSegment.UNKNOWN:
+        if self is BusinessUserSegment.UNKNOWN:
             return unknown()

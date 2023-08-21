@@ -21,8 +21,7 @@ OMIT = typing.cast(typing.Any, ...)
 
 
 class ConsumerUsersClient:
-    def __init__(self, *, environment: str, client_wrapper: SyncClientWrapper):
-        self._environment = environment
+    def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
     def create(self, *, request: User) -> ConsumerUsersCreateResponse:
@@ -45,7 +44,7 @@ class ConsumerUsersClient:
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment}/", "consumer/users"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "consumer/users"),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -77,7 +76,7 @@ class ConsumerUsersClient:
         """
         _response = self._client_wrapper.httpx_client.request(
             "GET",
-            urllib.parse.urljoin(f"{self._environment}/", f"consumer/users/{user_id}"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"consumer/users/{user_id}"),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -95,8 +94,7 @@ class ConsumerUsersClient:
 
 
 class AsyncConsumerUsersClient:
-    def __init__(self, *, environment: str, client_wrapper: AsyncClientWrapper):
-        self._environment = environment
+    def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
     async def create(self, *, request: User) -> ConsumerUsersCreateResponse:
@@ -119,7 +117,7 @@ class AsyncConsumerUsersClient:
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment}/", "consumer/users"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "consumer/users"),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -151,7 +149,7 @@ class AsyncConsumerUsersClient:
         """
         _response = await self._client_wrapper.httpx_client.request(
             "GET",
-            urllib.parse.urljoin(f"{self._environment}/", f"consumer/users/{user_id}"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"consumer/users/{user_id}"),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )

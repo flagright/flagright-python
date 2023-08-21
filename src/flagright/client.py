@@ -5,6 +5,7 @@ import typing
 import httpx
 
 from .core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
+from .environment import FlagrightEnvironment
 from .resources.business_user_events.client import AsyncBusinessUserEventsClient, BusinessUserEventsClient
 from .resources.business_users.client import AsyncBusinessUsersClient, BusinessUsersClient
 from .resources.consumer_user_events.client import AsyncConsumerUserEventsClient, ConsumerUserEventsClient
@@ -14,34 +15,53 @@ from .resources.transactions.client import AsyncTransactionsClient, Transactions
 
 
 class Flagright:
-    def __init__(self, *, environment: str, api_key: str, timeout: typing.Optional[float] = 60):
-        self._environment = environment
-        self._client_wrapper = SyncClientWrapper(api_key=api_key, httpx_client=httpx.Client(timeout=timeout))
-        self.transactions = TransactionsClient(environment=environment, client_wrapper=self._client_wrapper)
-        self.transaction_events = TransactionEventsClient(environment=environment, client_wrapper=self._client_wrapper)
-        self.consumer_users = ConsumerUsersClient(environment=environment, client_wrapper=self._client_wrapper)
-        self.business_users = BusinessUsersClient(environment=environment, client_wrapper=self._client_wrapper)
-        self.consumer_user_events = ConsumerUserEventsClient(
-            environment=environment, client_wrapper=self._client_wrapper
+    def __init__(
+        self,
+        *,
+        base_url: typing.Optional[str] = None,
+        environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT,
+        api_key: str,
+        timeout: typing.Optional[float] = 60
+    ):
+        self._client_wrapper = SyncClientWrapper(
+            base_url=_get_base_url(base_url=base_url, environment=environment),
+            api_key=api_key,
+            httpx_client=httpx.Client(timeout=timeout),
         )
-        self.business_user_events = BusinessUserEventsClient(
-            environment=environment, client_wrapper=self._client_wrapper
-        )
+        self.transactions = TransactionsClient(client_wrapper=self._client_wrapper)
+        self.transaction_events = TransactionEventsClient(client_wrapper=self._client_wrapper)
+        self.consumer_users = ConsumerUsersClient(client_wrapper=self._client_wrapper)
+        self.business_users = BusinessUsersClient(client_wrapper=self._client_wrapper)
+        self.consumer_user_events = ConsumerUserEventsClient(client_wrapper=self._client_wrapper)
+        self.business_user_events = BusinessUserEventsClient(client_wrapper=self._client_wrapper)
 
 
 class AsyncFlagright:
-    def __init__(self, *, environment: str, api_key: str, timeout: typing.Optional[float] = 60):
-        self._environment = environment
-        self._client_wrapper = AsyncClientWrapper(api_key=api_key, httpx_client=httpx.AsyncClient(timeout=timeout))
-        self.transactions = AsyncTransactionsClient(environment=environment, client_wrapper=self._client_wrapper)
-        self.transaction_events = AsyncTransactionEventsClient(
-            environment=environment, client_wrapper=self._client_wrapper
+    def __init__(
+        self,
+        *,
+        base_url: typing.Optional[str] = None,
+        environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT,
+        api_key: str,
+        timeout: typing.Optional[float] = 60
+    ):
+        self._client_wrapper = AsyncClientWrapper(
+            base_url=_get_base_url(base_url=base_url, environment=environment),
+            api_key=api_key,
+            httpx_client=httpx.AsyncClient(timeout=timeout),
         )
-        self.consumer_users = AsyncConsumerUsersClient(environment=environment, client_wrapper=self._client_wrapper)
-        self.business_users = AsyncBusinessUsersClient(environment=environment, client_wrapper=self._client_wrapper)
-        self.consumer_user_events = AsyncConsumerUserEventsClient(
-            environment=environment, client_wrapper=self._client_wrapper
-        )
-        self.business_user_events = AsyncBusinessUserEventsClient(
-            environment=environment, client_wrapper=self._client_wrapper
-        )
+        self.transactions = AsyncTransactionsClient(client_wrapper=self._client_wrapper)
+        self.transaction_events = AsyncTransactionEventsClient(client_wrapper=self._client_wrapper)
+        self.consumer_users = AsyncConsumerUsersClient(client_wrapper=self._client_wrapper)
+        self.business_users = AsyncBusinessUsersClient(client_wrapper=self._client_wrapper)
+        self.consumer_user_events = AsyncConsumerUserEventsClient(client_wrapper=self._client_wrapper)
+        self.business_user_events = AsyncBusinessUserEventsClient(client_wrapper=self._client_wrapper)
+
+
+def _get_base_url(*, base_url: typing.Optional[str] = None, environment: FlagrightEnvironment) -> str:
+    if base_url is not None:
+        return base_url
+    elif environment is not None:
+        return environment.value
+    else:
+        raise Exception("Please pass in either base_url or environment to construct the client")

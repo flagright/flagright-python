@@ -22,8 +22,7 @@ OMIT = typing.cast(typing.Any, ...)
 
 
 class ConsumerUserEventsClient:
-    def __init__(self, *, environment: str, client_wrapper: SyncClientWrapper):
-        self._environment = environment
+    def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
     def create(
@@ -84,7 +83,7 @@ class ConsumerUserEventsClient:
             _request["updatedConsumerUserAttributes"] = updated_consumer_user_attributes
         _response = self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment}/", "events/consumer/user"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/consumer/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
             json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),
@@ -106,8 +105,7 @@ class ConsumerUserEventsClient:
 
 
 class AsyncConsumerUserEventsClient:
-    def __init__(self, *, environment: str, client_wrapper: AsyncClientWrapper):
-        self._environment = environment
+    def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
     async def create(
@@ -168,7 +166,7 @@ class AsyncConsumerUserEventsClient:
             _request["updatedConsumerUserAttributes"] = updated_consumer_user_attributes
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment}/", "events/consumer/user"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/consumer/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
             json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),

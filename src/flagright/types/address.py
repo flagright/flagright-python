@@ -17,7 +17,7 @@ class Address(pydantic.BaseModel):
     address_lines: typing.List[typing.Any] = pydantic.Field(
         alias="addressLines", description="Address lines of the user's residence address"
     )
-    postcode: str = pydantic.Field(
+    postcode: typing.Optional[str] = pydantic.Field(
         description='Post code of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> '
     )
     city: str = pydantic.Field(
@@ -43,5 +43,6 @@ class Address(pydantic.BaseModel):
 
     class Config:
         frozen = True
+        smart_union = True
         allow_population_by_field_name = True
         json_encoders = {dt.datetime: serialize_datetime}

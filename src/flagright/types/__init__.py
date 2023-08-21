@@ -13,6 +13,7 @@ from .business_entity_link import BusinessEntityLink
 from .business_optional import BusinessOptional
 from .business_optional_saved_payment_details_item import BusinessOptionalSavedPaymentDetailsItem
 from .business_response import BusinessResponse
+from .business_user_segment import BusinessUserSegment
 from .business_users_create_response import BusinessUsersCreateResponse
 from .business_users_response import BusinessUsersResponse
 from .business_with_rules_result import BusinessWithRulesResult
@@ -32,7 +33,6 @@ from .check_details_delivery_status import CheckDetailsDeliveryStatus
 from .check_payment_method import CheckPaymentMethod
 from .company_financial_details import CompanyFinancialDetails
 from .company_general_details import CompanyGeneralDetails
-from .company_general_details_user_segment import CompanyGeneralDetailsUserSegment
 from .company_registration_details import CompanyRegistrationDetails
 from .consumer_name import ConsumerName
 from .consumer_user_segment import ConsumerUserSegment
@@ -136,6 +136,7 @@ __all__ = [
     "BusinessOptional",
     "BusinessOptionalSavedPaymentDetailsItem",
     "BusinessResponse",
+    "BusinessUserSegment",
     "BusinessUsersCreateResponse",
     "BusinessUsersResponse",
     "BusinessWithRulesResult",
@@ -155,7 +156,6 @@ __all__ = [
     "CheckPaymentMethod",
     "CompanyFinancialDetails",
     "CompanyGeneralDetails",
-    "CompanyGeneralDetailsUserSegment",
     "CompanyRegistrationDetails",
     "ConsumerName",
     "ConsumerUserSegment",

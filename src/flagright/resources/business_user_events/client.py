@@ -22,8 +22,7 @@ OMIT = typing.cast(typing.Any, ...)
 
 
 class BusinessUserEventsClient:
-    def __init__(self, *, environment: str, client_wrapper: SyncClientWrapper):
-        self._environment = environment
+    def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
     def create(
@@ -84,7 +83,7 @@ class BusinessUserEventsClient:
             _request["updatedBusinessUserAttributes"] = updated_business_user_attributes
         _response = self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment}/", "events/business/user"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/business/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
             json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),
@@ -106,8 +105,7 @@ class BusinessUserEventsClient:
 
 
 class AsyncBusinessUserEventsClient:
-    def __init__(self, *, environment: str, client_wrapper: AsyncClientWrapper):
-        self._environment = environment
+    def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
     async def create(
@@ -168,7 +166,7 @@ class AsyncBusinessUserEventsClient:
             _request["updatedBusinessUserAttributes"] = updated_business_user_attributes
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
-            urllib.parse.urljoin(f"{self._environment}/", "events/business/user"),
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/business/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
             json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),
