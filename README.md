@@ -15,8 +15,7 @@ import flagright
 from flagright.client import Flagright
 
 
-client = Flagright(
-    api_key='YOUR_API_KEY')
+client = Flagright(api_key='YOUR_API_KEY', environment='https://sandbox.flagright.com')
 resposne = client.transactions.verify(request=flagright.Transaction(
     transactionId='my-transaction-id', type='DEPOSIT', originUserId="origin-user-id", timestamp=1692624734000))
 
