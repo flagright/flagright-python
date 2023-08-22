@@ -1,6 +1,7 @@
 # Flagright Python Library
 
 [![pypi shield](https://img.shields.io/pypi/v/flagright)](https://pypi.org/project/flagright/)
+[![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-SDK%20generated%20by%20Fern-brightgreen)](https://github.com/fern-api/fern)
 
 The Flagright Python library provides access to the Flagright API from Python.
 
