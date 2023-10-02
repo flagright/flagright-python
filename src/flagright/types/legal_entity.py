@@ -10,6 +10,7 @@ from .company_financial_details import CompanyFinancialDetails
 from .company_general_details import CompanyGeneralDetails
 from .company_registration_details import CompanyRegistrationDetails
 from .contact_details import ContactDetails
+from .source_of_funds import SourceOfFunds
 
 
 class LegalEntity(pydantic.BaseModel):
@@ -24,9 +25,8 @@ class LegalEntity(pydantic.BaseModel):
     company_registration_details: typing.Optional[CompanyRegistrationDetails] = pydantic.Field(
         alias="companyRegistrationDetails"
     )
-    reason_for_account_opening: typing.Optional[typing.List[str]] = pydantic.Field(
-        alias="reasonForAccountOpening", description="Reason for opening the account at financial institution"
-    )
+    reason_for_account_opening: typing.Optional[typing.List[str]] = pydantic.Field(alias="reasonForAccountOpening")
+    source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = pydantic.Field(alias="sourceOfFunds")
     contact_details: typing.Optional[ContactDetails] = pydantic.Field(alias="contactDetails")
 
     def json(self, **kwargs: typing.Any) -> str:

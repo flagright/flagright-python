@@ -6,6 +6,7 @@ import typing
 import pydantic
 
 from ..core.datetime_utils import serialize_datetime
+from .tag import Tag
 from .upi_payment_method import UpiPaymentMethod
 
 
@@ -26,6 +27,9 @@ class UpiDetails(pydantic.BaseModel):
         description='Interface provider name <span style="white-space: nowrap">`non-empty`</span> ',
     )
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

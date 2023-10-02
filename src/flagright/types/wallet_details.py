@@ -6,6 +6,7 @@ import typing
 import pydantic
 
 from ..core.datetime_utils import serialize_datetime
+from .amount import Amount
 from .tag import Tag
 from .wallet_payment_method import WalletPaymentMethod
 
@@ -27,10 +28,13 @@ class WalletDetails(pydantic.BaseModel):
         alias="paymentChannel", description="Payment Channel used through wallet"
     )
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder for a specific wallet")
-    tags: typing.Optional[Tag]
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
     wallet_phone_number: typing.Optional[str] = pydantic.Field(
         alias="walletPhoneNumber", description="Phone number associated with the wallet, if any"
     )
+    wallet_balance: typing.Optional[Amount] = pydantic.Field(alias="walletBalance")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

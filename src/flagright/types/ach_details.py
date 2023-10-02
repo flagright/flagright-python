@@ -8,6 +8,7 @@ import pydantic
 from ..core.datetime_utils import serialize_datetime
 from .ach_payment_method import AchPaymentMethod
 from .address import Address
+from .tag import Tag
 
 
 class AchDetails(pydantic.BaseModel):
@@ -31,6 +32,9 @@ class AchDetails(pydantic.BaseModel):
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     beneficiary_name: typing.Optional[str] = pydantic.Field(
         alias="beneficiaryName", description="Beneficiary name of the account"
+    )
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

@@ -8,6 +8,7 @@ import pydantic
 from ..core.datetime_utils import serialize_datetime
 from .mpesa_details_transaction_type import MpesaDetailsTransactionType
 from .mpesa_payment_method import MpesaPaymentMethod
+from .tag import Tag
 
 
 class MpesaDetails(pydantic.BaseModel):
@@ -23,6 +24,9 @@ class MpesaDetails(pydantic.BaseModel):
         alias="transactionType", description="Type of transaction"
     )
     phone_number: str = pydantic.Field(alias="phoneNumber", description="Contact Number of the account holder")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

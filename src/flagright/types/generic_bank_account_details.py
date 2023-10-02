@@ -8,6 +8,7 @@ import pydantic
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
 from .general_bank_account_payment_method import GeneralBankAccountPaymentMethod
+from .tag import Tag
 
 
 class GenericBankAccountDetails(pydantic.BaseModel):
@@ -35,6 +36,9 @@ class GenericBankAccountDetails(pydantic.BaseModel):
         alias="specialInstructions", description="Special instructions to be specified if any"
     )
     payment_channel: typing.Optional[str] = pydantic.Field(alias="paymentChannel")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

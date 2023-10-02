@@ -45,7 +45,8 @@ class TransactionUpdatable(pydantic.BaseModel):
     reference: typing.Optional[str] = pydantic.Field(
         description='Reference field for the transaction indicating the purpose of the transaction etc. <span style="white-space: nowrap">`non-empty`</span> '
     )
-    device_data: typing.Optional[DeviceData] = pydantic.Field(alias="deviceData")
+    origin_device_data: typing.Optional[DeviceData] = pydantic.Field(alias="originDeviceData")
+    destination_device_data: typing.Optional[DeviceData] = pydantic.Field(alias="destinationDeviceData")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )

@@ -27,11 +27,11 @@ class TransactionEventsClient:
         """
         ## POST Transaction Events
 
-        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#transaction-event)
+        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event)
 
         Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
 
-        * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#transaction-lifecycle-through-transaction-events)
+        * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
         * Update the transaction details, using the `updatedTransactionAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use transaction events.
@@ -74,7 +74,7 @@ class TransactionEventsClient:
         """
         ### GET Transaction Events
 
-        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#transaction-event).
+        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event).
 
         You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/docs/flagright-api/d7c4dc4d02850-create-a-transaction-event) call.
 
@@ -108,11 +108,11 @@ class AsyncTransactionEventsClient:
         """
         ## POST Transaction Events
 
-        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#transaction-event)
+        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event)
 
         Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
 
-        * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#transaction-lifecycle-through-transaction-events)
+        * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
         * Update the transaction details, using the `updatedTransactionAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use transaction events.
@@ -155,7 +155,7 @@ class AsyncTransactionEventsClient:
         """
         ### GET Transaction Events
 
-        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#transaction-event).
+        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event).
 
         You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/docs/flagright-api/d7c4dc4d02850-create-a-transaction-event) call.
 

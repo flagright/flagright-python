@@ -8,6 +8,7 @@ import pydantic
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
 from .swift_payment_method import SwiftPaymentMethod
+from .tag import Tag
 
 
 class SwiftDetails(pydantic.BaseModel):
@@ -33,6 +34,9 @@ class SwiftDetails(pydantic.BaseModel):
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     special_instructions: typing.Optional[str] = pydantic.Field(
         alias="specialInstructions", description="Special instructions if any"
+    )
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

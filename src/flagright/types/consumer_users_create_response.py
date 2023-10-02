@@ -3,20 +3,12 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
-from .risk_score_details import RiskScoreDetails
-from .rules_results import RulesResults
+from .consumer_users_response import ConsumerUsersResponse
 
 
-class ConsumerUsersCreateResponse(RulesResults):
+class ConsumerUsersCreateResponse(ConsumerUsersResponse):
     message: typing.Optional[str]
-    user_id: str = pydantic.Field(
-        alias="userId",
-        description='user ID the risk score pertains to <span style="white-space: nowrap">`non-empty`</span> ',
-    )
-    risk_score_details: typing.Optional[RiskScoreDetails] = pydantic.Field(alias="riskScoreDetails")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

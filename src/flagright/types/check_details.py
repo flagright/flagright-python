@@ -9,6 +9,7 @@ from ..core.datetime_utils import serialize_datetime
 from .address import Address
 from .check_details_delivery_status import CheckDetailsDeliveryStatus
 from .check_payment_method import CheckPaymentMethod
+from .tag import Tag
 
 
 class CheckDetails(pydantic.BaseModel):
@@ -19,6 +20,9 @@ class CheckDetails(pydantic.BaseModel):
     delivery_status: typing.Optional[CheckDetailsDeliveryStatus] = pydantic.Field(alias="deliveryStatus")
     eta_timestamp: typing.Optional[float] = pydantic.Field(alias="etaTimestamp")
     shipping_address: typing.Optional[Address] = pydantic.Field(alias="shippingAddress")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

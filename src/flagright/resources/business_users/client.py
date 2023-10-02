@@ -28,7 +28,7 @@ class BusinessUsersClient:
         """
         ## POST Business User
 
-        `/business/user` endpoint allows you to operate on the [Business user entity.](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#user)
+        `/business/user` endpoint allows you to operate on the [Business user entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user)
 
         In order to pass the payload of a User to Flagright and verify the User, you will need to call this endpoint with the User payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup.
 
@@ -69,7 +69,7 @@ class BusinessUsersClient:
         """
         ### GET Business User
 
-        `/business/user` endpoint allows you to operate on the [Business User entity](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#user).
+        `/business/user` endpoint allows you to operate on the [Business User entity](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user).
 
         Calling `GET /business/user/{userId}` will return the entire User payload and rule execution results for the User with the corresponding `userId`
 
@@ -103,7 +103,7 @@ class AsyncBusinessUsersClient:
         """
         ## POST Business User
 
-        `/business/user` endpoint allows you to operate on the [Business user entity.](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#user)
+        `/business/user` endpoint allows you to operate on the [Business user entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user)
 
         In order to pass the payload of a User to Flagright and verify the User, you will need to call this endpoint with the User payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup.
 
@@ -144,7 +144,7 @@ class AsyncBusinessUsersClient:
         """
         ### GET Business User
 
-        `/business/user` endpoint allows you to operate on the [Business User entity](https://docs.flagright.com/docs/flagright-api/8c06ae6a3231a-entities-and-relationships#user).
+        `/business/user` endpoint allows you to operate on the [Business User entity](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user).
 
         Calling `GET /business/user/{userId}` will return the entire User payload and rule execution results for the User with the corresponding `userId`
 

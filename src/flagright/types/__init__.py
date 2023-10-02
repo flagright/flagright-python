@@ -43,6 +43,7 @@ from .country_code import CountryCode
 from .currency_code import CurrencyCode
 from .date import Date
 from .device_data import DeviceData
+from .employment_status import EmploymentStatus
 from .executed_rules_result import ExecutedRulesResult
 from .failed_rules_result import FailedRulesResult
 from .false_positive_details import FalsePositiveDetails
@@ -81,6 +82,7 @@ from .rule_nature import RuleNature
 from .rules_results import RulesResults
 from .sanctions_details import SanctionsDetails
 from .sanctions_details_entity_type import SanctionsDetailsEntityType
+from .source_of_funds import SourceOfFunds
 from .swift_details import SwiftDetails
 from .swift_payment_method import SwiftPaymentMethod
 from .tag import Tag
@@ -109,7 +111,6 @@ from .user import User
 from .user_base import UserBase
 from .user_details import UserDetails
 from .user_details_gender import UserDetailsGender
-from .user_monitoring_result import UserMonitoringResult
 from .user_optional import UserOptional
 from .user_registration_status import UserRegistrationStatus
 from .user_response import UserResponse
@@ -166,6 +167,7 @@ __all__ = [
     "CurrencyCode",
     "Date",
     "DeviceData",
+    "EmploymentStatus",
     "ExecutedRulesResult",
     "FailedRulesResult",
     "FalsePositiveDetails",
@@ -204,6 +206,7 @@ __all__ = [
     "RulesResults",
     "SanctionsDetails",
     "SanctionsDetailsEntityType",
+    "SourceOfFunds",
     "SwiftDetails",
     "SwiftPaymentMethod",
     "Tag",
@@ -232,7 +235,6 @@ __all__ = [
     "UserBase",
     "UserDetails",
     "UserDetailsGender",
-    "UserMonitoringResult",
     "UserOptional",
     "UserRegistrationStatus",
     "UserResponse",
