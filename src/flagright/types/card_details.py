@@ -21,27 +21,48 @@ class CardDetails(pydantic.BaseModel):
     """
     Model for credit or debit card details
     """
+
     method: CardPaymentMethod
-    card_fingerprint: typing.Optional[str] = pydantic.Field(alias="cardFingerprint", description="Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider <span style=\"white-space: nowrap\">`non-empty`</span> ")
+    card_fingerprint: typing.Optional[str] = pydantic.Field(
+        alias="cardFingerprint",
+        description='Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider <span style="white-space: nowrap">`non-empty`</span> ',
+    )
     card_issued_country: typing.Optional[CountryCode] = pydantic.Field(alias="cardIssuedCountry")
-    transaction_reference_field: typing.Optional[str] = pydantic.Field(alias="transactionReferenceField", description="Reference for the transaction <span style=\"white-space: nowrap\">`non-empty`</span> ")
-    3_ds_done: typing.Optional[bool] = pydantic.Field(alias="3dsDone", description="Whether 3ds was successfully enforced for the transaction")
+    transaction_reference_field: typing.Optional[str] = pydantic.Field(
+        alias="transactionReferenceField",
+        description='Reference for the transaction <span style="white-space: nowrap">`non-empty`</span> ',
+    )
+    _3_ds_done: typing.Optional[bool] = pydantic.Field(
+        alias="3dsDone", description="Whether 3ds was successfully enforced for the transaction"
+    )
     name_on_card: typing.Optional[ConsumerName] = pydantic.Field(alias="nameOnCard")
     card_expiry: typing.Optional[CardExpiry] = pydantic.Field(alias="cardExpiry")
-    card_last_4_digits: typing.Optional[str] = pydantic.Field(alias="cardLast4Digits", description="Last 4 digits of Card <span style=\"white-space: nowrap\">`<= 4 characters`</span> ")
+    card_last_4_digits: typing.Optional[str] = pydantic.Field(
+        alias="cardLast4Digits",
+        description='Last 4 digits of Card <span style="white-space: nowrap">`<= 4 characters`</span> ',
+    )
     card_brand: typing.Optional[CardDetailsCardBrand] = pydantic.Field(alias="cardBrand", description="Brand of Card")
-    card_funding: typing.Optional[CardDetailsCardFunding] = pydantic.Field(alias="cardFunding", description="Funding of Card")
-    card_authenticated: typing.Optional[bool] = pydantic.Field(alias="cardAuthenticated", description="Authentication of Card")
+    card_funding: typing.Optional[CardDetailsCardFunding] = pydantic.Field(
+        alias="cardFunding", description="Funding of Card"
+    )
+    card_authenticated: typing.Optional[bool] = pydantic.Field(
+        alias="cardAuthenticated", description="Authentication of Card"
+    )
     payment_channel: typing.Optional[str] = pydantic.Field(alias="paymentChannel")
     card_type: typing.Optional[CardDetailsCardType] = pydantic.Field(alias="cardType")
     merchant_details: typing.Optional[CardMerchantDetails] = pydantic.Field(alias="merchantDetails")
-    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(description="Additional information that can be added via tags")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
+
     def json(self, **kwargs: typing.Any) -> str:
-        kwargs_with_defaults: typing.Any = { "by_alias": True, "exclude_unset": True, **kwargs }
+        kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
         return super().json(**kwargs_with_defaults)
+
     def dict(self, **kwargs: typing.Any) -> typing.Dict[str, typing.Any]:
-        kwargs_with_defaults: typing.Any = { "by_alias": True, "exclude_unset": True, **kwargs }
+        kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
         return super().dict(**kwargs_with_defaults)
+
     class Config:
         frozen = True
         smart_union = True
