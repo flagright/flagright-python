@@ -7,12 +7,14 @@ import pydantic
 
 from ..core.datetime_utils import serialize_datetime
 from .webhook_event_data import WebhookEventData
+from .webhook_event_triggered_by import WebhookEventTriggeredBy
 from .webhook_event_type import WebhookEventType
 
 
 class WebhookEvent(pydantic.BaseModel):
     id: str
     type: WebhookEventType
+    triggered_by: typing.Optional[WebhookEventTriggeredBy] = pydantic.Field(alias="triggeredBy")
     data: WebhookEventData
     created_timestamp: float = pydantic.Field(alias="createdTimestamp")
 

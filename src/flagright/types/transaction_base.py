@@ -14,7 +14,7 @@ class TransactionBase(pydantic.BaseModel):
     Model for transaction base Payload
     """
 
-    type: typing.Optional[TransactionType]
+    type: TransactionType
     transaction_id: str = pydantic.Field(
         alias="transactionId",
         description='Unique transaction identifier <span style="white-space: nowrap">`non-empty`</span> ',

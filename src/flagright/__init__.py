@@ -29,6 +29,7 @@ from .types import (
     CaseManagementEvent,
     CaseManagementEventCaseStatus,
     CaseManagementEventCaseStatusReason,
+    CaseSubjectType,
     CheckDetails,
     CheckDetailsDeliveryStatus,
     CheckPaymentMethod,
@@ -122,6 +123,7 @@ from .types import (
     WalletPaymentMethod,
     WebhookEvent,
     WebhookEventData,
+    WebhookEventTriggeredBy,
     WebhookEventType,
 )
 from .errors import BadRequestError, TooManyRequestsError, UnauthorizedError
@@ -165,6 +167,7 @@ __all__ = [
     "CaseManagementEvent",
     "CaseManagementEventCaseStatus",
     "CaseManagementEventCaseStatusReason",
+    "CaseSubjectType",
     "CheckDetails",
     "CheckDetailsDeliveryStatus",
     "CheckPaymentMethod",
@@ -261,6 +264,7 @@ __all__ = [
     "WalletPaymentMethod",
     "WebhookEvent",
     "WebhookEventData",
+    "WebhookEventTriggeredBy",
     "WebhookEventType",
     "business_user_events",
     "business_users",

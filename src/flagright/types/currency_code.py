@@ -70,6 +70,10 @@ class CurrencyCode(str, enum.Enum):
     CVX = "CVX"
     CZK = "CZK"
     DAI = "DAI"
+    DIF = "DIF"
+    LSR = "LSR"
+    SRC = "SRC"
+    BRB = "BRB"
     DASH = "DASH"
     DCR = "DCR"
     DFI = "DFI"
@@ -343,6 +347,10 @@ class CurrencyCode(str, enum.Enum):
         cvx: typing.Callable[[], T_Result],
         czk: typing.Callable[[], T_Result],
         dai: typing.Callable[[], T_Result],
+        dif: typing.Callable[[], T_Result],
+        lsr: typing.Callable[[], T_Result],
+        src: typing.Callable[[], T_Result],
+        brb: typing.Callable[[], T_Result],
         dash: typing.Callable[[], T_Result],
         dcr: typing.Callable[[], T_Result],
         dfi: typing.Callable[[], T_Result],
@@ -677,6 +685,14 @@ class CurrencyCode(str, enum.Enum):
             return czk()
         if self is CurrencyCode.DAI:
             return dai()
+        if self is CurrencyCode.DIF:
+            return dif()
+        if self is CurrencyCode.LSR:
+            return lsr()
+        if self is CurrencyCode.SRC:
+            return src()
+        if self is CurrencyCode.BRB:
+            return brb()
         if self is CurrencyCode.DASH:
             return dash()
         if self is CurrencyCode.DCR:

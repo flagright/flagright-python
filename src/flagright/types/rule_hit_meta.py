@@ -6,6 +6,7 @@ import typing
 import pydantic
 
 from ..core.datetime_utils import serialize_datetime
+from .case_subject_type import CaseSubjectType
 from .false_positive_details import FalsePositiveDetails
 from .rule_hit_direction import RuleHitDirection
 from .sanctions_details import SanctionsDetails
@@ -16,6 +17,8 @@ class RuleHitMeta(pydantic.BaseModel):
     Details of rule execution, for internal purposes only
     """
 
+    subject_type: typing.Optional[CaseSubjectType] = pydantic.Field(alias="subjectType")
+    create_case_for: typing.Optional[CaseSubjectType] = pydantic.Field(alias="createCaseFor")
     hit_directions: typing.Optional[typing.List[RuleHitDirection]] = pydantic.Field(alias="hitDirections")
     false_positive_details: typing.Optional[FalsePositiveDetails] = pydantic.Field(alias="falsePositiveDetails")
     sanctions_details: typing.Optional[typing.List[SanctionsDetails]] = pydantic.Field(alias="sanctionsDetails")
