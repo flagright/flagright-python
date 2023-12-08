@@ -28,7 +28,6 @@ from .case_closed_details import CaseClosedDetails
 from .case_management_event import CaseManagementEvent
 from .case_management_event_case_status import CaseManagementEventCaseStatus
 from .case_management_event_case_status_reason import CaseManagementEventCaseStatusReason
-from .case_subject_type import CaseSubjectType
 from .check_details import CheckDetails
 from .check_details_delivery_status import CheckDetailsDeliveryStatus
 from .check_payment_method import CheckPaymentMethod
@@ -154,7 +153,6 @@ __all__ = [
     "CaseManagementEvent",
     "CaseManagementEventCaseStatus",
     "CaseManagementEventCaseStatusReason",
-    "CaseSubjectType",
     "CheckDetails",
     "CheckDetailsDeliveryStatus",
     "CheckPaymentMethod",
