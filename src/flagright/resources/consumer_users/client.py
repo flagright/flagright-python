@@ -4,17 +4,20 @@ import typing
 import urllib.parse
 from json.decoder import JSONDecodeError
 
-import pydantic
-
 from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.jsonable_encoder import jsonable_encoder
 from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
-from ...types.consumer_users_create_response import ConsumerUsersCreateResponse
 from ...types.user import User
 from ...types.user_response import UserResponse
+from .types.consumer_users_create_response import ConsumerUsersCreateResponse
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -36,8 +39,8 @@ class ConsumerUsersClient:
 
         Each consumer User entity needs three mandatory fields:
 
-        * `userId` - Unique identifier for the user
-        * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
+        - `userId` - Unique identifier for the user
+        - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
 
         Parameters:
             - request: User.
@@ -109,8 +112,8 @@ class AsyncConsumerUsersClient:
 
         Each consumer User entity needs three mandatory fields:
 
-        * `userId` - Unique identifier for the user
-        * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
+        - `userId` - Unique identifier for the user
+        - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
 
         Parameters:
             - request: User.

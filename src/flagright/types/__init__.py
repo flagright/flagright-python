@@ -11,10 +11,20 @@ from .business import Business
 from .business_base import BusinessBase
 from .business_entity_link import BusinessEntityLink
 from .business_optional import BusinessOptional
-from .business_optional_saved_payment_details_item import BusinessOptionalSavedPaymentDetailsItem
+from .business_optional_saved_payment_details_item import (
+    BusinessOptionalSavedPaymentDetailsItem,
+    BusinessOptionalSavedPaymentDetailsItem_Ach,
+    BusinessOptionalSavedPaymentDetailsItem_Card,
+    BusinessOptionalSavedPaymentDetailsItem_Check,
+    BusinessOptionalSavedPaymentDetailsItem_GenericBankAccount,
+    BusinessOptionalSavedPaymentDetailsItem_Iban,
+    BusinessOptionalSavedPaymentDetailsItem_Mpesa,
+    BusinessOptionalSavedPaymentDetailsItem_Swift,
+    BusinessOptionalSavedPaymentDetailsItem_Upi,
+    BusinessOptionalSavedPaymentDetailsItem_Wallet,
+)
 from .business_response import BusinessResponse
 from .business_user_segment import BusinessUserSegment
-from .business_users_create_response import BusinessUsersCreateResponse
 from .business_users_response import BusinessUsersResponse
 from .business_with_rules_result import BusinessWithRulesResult
 from .card_details import CardDetails
@@ -36,7 +46,6 @@ from .company_general_details import CompanyGeneralDetails
 from .company_registration_details import CompanyRegistrationDetails
 from .consumer_name import ConsumerName
 from .consumer_user_segment import ConsumerUserSegment
-from .consumer_users_create_response import ConsumerUsersCreateResponse
 from .consumer_users_response import ConsumerUsersResponse
 from .contact_details import ContactDetails
 from .country_code import CountryCode
@@ -72,7 +81,6 @@ from .payment_method import PaymentMethod
 from .pep_status import PepStatus
 from .person import Person
 from .risk_level import RiskLevel
-from .risk_score_details import RiskScoreDetails
 from .rule_action import RuleAction
 from .rule_failure_exception import RuleFailureException
 from .rule_hit_direction import RuleHitDirection
@@ -97,14 +105,36 @@ from .transaction_limit import TransactionLimit
 from .transaction_limits import TransactionLimits
 from .transaction_limits_payment_method_limits import TransactionLimitsPaymentMethodLimits
 from .transaction_monitoring_result import TransactionMonitoringResult
+from .transaction_risk_scoring_result import TransactionRiskScoringResult
 from .transaction_state import TransactionState
 from .transaction_status_details import TransactionStatusDetails
 from .transaction_type import TransactionType
 from .transaction_updatable import TransactionUpdatable
-from .transaction_updatable_destination_payment_details import TransactionUpdatableDestinationPaymentDetails
-from .transaction_updatable_origin_payment_details import TransactionUpdatableOriginPaymentDetails
+from .transaction_updatable_destination_payment_details import (
+    TransactionUpdatableDestinationPaymentDetails,
+    TransactionUpdatableDestinationPaymentDetails_Ach,
+    TransactionUpdatableDestinationPaymentDetails_Card,
+    TransactionUpdatableDestinationPaymentDetails_Check,
+    TransactionUpdatableDestinationPaymentDetails_GenericBankAccount,
+    TransactionUpdatableDestinationPaymentDetails_Iban,
+    TransactionUpdatableDestinationPaymentDetails_Mpesa,
+    TransactionUpdatableDestinationPaymentDetails_Swift,
+    TransactionUpdatableDestinationPaymentDetails_Upi,
+    TransactionUpdatableDestinationPaymentDetails_Wallet,
+)
+from .transaction_updatable_origin_payment_details import (
+    TransactionUpdatableOriginPaymentDetails,
+    TransactionUpdatableOriginPaymentDetails_Ach,
+    TransactionUpdatableOriginPaymentDetails_Card,
+    TransactionUpdatableOriginPaymentDetails_Check,
+    TransactionUpdatableOriginPaymentDetails_GenericBankAccount,
+    TransactionUpdatableOriginPaymentDetails_Iban,
+    TransactionUpdatableOriginPaymentDetails_Mpesa,
+    TransactionUpdatableOriginPaymentDetails_Swift,
+    TransactionUpdatableOriginPaymentDetails_Upi,
+    TransactionUpdatableOriginPaymentDetails_Wallet,
+)
 from .transaction_with_rules_result import TransactionWithRulesResult
-from .transactions_verify_response import TransactionsVerifyResponse
 from .upi_details import UpiDetails
 from .upi_payment_method import UpiPaymentMethod
 from .user import User
@@ -114,6 +144,7 @@ from .user_details_gender import UserDetailsGender
 from .user_optional import UserOptional
 from .user_registration_status import UserRegistrationStatus
 from .user_response import UserResponse
+from .user_risk_score_details import UserRiskScoreDetails
 from .user_state import UserState
 from .user_state_details import UserStateDetails
 from .user_with_rules_result import UserWithRulesResult
@@ -137,9 +168,17 @@ __all__ = [
     "BusinessEntityLink",
     "BusinessOptional",
     "BusinessOptionalSavedPaymentDetailsItem",
+    "BusinessOptionalSavedPaymentDetailsItem_Ach",
+    "BusinessOptionalSavedPaymentDetailsItem_Card",
+    "BusinessOptionalSavedPaymentDetailsItem_Check",
+    "BusinessOptionalSavedPaymentDetailsItem_GenericBankAccount",
+    "BusinessOptionalSavedPaymentDetailsItem_Iban",
+    "BusinessOptionalSavedPaymentDetailsItem_Mpesa",
+    "BusinessOptionalSavedPaymentDetailsItem_Swift",
+    "BusinessOptionalSavedPaymentDetailsItem_Upi",
+    "BusinessOptionalSavedPaymentDetailsItem_Wallet",
     "BusinessResponse",
     "BusinessUserSegment",
-    "BusinessUsersCreateResponse",
     "BusinessUsersResponse",
     "BusinessWithRulesResult",
     "CardDetails",
@@ -161,7 +200,6 @@ __all__ = [
     "CompanyRegistrationDetails",
     "ConsumerName",
     "ConsumerUserSegment",
-    "ConsumerUsersCreateResponse",
     "ConsumerUsersResponse",
     "ContactDetails",
     "CountryCode",
@@ -197,7 +235,6 @@ __all__ = [
     "PepStatus",
     "Person",
     "RiskLevel",
-    "RiskScoreDetails",
     "RuleAction",
     "RuleFailureException",
     "RuleHitDirection",
@@ -222,14 +259,32 @@ __all__ = [
     "TransactionLimits",
     "TransactionLimitsPaymentMethodLimits",
     "TransactionMonitoringResult",
+    "TransactionRiskScoringResult",
     "TransactionState",
     "TransactionStatusDetails",
     "TransactionType",
     "TransactionUpdatable",
     "TransactionUpdatableDestinationPaymentDetails",
+    "TransactionUpdatableDestinationPaymentDetails_Ach",
+    "TransactionUpdatableDestinationPaymentDetails_Card",
+    "TransactionUpdatableDestinationPaymentDetails_Check",
+    "TransactionUpdatableDestinationPaymentDetails_GenericBankAccount",
+    "TransactionUpdatableDestinationPaymentDetails_Iban",
+    "TransactionUpdatableDestinationPaymentDetails_Mpesa",
+    "TransactionUpdatableDestinationPaymentDetails_Swift",
+    "TransactionUpdatableDestinationPaymentDetails_Upi",
+    "TransactionUpdatableDestinationPaymentDetails_Wallet",
     "TransactionUpdatableOriginPaymentDetails",
+    "TransactionUpdatableOriginPaymentDetails_Ach",
+    "TransactionUpdatableOriginPaymentDetails_Card",
+    "TransactionUpdatableOriginPaymentDetails_Check",
+    "TransactionUpdatableOriginPaymentDetails_GenericBankAccount",
+    "TransactionUpdatableOriginPaymentDetails_Iban",
+    "TransactionUpdatableOriginPaymentDetails_Mpesa",
+    "TransactionUpdatableOriginPaymentDetails_Swift",
+    "TransactionUpdatableOriginPaymentDetails_Upi",
+    "TransactionUpdatableOriginPaymentDetails_Wallet",
     "TransactionWithRulesResult",
-    "TransactionsVerifyResponse",
     "UpiDetails",
     "UpiPaymentMethod",
     "User",
@@ -239,6 +294,7 @@ __all__ = [
     "UserOptional",
     "UserRegistrationStatus",
     "UserResponse",
+    "UserRiskScoreDetails",
     "UserState",
     "UserStateDetails",
     "UserWithRulesResult",

@@ -3,11 +3,13 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .tag import Tag
-from .upi_payment_method import UpiPaymentMethod
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class UpiDetails(pydantic.BaseModel):
@@ -15,16 +17,10 @@ class UpiDetails(pydantic.BaseModel):
     Model for UPI payment method
     """
 
-    method: UpiPaymentMethod
-    upi_id: str = pydantic.Field(
-        alias="upiID", description='UPI Id number <span style="white-space: nowrap">`non-empty`</span> '
-    )
-    bank_provider: typing.Optional[str] = pydantic.Field(
-        alias="bankProvider", description='Bank provider name <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    upi_id: str = pydantic.Field(alias="upiID", description="UPI Id number")
+    bank_provider: typing.Optional[str] = pydantic.Field(alias="bankProvider", description="Bank provider name")
     interface_provider: typing.Optional[str] = pydantic.Field(
-        alias="interfaceProvider",
-        description='Interface provider name <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="interfaceProvider", description="Interface provider name"
     )
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(

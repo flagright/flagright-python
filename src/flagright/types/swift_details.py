@@ -3,12 +3,14 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
-from .swift_payment_method import SwiftPaymentMethod
 from .tag import Tag
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class SwiftDetails(pydantic.BaseModel):
@@ -16,20 +18,14 @@ class SwiftDetails(pydantic.BaseModel):
     Model for SWIFT payment method
     """
 
-    method: SwiftPaymentMethod
     swift_code: typing.Optional[str] = pydantic.Field(
-        alias="swiftCode",
-        description='SWIFT code of the financial institution <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="swiftCode", description="SWIFT code of the financial institution"
     )
-    account_number: typing.Optional[str] = pydantic.Field(
-        alias="accountNumber", description='Account number <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    account_number: typing.Optional[str] = pydantic.Field(alias="accountNumber", description="Account number")
     account_type: typing.Optional[str] = pydantic.Field(
         alias="accountType", description="Account type. E.g. Checking, Savings etc."
     )
-    bank_name: typing.Optional[str] = pydantic.Field(
-        alias="bankName", description='Name of the bank <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    bank_name: typing.Optional[str] = pydantic.Field(alias="bankName", description="Name of the bank")
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     special_instructions: typing.Optional[str] = pydantic.Field(

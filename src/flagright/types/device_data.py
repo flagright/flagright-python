@@ -3,9 +3,12 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class DeviceData(pydantic.BaseModel):
@@ -24,35 +27,31 @@ class DeviceData(pydantic.BaseModel):
         alias="deviceLongitude", description="Device longitude at a give timestamp for an event or transaction"
     )
     ip_address: typing.Optional[str] = pydantic.Field(
-        alias="ipAddress",
-        description='IP address of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="ipAddress", description="IP address of the device at a given timestamp for an event or transaction"
     )
     device_identifier: typing.Optional[str] = pydantic.Field(
-        alias="deviceIdentifier",
-        description='Device identifier number <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="deviceIdentifier", description="Device identifier number"
     )
     vpn_used: typing.Optional[bool] = pydantic.Field(
         alias="vpnUsed", description="Whether VPN was used at a given timestamp for an event or transaction"
     )
     operating_system: typing.Optional[str] = pydantic.Field(
         alias="operatingSystem",
-        description='Operating system of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
+        description="Operating system of the device at a given timestamp for an event or transaction",
     )
     device_maker: typing.Optional[str] = pydantic.Field(
-        alias="deviceMaker",
-        description='The maker of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="deviceMaker", description="The maker of the device at a given timestamp for an event or transaction"
     )
     device_model: typing.Optional[str] = pydantic.Field(
-        alias="deviceModel",
-        description='The model of the device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="deviceModel", description="The model of the device at a given timestamp for an event or transaction"
     )
     device_year: typing.Optional[str] = pydantic.Field(
         alias="deviceYear",
-        description='The year the device was manufactured at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
+        description="The year the device was manufactured at a given timestamp for an event or transaction",
     )
     app_version: typing.Optional[str] = pydantic.Field(
         alias="appVersion",
-        description='The version of the app your user is using on their device at a given timestamp for an event or transaction <span style="white-space: nowrap">`non-empty`</span> ',
+        description="The version of the app your user is using on their device at a given timestamp for an event or transaction",
     )
 
     def json(self, **kwargs: typing.Any) -> str:

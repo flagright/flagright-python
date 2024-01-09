@@ -3,11 +3,14 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .country_code import CountryCode
 from .tag import Tag
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class CompanyRegistrationDetails(pydantic.BaseModel):
@@ -17,7 +20,7 @@ class CompanyRegistrationDetails(pydantic.BaseModel):
 
     registration_identifier: str = pydantic.Field(
         alias="registrationIdentifier",
-        description='Commercial registry registration number for the company in its registration country <span style="white-space: nowrap">`non-empty`</span> ',
+        description="Commercial registry registration number for the company in its registration country",
     )
     registration_country: CountryCode = pydantic.Field(alias="registrationCountry")
     tax_identifier: typing.Optional[str] = pydantic.Field(

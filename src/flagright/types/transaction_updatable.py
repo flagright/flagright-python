@@ -3,8 +3,6 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .device_data import DeviceData
 from .tag import Tag
@@ -12,6 +10,11 @@ from .transaction_amount_details import TransactionAmountDetails
 from .transaction_state import TransactionState
 from .transaction_updatable_destination_payment_details import TransactionUpdatableDestinationPaymentDetails
 from .transaction_updatable_origin_payment_details import TransactionUpdatableOriginPaymentDetails
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class TransactionUpdatable(pydantic.BaseModel):
@@ -43,7 +46,7 @@ class TransactionUpdatable(pydantic.BaseModel):
         alias="promotionCodeUsed", description="Whether a promotion code was used or not the transaction"
     )
     reference: typing.Optional[str] = pydantic.Field(
-        description='Reference field for the transaction indicating the purpose of the transaction etc. <span style="white-space: nowrap">`non-empty`</span> '
+        description="Reference field for the transaction indicating the purpose of the transaction etc."
     )
     origin_device_data: typing.Optional[DeviceData] = pydantic.Field(alias="originDeviceData")
     destination_device_data: typing.Optional[DeviceData] = pydantic.Field(alias="destinationDeviceData")

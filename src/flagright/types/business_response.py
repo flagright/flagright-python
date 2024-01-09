@@ -3,15 +3,18 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .business_with_rules_result import BusinessWithRulesResult
-from .risk_score_details import RiskScoreDetails
+from .user_risk_score_details import UserRiskScoreDetails
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class BusinessResponse(BusinessWithRulesResult):
-    risk_score_details: typing.Optional[RiskScoreDetails] = pydantic.Field(alias="riskScoreDetails")
+    risk_score_details: typing.Optional[UserRiskScoreDetails] = pydantic.Field(alias="riskScoreDetails")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

@@ -4,8 +4,6 @@ import typing
 import urllib.parse
 from json.decoder import JSONDecodeError
 
-import pydantic
-
 from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.jsonable_encoder import jsonable_encoder
@@ -14,6 +12,11 @@ from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.transaction_event import TransactionEvent
 from ...types.transaction_event_monitoring_result import TransactionEventMonitoringResult
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -31,8 +34,8 @@ class TransactionEventsClient:
 
         Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
 
-        * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
-        * Update the transaction details, using the `updatedTransactionAttributes` field.
+        - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
+        - Update the transaction details, using the `updatedTransactionAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use transaction events.
 
@@ -40,9 +43,9 @@ class TransactionEventsClient:
 
         Each transaction event needs three mandatory fields:
 
-        * `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
-        * `timestamp`- the timestamp of when the event was created or occured in your system
-        * `transactionId` - The ID of the transaction for which this event is generated.
+        - `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
+        - `timestamp`- the timestamp of when the event was created or occured in your system
+        - `transactionId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
@@ -112,8 +115,8 @@ class AsyncTransactionEventsClient:
 
         Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
 
-        * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
-        * Update the transaction details, using the `updatedTransactionAttributes` field.
+        - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
+        - Update the transaction details, using the `updatedTransactionAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use transaction events.
 
@@ -121,9 +124,9 @@ class AsyncTransactionEventsClient:
 
         Each transaction event needs three mandatory fields:
 
-        * `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
-        * `timestamp`- the timestamp of when the event was created or occured in your system
-        * `transactionId` - The ID of the transaction for which this event is generated.
+        - `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
+        - `timestamp`- the timestamp of when the event was created or occured in your system
+        - `transactionId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 

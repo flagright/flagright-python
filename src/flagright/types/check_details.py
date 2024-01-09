@@ -3,17 +3,18 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
 from .check_details_delivery_status import CheckDetailsDeliveryStatus
-from .check_payment_method import CheckPaymentMethod
 from .tag import Tag
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class CheckDetails(pydantic.BaseModel):
-    method: CheckPaymentMethod
     check_number: typing.Optional[str] = pydantic.Field(alias="checkNumber")
     check_identifier: typing.Optional[str] = pydantic.Field(alias="checkIdentifier")
     name: typing.Optional[str]

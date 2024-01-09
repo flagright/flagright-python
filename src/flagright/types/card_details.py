@@ -3,18 +3,20 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .card_details_card_brand import CardDetailsCardBrand
 from .card_details_card_funding import CardDetailsCardFunding
 from .card_details_card_type import CardDetailsCardType
 from .card_expiry import CardExpiry
 from .card_merchant_details import CardMerchantDetails
-from .card_payment_method import CardPaymentMethod
 from .consumer_name import ConsumerName
 from .country_code import CountryCode
 from .tag import Tag
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class CardDetails(pydantic.BaseModel):
@@ -22,15 +24,13 @@ class CardDetails(pydantic.BaseModel):
     Model for credit or debit card details
     """
 
-    method: CardPaymentMethod
     card_fingerprint: typing.Optional[str] = pydantic.Field(
         alias="cardFingerprint",
-        description='Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider <span style="white-space: nowrap">`non-empty`</span> ',
+        description="Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider",
     )
     card_issued_country: typing.Optional[CountryCode] = pydantic.Field(alias="cardIssuedCountry")
     transaction_reference_field: typing.Optional[str] = pydantic.Field(
-        alias="transactionReferenceField",
-        description='Reference for the transaction <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="transactionReferenceField", description="Reference for the transaction"
     )
     _3_ds_done: typing.Optional[bool] = pydantic.Field(
         alias="3dsDone", description="Whether 3ds was successfully enforced for the transaction"
@@ -38,8 +38,7 @@ class CardDetails(pydantic.BaseModel):
     name_on_card: typing.Optional[ConsumerName] = pydantic.Field(alias="nameOnCard")
     card_expiry: typing.Optional[CardExpiry] = pydantic.Field(alias="cardExpiry")
     card_last_4_digits: typing.Optional[str] = pydantic.Field(
-        alias="cardLast4Digits",
-        description='Last 4 digits of Card <span style="white-space: nowrap">`<= 4 characters`</span> ',
+        alias="cardLast4Digits", description="Last 4 digits of Card"
     )
     card_brand: typing.Optional[CardDetailsCardBrand] = pydantic.Field(alias="cardBrand", description="Brand of Card")
     card_funding: typing.Optional[CardDetailsCardFunding] = pydantic.Field(

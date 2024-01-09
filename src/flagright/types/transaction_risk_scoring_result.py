@@ -4,7 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .transaction_limit import TransactionLimit
+from .risk_level import RiskLevel
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -12,16 +12,9 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class TransactionLimitsPaymentMethodLimits(pydantic.BaseModel):
-    ach: typing.Optional[TransactionLimit] = pydantic.Field(alias="ACH")
-    card: typing.Optional[TransactionLimit] = pydantic.Field(alias="CARD")
-    iban: typing.Optional[TransactionLimit] = pydantic.Field(alias="IBAN")
-    upi: typing.Optional[TransactionLimit] = pydantic.Field(alias="UPI")
-    generic_bank_account: typing.Optional[TransactionLimit] = pydantic.Field(alias="GENERIC_BANK_ACCOUNT")
-    mpesa: typing.Optional[TransactionLimit] = pydantic.Field(alias="MPESA")
-    swift: typing.Optional[TransactionLimit] = pydantic.Field(alias="SWIFT")
-    wallet: typing.Optional[TransactionLimit] = pydantic.Field(alias="WALLET")
-    check: typing.Optional[TransactionLimit] = pydantic.Field(alias="CHECK")
+class TransactionRiskScoringResult(pydantic.BaseModel):
+    trs_score: float = pydantic.Field(alias="trsScore", description="Transaction risk scoring score")
+    trs_risk_level: RiskLevel = pydantic.Field(alias="trsRiskLevel")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

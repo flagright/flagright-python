@@ -3,13 +3,17 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .executed_rules_result import ExecutedRulesResult
 from .hit_rules_details import HitRulesDetails
 from .rule_action import RuleAction
 from .transaction import Transaction
+from .transaction_risk_scoring_result import TransactionRiskScoringResult
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class TransactionWithRulesResult(Transaction):
@@ -20,6 +24,7 @@ class TransactionWithRulesResult(Transaction):
     executed_rules: typing.List[ExecutedRulesResult] = pydantic.Field(alias="executedRules")
     hit_rules: typing.List[HitRulesDetails] = pydantic.Field(alias="hitRules")
     status: RuleAction
+    risk_score_details: typing.Optional[TransactionRiskScoringResult] = pydantic.Field(alias="riskScoreDetails")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

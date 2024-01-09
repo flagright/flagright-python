@@ -3,9 +3,12 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class ConsumerName(pydantic.BaseModel):
@@ -13,15 +16,9 @@ class ConsumerName(pydantic.BaseModel):
     Model for a generic consumer name
     """
 
-    first_name: str = pydantic.Field(
-        alias="firstName", description='First name of the user <span style="white-space: nowrap">`non-empty`</span> '
-    )
-    middle_name: typing.Optional[str] = pydantic.Field(
-        alias="middleName", description='Middle name of the user <span style="white-space: nowrap">`non-empty`</span> '
-    )
-    last_name: typing.Optional[str] = pydantic.Field(
-        alias="lastName", description='Last name of the user <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    first_name: str = pydantic.Field(alias="firstName", description="First name of the user")
+    middle_name: typing.Optional[str] = pydantic.Field(alias="middleName", description="Middle name of the user")
+    last_name: typing.Optional[str] = pydantic.Field(alias="lastName", description="Last name of the user")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

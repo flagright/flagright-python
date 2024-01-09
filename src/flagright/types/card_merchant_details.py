@@ -3,9 +3,12 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class CardMerchantDetails(pydantic.BaseModel):
@@ -13,9 +16,7 @@ class CardMerchantDetails(pydantic.BaseModel):
     category: typing.Optional[str]
     mcc: typing.Optional[str] = pydantic.Field(alias="MCC")
     city: typing.Optional[str]
-    country: typing.Optional[str] = pydantic.Field(
-        description='<span style="white-space: nowrap">`<= 2 characters`</span>'
-    )
+    country: typing.Optional[str]
     state: typing.Optional[str]
     post_code: typing.Optional[str] = pydantic.Field(alias="postCode")
 

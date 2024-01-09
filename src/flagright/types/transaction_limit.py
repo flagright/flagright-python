@@ -3,11 +3,14 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .transaction_amount_limit import TransactionAmountLimit
 from .transaction_count_limit import TransactionCountLimit
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class TransactionLimit(pydantic.BaseModel):

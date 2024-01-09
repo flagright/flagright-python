@@ -3,13 +3,16 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .rule_action import RuleAction
 from .rule_hit_meta import RuleHitMeta
 from .rule_labels import RuleLabels
 from .rule_nature import RuleNature
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class ExecutedRulesResult(pydantic.BaseModel):
@@ -17,17 +20,10 @@ class ExecutedRulesResult(pydantic.BaseModel):
     Model for list of executed rules
     """
 
-    rule_id: str = pydantic.Field(
-        alias="ruleId", description='Unique rule identifier <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    rule_id: typing.Optional[str] = pydantic.Field(alias="ruleId", description="Unique rule identifier")
     rule_instance_id: str = pydantic.Field(alias="ruleInstanceId")
-    rule_name: str = pydantic.Field(
-        alias="ruleName", description='Name of the rule <span style="white-space: nowrap">`non-empty`</span> '
-    )
-    rule_description: str = pydantic.Field(
-        alias="ruleDescription",
-        description='Description of the rule <span style="white-space: nowrap">`non-empty`</span> ',
-    )
+    rule_name: str = pydantic.Field(alias="ruleName", description="Name of the rule")
+    rule_description: str = pydantic.Field(alias="ruleDescription", description="Description of the rule")
     rule_action: RuleAction = pydantic.Field(alias="ruleAction")
     rule_hit: bool = pydantic.Field(alias="ruleHit")
     rule_hit_meta: typing.Optional[RuleHitMeta] = pydantic.Field(alias="ruleHitMeta")

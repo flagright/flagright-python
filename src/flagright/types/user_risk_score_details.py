@@ -4,11 +4,19 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .consumer_users_response import ConsumerUsersResponse
+from .risk_level import RiskLevel
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
-class ConsumerUsersCreateResponse(ConsumerUsersResponse):
-    message: typing.Optional[str]
+class UserRiskScoreDetails(pydantic.BaseModel):
+    kyc_risk_score: typing.Optional[float] = pydantic.Field(alias="kycRiskScore")
+    cra_risk_score: typing.Optional[float] = pydantic.Field(alias="craRiskScore")
+    kyc_risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="kycRiskLevel")
+    cra_risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="craRiskLevel")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

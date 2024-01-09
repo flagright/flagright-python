@@ -3,12 +3,14 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
-from .general_bank_account_payment_method import GeneralBankAccountPaymentMethod
 from .tag import Tag
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class GenericBankAccountDetails(pydantic.BaseModel):
@@ -16,16 +18,11 @@ class GenericBankAccountDetails(pydantic.BaseModel):
     Model for any generic bank account
     """
 
-    method: GeneralBankAccountPaymentMethod
-    account_number: typing.Optional[str] = pydantic.Field(
-        alias="accountNumber", description='Bank account number <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    account_number: typing.Optional[str] = pydantic.Field(alias="accountNumber", description="Bank account number")
     account_type: typing.Optional[str] = pydantic.Field(
         alias="accountType", description="Bank account type. E.g. Checking, Savings etc."
     )
-    bank_name: typing.Optional[str] = pydantic.Field(
-        alias="bankName", description='Name of the bank <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    bank_name: typing.Optional[str] = pydantic.Field(alias="bankName", description="Name of the bank")
     bank_code: typing.Optional[str] = pydantic.Field(
         alias="bankCode",
         description="Unique identifier of the bank. In some countries, this can be the same as the bank's SWIFT code",

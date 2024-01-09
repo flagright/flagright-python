@@ -3,10 +3,13 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .tag import Tag
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class Address(pydantic.BaseModel):
@@ -17,18 +20,10 @@ class Address(pydantic.BaseModel):
     address_lines: typing.List[typing.Any] = pydantic.Field(
         alias="addressLines", description="Address lines of the user's residence address"
     )
-    postcode: typing.Optional[str] = pydantic.Field(
-        description='Post code of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> '
-    )
-    city: str = pydantic.Field(
-        description='City of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> '
-    )
-    state: typing.Optional[str] = pydantic.Field(
-        description='State of the user\'s residence address <span style="white-space: nowrap">`non-empty`</span> '
-    )
-    country: str = pydantic.Field(
-        description='User\'s country of residence <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    postcode: typing.Optional[str] = pydantic.Field(description="Post code of the user's residence address")
+    city: str = pydantic.Field(description="City of the user's residence address")
+    state: typing.Optional[str] = pydantic.Field(description="State of the user's residence address")
+    country: str = pydantic.Field(description="User's country of residence")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )

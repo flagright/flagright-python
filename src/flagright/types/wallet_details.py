@@ -3,12 +3,14 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .amount import Amount
 from .tag import Tag
-from .wallet_payment_method import WalletPaymentMethod
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class WalletDetails(pydantic.BaseModel):
@@ -16,14 +18,11 @@ class WalletDetails(pydantic.BaseModel):
     Standardized model for a Generic wallet transaction
     """
 
-    method: WalletPaymentMethod
     wallet_type: str = pydantic.Field(
         alias="walletType",
         description="Wallet type if there are various types of wallets belonging to the same user. E.g. Checking, savings, vault, different currency wallets etc.",
     )
-    wallet_id: typing.Optional[str] = pydantic.Field(
-        alias="walletId", description='Unique ID of the wallet <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    wallet_id: typing.Optional[str] = pydantic.Field(alias="walletId", description="Unique ID of the wallet")
     payment_channel: typing.Optional[str] = pydantic.Field(
         alias="paymentChannel", description="Payment Channel used through wallet"
     )

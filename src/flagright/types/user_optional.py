@@ -3,8 +3,6 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .acquisition_channel import AcquisitionChannel
 from .consumer_user_segment import ConsumerUserSegment
@@ -19,6 +17,11 @@ from .tag import Tag
 from .transaction_limits import TransactionLimits
 from .user_details import UserDetails
 from .user_state_details import UserStateDetails
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class UserOptional(pydantic.BaseModel):

@@ -3,9 +3,12 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class UserBase(pydantic.BaseModel):
@@ -13,9 +16,7 @@ class UserBase(pydantic.BaseModel):
     Model for User details
     """
 
-    user_id: str = pydantic.Field(
-        alias="userId", description='Unique user ID <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    user_id: str = pydantic.Field(alias="userId", description="Unique user ID")
     created_timestamp: float = pydantic.Field(alias="createdTimestamp", description="Timestamp when userId is created")
 
     def json(self, **kwargs: typing.Any) -> str:

@@ -3,12 +3,15 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .false_positive_details import FalsePositiveDetails
 from .rule_hit_direction import RuleHitDirection
 from .sanctions_details import SanctionsDetails
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class RuleHitMeta(pydantic.BaseModel):

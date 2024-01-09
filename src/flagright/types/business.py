@@ -3,8 +3,6 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .acquisition_channel import AcquisitionChannel
 from .business_entity_link import BusinessEntityLink
@@ -19,11 +17,14 @@ from .tag import Tag
 from .transaction_limits import TransactionLimits
 from .user_state_details import UserStateDetails
 
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
+
 
 class Business(pydantic.BaseModel):
-    user_id: str = pydantic.Field(
-        alias="userId", description='Unique user ID for the user <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    user_id: str = pydantic.Field(alias="userId", description="Unique user ID for the user")
     created_timestamp: float = pydantic.Field(
         alias="createdTimestamp", description="Timestamp when the user was created"
     )

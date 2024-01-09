@@ -3,11 +3,14 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .case_management_event_case_status import CaseManagementEventCaseStatus
 from .case_management_event_case_status_reason import CaseManagementEventCaseStatusReason
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class CaseManagementEvent(pydantic.BaseModel):
@@ -24,8 +27,7 @@ class CaseManagementEvent(pydantic.BaseModel):
         description="Case status reason. E.g. Closed & False Positive, Closed & Investigation Completed etc.",
     )
     transaction_id: typing.Optional[str] = pydantic.Field(
-        alias="transactionId",
-        description='Transaction ID the case pertains to <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="transactionId", description="Transaction ID the case pertains to"
     )
     user_id: typing.Optional[str] = pydantic.Field(alias="userId", description="User ID the case pertains to")
     event_id: typing.Optional[str] = pydantic.Field(alias="eventId", description="Event ID the case pertains to")

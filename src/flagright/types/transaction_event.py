@@ -3,12 +3,15 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .device_data import DeviceData
 from .transaction_state import TransactionState
 from .transaction_updatable import TransactionUpdatable
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class TransactionEvent(pydantic.BaseModel):
@@ -18,10 +21,7 @@ class TransactionEvent(pydantic.BaseModel):
 
     transaction_state: TransactionState = pydantic.Field(alias="transactionState")
     timestamp: float = pydantic.Field(description="Timestamp of the event")
-    transaction_id: str = pydantic.Field(
-        alias="transactionId",
-        description='Transaction ID the event pertains to <span style="white-space: nowrap">`non-empty`</span> ',
-    )
+    transaction_id: str = pydantic.Field(alias="transactionId", description="Transaction ID the event pertains to")
     event_id: typing.Optional[str] = pydantic.Field(alias="eventId", description="Unique event ID")
     reason: typing.Optional[str] = pydantic.Field(description="Reason for the event or a state change")
     event_description: typing.Optional[str] = pydantic.Field(alias="eventDescription", description="Event description")

@@ -3,9 +3,12 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class Tag(pydantic.BaseModel):
@@ -13,12 +16,8 @@ class Tag(pydantic.BaseModel):
     Generic key-value pair model to append a custom variable being sent to Flagright API
     """
 
-    key: str = pydantic.Field(
-        description='Key value when you are creating a custom variable <span style="white-space: nowrap">`non-empty`</span> '
-    )
-    value: str = pydantic.Field(
-        description='Value for a given key when you are creating a custom variable <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    key: str = pydantic.Field(description="Key value when you are creating a custom variable")
+    value: str = pydantic.Field(description="Value for a given key when you are creating a custom variable")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

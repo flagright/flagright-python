@@ -3,12 +3,14 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
-from .ach_payment_method import AchPaymentMethod
 from .address import Address
 from .tag import Tag
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class AchDetails(pydantic.BaseModel):
@@ -16,18 +18,13 @@ class AchDetails(pydantic.BaseModel):
     Model for ACH payment method
     """
 
-    method: AchPaymentMethod
     routing_number: typing.Optional[str] = pydantic.Field(
-        alias="routingNumber",
-        description='Routing number of the bank <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="routingNumber", description="Routing number of the bank"
     )
     account_number: typing.Optional[str] = pydantic.Field(
-        alias="accountNumber",
-        description='Bank account number of the individual <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="accountNumber", description="Bank account number of the individual"
     )
-    bank_name: typing.Optional[str] = pydantic.Field(
-        alias="bankName", description='Name of the bank <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    bank_name: typing.Optional[str] = pydantic.Field(alias="bankName", description="Name of the bank")
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     beneficiary_name: typing.Optional[str] = pydantic.Field(

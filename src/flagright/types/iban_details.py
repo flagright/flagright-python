@@ -3,13 +3,15 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
 from .country_code import CountryCode
-from .iban_payment_method import IbanPaymentMethod
 from .tag import Tag
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class IbanDetails(pydantic.BaseModel):
@@ -17,14 +19,11 @@ class IbanDetails(pydantic.BaseModel):
     Standardized model for Bank Details
     """
 
-    method: IbanPaymentMethod
     bic: typing.Optional[str] = pydantic.Field(
         alias="BIC",
-        description='Identifier for the bank. Can be routing number, BIK number, SWIFT code, BIC number etc. <span style="white-space: nowrap">`non-empty`</span> ',
+        description="Identifier for the bank. Can be routing number, BIK number, SWIFT code, BIC number etc.",
     )
-    bank_name: typing.Optional[str] = pydantic.Field(
-        alias="bankName", description='Name of the bank <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    bank_name: typing.Optional[str] = pydantic.Field(alias="bankName", description="Name of the bank")
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     country: typing.Optional[CountryCode]
     iban: typing.Optional[str] = pydantic.Field(

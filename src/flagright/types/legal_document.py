@@ -3,12 +3,15 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .consumer_name import ConsumerName
 from .country_code import CountryCode
 from .tag import Tag
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class LegalDocument(pydantic.BaseModel):
@@ -17,12 +20,10 @@ class LegalDocument(pydantic.BaseModel):
     """
 
     document_type: str = pydantic.Field(
-        alias="documentType",
-        description='User\'s identity document type such as passport, national ID etc. <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="documentType", description="User's identity document type such as passport, national ID etc."
     )
     document_number: str = pydantic.Field(
-        alias="documentNumber",
-        description='User\'s unique identity document number such as passport number <span style="white-space: nowrap">`non-empty`</span> ',
+        alias="documentNumber", description="User's unique identity document number such as passport number"
     )
     document_issued_date: typing.Optional[float] = pydantic.Field(
         alias="documentIssuedDate",

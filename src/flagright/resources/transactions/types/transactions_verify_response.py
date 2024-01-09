@@ -3,17 +3,12 @@
 import datetime as dt
 import typing
 
-import pydantic
-
-from ..core.datetime_utils import serialize_datetime
-from .risk_level import RiskLevel
+from ....core.datetime_utils import serialize_datetime
+from ....types.transaction_monitoring_result import TransactionMonitoringResult
 
 
-class RiskScoreDetails(pydantic.BaseModel):
-    kyc_risk_score: typing.Optional[float] = pydantic.Field(alias="kycRiskScore")
-    cra_risk_score: typing.Optional[float] = pydantic.Field(alias="craRiskScore")
-    kyc_risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="kycRiskLevel")
-    cra_risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="craRiskLevel")
+class TransactionsVerifyResponse(TransactionMonitoringResult):
+    message: typing.Optional[str]
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

@@ -3,10 +3,13 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .legal_entity import LegalEntity
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class BusinessBase(pydantic.BaseModel):
@@ -14,9 +17,7 @@ class BusinessBase(pydantic.BaseModel):
     Model for a business user base fields
     """
 
-    user_id: str = pydantic.Field(
-        alias="userId", description='Unique user ID for the user <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    user_id: str = pydantic.Field(alias="userId", description="Unique user ID for the user")
     created_timestamp: float = pydantic.Field(
         alias="createdTimestamp", description="Timestamp when the user was created"
     )

@@ -3,12 +3,15 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .business_user_segment import BusinessUserSegment
 from .tag import Tag
 from .user_registration_status import UserRegistrationStatus
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class CompanyGeneralDetails(pydantic.BaseModel):
@@ -16,16 +19,16 @@ class CompanyGeneralDetails(pydantic.BaseModel):
     Model for business user company general details
     """
 
-    legal_name: str = pydantic.Field(
-        alias="legalName", description='Legal name of the company <span style="white-space: nowrap">`non-empty`</span> '
-    )
+    legal_name: str = pydantic.Field(alias="legalName", description="Legal name of the company")
     business_industry: typing.Optional[typing.List[str]] = pydantic.Field(
         alias="businessIndustry", description="The industry the business operates in for a business customer"
     )
     main_products_services_sold: typing.Optional[typing.List[str]] = pydantic.Field(
         alias="mainProductsServicesSold", description="The key products and services provided by the company"
     )
-    user_segment: typing.Optional[BusinessUserSegment] = pydantic.Field(alias="userSegment")
+    user_segment: typing.Optional[BusinessUserSegment] = pydantic.Field(
+        alias="userSegment", description="Segmentation of the business user"
+    )
     user_registration_status: typing.Optional[UserRegistrationStatus] = pydantic.Field(alias="userRegistrationStatus")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"

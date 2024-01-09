@@ -3,11 +3,11 @@
 import datetime as dt
 import typing
 
-from ..core.datetime_utils import serialize_datetime
-from .transaction_monitoring_result import TransactionMonitoringResult
+from ....core.datetime_utils import serialize_datetime
+from ....types.business_users_response import BusinessUsersResponse
 
 
-class TransactionsVerifyResponse(TransactionMonitoringResult):
+class BusinessUsersCreateResponse(BusinessUsersResponse):
     message: typing.Optional[str]
 
     def json(self, **kwargs: typing.Any) -> str:

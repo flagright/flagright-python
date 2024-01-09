@@ -4,8 +4,6 @@ import typing
 import urllib.parse
 from json.decoder import JSONDecodeError
 
-import pydantic
-
 from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.jsonable_encoder import jsonable_encoder
@@ -16,6 +14,11 @@ from ...errors.unauthorized_error import UnauthorizedError
 from ...types.boolean_string import BooleanString
 from ...types.business_optional import BusinessOptional
 from ...types.business_with_rules_result import BusinessWithRulesResult
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -43,8 +46,8 @@ class BusinessUserEventsClient:
 
         User events are created after the initial `POST /business/users` call (which creates a user) and are used to:
 
-        * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
-        * Update the user details, using the `updatedBusinessUserAttributes` field.
+        - Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
+        - Update the user details, using the `updatedBusinessUserAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use user events.
 
@@ -52,8 +55,8 @@ class BusinessUserEventsClient:
 
         Each user event needs three mandatory fields:
 
-        * `timestamp`- the timestamp of when the event was created or occured in your system
-        * `userId` - The ID of the transaction for which this event is generated.
+        - `timestamp`- the timestamp of when the event was created or occured in your system
+        - `userId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
@@ -62,7 +65,7 @@ class BusinessUserEventsClient:
 
             - timestamp: float. Timestamp of the event
 
-            - user_id: str. Transaction ID the event pertains to <span style="white-space: nowrap">`non-empty`</span>
+            - user_id: str. Transaction ID the event pertains to
 
             - event_id: typing.Optional[str]. Unique event ID
 
@@ -126,8 +129,8 @@ class AsyncBusinessUserEventsClient:
 
         User events are created after the initial `POST /business/users` call (which creates a user) and are used to:
 
-        * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
-        * Update the user details, using the `updatedBusinessUserAttributes` field.
+        - Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
+        - Update the user details, using the `updatedBusinessUserAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use user events.
 
@@ -135,8 +138,8 @@ class AsyncBusinessUserEventsClient:
 
         Each user event needs three mandatory fields:
 
-        * `timestamp`- the timestamp of when the event was created or occured in your system
-        * `userId` - The ID of the transaction for which this event is generated.
+        - `timestamp`- the timestamp of when the event was created or occured in your system
+        - `userId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
@@ -145,7 +148,7 @@ class AsyncBusinessUserEventsClient:
 
             - timestamp: float. Timestamp of the event
 
-            - user_id: str. Transaction ID the event pertains to <span style="white-space: nowrap">`non-empty`</span>
+            - user_id: str. Transaction ID the event pertains to
 
             - event_id: typing.Optional[str]. Unique event ID
 

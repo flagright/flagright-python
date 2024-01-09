@@ -21,12 +21,13 @@ class Flagright:
         base_url: typing.Optional[str] = None,
         environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT,
         api_key: str,
-        timeout: typing.Optional[float] = 60
+        timeout: typing.Optional[float] = 60,
+        httpx_client: typing.Optional[httpx.Client] = None
     ):
         self._client_wrapper = SyncClientWrapper(
             base_url=_get_base_url(base_url=base_url, environment=environment),
             api_key=api_key,
-            httpx_client=httpx.Client(timeout=timeout),
+            httpx_client=httpx.Client(timeout=timeout) if httpx_client is None else httpx_client,
         )
         self.transactions = TransactionsClient(client_wrapper=self._client_wrapper)
         self.transaction_events = TransactionEventsClient(client_wrapper=self._client_wrapper)
@@ -43,12 +44,13 @@ class AsyncFlagright:
         base_url: typing.Optional[str] = None,
         environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT,
         api_key: str,
-        timeout: typing.Optional[float] = 60
+        timeout: typing.Optional[float] = 60,
+        httpx_client: typing.Optional[httpx.AsyncClient] = None
     ):
         self._client_wrapper = AsyncClientWrapper(
             base_url=_get_base_url(base_url=base_url, environment=environment),
             api_key=api_key,
-            httpx_client=httpx.AsyncClient(timeout=timeout),
+            httpx_client=httpx.AsyncClient(timeout=timeout) if httpx_client is None else httpx_client,
         )
         self.transactions = AsyncTransactionsClient(client_wrapper=self._client_wrapper)
         self.transaction_events = AsyncTransactionEventsClient(client_wrapper=self._client_wrapper)

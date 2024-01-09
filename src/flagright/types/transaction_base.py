@@ -3,10 +3,13 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .transaction_type import TransactionType
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class TransactionBase(pydantic.BaseModel):
@@ -15,10 +18,7 @@ class TransactionBase(pydantic.BaseModel):
     """
 
     type: TransactionType
-    transaction_id: str = pydantic.Field(
-        alias="transactionId",
-        description='Unique transaction identifier <span style="white-space: nowrap">`non-empty`</span> ',
-    )
+    transaction_id: str = pydantic.Field(alias="transactionId", description="Unique transaction identifier")
     timestamp: float = pydantic.Field(description="Timestamp of when transaction took place")
     origin_user_id: typing.Optional[str] = pydantic.Field(
         alias="originUserId", description="UserId for where the transaction originates from"

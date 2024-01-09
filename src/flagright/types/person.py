@@ -3,14 +3,17 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .contact_details import ContactDetails
 from .legal_document import LegalDocument
 from .pep_status import PepStatus
 from .tag import Tag
 from .user_details import UserDetails
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class Person(pydantic.BaseModel):

@@ -3,12 +3,15 @@
 import datetime as dt
 import typing
 
-import pydantic
-
 from ..core.datetime_utils import serialize_datetime
 from .list_metadata import ListMetadata
 from .list_subtype import ListSubtype
 from .list_type import ListType
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
 class ListHeader(pydantic.BaseModel):
