@@ -4,11 +4,11 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .card_details_card_brand import CardDetailsCardBrand
-from .card_details_card_funding import CardDetailsCardFunding
-from .card_details_card_type import CardDetailsCardType
+from .card_brand import CardBrand
 from .card_expiry import CardExpiry
+from .card_funding import CardFunding
 from .card_merchant_details import CardMerchantDetails
+from .card_type import CardType
 from .consumer_name import ConsumerName
 from .country_code import CountryCode
 from .tag import Tag
@@ -40,15 +40,13 @@ class CardDetails(pydantic.BaseModel):
     card_last_4_digits: typing.Optional[str] = pydantic.Field(
         alias="cardLast4Digits", description="Last 4 digits of Card"
     )
-    card_brand: typing.Optional[CardDetailsCardBrand] = pydantic.Field(alias="cardBrand", description="Brand of Card")
-    card_funding: typing.Optional[CardDetailsCardFunding] = pydantic.Field(
-        alias="cardFunding", description="Funding of Card"
-    )
+    card_brand: typing.Optional[CardBrand] = pydantic.Field(alias="cardBrand")
+    card_funding: typing.Optional[CardFunding] = pydantic.Field(alias="cardFunding")
     card_authenticated: typing.Optional[bool] = pydantic.Field(
         alias="cardAuthenticated", description="Authentication of Card"
     )
     payment_channel: typing.Optional[str] = pydantic.Field(alias="paymentChannel")
-    card_type: typing.Optional[CardDetailsCardType] = pydantic.Field(alias="cardType")
+    card_type: typing.Optional[CardType] = pydantic.Field(alias="cardType")
     merchant_details: typing.Optional[CardMerchantDetails] = pydantic.Field(alias="merchantDetails")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"

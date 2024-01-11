@@ -6,7 +6,7 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class CardDetailsCardFunding(str, enum.Enum):
+class CardFunding(str, enum.Enum):
     """
     Funding of Card
     """
@@ -21,9 +21,9 @@ class CardDetailsCardFunding(str, enum.Enum):
         debit: typing.Callable[[], T_Result],
         prepaid: typing.Callable[[], T_Result],
     ) -> T_Result:
-        if self is CardDetailsCardFunding.CREDIT:
+        if self is CardFunding.CREDIT:
             return credit()
-        if self is CardDetailsCardFunding.DEBIT:
+        if self is CardFunding.DEBIT:
             return debit()
-        if self is CardDetailsCardFunding.PREPAID:
+        if self is CardFunding.PREPAID:
             return prepaid()

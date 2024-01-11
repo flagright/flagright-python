@@ -6,7 +6,7 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class UserDetailsGender(str, enum.Enum):
+class Gender(str, enum.Enum):
     """
     Gender of the individual - Male, Female or Non-Binary
     """
@@ -18,9 +18,9 @@ class UserDetailsGender(str, enum.Enum):
     def visit(
         self, m: typing.Callable[[], T_Result], f: typing.Callable[[], T_Result], nb: typing.Callable[[], T_Result]
     ) -> T_Result:
-        if self is UserDetailsGender.M:
+        if self is Gender.M:
             return m()
-        if self is UserDetailsGender.F:
+        if self is Gender.F:
             return f()
-        if self is UserDetailsGender.NB:
+        if self is Gender.NB:
             return nb()

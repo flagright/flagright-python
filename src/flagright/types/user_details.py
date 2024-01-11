@@ -6,7 +6,7 @@ import typing
 from ..core.datetime_utils import serialize_datetime
 from .consumer_name import ConsumerName
 from .country_code import CountryCode
-from .user_details_gender import UserDetailsGender
+from .gender import Gender
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -25,9 +25,7 @@ class UserDetails(pydantic.BaseModel):
     )
     country_of_residence: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfResidence")
     country_of_nationality: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfNationality")
-    gender: typing.Optional[UserDetailsGender] = pydantic.Field(
-        description="Gender of the individual - Male, Female or Non-Binary"
-    )
+    gender: typing.Optional[Gender]
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

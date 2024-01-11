@@ -5,7 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
-from .check_details_delivery_status import CheckDetailsDeliveryStatus
+from .check_delivery_status import CheckDeliveryStatus
 from .tag import Tag
 
 try:
@@ -18,7 +18,7 @@ class CheckDetails(pydantic.BaseModel):
     check_number: typing.Optional[str] = pydantic.Field(alias="checkNumber")
     check_identifier: typing.Optional[str] = pydantic.Field(alias="checkIdentifier")
     name: typing.Optional[str]
-    delivery_status: typing.Optional[CheckDetailsDeliveryStatus] = pydantic.Field(alias="deliveryStatus")
+    delivery_status: typing.Optional[CheckDeliveryStatus] = pydantic.Field(alias="deliveryStatus")
     eta_timestamp: typing.Optional[float] = pydantic.Field(alias="etaTimestamp")
     shipping_address: typing.Optional[Address] = pydantic.Field(alias="shippingAddress")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(

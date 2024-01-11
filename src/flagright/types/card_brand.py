@@ -6,7 +6,7 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class CardDetailsCardBrand(str, enum.Enum):
+class CardBrand(str, enum.Enum):
     """
     Brand of Card
     """
@@ -29,17 +29,17 @@ class CardDetailsCardBrand(str, enum.Enum):
         rupay: typing.Callable[[], T_Result],
         jcb: typing.Callable[[], T_Result],
     ) -> T_Result:
-        if self is CardDetailsCardBrand.VISA:
+        if self is CardBrand.VISA:
             return visa()
-        if self is CardDetailsCardBrand.MASTERCARD:
+        if self is CardBrand.MASTERCARD:
             return mastercard()
-        if self is CardDetailsCardBrand.AMERICAN_EXPRESS:
+        if self is CardBrand.AMERICAN_EXPRESS:
             return american_express()
-        if self is CardDetailsCardBrand.DISCOVER:
+        if self is CardBrand.DISCOVER:
             return discover()
-        if self is CardDetailsCardBrand.UNIONPAY:
+        if self is CardBrand.UNIONPAY:
             return unionpay()
-        if self is CardDetailsCardBrand.RUPAY:
+        if self is CardBrand.RUPAY:
             return rupay()
-        if self is CardDetailsCardBrand.JCB:
+        if self is CardBrand.JCB:
             return jcb()

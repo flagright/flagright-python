@@ -27,19 +27,19 @@ from .business_response import BusinessResponse
 from .business_user_segment import BusinessUserSegment
 from .business_users_response import BusinessUsersResponse
 from .business_with_rules_result import BusinessWithRulesResult
+from .card_brand import CardBrand
 from .card_details import CardDetails
-from .card_details_card_brand import CardDetailsCardBrand
-from .card_details_card_funding import CardDetailsCardFunding
-from .card_details_card_type import CardDetailsCardType
 from .card_expiry import CardExpiry
+from .card_funding import CardFunding
 from .card_merchant_details import CardMerchantDetails
 from .card_payment_method import CardPaymentMethod
+from .card_type import CardType
 from .case_closed_details import CaseClosedDetails
 from .case_management_event import CaseManagementEvent
 from .case_management_event_case_status import CaseManagementEventCaseStatus
 from .case_management_event_case_status_reason import CaseManagementEventCaseStatusReason
+from .check_delivery_status import CheckDeliveryStatus
 from .check_details import CheckDetails
-from .check_details_delivery_status import CheckDetailsDeliveryStatus
 from .check_payment_method import CheckPaymentMethod
 from .company_financial_details import CompanyFinancialDetails
 from .company_general_details import CompanyGeneralDetails
@@ -56,6 +56,7 @@ from .employment_status import EmploymentStatus
 from .executed_rules_result import ExecutedRulesResult
 from .failed_rules_result import FailedRulesResult
 from .false_positive_details import FalsePositiveDetails
+from .gender import Gender
 from .general_bank_account_payment_method import GeneralBankAccountPaymentMethod
 from .generic_bank_account_details import GenericBankAccountDetails
 from .hit_rules_details import HitRulesDetails
@@ -75,8 +76,8 @@ from .list_subtype import ListSubtype
 from .list_type import ListType
 from .mcc_details import MccDetails
 from .mpesa_details import MpesaDetails
-from .mpesa_details_transaction_type import MpesaDetailsTransactionType
 from .mpesa_payment_method import MpesaPaymentMethod
+from .mpesa_transaction_type import MpesaTransactionType
 from .payment_method import PaymentMethod
 from .pep_status import PepStatus
 from .person import Person
@@ -140,7 +141,6 @@ from .upi_payment_method import UpiPaymentMethod
 from .user import User
 from .user_base import UserBase
 from .user_details import UserDetails
-from .user_details_gender import UserDetailsGender
 from .user_optional import UserOptional
 from .user_registration_status import UserRegistrationStatus
 from .user_response import UserResponse
@@ -181,19 +181,19 @@ __all__ = [
     "BusinessUserSegment",
     "BusinessUsersResponse",
     "BusinessWithRulesResult",
+    "CardBrand",
     "CardDetails",
-    "CardDetailsCardBrand",
-    "CardDetailsCardFunding",
-    "CardDetailsCardType",
     "CardExpiry",
+    "CardFunding",
     "CardMerchantDetails",
     "CardPaymentMethod",
+    "CardType",
     "CaseClosedDetails",
     "CaseManagementEvent",
     "CaseManagementEventCaseStatus",
     "CaseManagementEventCaseStatusReason",
+    "CheckDeliveryStatus",
     "CheckDetails",
-    "CheckDetailsDeliveryStatus",
     "CheckPaymentMethod",
     "CompanyFinancialDetails",
     "CompanyGeneralDetails",
@@ -210,6 +210,7 @@ __all__ = [
     "ExecutedRulesResult",
     "FailedRulesResult",
     "FalsePositiveDetails",
+    "Gender",
     "GeneralBankAccountPaymentMethod",
     "GenericBankAccountDetails",
     "HitRulesDetails",
@@ -229,8 +230,8 @@ __all__ = [
     "ListType",
     "MccDetails",
     "MpesaDetails",
-    "MpesaDetailsTransactionType",
     "MpesaPaymentMethod",
+    "MpesaTransactionType",
     "PaymentMethod",
     "PepStatus",
     "Person",
@@ -290,7 +291,6 @@ __all__ = [
     "User",
     "UserBase",
     "UserDetails",
-    "UserDetailsGender",
     "UserOptional",
     "UserRegistrationStatus",
     "UserResponse",

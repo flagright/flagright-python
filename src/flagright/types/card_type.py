@@ -6,12 +6,16 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class CardDetailsCardType(str, enum.Enum):
+class CardType(str, enum.Enum):
+    """
+    Type of card
+    """
+
     VIRTUAL = "VIRTUAL"
     PHYSICAL = "PHYSICAL"
 
     def visit(self, virtual: typing.Callable[[], T_Result], physical: typing.Callable[[], T_Result]) -> T_Result:
-        if self is CardDetailsCardType.VIRTUAL:
+        if self is CardType.VIRTUAL:
             return virtual()
-        if self is CardDetailsCardType.PHYSICAL:
+        if self is CardType.PHYSICAL:
             return physical()

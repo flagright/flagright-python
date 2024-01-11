@@ -6,7 +6,7 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class CheckDetailsDeliveryStatus(str, enum.Enum):
+class CheckDeliveryStatus(str, enum.Enum):
     COMPLETED = "COMPLETED"
     PENDING = "PENDING"
     SETTLED = "SETTLED"
@@ -23,15 +23,15 @@ class CheckDetailsDeliveryStatus(str, enum.Enum):
         refund: typing.Callable[[], T_Result],
         declined: typing.Callable[[], T_Result],
     ) -> T_Result:
-        if self is CheckDetailsDeliveryStatus.COMPLETED:
+        if self is CheckDeliveryStatus.COMPLETED:
             return completed()
-        if self is CheckDetailsDeliveryStatus.PENDING:
+        if self is CheckDeliveryStatus.PENDING:
             return pending()
-        if self is CheckDetailsDeliveryStatus.SETTLED:
+        if self is CheckDeliveryStatus.SETTLED:
             return settled()
-        if self is CheckDetailsDeliveryStatus.CANCELED:
+        if self is CheckDeliveryStatus.CANCELED:
             return canceled()
-        if self is CheckDetailsDeliveryStatus.REFUND:
+        if self is CheckDeliveryStatus.REFUND:
             return refund()
-        if self is CheckDetailsDeliveryStatus.DECLINED:
+        if self is CheckDeliveryStatus.DECLINED:
             return declined()

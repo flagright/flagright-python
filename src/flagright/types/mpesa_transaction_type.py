@@ -6,7 +6,7 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class MpesaDetailsTransactionType(str, enum.Enum):
+class MpesaTransactionType(str, enum.Enum):
     """
     Type of transaction
     """
@@ -25,13 +25,13 @@ class MpesaDetailsTransactionType(str, enum.Enum):
         business_payment: typing.Callable[[], T_Result],
         promotion_payment: typing.Callable[[], T_Result],
     ) -> T_Result:
-        if self is MpesaDetailsTransactionType.CUSTOMER_PAY_BILL_ONLINE:
+        if self is MpesaTransactionType.CUSTOMER_PAY_BILL_ONLINE:
             return customer_pay_bill_online()
-        if self is MpesaDetailsTransactionType.CUSTOMER_BUY_GOODS_ONLINE:
+        if self is MpesaTransactionType.CUSTOMER_BUY_GOODS_ONLINE:
             return customer_buy_goods_online()
-        if self is MpesaDetailsTransactionType.SALARY_PAYMENT:
+        if self is MpesaTransactionType.SALARY_PAYMENT:
             return salary_payment()
-        if self is MpesaDetailsTransactionType.BUSINESS_PAYMENT:
+        if self is MpesaTransactionType.BUSINESS_PAYMENT:
             return business_payment()
-        if self is MpesaDetailsTransactionType.PROMOTION_PAYMENT:
+        if self is MpesaTransactionType.PROMOTION_PAYMENT:
             return promotion_payment()

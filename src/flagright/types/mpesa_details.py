@@ -4,7 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .mpesa_details_transaction_type import MpesaDetailsTransactionType
+from .mpesa_transaction_type import MpesaTransactionType
 from .tag import Tag
 
 try:
@@ -19,9 +19,7 @@ class MpesaDetails(pydantic.BaseModel):
     """
 
     business_short_code: str = pydantic.Field(alias="businessShortCode", description="Business code")
-    transaction_type: MpesaDetailsTransactionType = pydantic.Field(
-        alias="transactionType", description="Type of transaction"
-    )
+    transaction_type: MpesaTransactionType = pydantic.Field(alias="transactionType")
     phone_number: str = pydantic.Field(alias="phoneNumber", description="Contact Number of the account holder")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
