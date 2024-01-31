@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
+from .email_id import EmailId
 from .tag import Tag
 
 try:
@@ -29,6 +30,7 @@ class GenericBankAccountDetails(pydantic.BaseModel):
     )
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
+    email_id: typing.Optional[EmailId] = pydantic.Field(alias="emailId")
     special_instructions: typing.Optional[str] = pydantic.Field(
         alias="specialInstructions", description="Special instructions to be specified if any"
     )

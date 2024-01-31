@@ -52,6 +52,7 @@ from .country_code import CountryCode
 from .currency_code import CurrencyCode
 from .date import Date
 from .device_data import DeviceData
+from .email_id import EmailId
 from .employment_status import EmploymentStatus
 from .executed_rules_result import ExecutedRulesResult
 from .failed_rules_result import FailedRulesResult
@@ -206,6 +207,7 @@ __all__ = [
     "CurrencyCode",
     "Date",
     "DeviceData",
+    "EmailId",
     "EmploymentStatus",
     "ExecutedRulesResult",
     "FailedRulesResult",

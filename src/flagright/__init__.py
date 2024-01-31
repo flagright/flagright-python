@@ -51,6 +51,7 @@ from .types import (
     CurrencyCode,
     Date,
     DeviceData,
+    EmailId,
     EmploymentStatus,
     ExecutedRulesResult,
     FailedRulesResult,
@@ -150,7 +151,7 @@ from .types import (
     WebhookEventTriggeredBy,
     WebhookEventType,
 )
-from .errors import BadRequestError, TooManyRequestsError, UnauthorizedError
+from .errors import BadRequestError, ForbiddenError, TooManyRequestsError, UnauthorizedError
 from .resources import (
     BusinessUsersCreateResponse,
     ConsumerUsersCreateResponse,
@@ -218,11 +219,13 @@ __all__ = [
     "CurrencyCode",
     "Date",
     "DeviceData",
+    "EmailId",
     "EmploymentStatus",
     "ExecutedRulesResult",
     "FailedRulesResult",
     "FalsePositiveDetails",
     "FlagrightEnvironment",
+    "ForbiddenError",
     "Gender",
     "GeneralBankAccountPaymentMethod",
     "GenericBankAccountDetails",

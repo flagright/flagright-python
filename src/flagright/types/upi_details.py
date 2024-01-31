@@ -4,6 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
+from .email_id import EmailId
 from .tag import Tag
 
 try:
@@ -23,6 +24,7 @@ class UpiDetails(pydantic.BaseModel):
         alias="interfaceProvider", description="Interface provider name"
     )
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
+    email_id: typing.Optional[EmailId] = pydantic.Field(alias="emailId")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )

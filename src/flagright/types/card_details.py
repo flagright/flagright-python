@@ -11,6 +11,7 @@ from .card_merchant_details import CardMerchantDetails
 from .card_type import CardType
 from .consumer_name import ConsumerName
 from .country_code import CountryCode
+from .email_id import EmailId
 from .tag import Tag
 
 try:
@@ -28,6 +29,7 @@ class CardDetails(pydantic.BaseModel):
         alias="cardFingerprint",
         description="Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider",
     )
+    email_id: typing.Optional[EmailId] = pydantic.Field(alias="emailId")
     card_issued_country: typing.Optional[CountryCode] = pydantic.Field(alias="cardIssuedCountry")
     transaction_reference_field: typing.Optional[str] = pydantic.Field(
         alias="transactionReferenceField", description="Reference for the transaction"

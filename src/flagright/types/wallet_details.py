@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .amount import Amount
+from .email_id import EmailId
 from .tag import Tag
 
 try:
@@ -27,6 +28,7 @@ class WalletDetails(pydantic.BaseModel):
         alias="paymentChannel", description="Payment Channel used through wallet"
     )
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder for a specific wallet")
+    email_id: typing.Optional[EmailId] = pydantic.Field(alias="emailId")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )

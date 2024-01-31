@@ -9,6 +9,7 @@ from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.jsonable_encoder import jsonable_encoder
 from ...core.remove_none_from_dict import remove_none_from_dict
 from ...errors.bad_request_error import BadRequestError
+from ...errors.forbidden_error import ForbiddenError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.boolean_string import BooleanString
@@ -64,6 +65,79 @@ class TransactionsClient:
             - validate_destination_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided destinationUserId exist. True by default
 
             - request: Transaction.
+        ---
+        from flagright import (
+            BooleanString,
+            CountryCode,
+            CurrencyCode,
+            DeviceData,
+            Tag,
+            Transaction,
+            TransactionAmountDetails,
+            TransactionState,
+            TransactionType,
+        )
+        from flagright.client import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.transactions.verify(
+            validate_origin_user_id=BooleanString.TRUE,
+            validate_destination_user_id=BooleanString.TRUE,
+            request=Transaction(
+                transaction_state=TransactionState.CREATED,
+                origin_amount_details=TransactionAmountDetails(
+                    transaction_amount=800.0,
+                    transaction_currency=CurrencyCode.EUR,
+                    country=CountryCode.DE,
+                ),
+                destination_amount_details=TransactionAmountDetails(
+                    transaction_amount=68351.34,
+                    transaction_currency=CurrencyCode.INR,
+                    country=CountryCode.IN,
+                ),
+                promotion_code_used=True,
+                reference="loan repayment",
+                origin_device_data=DeviceData(
+                    battery_level=95.0,
+                    device_latitude=13.0033,
+                    device_longitude=76.1004,
+                    ip_address="10.23.191.2",
+                    device_identifier="3c49f915d04485e34caba",
+                    vpn_used=False,
+                    operating_system="Android 11.2",
+                    device_maker="ASUS",
+                    device_model="Zenphone M2 Pro Max",
+                    device_year="2018",
+                    app_version="1.1.0",
+                ),
+                destination_device_data=DeviceData(
+                    battery_level=95.0,
+                    device_latitude=13.0033,
+                    device_longitude=76.1004,
+                    ip_address="10.23.191.2",
+                    device_identifier="3c49f915d04485e34caba",
+                    vpn_used=False,
+                    operating_system="Android 11.2",
+                    device_maker="ASUS",
+                    device_model="Zenphone M2 Pro Max",
+                    device_year="2018",
+                    app_version="1.1.0",
+                ),
+                tags=[
+                    Tag(
+                        key="customKey",
+                        value="customValue",
+                    )
+                ],
+                type=TransactionType.DEPOSIT,
+                transaction_id="7b80a539eea6e78acbd6d458e5971482",
+                timestamp=1641654664000.0,
+                origin_user_id="8650a2611d0771cba03310f74bf6",
+                destination_user_id="9350a2611e0771cba03310f74bf6",
+            ),
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
@@ -84,6 +158,8 @@ class TransactionsClient:
             raise BadRequestError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
         if _response.status_code == 401:
             raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+        if _response.status_code == 403:
+            raise ForbiddenError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
         if _response.status_code == 429:
             raise TooManyRequestsError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
         try:
@@ -102,6 +178,15 @@ class TransactionsClient:
 
         Parameters:
             - transaction_id: str. Unique Transaction Identifier
+        ---
+        from flagright.client import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.transactions.get(
+            transaction_id="string",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "GET",
@@ -161,6 +246,79 @@ class AsyncTransactionsClient:
             - validate_destination_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided destinationUserId exist. True by default
 
             - request: Transaction.
+        ---
+        from flagright import (
+            BooleanString,
+            CountryCode,
+            CurrencyCode,
+            DeviceData,
+            Tag,
+            Transaction,
+            TransactionAmountDetails,
+            TransactionState,
+            TransactionType,
+        )
+        from flagright.client import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+        await client.transactions.verify(
+            validate_origin_user_id=BooleanString.TRUE,
+            validate_destination_user_id=BooleanString.TRUE,
+            request=Transaction(
+                transaction_state=TransactionState.CREATED,
+                origin_amount_details=TransactionAmountDetails(
+                    transaction_amount=800.0,
+                    transaction_currency=CurrencyCode.EUR,
+                    country=CountryCode.DE,
+                ),
+                destination_amount_details=TransactionAmountDetails(
+                    transaction_amount=68351.34,
+                    transaction_currency=CurrencyCode.INR,
+                    country=CountryCode.IN,
+                ),
+                promotion_code_used=True,
+                reference="loan repayment",
+                origin_device_data=DeviceData(
+                    battery_level=95.0,
+                    device_latitude=13.0033,
+                    device_longitude=76.1004,
+                    ip_address="10.23.191.2",
+                    device_identifier="3c49f915d04485e34caba",
+                    vpn_used=False,
+                    operating_system="Android 11.2",
+                    device_maker="ASUS",
+                    device_model="Zenphone M2 Pro Max",
+                    device_year="2018",
+                    app_version="1.1.0",
+                ),
+                destination_device_data=DeviceData(
+                    battery_level=95.0,
+                    device_latitude=13.0033,
+                    device_longitude=76.1004,
+                    ip_address="10.23.191.2",
+                    device_identifier="3c49f915d04485e34caba",
+                    vpn_used=False,
+                    operating_system="Android 11.2",
+                    device_maker="ASUS",
+                    device_model="Zenphone M2 Pro Max",
+                    device_year="2018",
+                    app_version="1.1.0",
+                ),
+                tags=[
+                    Tag(
+                        key="customKey",
+                        value="customValue",
+                    )
+                ],
+                type=TransactionType.DEPOSIT,
+                transaction_id="7b80a539eea6e78acbd6d458e5971482",
+                timestamp=1641654664000.0,
+                origin_user_id="8650a2611d0771cba03310f74bf6",
+                destination_user_id="9350a2611e0771cba03310f74bf6",
+            ),
+        )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
@@ -181,6 +339,8 @@ class AsyncTransactionsClient:
             raise BadRequestError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
         if _response.status_code == 401:
             raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+        if _response.status_code == 403:
+            raise ForbiddenError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
         if _response.status_code == 429:
             raise TooManyRequestsError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
         try:
@@ -199,6 +359,15 @@ class AsyncTransactionsClient:
 
         Parameters:
             - transaction_id: str. Unique Transaction Identifier
+        ---
+        from flagright.client import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+        await client.transactions.get(
+            transaction_id="string",
+        )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "GET",

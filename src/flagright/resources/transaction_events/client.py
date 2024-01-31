@@ -51,6 +51,14 @@ class TransactionEventsClient:
 
         Parameters:
             - request: TransactionEvent.
+        ---
+        from flagright import (CountryCode, CurrencyCode, DeviceData, Tag,
+                               TransactionAmountDetails, TransactionEvent,
+                               TransactionState, TransactionUpdatable)
+        from flagright.client import Flagright
+
+        client = Flagright(api_key="YOUR_API_KEY", )
+        client.transaction_events.create(request=TransactionEvent(transaction_state=TransactionState.SUCCESSFUL, timestamp=1431231244001.0, transaction_id="443dea26147a406b957d9ee3a1247b11", event_id="aaeeb166147a406b957dd9147a406b957", event_description="Transaction created", updated_transaction_attributes=TransactionUpdatable(transaction_state=TransactionState.CREATED, origin_amount_details=TransactionAmountDetails(transaction_amount=1.1, transaction_currency=CurrencyCode.1_INCH, country=CountryCode.AF, ), destination_amount_details=TransactionAmountDetails(transaction_amount=1.1, transaction_currency=CurrencyCode.1_INCH, country=CountryCode.AF, ), origin_device_data=DeviceData(), destination_device_data=DeviceData(), tags=[Tag(key="string", value="string", )], ), meta_data=DeviceData(battery_level=76.3, device_latitude=13.009711, device_longitude=76.102898, ip_address="79.144.2.20", vpn_used=True, ), ), )
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
@@ -83,6 +91,15 @@ class TransactionEventsClient:
 
         Parameters:
             - event_id: str. Unique Transaction Identifier
+        ---
+        from flagright.client import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.transaction_events.get(
+            event_id="string",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "GET",
@@ -132,6 +149,14 @@ class AsyncTransactionEventsClient:
 
         Parameters:
             - request: TransactionEvent.
+        ---
+        from flagright import (CountryCode, CurrencyCode, DeviceData, Tag,
+                               TransactionAmountDetails, TransactionEvent,
+                               TransactionState, TransactionUpdatable)
+        from flagright.client import AsyncFlagright
+
+        client = AsyncFlagright(api_key="YOUR_API_KEY", )
+        await client.transaction_events.create(request=TransactionEvent(transaction_state=TransactionState.SUCCESSFUL, timestamp=1431231244001.0, transaction_id="443dea26147a406b957d9ee3a1247b11", event_id="aaeeb166147a406b957dd9147a406b957", event_description="Transaction created", updated_transaction_attributes=TransactionUpdatable(transaction_state=TransactionState.CREATED, origin_amount_details=TransactionAmountDetails(transaction_amount=1.1, transaction_currency=CurrencyCode.1_INCH, country=CountryCode.AF, ), destination_amount_details=TransactionAmountDetails(transaction_amount=1.1, transaction_currency=CurrencyCode.1_INCH, country=CountryCode.AF, ), origin_device_data=DeviceData(), destination_device_data=DeviceData(), tags=[Tag(key="string", value="string", )], ), meta_data=DeviceData(battery_level=76.3, device_latitude=13.009711, device_longitude=76.102898, ip_address="79.144.2.20", vpn_used=True, ), ), )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
@@ -164,6 +189,15 @@ class AsyncTransactionEventsClient:
 
         Parameters:
             - event_id: str. Unique Transaction Identifier
+        ---
+        from flagright.client import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+        await client.transaction_events.get(
+            event_id="string",
+        )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "GET",

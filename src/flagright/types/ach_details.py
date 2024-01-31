@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
+from .email_id import EmailId
 from .tag import Tag
 
 try:
@@ -30,6 +31,7 @@ class AchDetails(pydantic.BaseModel):
     beneficiary_name: typing.Optional[str] = pydantic.Field(
         alias="beneficiaryName", description="Beneficiary name of the account"
     )
+    email_id: typing.Optional[EmailId] = pydantic.Field(alias="emailId")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )

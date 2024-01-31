@@ -6,6 +6,7 @@ import typing
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
 from .country_code import CountryCode
+from .email_id import EmailId
 from .tag import Tag
 
 try:
@@ -30,14 +31,15 @@ class IbanDetails(pydantic.BaseModel):
         alias="IBAN", description="Account number of the user. Can be account number, IBAN number etc."
     )
     name: typing.Optional[str] = pydantic.Field(description="Name of the bank account holder")
-    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description="Additional information that can be added via tags"
-    )
+    email_id: typing.Optional[EmailId] = pydantic.Field(alias="emailId")
     bank_branch_code: typing.Optional[str] = pydantic.Field(
         alias="bankBranchCode",
         description="Branch code of the bank. In some countries, this can be the same as the bank's SWIFT code",
     )
     payment_channel: typing.Optional[str] = pydantic.Field(alias="paymentChannel")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
