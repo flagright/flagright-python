@@ -13,6 +13,15 @@ class SourceOfFunds(str, enum.Enum):
     WEALTH = "Wealth"
     GIFT = "Gift"
     PENSION = "Pension"
+    INHERITANCE = "Inheritance"
+    GAMBLING = "Gambling"
+    BENEFITS = "Benefits"
+    PASSIVE = "Passive"
+    FAMILY = "Family"
+    INSURANCE = "Insurance"
+    LEGAL = "Legal"
+    SALES = "Sales"
+    ROLLOVER = "Rollover"
 
     def visit(
         self,
@@ -22,6 +31,15 @@ class SourceOfFunds(str, enum.Enum):
         wealth: typing.Callable[[], T_Result],
         gift: typing.Callable[[], T_Result],
         pension: typing.Callable[[], T_Result],
+        inheritance: typing.Callable[[], T_Result],
+        gambling: typing.Callable[[], T_Result],
+        benefits: typing.Callable[[], T_Result],
+        passive: typing.Callable[[], T_Result],
+        family: typing.Callable[[], T_Result],
+        insurance: typing.Callable[[], T_Result],
+        legal: typing.Callable[[], T_Result],
+        sales: typing.Callable[[], T_Result],
+        rollover: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is SourceOfFunds.EARNINGS:
             return earnings()
@@ -35,3 +53,21 @@ class SourceOfFunds(str, enum.Enum):
             return gift()
         if self is SourceOfFunds.PENSION:
             return pension()
+        if self is SourceOfFunds.INHERITANCE:
+            return inheritance()
+        if self is SourceOfFunds.GAMBLING:
+            return gambling()
+        if self is SourceOfFunds.BENEFITS:
+            return benefits()
+        if self is SourceOfFunds.PASSIVE:
+            return passive()
+        if self is SourceOfFunds.FAMILY:
+            return family()
+        if self is SourceOfFunds.INSURANCE:
+            return insurance()
+        if self is SourceOfFunds.LEGAL:
+            return legal()
+        if self is SourceOfFunds.SALES:
+            return sales()
+        if self is SourceOfFunds.ROLLOVER:
+            return rollover()

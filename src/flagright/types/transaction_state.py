@@ -19,6 +19,7 @@ class TransactionState(str, enum.Enum):
     SUSPENDED = "SUSPENDED"
     REFUNDED = "REFUNDED"
     SUCCESSFUL = "SUCCESSFUL"
+    REVERSED = "REVERSED"
 
     def visit(
         self,
@@ -30,6 +31,7 @@ class TransactionState(str, enum.Enum):
         suspended: typing.Callable[[], T_Result],
         refunded: typing.Callable[[], T_Result],
         successful: typing.Callable[[], T_Result],
+        reversed: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is TransactionState.CREATED:
             return created()
@@ -47,3 +49,5 @@ class TransactionState(str, enum.Enum):
             return refunded()
         if self is TransactionState.SUCCESSFUL:
             return successful()
+        if self is TransactionState.REVERSED:
+            return reversed()

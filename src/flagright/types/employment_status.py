@@ -8,6 +8,8 @@ T_Result = typing.TypeVar("T_Result")
 
 class EmploymentStatus(str, enum.Enum):
     UNEMPLOYED = "UNEMPLOYED"
+    EMPLOYED = "EMPLOYED"
+    SELF_EMPLOYED = "SELF_EMPLOYED"
     STUDENT = "STUDENT"
     FULL_TIME = "FULL_TIME"
     PART_TIME = "PART_TIME"
@@ -18,6 +20,8 @@ class EmploymentStatus(str, enum.Enum):
     def visit(
         self,
         unemployed: typing.Callable[[], T_Result],
+        employed: typing.Callable[[], T_Result],
+        self_employed: typing.Callable[[], T_Result],
         student: typing.Callable[[], T_Result],
         full_time: typing.Callable[[], T_Result],
         part_time: typing.Callable[[], T_Result],
@@ -27,6 +31,10 @@ class EmploymentStatus(str, enum.Enum):
     ) -> T_Result:
         if self is EmploymentStatus.UNEMPLOYED:
             return unemployed()
+        if self is EmploymentStatus.EMPLOYED:
+            return employed()
+        if self is EmploymentStatus.SELF_EMPLOYED:
+            return self_employed()
         if self is EmploymentStatus.STUDENT:
             return student()
         if self is EmploymentStatus.FULL_TIME:
