@@ -31,7 +31,7 @@ class ConsumerUsersClient:
         """
         ## POST Consumer User
 
-        `/consumer/user` endpoint allows you to operate on the [Consumer user entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user)
+        `/consumer/user` endpoint allows you to operate on the Consumer user entity.
 
         In order to pass the payload of a User to Flagright and verify the User, you will need to call this endpoint with the User payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup.
 
@@ -45,18 +45,163 @@ class ConsumerUsersClient:
         Parameters:
             - request: User.
         ---
-        from flagright import (AcquisitionChannel, Address, Amount, ConsumerName,
-                               ConsumerUserSegment, ContactDetails, CountryCode,
-                               CurrencyCode, EmploymentStatus, Gender, KycStatus,
-                               KycStatusDetails, LegalDocument, PepStatus, RiskLevel,
-                               SourceOfFunds, Tag, TransactionAmountLimit,
-                               TransactionCountLimit, TransactionLimit,
-                               TransactionLimits, TransactionLimitsPaymentMethodLimits,
-                               User, UserDetails, UserState, UserStateDetails)
+        from flagright import (
+            Address,
+            Amount,
+            ConsumerName,
+            ContactDetails,
+            CountryCode,
+            CurrencyCode,
+            LegalDocument,
+            Tag,
+            TransactionLimits,
+            User,
+            UserDetails,
+        )
         from flagright.client import Flagright
 
-        client = Flagright(api_key="YOUR_API_KEY", )
-        client.consumer_users.create(request=User(user_details=UserDetails(name=ConsumerName(first_name="Baran", middle_name="Realblood", last_name="Ozkan", ), date_of_birth="1991-01-01", country_of_residence=CountryCode.US, country_of_nationality=CountryCode.DE, gender=Gender.M, ), user_state_details=UserStateDetails(state=UserState.UNACCEPTABLE, ), kyc_status_details=KycStatusDetails(status=KycStatus.SUCCESSFUL, ), employment_status=EmploymentStatus.UNEMPLOYED, legal_documents=[LegalDocument(document_type="passport", document_number="Z9431P", document_issued_date=1639939034000.0, document_expiration_date=1839939034000.0, document_issued_country=CountryCode.DE, tags=[Tag(key="customerType", value="wallet", )], name_on_document=ConsumerName(first_name="string", ), )], contact_details=ContactDetails(email_ids=["baran@flagright.com"], contact_numbers=["+37112345432"], websites=["flagright.com"], addresses=[Address(address_lines=["Klara-Franke Str 20"], postcode="10557", city="Berlin", state="Berlin", country="Germany", tags=[Tag(key="customKey", value="customValue", )], )], ), transaction_limits=TransactionLimits(maximum_daily_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_weekly_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_monthly_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_quarterly_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_yearly_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), payment_method_limits=TransactionLimitsPaymentMethodLimits(ach=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), card=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), iban=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), upi=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), generic_bank_account=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), mpesa=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), swift=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), wallet=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), check=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), ), ), risk_level=RiskLevel.VERY_HIGH, acquisition_channel=AcquisitionChannel.ORGANIC, source_of_funds=[SourceOfFunds.EARNINGS], user_segment=ConsumerUserSegment.RETAIL, pep_status=[PepStatus(is_pep_hit=True, )], tags=[Tag(key="customKey", value="customValue", )], user_id="96647cfd9e8fe66ee0f3362e011e34e8", created_timestamp=1641654664000.0, ), )
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.consumer_users.create(
+            request=User(
+                user_details=UserDetails(
+                    name=ConsumerName(
+                        first_name="Baran",
+                        middle_name="Realblood",
+                        last_name="Ozkan",
+                    ),
+                    date_of_birth="1991-01-01",
+                    country_of_residence=CountryCode.US,
+                    country_of_nationality=CountryCode.DE,
+                ),
+                legal_documents=[
+                    LegalDocument(
+                        document_type="passport",
+                        document_number="Z9431P",
+                        document_issued_date=1639939034000.0,
+                        document_expiration_date=1839939034000.0,
+                        document_issued_country=CountryCode.DE,
+                        tags=[
+                            Tag(
+                                key="customerType",
+                                value="wallet",
+                            ),
+                            Tag(
+                                key="customKey",
+                                value="customValue",
+                            ),
+                        ],
+                        name_on_document=ConsumerName(
+                            first_name="Baran",
+                            middle_name="Realblood",
+                            last_name="Ozkan",
+                        ),
+                    ),
+                    LegalDocument(
+                        document_type="passport",
+                        document_number="Z9431P",
+                        document_issued_date=1639939034000.0,
+                        document_expiration_date=1839939034000.0,
+                        document_issued_country=CountryCode.DE,
+                        tags=[
+                            Tag(
+                                key="customerType",
+                                value="wallet",
+                            ),
+                            Tag(
+                                key="customKey",
+                                value="customValue",
+                            ),
+                        ],
+                        name_on_document=ConsumerName(
+                            first_name="Baran",
+                            middle_name="Realblood",
+                            last_name="Ozkan",
+                        ),
+                    ),
+                ],
+                contact_details=ContactDetails(
+                    email_ids=["baran@flagright.com", "emailIds"],
+                    contact_numbers=["+37112345432", "contactNumbers"],
+                    websites=["flagright.com", "websites"],
+                    addresses=[
+                        Address(
+                            address_lines=["Klara-Franke Str 20"],
+                            postcode="10557",
+                            city="Berlin",
+                            state="Berlin",
+                            country="Germany",
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                        Address(
+                            address_lines=["Klara-Franke Str 20"],
+                            postcode="10557",
+                            city="Berlin",
+                            state="Berlin",
+                            country="Germany",
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                    ],
+                ),
+                transaction_limits=TransactionLimits(
+                    maximum_daily_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_weekly_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_monthly_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_quarterly_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_yearly_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                ),
+                tags=[
+                    Tag(
+                        key="customKey",
+                        value="customValue",
+                    ),
+                    Tag(
+                        key="customKey",
+                        value="customValue",
+                    ),
+                ],
+                user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+                created_timestamp=1641654664000.0,
+            ),
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
@@ -83,7 +228,7 @@ class ConsumerUsersClient:
         """
         ### GET Consumer User
 
-        `/consumer/user` endpoint allows you to operate on the [Consumer User entity](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user).
+        `/consumer/user` endpoint allows you to operate on the Consumer User entity.
 
         Calling `GET /consumer/user/{userId}` will return the entire user payload and rule execution results for the user with the corresponding `userId`
 
@@ -96,7 +241,7 @@ class ConsumerUsersClient:
             api_key="YOUR_API_KEY",
         )
         client.consumer_users.get(
-            user_id="string",
+            user_id="userId",
         )
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -126,7 +271,7 @@ class AsyncConsumerUsersClient:
         """
         ## POST Consumer User
 
-        `/consumer/user` endpoint allows you to operate on the [Consumer user entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user)
+        `/consumer/user` endpoint allows you to operate on the Consumer user entity.
 
         In order to pass the payload of a User to Flagright and verify the User, you will need to call this endpoint with the User payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup.
 
@@ -140,18 +285,163 @@ class AsyncConsumerUsersClient:
         Parameters:
             - request: User.
         ---
-        from flagright import (AcquisitionChannel, Address, Amount, ConsumerName,
-                               ConsumerUserSegment, ContactDetails, CountryCode,
-                               CurrencyCode, EmploymentStatus, Gender, KycStatus,
-                               KycStatusDetails, LegalDocument, PepStatus, RiskLevel,
-                               SourceOfFunds, Tag, TransactionAmountLimit,
-                               TransactionCountLimit, TransactionLimit,
-                               TransactionLimits, TransactionLimitsPaymentMethodLimits,
-                               User, UserDetails, UserState, UserStateDetails)
+        from flagright import (
+            Address,
+            Amount,
+            ConsumerName,
+            ContactDetails,
+            CountryCode,
+            CurrencyCode,
+            LegalDocument,
+            Tag,
+            TransactionLimits,
+            User,
+            UserDetails,
+        )
         from flagright.client import AsyncFlagright
 
-        client = AsyncFlagright(api_key="YOUR_API_KEY", )
-        await client.consumer_users.create(request=User(user_details=UserDetails(name=ConsumerName(first_name="Baran", middle_name="Realblood", last_name="Ozkan", ), date_of_birth="1991-01-01", country_of_residence=CountryCode.US, country_of_nationality=CountryCode.DE, gender=Gender.M, ), user_state_details=UserStateDetails(state=UserState.UNACCEPTABLE, ), kyc_status_details=KycStatusDetails(status=KycStatus.SUCCESSFUL, ), employment_status=EmploymentStatus.UNEMPLOYED, legal_documents=[LegalDocument(document_type="passport", document_number="Z9431P", document_issued_date=1639939034000.0, document_expiration_date=1839939034000.0, document_issued_country=CountryCode.DE, tags=[Tag(key="customerType", value="wallet", )], name_on_document=ConsumerName(first_name="string", ), )], contact_details=ContactDetails(email_ids=["baran@flagright.com"], contact_numbers=["+37112345432"], websites=["flagright.com"], addresses=[Address(address_lines=["Klara-Franke Str 20"], postcode="10557", city="Berlin", state="Berlin", country="Germany", tags=[Tag(key="customKey", value="customValue", )], )], ), transaction_limits=TransactionLimits(maximum_daily_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_weekly_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_monthly_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_quarterly_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), maximum_yearly_transaction_limit=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), payment_method_limits=TransactionLimitsPaymentMethodLimits(ach=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), card=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), iban=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), upi=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), generic_bank_account=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), mpesa=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), swift=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), wallet=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), check=TransactionLimit(transaction_count_limit=TransactionCountLimit(), transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), average_transaction_amount_limit=TransactionAmountLimit(day=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), week=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), month=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), year=Amount(amount_value=1.1, amount_currency=CurrencyCode.1_INCH, ), ), ), ), ), risk_level=RiskLevel.VERY_HIGH, acquisition_channel=AcquisitionChannel.ORGANIC, source_of_funds=[SourceOfFunds.EARNINGS], user_segment=ConsumerUserSegment.RETAIL, pep_status=[PepStatus(is_pep_hit=True, )], tags=[Tag(key="customKey", value="customValue", )], user_id="96647cfd9e8fe66ee0f3362e011e34e8", created_timestamp=1641654664000.0, ), )
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+        await client.consumer_users.create(
+            request=User(
+                user_details=UserDetails(
+                    name=ConsumerName(
+                        first_name="Baran",
+                        middle_name="Realblood",
+                        last_name="Ozkan",
+                    ),
+                    date_of_birth="1991-01-01",
+                    country_of_residence=CountryCode.US,
+                    country_of_nationality=CountryCode.DE,
+                ),
+                legal_documents=[
+                    LegalDocument(
+                        document_type="passport",
+                        document_number="Z9431P",
+                        document_issued_date=1639939034000.0,
+                        document_expiration_date=1839939034000.0,
+                        document_issued_country=CountryCode.DE,
+                        tags=[
+                            Tag(
+                                key="customerType",
+                                value="wallet",
+                            ),
+                            Tag(
+                                key="customKey",
+                                value="customValue",
+                            ),
+                        ],
+                        name_on_document=ConsumerName(
+                            first_name="Baran",
+                            middle_name="Realblood",
+                            last_name="Ozkan",
+                        ),
+                    ),
+                    LegalDocument(
+                        document_type="passport",
+                        document_number="Z9431P",
+                        document_issued_date=1639939034000.0,
+                        document_expiration_date=1839939034000.0,
+                        document_issued_country=CountryCode.DE,
+                        tags=[
+                            Tag(
+                                key="customerType",
+                                value="wallet",
+                            ),
+                            Tag(
+                                key="customKey",
+                                value="customValue",
+                            ),
+                        ],
+                        name_on_document=ConsumerName(
+                            first_name="Baran",
+                            middle_name="Realblood",
+                            last_name="Ozkan",
+                        ),
+                    ),
+                ],
+                contact_details=ContactDetails(
+                    email_ids=["baran@flagright.com", "emailIds"],
+                    contact_numbers=["+37112345432", "contactNumbers"],
+                    websites=["flagright.com", "websites"],
+                    addresses=[
+                        Address(
+                            address_lines=["Klara-Franke Str 20"],
+                            postcode="10557",
+                            city="Berlin",
+                            state="Berlin",
+                            country="Germany",
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                        Address(
+                            address_lines=["Klara-Franke Str 20"],
+                            postcode="10557",
+                            city="Berlin",
+                            state="Berlin",
+                            country="Germany",
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                    ],
+                ),
+                transaction_limits=TransactionLimits(
+                    maximum_daily_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_weekly_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_monthly_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_quarterly_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                    maximum_yearly_transaction_limit=Amount(
+                        amount_value=800.0,
+                        amount_currency=CurrencyCode.GBP,
+                    ),
+                ),
+                tags=[
+                    Tag(
+                        key="customKey",
+                        value="customValue",
+                    ),
+                    Tag(
+                        key="customKey",
+                        value="customValue",
+                    ),
+                ],
+                user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+                created_timestamp=1641654664000.0,
+            ),
+        )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
@@ -178,7 +468,7 @@ class AsyncConsumerUsersClient:
         """
         ### GET Consumer User
 
-        `/consumer/user` endpoint allows you to operate on the [Consumer User entity](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#user).
+        `/consumer/user` endpoint allows you to operate on the Consumer User entity.
 
         Calling `GET /consumer/user/{userId}` will return the entire user payload and rule execution results for the user with the corresponding `userId`
 
@@ -191,7 +481,7 @@ class AsyncConsumerUsersClient:
             api_key="YOUR_API_KEY",
         )
         await client.consumer_users.get(
-            user_id="string",
+            user_id="userId",
         )
         """
         _response = await self._client_wrapper.httpx_client.request(

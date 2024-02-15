@@ -153,8 +153,8 @@ from .user_with_rules_result import UserWithRulesResult
 from .wallet_details import WalletDetails
 from .wallet_payment_method import WalletPaymentMethod
 from .webhook_event import WebhookEvent
+from .webhook_event_base_triggered_by import WebhookEventBaseTriggeredBy
 from .webhook_event_data import WebhookEventData
-from .webhook_event_triggered_by import WebhookEventTriggeredBy
 from .webhook_event_type import WebhookEventType
 
 __all__ = [
@@ -305,7 +305,7 @@ __all__ = [
     "WalletDetails",
     "WalletPaymentMethod",
     "WebhookEvent",
+    "WebhookEventBaseTriggeredBy",
     "WebhookEventData",
-    "WebhookEventTriggeredBy",
     "WebhookEventType",
 ]

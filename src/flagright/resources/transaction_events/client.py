@@ -30,11 +30,11 @@ class TransactionEventsClient:
         """
         ## POST Transaction Events
 
-        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event)
+        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/guides/overview/entities#transaction-event)
 
         Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
 
-        - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
+        - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/guides/overview/entities#transaction-lifecycle-through-transaction-events)
         - Update the transaction details, using the `updatedTransactionAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use transaction events.
@@ -52,13 +52,87 @@ class TransactionEventsClient:
         Parameters:
             - request: TransactionEvent.
         ---
-        from flagright import (CountryCode, CurrencyCode, DeviceData, Tag,
-                               TransactionAmountDetails, TransactionEvent,
-                               TransactionState, TransactionUpdatable)
+        from flagright import (
+            CountryCode,
+            CurrencyCode,
+            DeviceData,
+            Tag,
+            TransactionAmountDetails,
+            TransactionEvent,
+            TransactionState,
+            TransactionUpdatable,
+        )
         from flagright.client import Flagright
 
-        client = Flagright(api_key="YOUR_API_KEY", )
-        client.transaction_events.create(request=TransactionEvent(transaction_state=TransactionState.SUCCESSFUL, timestamp=1431231244001.0, transaction_id="443dea26147a406b957d9ee3a1247b11", event_id="aaeeb166147a406b957dd9147a406b957", event_description="Transaction created", updated_transaction_attributes=TransactionUpdatable(transaction_state=TransactionState.CREATED, origin_amount_details=TransactionAmountDetails(transaction_amount=1.1, transaction_currency=CurrencyCode.1_INCH, country=CountryCode.AF, ), destination_amount_details=TransactionAmountDetails(transaction_amount=1.1, transaction_currency=CurrencyCode.1_INCH, country=CountryCode.AF, ), origin_device_data=DeviceData(), destination_device_data=DeviceData(), tags=[Tag(key="string", value="string", )], ), meta_data=DeviceData(battery_level=76.3, device_latitude=13.009711, device_longitude=76.102898, ip_address="79.144.2.20", vpn_used=True, ), ), )
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.transaction_events.create(
+            request=TransactionEvent(
+                transaction_state=TransactionState.SUCCESSFUL,
+                timestamp=1431231244001.0,
+                transaction_id="443dea26147a406b957d9ee3a1247b11",
+                event_id="aaeeb166147a406b957dd9147a406b957",
+                event_description="Transaction created",
+                updated_transaction_attributes=TransactionUpdatable(
+                    origin_amount_details=TransactionAmountDetails(
+                        transaction_amount=800.0,
+                        transaction_currency=CurrencyCode.EUR,
+                        country=CountryCode.DE,
+                    ),
+                    destination_amount_details=TransactionAmountDetails(
+                        transaction_amount=68351.34,
+                        transaction_currency=CurrencyCode.INR,
+                        country=CountryCode.IN,
+                    ),
+                    promotion_code_used=True,
+                    reference="loan repayment",
+                    origin_device_data=DeviceData(
+                        battery_level=95.0,
+                        device_latitude=13.0033,
+                        device_longitude=76.1004,
+                        ip_address="10.23.191.2",
+                        device_identifier="3c49f915d04485e34caba",
+                        vpn_used=False,
+                        operating_system="Android 11.2",
+                        device_maker="ASUS",
+                        device_model="Zenphone M2 Pro Max",
+                        device_year="2018",
+                        app_version="1.1.0",
+                    ),
+                    destination_device_data=DeviceData(
+                        battery_level=95.0,
+                        device_latitude=13.0033,
+                        device_longitude=76.1004,
+                        ip_address="10.23.191.2",
+                        device_identifier="3c49f915d04485e34caba",
+                        vpn_used=False,
+                        operating_system="Android 11.2",
+                        device_maker="ASUS",
+                        device_model="Zenphone M2 Pro Max",
+                        device_year="2018",
+                        app_version="1.1.0",
+                    ),
+                    tags=[
+                        Tag(
+                            key="customKey",
+                            value="customValue",
+                        ),
+                        Tag(
+                            key="customKey",
+                            value="customValue",
+                        ),
+                    ],
+                ),
+                meta_data=DeviceData(
+                    battery_level=76.3,
+                    device_latitude=13.009711,
+                    device_longitude=76.102898,
+                    ip_address="79.144.2.20",
+                    vpn_used=True,
+                ),
+            ),
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "POST",
@@ -85,9 +159,9 @@ class TransactionEventsClient:
         """
         ### GET Transaction Events
 
-        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event).
+        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/guides/overview/entities#transaction-event).
 
-        You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/docs/flagright-api/d7c4dc4d02850-create-a-transaction-event) call.
+        You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/api-reference/api-reference/transaction-events/create) call.
 
         Parameters:
             - event_id: str. Unique Transaction Identifier
@@ -98,7 +172,7 @@ class TransactionEventsClient:
             api_key="YOUR_API_KEY",
         )
         client.transaction_events.get(
-            event_id="string",
+            event_id="eventId",
         )
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -128,11 +202,11 @@ class AsyncTransactionEventsClient:
         """
         ## POST Transaction Events
 
-        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event)
+        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/guides/overview/entities#transaction-event)
 
         Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
 
-        - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-lifecycle-through-transaction-events)
+        - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](https://docs.flagright.com/guides/overview/entities#transaction-lifecycle-through-transaction-events)
         - Update the transaction details, using the `updatedTransactionAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use transaction events.
@@ -150,13 +224,87 @@ class AsyncTransactionEventsClient:
         Parameters:
             - request: TransactionEvent.
         ---
-        from flagright import (CountryCode, CurrencyCode, DeviceData, Tag,
-                               TransactionAmountDetails, TransactionEvent,
-                               TransactionState, TransactionUpdatable)
+        from flagright import (
+            CountryCode,
+            CurrencyCode,
+            DeviceData,
+            Tag,
+            TransactionAmountDetails,
+            TransactionEvent,
+            TransactionState,
+            TransactionUpdatable,
+        )
         from flagright.client import AsyncFlagright
 
-        client = AsyncFlagright(api_key="YOUR_API_KEY", )
-        await client.transaction_events.create(request=TransactionEvent(transaction_state=TransactionState.SUCCESSFUL, timestamp=1431231244001.0, transaction_id="443dea26147a406b957d9ee3a1247b11", event_id="aaeeb166147a406b957dd9147a406b957", event_description="Transaction created", updated_transaction_attributes=TransactionUpdatable(transaction_state=TransactionState.CREATED, origin_amount_details=TransactionAmountDetails(transaction_amount=1.1, transaction_currency=CurrencyCode.1_INCH, country=CountryCode.AF, ), destination_amount_details=TransactionAmountDetails(transaction_amount=1.1, transaction_currency=CurrencyCode.1_INCH, country=CountryCode.AF, ), origin_device_data=DeviceData(), destination_device_data=DeviceData(), tags=[Tag(key="string", value="string", )], ), meta_data=DeviceData(battery_level=76.3, device_latitude=13.009711, device_longitude=76.102898, ip_address="79.144.2.20", vpn_used=True, ), ), )
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+        await client.transaction_events.create(
+            request=TransactionEvent(
+                transaction_state=TransactionState.SUCCESSFUL,
+                timestamp=1431231244001.0,
+                transaction_id="443dea26147a406b957d9ee3a1247b11",
+                event_id="aaeeb166147a406b957dd9147a406b957",
+                event_description="Transaction created",
+                updated_transaction_attributes=TransactionUpdatable(
+                    origin_amount_details=TransactionAmountDetails(
+                        transaction_amount=800.0,
+                        transaction_currency=CurrencyCode.EUR,
+                        country=CountryCode.DE,
+                    ),
+                    destination_amount_details=TransactionAmountDetails(
+                        transaction_amount=68351.34,
+                        transaction_currency=CurrencyCode.INR,
+                        country=CountryCode.IN,
+                    ),
+                    promotion_code_used=True,
+                    reference="loan repayment",
+                    origin_device_data=DeviceData(
+                        battery_level=95.0,
+                        device_latitude=13.0033,
+                        device_longitude=76.1004,
+                        ip_address="10.23.191.2",
+                        device_identifier="3c49f915d04485e34caba",
+                        vpn_used=False,
+                        operating_system="Android 11.2",
+                        device_maker="ASUS",
+                        device_model="Zenphone M2 Pro Max",
+                        device_year="2018",
+                        app_version="1.1.0",
+                    ),
+                    destination_device_data=DeviceData(
+                        battery_level=95.0,
+                        device_latitude=13.0033,
+                        device_longitude=76.1004,
+                        ip_address="10.23.191.2",
+                        device_identifier="3c49f915d04485e34caba",
+                        vpn_used=False,
+                        operating_system="Android 11.2",
+                        device_maker="ASUS",
+                        device_model="Zenphone M2 Pro Max",
+                        device_year="2018",
+                        app_version="1.1.0",
+                    ),
+                    tags=[
+                        Tag(
+                            key="customKey",
+                            value="customValue",
+                        ),
+                        Tag(
+                            key="customKey",
+                            value="customValue",
+                        ),
+                    ],
+                ),
+                meta_data=DeviceData(
+                    battery_level=76.3,
+                    device_latitude=13.009711,
+                    device_longitude=76.102898,
+                    ip_address="79.144.2.20",
+                    vpn_used=True,
+                ),
+            ),
+        )
         """
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
@@ -183,9 +331,9 @@ class AsyncTransactionEventsClient:
         """
         ### GET Transaction Events
 
-        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/docs/flagright-api/0f8fac59d1995-entities-and-relationships#transaction-event).
+        `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](https://docs.flagright.com/guides/overview/entities#transaction-event).
 
-        You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/docs/flagright-api/d7c4dc4d02850-create-a-transaction-event) call.
+        You can retrieve any transaction event you create using the [POST Transaction Events](https://docs.flagright.com/api-reference/api-reference/transaction-events/create) call.
 
         Parameters:
             - event_id: str. Unique Transaction Identifier
@@ -196,7 +344,7 @@ class AsyncTransactionEventsClient:
             api_key="YOUR_API_KEY",
         )
         await client.transaction_events.get(
-            event_id="string",
+            event_id="eventId",
         )
         """
         _response = await self._client_wrapper.httpx_client.request(

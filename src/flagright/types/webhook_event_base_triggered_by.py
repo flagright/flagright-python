@@ -6,12 +6,16 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class WebhookEventTriggeredBy(str, enum.Enum):
+class WebhookEventBaseTriggeredBy(str, enum.Enum):
+    """
+    Event triggered by a user or system
+    """
+
     MANUAL = "MANUAL"
     SYSTEM = "SYSTEM"
 
     def visit(self, manual: typing.Callable[[], T_Result], system: typing.Callable[[], T_Result]) -> T_Result:
-        if self is WebhookEventTriggeredBy.MANUAL:
+        if self is WebhookEventBaseTriggeredBy.MANUAL:
             return manual()
-        if self is WebhookEventTriggeredBy.SYSTEM:
+        if self is WebhookEventBaseTriggeredBy.SYSTEM:
             return system()

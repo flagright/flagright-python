@@ -148,8 +148,8 @@ from .types import (
     WalletDetails,
     WalletPaymentMethod,
     WebhookEvent,
+    WebhookEventBaseTriggeredBy,
     WebhookEventData,
-    WebhookEventTriggeredBy,
     WebhookEventType,
 )
 from .errors import BadRequestError, ForbiddenError, TooManyRequestsError, UnauthorizedError
@@ -322,8 +322,8 @@ __all__ = [
     "WalletDetails",
     "WalletPaymentMethod",
     "WebhookEvent",
+    "WebhookEventBaseTriggeredBy",
     "WebhookEventData",
-    "WebhookEventTriggeredBy",
     "WebhookEventType",
     "business_user_events",
     "business_users",
