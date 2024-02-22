@@ -21,7 +21,7 @@ class CompanyGeneralDetails(pydantic.BaseModel):
 
     legal_name: str = pydantic.Field(alias="legalName", description="Legal name of the company")
     business_industry: typing.Optional[typing.List[str]] = pydantic.Field(
-        alias="businessIndustry", description="The industry the business operates in for a business customer"
+        alias="businessIndustry", description="The industry in which the business operates for a business customer"
     )
     main_products_services_sold: typing.Optional[typing.List[str]] = pydantic.Field(
         alias="mainProductsServicesSold", description="The key products and services provided by the company"

@@ -37,7 +37,7 @@ class BusinessUsersClient:
 
         ### Payload
 
-        Each consumer Business entity needs three mandatory fields:
+        Each business user needs three mandatory fields:
 
         - `userId` - Unique identifier for the user
         - `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
@@ -446,7 +446,7 @@ class AsyncBusinessUsersClient:
 
         ### Payload
 
-        Each consumer Business entity needs three mandatory fields:
+        Each business user needs three mandatory fields:
 
         - `userId` - Unique identifier for the user
         - `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory

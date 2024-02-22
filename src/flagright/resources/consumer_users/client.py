@@ -37,7 +37,7 @@ class ConsumerUsersClient:
 
         ### Payload
 
-        Each consumer User entity needs three mandatory fields:
+        Each consumer user needs two mandatory fields:
 
         - `userId` - Unique identifier for the user
         - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
@@ -277,7 +277,7 @@ class AsyncConsumerUsersClient:
 
         ### Payload
 
-        Each consumer User entity needs three mandatory fields:
+        Each consumer user needs two mandatory fields:
 
         - `userId` - Unique identifier for the user
         - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system

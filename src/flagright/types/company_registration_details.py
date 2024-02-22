@@ -27,7 +27,7 @@ class CompanyRegistrationDetails(pydantic.BaseModel):
         alias="taxIdentifier", description="Tax ID number of the registered entity"
     )
     legal_entity_type: typing.Optional[str] = pydantic.Field(
-        alias="legalEntityType", description="Type of legal entity. Ex: Limited Liability"
+        alias="legalEntityType", description="Type of legal entity, e.g., Limited Liability"
     )
     date_of_registration: typing.Optional[str] = pydantic.Field(alias="dateOfRegistration")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
