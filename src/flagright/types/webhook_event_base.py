@@ -4,14 +4,23 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .webhook_event_base import WebhookEventBase
-from .webhook_event_data import WebhookEventData
-from .webhook_event_type import WebhookEventType
+from .webhook_event_base_triggered_by import WebhookEventBaseTriggeredBy
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
-class WebhookEvent(WebhookEventBase):
-    type: WebhookEventType
-    data: WebhookEventData
+class WebhookEventBase(pydantic.BaseModel):
+    id: str = pydantic.Field(description="Unique identifier for the event")
+    triggered_by: WebhookEventBaseTriggeredBy = pydantic.Field(
+        alias="triggeredBy", description="Event triggered by a user or system"
+    )
+    created_timestamp: float = pydantic.Field(
+        alias="createdTimestamp",
+        description="Time at which the event was created. Measured in ms since the Unix epoch.",
+    )
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
