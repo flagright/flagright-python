@@ -9,142 +9,219 @@ T_Result = typing.TypeVar("T_Result")
 class CurrencyCode(str, enum.Enum):
     ONE_INCH = "1INCH"
     AAVE = "AAVE"
+    ABT = "ABT"
+    ACH = "ACH"
+    ACS = "ACS"
     ADA = "ADA"
     AED = "AED"
+    AERGO = "AERGO"
+    AERO = "AERO"
     AFN = "AFN"
+    AGLD = "AGLD"
+    AIOZ = "AIOZ"
+    ALCX = "ALCX"
+    ALEPH = "ALEPH"
     ALGO = "ALGO"
+    ALICE = "ALICE"
     ALL = "ALL"
     AMD = "AMD"
     AMP = "AMP"
     ANG = "ANG"
+    ANKR = "ANKR"
+    ANT = "ANT"
     AOA = "AOA"
-    AR = "AR"
+    APE = "APE"
+    API_3 = "API3"
+    APT = "APT"
+    ARB = "ARB"
+    ARPA = "ARPA"
     ARS = "ARS"
+    ASM = "ASM"
+    AST = "AST"
+    ATA = "ATA"
     ATOM = "ATOM"
+    AUCTION = "AUCTION"
     AUD = "AUD"
+    AUDIO = "AUDIO"
+    AURORA = "AURORA"
     AVAX = "AVAX"
+    AVT = "AVT"
     AWG = "AWG"
+    AXL = "AXL"
     AXS = "AXS"
     AZN = "AZN"
+    BADGER = "BADGER"
+    BAL = "BAL"
     BAM = "BAM"
+    BAND = "BAND"
     BAT = "BAT"
     BBD = "BBD"
     BCH = "BCH"
     BDT = "BDT"
     BGN = "BGN"
     BHD = "BHD"
+    BICO = "BICO"
     BIF = "BIF"
+    BIGTIME = "BIGTIME"
+    BIT = "BIT"
+    BLUR = "BLUR"
+    BLZ = "BLZ"
     BMD = "BMD"
-    BNB = "BNB"
     BND = "BND"
+    BNT = "BNT"
     BOB = "BOB"
+    BOBA = "BOBA"
+    BOND = "BOND"
+    BONK = "BONK"
     BRL = "BRL"
     BSD = "BSD"
     BSV = "BSV"
     BTC = "BTC"
-    BTCB = "BTCB"
-    BTG = "BTG"
     BTN = "BTN"
+    BTRST = "BTRST"
     BUSD = "BUSD"
     BWP = "BWP"
     BYN = "BYN"
     BYR = "BYR"
     BZD = "BZD"
+    C_98 = "C98"
     CAD = "CAD"
-    CAKE = "CAKE"
+    CBETH = "CBETH"
     CDF = "CDF"
-    CELO = "CELO"
+    CELR = "CELR"
+    CGLD = "CGLD"
     CHF = "CHF"
     CHZ = "CHZ"
     CLF = "CLF"
     CLP = "CLP"
+    CLV = "CLV"
+    CNH = "CNH"
     CNY = "CNY"
     COMP = "COMP"
     COP = "COP"
+    COTI = "COTI"
+    COVAL = "COVAL"
     CRC = "CRC"
     CRO = "CRO"
+    CRPT = "CRPT"
     CRV = "CRV"
+    CTSI = "CTSI"
+    CTX = "CTX"
     CUC = "CUC"
     CUP = "CUP"
+    CVC = "CVC"
     CVE = "CVE"
     CVX = "CVX"
     CZK = "CZK"
     DAI = "DAI"
-    DIF = "DIF"
-    LSR = "LSR"
-    SRC = "SRC"
-    BRB = "BRB"
+    DAR = "DAR"
     DASH = "DASH"
-    DCR = "DCR"
-    DFI = "DFI"
+    DDX = "DDX"
+    DESO = "DESO"
+    DEXT = "DEXT"
+    DIA = "DIA"
+    DIMO = "DIMO"
     DJF = "DJF"
     DKK = "DKK"
+    DNT = "DNT"
     DOGE = "DOGE"
     DOP = "DOP"
     DOT = "DOT"
+    DREP = "DREP"
+    DYP = "DYP"
     DZD = "DZD"
+    EEK = "EEK"
     EGLD = "EGLD"
     EGP = "EGP"
+    ELA = "ELA"
     ENJ = "ENJ"
+    ENS = "ENS"
     EOS = "EOS"
     ERN = "ERN"
     ETB = "ETB"
     ETC = "ETC"
     ETH = "ETH"
+    ETH_2 = "ETH2"
     EUR = "EUR"
-    FEI = "FEI"
+    EUROC = "EUROC"
+    FARM = "FARM"
+    FET = "FET"
+    FIDA = "FIDA"
     FIL = "FIL"
+    FIS = "FIS"
     FJD = "FJD"
     FKP = "FKP"
     FLOW = "FLOW"
-    FRAX = "FRAX"
-    FTM = "FTM"
-    FTT = "FTT"
+    FLR = "FLR"
+    FORT = "FORT"
+    FORTH = "FORTH"
+    FOX = "FOX"
+    FX = "FX"
+    GAL = "GAL"
     GALA = "GALA"
     GBP = "GBP"
     GEL = "GEL"
+    GFI = "GFI"
     GGP = "GGP"
     GHS = "GHS"
+    GHST = "GHST"
     GIP = "GIP"
+    GLM = "GLM"
     GMD = "GMD"
+    GMT = "GMT"
     GNF = "GNF"
     GNO = "GNO"
+    GNT = "GNT"
+    GODS = "GODS"
     GRT = "GRT"
-    GT = "GT"
+    GST = "GST"
+    GTC = "GTC"
     GTQ = "GTQ"
+    GUSD = "GUSD"
     GYD = "GYD"
+    GYEN = "GYEN"
     HBAR = "HBAR"
+    HFT = "HFT"
+    HIGH = "HIGH"
     HKD = "HKD"
     HNL = "HNL"
     HNT = "HNT"
-    HOT = "HOT"
+    HONEY = "HONEY"
+    HOPR = "HOPR"
     HRK = "HRK"
-    HT = "HT"
     HTG = "HTG"
     HUF = "HUF"
     ICP = "ICP"
+    IDEX = "IDEX"
     IDR = "IDR"
     ILS = "ILS"
+    ILV = "ILV"
     IMP = "IMP"
+    IMX = "IMX"
+    INDEX = "INDEX"
     INJ = "INJ"
     INR = "INR"
+    INV = "INV"
+    IOTX = "IOTX"
     IQD = "IQD"
     IRR = "IRR"
     ISK = "ISK"
+    JASMY = "JASMY"
     JEP = "JEP"
     JMD = "JMD"
     JOD = "JOD"
     JPY = "JPY"
+    JTO = "JTO"
+    JUP = "JUP"
     KAVA = "KAVA"
-    KCS = "KCS"
-    KDA = "KDA"
+    KEEP = "KEEP"
     KES = "KES"
     KGS = "KGS"
     KHR = "KHR"
-    KLAY = "KLAY"
     KMF = "KMF"
     KNC = "KNC"
     KPW = "KPW"
+    KRL = "KRL"
     KRW = "KRW"
     KSM = "KSM"
     KWD = "KWD"
@@ -152,276 +229,459 @@ class CurrencyCode(str, enum.Enum):
     KZT = "KZT"
     LAK = "LAK"
     LBP = "LBP"
-    LEO = "LEO"
+    LCX = "LCX"
+    LDO = "LDO"
     LINK = "LINK"
+    LIT = "LIT"
     LKR = "LKR"
+    LOKA = "LOKA"
+    LOOM = "LOOM"
+    LPT = "LPT"
+    LQTY = "LQTY"
     LRC = "LRC"
     LRD = "LRD"
+    LSETH = "LSETH"
     LSL = "LSL"
     LTC = "LTC"
     LTL = "LTL"
-    LUNA = "LUNA"
     LVL = "LVL"
     LYD = "LYD"
     MAD = "MAD"
+    MAGIC = "MAGIC"
     MANA = "MANA"
+    MASK = "MASK"
+    MATH = "MATH"
     MATIC = "MATIC"
+    MCO_2 = "MCO2"
     MDL = "MDL"
+    MDT = "MDT"
+    MEDIA = "MEDIA"
+    METIS = "METIS"
     MGA = "MGA"
     MINA = "MINA"
-    MIOTA = "MIOTA"
+    MIR = "MIR"
     MKD = "MKD"
     MKR = "MKR"
+    MLN = "MLN"
     MMK = "MMK"
+    MNDE = "MNDE"
     MNT = "MNT"
+    MOBILE = "MOBILE"
+    MONA = "MONA"
     MOP = "MOP"
+    MPL = "MPL"
     MRO = "MRO"
+    MRU = "MRU"
+    MSOL = "MSOL"
+    MTL = "MTL"
+    MULTI = "MULTI"
     MUR = "MUR"
+    MUSE = "MUSE"
     MVR = "MVR"
     MWK = "MWK"
+    MXC = "MXC"
     MXN = "MXN"
     MYR = "MYR"
     MZN = "MZN"
     NAD = "NAD"
+    NCT = "NCT"
     NEAR = "NEAR"
-    NEO = "NEO"
-    NEXO = "NEXO"
+    NEST = "NEST"
     NGN = "NGN"
     NIO = "NIO"
+    NKN = "NKN"
+    NMR = "NMR"
     NOK = "NOK"
     NPR = "NPR"
+    NU = "NU"
     NZD = "NZD"
-    OKB = "OKB"
+    OCEAN = "OCEAN"
+    OGN = "OGN"
+    OMG = "OMG"
     OMR = "OMR"
-    ONE = "ONE"
+    ONDO = "ONDO"
+    OOKI = "OOKI"
+    OP = "OP"
+    ORCA = "ORCA"
+    ORN = "ORN"
+    OSMO = "OSMO"
+    OXT = "OXT"
     PAB = "PAB"
-    PAXG = "PAXG"
+    PAX = "PAX"
     PEN = "PEN"
+    PERP = "PERP"
     PGK = "PGK"
     PHP = "PHP"
     PKR = "PKR"
+    PLA = "PLA"
     PLN = "PLN"
+    PLU = "PLU"
+    PNG = "PNG"
+    POLS = "POLS"
+    POLY = "POLY"
+    POND = "POND"
+    POWR = "POWR"
+    PRIME = "PRIME"
+    PRO = "PRO"
+    PRQ = "PRQ"
+    PUNDIX = "PUNDIX"
     PYG = "PYG"
+    PYR = "PYR"
+    PYUSD = "PYUSD"
     QAR = "QAR"
+    QI = "QI"
     QNT = "QNT"
-    QTUM = "QTUM"
+    QSP = "QSP"
+    QUICK = "QUICK"
+    RAD = "RAD"
+    RAI = "RAI"
+    RARE = "RARE"
+    RARI = "RARI"
+    RBN = "RBN"
+    REN = "REN"
+    RENDER = "RENDER"
+    REP = "REP"
+    REPV_2 = "REPV2"
+    REQ = "REQ"
+    RGT = "RGT"
+    RLC = "RLC"
+    RLY = "RLY"
+    RNDR = "RNDR"
     RON = "RON"
+    ROSE = "ROSE"
+    RPL = "RPL"
     RSD = "RSD"
     RUB = "RUB"
-    RUNE = "RUNE"
     RWF = "RWF"
     SAND = "SAND"
     SAR = "SAR"
     SBD = "SBD"
     SCR = "SCR"
     SDG = "SDG"
+    SEAM = "SEAM"
+    SEI = "SEI"
     SEK = "SEK"
     SGD = "SGD"
     SHIB = "SHIB"
     SHP = "SHP"
-    SLE = "SLE"
+    SHPING = "SHPING"
+    SKK = "SKK"
+    SKL = "SKL"
     SLL = "SLL"
+    SNT = "SNT"
+    SNX = "SNX"
     SOL = "SOL"
     SOS = "SOS"
+    SPA = "SPA"
+    SPELL = "SPELL"
     SRD = "SRD"
+    SSP = "SSP"
     STD = "STD"
+    STG = "STG"
+    STORJ = "STORJ"
+    STRK = "STRK"
     STX = "STX"
+    SUI = "SUI"
+    SUKU = "SUKU"
+    SUPER = "SUPER"
+    SUSHI = "SUSHI"
     SVC = "SVC"
+    SWFTC = "SWFTC"
+    SYLO = "SYLO"
+    SYN = "SYN"
     SYP = "SYP"
     SZL = "SZL"
+    T = "T"
     THB = "THB"
-    THETA = "THETA"
+    TIA = "TIA"
+    TIME = "TIME"
     TJS = "TJS"
+    TMM = "TMM"
     TMT = "TMT"
     TND = "TND"
+    TONE = "TONE"
     TOP = "TOP"
-    TRX = "TRX"
+    TRAC = "TRAC"
+    TRB = "TRB"
+    TRIBE = "TRIBE"
+    TRU = "TRU"
     TRY = "TRY"
     TTD = "TTD"
-    TTT = "TTT"
-    TUSD = "TUSD"
+    TVK = "TVK"
     TWD = "TWD"
     TZS = "TZS"
     UAH = "UAH"
     UGX = "UGX"
+    UMA = "UMA"
+    UNFI = "UNFI"
     UNI = "UNI"
+    UPI = "UPI"
     USD = "USD"
     USDC = "USDC"
-    USDP = "USDP"
     USDT = "USDT"
+    UST = "UST"
     UYU = "UYU"
     UZS = "UZS"
+    VARA = "VARA"
     VEF = "VEF"
+    VELO = "VELO"
+    VES = "VES"
     VET = "VET"
+    VGX = "VGX"
     VND = "VND"
+    VOXEL = "VOXEL"
+    VTHO = "VTHO"
     VUV = "VUV"
-    WAVES = "WAVES"
+    WAMPL = "WAMPL"
+    WAXL = "WAXL"
     WBTC = "WBTC"
-    WEMIX = "WEMIX"
+    WCFG = "WCFG"
+    WLUNA = "WLUNA"
     WST = "WST"
     XAF = "XAF"
     XAG = "XAG"
     XAU = "XAU"
     XCD = "XCD"
-    XCH = "XCH"
-    XDC = "XDC"
+    XCN = "XCN"
     XDR = "XDR"
-    XEC = "XEC"
-    XEM = "XEM"
     XLM = "XLM"
-    XMR = "XMR"
+    XMON = "XMON"
     XOF = "XOF"
+    XPD = "XPD"
     XPF = "XPF"
+    XPT = "XPT"
     XRP = "XRP"
     XTZ = "XTZ"
+    XYO = "XYO"
     YER = "YER"
+    YFI = "YFI"
+    YFII = "YFII"
     ZAR = "ZAR"
     ZEC = "ZEC"
-    ZIL = "ZIL"
+    ZEN = "ZEN"
+    ZETA = "ZETA"
     ZMK = "ZMK"
     ZMW = "ZMW"
-    ZWL = "ZWL"
+    ZRX = "ZRX"
+    ZWD = "ZWD"
 
     def visit(
         self,
         one_inch: typing.Callable[[], T_Result],
         aave: typing.Callable[[], T_Result],
+        abt: typing.Callable[[], T_Result],
+        ach: typing.Callable[[], T_Result],
+        acs: typing.Callable[[], T_Result],
         ada: typing.Callable[[], T_Result],
         aed: typing.Callable[[], T_Result],
+        aergo: typing.Callable[[], T_Result],
+        aero: typing.Callable[[], T_Result],
         afn: typing.Callable[[], T_Result],
+        agld: typing.Callable[[], T_Result],
+        aioz: typing.Callable[[], T_Result],
+        alcx: typing.Callable[[], T_Result],
+        aleph: typing.Callable[[], T_Result],
         algo: typing.Callable[[], T_Result],
+        alice: typing.Callable[[], T_Result],
         all: typing.Callable[[], T_Result],
         amd: typing.Callable[[], T_Result],
         amp: typing.Callable[[], T_Result],
         ang: typing.Callable[[], T_Result],
+        ankr: typing.Callable[[], T_Result],
+        ant: typing.Callable[[], T_Result],
         aoa: typing.Callable[[], T_Result],
-        ar: typing.Callable[[], T_Result],
+        ape: typing.Callable[[], T_Result],
+        api_3: typing.Callable[[], T_Result],
+        apt: typing.Callable[[], T_Result],
+        arb: typing.Callable[[], T_Result],
+        arpa: typing.Callable[[], T_Result],
         ars: typing.Callable[[], T_Result],
+        asm: typing.Callable[[], T_Result],
+        ast: typing.Callable[[], T_Result],
+        ata: typing.Callable[[], T_Result],
         atom: typing.Callable[[], T_Result],
+        auction: typing.Callable[[], T_Result],
         aud: typing.Callable[[], T_Result],
+        audio: typing.Callable[[], T_Result],
+        aurora: typing.Callable[[], T_Result],
         avax: typing.Callable[[], T_Result],
+        avt: typing.Callable[[], T_Result],
         awg: typing.Callable[[], T_Result],
+        axl: typing.Callable[[], T_Result],
         axs: typing.Callable[[], T_Result],
         azn: typing.Callable[[], T_Result],
+        badger: typing.Callable[[], T_Result],
+        bal: typing.Callable[[], T_Result],
         bam: typing.Callable[[], T_Result],
+        band: typing.Callable[[], T_Result],
         bat: typing.Callable[[], T_Result],
         bbd: typing.Callable[[], T_Result],
         bch: typing.Callable[[], T_Result],
         bdt: typing.Callable[[], T_Result],
         bgn: typing.Callable[[], T_Result],
         bhd: typing.Callable[[], T_Result],
+        bico: typing.Callable[[], T_Result],
         bif: typing.Callable[[], T_Result],
+        bigtime: typing.Callable[[], T_Result],
+        bit: typing.Callable[[], T_Result],
+        blur: typing.Callable[[], T_Result],
+        blz: typing.Callable[[], T_Result],
         bmd: typing.Callable[[], T_Result],
-        bnb: typing.Callable[[], T_Result],
         bnd: typing.Callable[[], T_Result],
+        bnt: typing.Callable[[], T_Result],
         bob: typing.Callable[[], T_Result],
+        boba: typing.Callable[[], T_Result],
+        bond: typing.Callable[[], T_Result],
+        bonk: typing.Callable[[], T_Result],
         brl: typing.Callable[[], T_Result],
         bsd: typing.Callable[[], T_Result],
         bsv: typing.Callable[[], T_Result],
         btc: typing.Callable[[], T_Result],
-        btcb: typing.Callable[[], T_Result],
-        btg: typing.Callable[[], T_Result],
         btn: typing.Callable[[], T_Result],
+        btrst: typing.Callable[[], T_Result],
         busd: typing.Callable[[], T_Result],
         bwp: typing.Callable[[], T_Result],
         byn: typing.Callable[[], T_Result],
         byr: typing.Callable[[], T_Result],
         bzd: typing.Callable[[], T_Result],
+        c_98: typing.Callable[[], T_Result],
         cad: typing.Callable[[], T_Result],
-        cake: typing.Callable[[], T_Result],
+        cbeth: typing.Callable[[], T_Result],
         cdf: typing.Callable[[], T_Result],
-        celo: typing.Callable[[], T_Result],
+        celr: typing.Callable[[], T_Result],
+        cgld: typing.Callable[[], T_Result],
         chf: typing.Callable[[], T_Result],
         chz: typing.Callable[[], T_Result],
         clf: typing.Callable[[], T_Result],
         clp: typing.Callable[[], T_Result],
+        clv: typing.Callable[[], T_Result],
+        cnh: typing.Callable[[], T_Result],
         cny: typing.Callable[[], T_Result],
         comp: typing.Callable[[], T_Result],
         cop: typing.Callable[[], T_Result],
+        coti: typing.Callable[[], T_Result],
+        coval: typing.Callable[[], T_Result],
         crc: typing.Callable[[], T_Result],
         cro: typing.Callable[[], T_Result],
+        crpt: typing.Callable[[], T_Result],
         crv: typing.Callable[[], T_Result],
+        ctsi: typing.Callable[[], T_Result],
+        ctx: typing.Callable[[], T_Result],
         cuc: typing.Callable[[], T_Result],
         cup: typing.Callable[[], T_Result],
+        cvc: typing.Callable[[], T_Result],
         cve: typing.Callable[[], T_Result],
         cvx: typing.Callable[[], T_Result],
         czk: typing.Callable[[], T_Result],
         dai: typing.Callable[[], T_Result],
-        dif: typing.Callable[[], T_Result],
-        lsr: typing.Callable[[], T_Result],
-        src: typing.Callable[[], T_Result],
-        brb: typing.Callable[[], T_Result],
+        dar: typing.Callable[[], T_Result],
         dash: typing.Callable[[], T_Result],
-        dcr: typing.Callable[[], T_Result],
-        dfi: typing.Callable[[], T_Result],
+        ddx: typing.Callable[[], T_Result],
+        deso: typing.Callable[[], T_Result],
+        dext: typing.Callable[[], T_Result],
+        dia: typing.Callable[[], T_Result],
+        dimo: typing.Callable[[], T_Result],
         djf: typing.Callable[[], T_Result],
         dkk: typing.Callable[[], T_Result],
+        dnt: typing.Callable[[], T_Result],
         doge: typing.Callable[[], T_Result],
         dop: typing.Callable[[], T_Result],
         dot: typing.Callable[[], T_Result],
+        drep: typing.Callable[[], T_Result],
+        dyp: typing.Callable[[], T_Result],
         dzd: typing.Callable[[], T_Result],
+        eek: typing.Callable[[], T_Result],
         egld: typing.Callable[[], T_Result],
         egp: typing.Callable[[], T_Result],
+        ela: typing.Callable[[], T_Result],
         enj: typing.Callable[[], T_Result],
+        ens: typing.Callable[[], T_Result],
         eos: typing.Callable[[], T_Result],
         ern: typing.Callable[[], T_Result],
         etb: typing.Callable[[], T_Result],
         etc: typing.Callable[[], T_Result],
         eth: typing.Callable[[], T_Result],
+        eth_2: typing.Callable[[], T_Result],
         eur: typing.Callable[[], T_Result],
-        fei: typing.Callable[[], T_Result],
+        euroc: typing.Callable[[], T_Result],
+        farm: typing.Callable[[], T_Result],
+        fet: typing.Callable[[], T_Result],
+        fida: typing.Callable[[], T_Result],
         fil: typing.Callable[[], T_Result],
+        fis: typing.Callable[[], T_Result],
         fjd: typing.Callable[[], T_Result],
         fkp: typing.Callable[[], T_Result],
         flow: typing.Callable[[], T_Result],
-        frax: typing.Callable[[], T_Result],
-        ftm: typing.Callable[[], T_Result],
-        ftt: typing.Callable[[], T_Result],
+        flr: typing.Callable[[], T_Result],
+        fort: typing.Callable[[], T_Result],
+        forth: typing.Callable[[], T_Result],
+        fox: typing.Callable[[], T_Result],
+        fx: typing.Callable[[], T_Result],
+        gal: typing.Callable[[], T_Result],
         gala: typing.Callable[[], T_Result],
         gbp: typing.Callable[[], T_Result],
         gel: typing.Callable[[], T_Result],
+        gfi: typing.Callable[[], T_Result],
         ggp: typing.Callable[[], T_Result],
         ghs: typing.Callable[[], T_Result],
+        ghst: typing.Callable[[], T_Result],
         gip: typing.Callable[[], T_Result],
+        glm: typing.Callable[[], T_Result],
         gmd: typing.Callable[[], T_Result],
+        gmt: typing.Callable[[], T_Result],
         gnf: typing.Callable[[], T_Result],
         gno: typing.Callable[[], T_Result],
+        gnt: typing.Callable[[], T_Result],
+        gods: typing.Callable[[], T_Result],
         grt: typing.Callable[[], T_Result],
-        gt: typing.Callable[[], T_Result],
+        gst: typing.Callable[[], T_Result],
+        gtc: typing.Callable[[], T_Result],
         gtq: typing.Callable[[], T_Result],
+        gusd: typing.Callable[[], T_Result],
         gyd: typing.Callable[[], T_Result],
+        gyen: typing.Callable[[], T_Result],
         hbar: typing.Callable[[], T_Result],
+        hft: typing.Callable[[], T_Result],
+        high: typing.Callable[[], T_Result],
         hkd: typing.Callable[[], T_Result],
         hnl: typing.Callable[[], T_Result],
         hnt: typing.Callable[[], T_Result],
-        hot: typing.Callable[[], T_Result],
+        honey: typing.Callable[[], T_Result],
+        hopr: typing.Callable[[], T_Result],
         hrk: typing.Callable[[], T_Result],
-        ht: typing.Callable[[], T_Result],
         htg: typing.Callable[[], T_Result],
         huf: typing.Callable[[], T_Result],
         icp: typing.Callable[[], T_Result],
+        idex: typing.Callable[[], T_Result],
         idr: typing.Callable[[], T_Result],
         ils: typing.Callable[[], T_Result],
+        ilv: typing.Callable[[], T_Result],
         imp: typing.Callable[[], T_Result],
+        imx: typing.Callable[[], T_Result],
+        index: typing.Callable[[], T_Result],
         inj: typing.Callable[[], T_Result],
         inr: typing.Callable[[], T_Result],
+        inv: typing.Callable[[], T_Result],
+        iotx: typing.Callable[[], T_Result],
         iqd: typing.Callable[[], T_Result],
         irr: typing.Callable[[], T_Result],
         isk: typing.Callable[[], T_Result],
+        jasmy: typing.Callable[[], T_Result],
         jep: typing.Callable[[], T_Result],
         jmd: typing.Callable[[], T_Result],
         jod: typing.Callable[[], T_Result],
         jpy: typing.Callable[[], T_Result],
+        jto: typing.Callable[[], T_Result],
+        jup: typing.Callable[[], T_Result],
         kava: typing.Callable[[], T_Result],
-        kcs: typing.Callable[[], T_Result],
-        kda: typing.Callable[[], T_Result],
+        keep: typing.Callable[[], T_Result],
         kes: typing.Callable[[], T_Result],
         kgs: typing.Callable[[], T_Result],
         khr: typing.Callable[[], T_Result],
-        klay: typing.Callable[[], T_Result],
         kmf: typing.Callable[[], T_Result],
         knc: typing.Callable[[], T_Result],
         kpw: typing.Callable[[], T_Result],
+        krl: typing.Callable[[], T_Result],
         krw: typing.Callable[[], T_Result],
         ksm: typing.Callable[[], T_Result],
         kwd: typing.Callable[[], T_Result],
@@ -429,148 +689,274 @@ class CurrencyCode(str, enum.Enum):
         kzt: typing.Callable[[], T_Result],
         lak: typing.Callable[[], T_Result],
         lbp: typing.Callable[[], T_Result],
-        leo: typing.Callable[[], T_Result],
+        lcx: typing.Callable[[], T_Result],
+        ldo: typing.Callable[[], T_Result],
         link: typing.Callable[[], T_Result],
+        lit: typing.Callable[[], T_Result],
         lkr: typing.Callable[[], T_Result],
+        loka: typing.Callable[[], T_Result],
+        loom: typing.Callable[[], T_Result],
+        lpt: typing.Callable[[], T_Result],
+        lqty: typing.Callable[[], T_Result],
         lrc: typing.Callable[[], T_Result],
         lrd: typing.Callable[[], T_Result],
+        lseth: typing.Callable[[], T_Result],
         lsl: typing.Callable[[], T_Result],
         ltc: typing.Callable[[], T_Result],
         ltl: typing.Callable[[], T_Result],
-        luna: typing.Callable[[], T_Result],
         lvl: typing.Callable[[], T_Result],
         lyd: typing.Callable[[], T_Result],
         mad: typing.Callable[[], T_Result],
+        magic: typing.Callable[[], T_Result],
         mana: typing.Callable[[], T_Result],
+        mask: typing.Callable[[], T_Result],
+        math: typing.Callable[[], T_Result],
         matic: typing.Callable[[], T_Result],
+        mco_2: typing.Callable[[], T_Result],
         mdl: typing.Callable[[], T_Result],
+        mdt: typing.Callable[[], T_Result],
+        media: typing.Callable[[], T_Result],
+        metis: typing.Callable[[], T_Result],
         mga: typing.Callable[[], T_Result],
         mina: typing.Callable[[], T_Result],
-        miota: typing.Callable[[], T_Result],
+        mir: typing.Callable[[], T_Result],
         mkd: typing.Callable[[], T_Result],
         mkr: typing.Callable[[], T_Result],
+        mln: typing.Callable[[], T_Result],
         mmk: typing.Callable[[], T_Result],
+        mnde: typing.Callable[[], T_Result],
         mnt: typing.Callable[[], T_Result],
+        mobile: typing.Callable[[], T_Result],
+        mona: typing.Callable[[], T_Result],
         mop: typing.Callable[[], T_Result],
+        mpl: typing.Callable[[], T_Result],
         mro: typing.Callable[[], T_Result],
+        mru: typing.Callable[[], T_Result],
+        msol: typing.Callable[[], T_Result],
+        mtl: typing.Callable[[], T_Result],
+        multi: typing.Callable[[], T_Result],
         mur: typing.Callable[[], T_Result],
+        muse: typing.Callable[[], T_Result],
         mvr: typing.Callable[[], T_Result],
         mwk: typing.Callable[[], T_Result],
+        mxc: typing.Callable[[], T_Result],
         mxn: typing.Callable[[], T_Result],
         myr: typing.Callable[[], T_Result],
         mzn: typing.Callable[[], T_Result],
         nad: typing.Callable[[], T_Result],
+        nct: typing.Callable[[], T_Result],
         near: typing.Callable[[], T_Result],
-        neo: typing.Callable[[], T_Result],
-        nexo: typing.Callable[[], T_Result],
+        nest: typing.Callable[[], T_Result],
         ngn: typing.Callable[[], T_Result],
         nio: typing.Callable[[], T_Result],
+        nkn: typing.Callable[[], T_Result],
+        nmr: typing.Callable[[], T_Result],
         nok: typing.Callable[[], T_Result],
         npr: typing.Callable[[], T_Result],
+        nu: typing.Callable[[], T_Result],
         nzd: typing.Callable[[], T_Result],
-        okb: typing.Callable[[], T_Result],
+        ocean: typing.Callable[[], T_Result],
+        ogn: typing.Callable[[], T_Result],
+        omg: typing.Callable[[], T_Result],
         omr: typing.Callable[[], T_Result],
-        one: typing.Callable[[], T_Result],
+        ondo: typing.Callable[[], T_Result],
+        ooki: typing.Callable[[], T_Result],
+        op: typing.Callable[[], T_Result],
+        orca: typing.Callable[[], T_Result],
+        orn: typing.Callable[[], T_Result],
+        osmo: typing.Callable[[], T_Result],
+        oxt: typing.Callable[[], T_Result],
         pab: typing.Callable[[], T_Result],
-        paxg: typing.Callable[[], T_Result],
+        pax: typing.Callable[[], T_Result],
         pen: typing.Callable[[], T_Result],
+        perp: typing.Callable[[], T_Result],
         pgk: typing.Callable[[], T_Result],
         php: typing.Callable[[], T_Result],
         pkr: typing.Callable[[], T_Result],
+        pla: typing.Callable[[], T_Result],
         pln: typing.Callable[[], T_Result],
+        plu: typing.Callable[[], T_Result],
+        png: typing.Callable[[], T_Result],
+        pols: typing.Callable[[], T_Result],
+        poly: typing.Callable[[], T_Result],
+        pond: typing.Callable[[], T_Result],
+        powr: typing.Callable[[], T_Result],
+        prime: typing.Callable[[], T_Result],
+        pro: typing.Callable[[], T_Result],
+        prq: typing.Callable[[], T_Result],
+        pundix: typing.Callable[[], T_Result],
         pyg: typing.Callable[[], T_Result],
+        pyr: typing.Callable[[], T_Result],
+        pyusd: typing.Callable[[], T_Result],
         qar: typing.Callable[[], T_Result],
+        qi: typing.Callable[[], T_Result],
         qnt: typing.Callable[[], T_Result],
-        qtum: typing.Callable[[], T_Result],
+        qsp: typing.Callable[[], T_Result],
+        quick: typing.Callable[[], T_Result],
+        rad: typing.Callable[[], T_Result],
+        rai: typing.Callable[[], T_Result],
+        rare: typing.Callable[[], T_Result],
+        rari: typing.Callable[[], T_Result],
+        rbn: typing.Callable[[], T_Result],
+        ren: typing.Callable[[], T_Result],
+        render: typing.Callable[[], T_Result],
+        rep: typing.Callable[[], T_Result],
+        repv_2: typing.Callable[[], T_Result],
+        req: typing.Callable[[], T_Result],
+        rgt: typing.Callable[[], T_Result],
+        rlc: typing.Callable[[], T_Result],
+        rly: typing.Callable[[], T_Result],
+        rndr: typing.Callable[[], T_Result],
         ron: typing.Callable[[], T_Result],
+        rose: typing.Callable[[], T_Result],
+        rpl: typing.Callable[[], T_Result],
         rsd: typing.Callable[[], T_Result],
         rub: typing.Callable[[], T_Result],
-        rune: typing.Callable[[], T_Result],
         rwf: typing.Callable[[], T_Result],
         sand: typing.Callable[[], T_Result],
         sar: typing.Callable[[], T_Result],
         sbd: typing.Callable[[], T_Result],
         scr: typing.Callable[[], T_Result],
         sdg: typing.Callable[[], T_Result],
+        seam: typing.Callable[[], T_Result],
+        sei: typing.Callable[[], T_Result],
         sek: typing.Callable[[], T_Result],
         sgd: typing.Callable[[], T_Result],
         shib: typing.Callable[[], T_Result],
         shp: typing.Callable[[], T_Result],
-        sle: typing.Callable[[], T_Result],
+        shping: typing.Callable[[], T_Result],
+        skk: typing.Callable[[], T_Result],
+        skl: typing.Callable[[], T_Result],
         sll: typing.Callable[[], T_Result],
+        snt: typing.Callable[[], T_Result],
+        snx: typing.Callable[[], T_Result],
         sol: typing.Callable[[], T_Result],
         sos: typing.Callable[[], T_Result],
+        spa: typing.Callable[[], T_Result],
+        spell: typing.Callable[[], T_Result],
         srd: typing.Callable[[], T_Result],
+        ssp: typing.Callable[[], T_Result],
         std: typing.Callable[[], T_Result],
+        stg: typing.Callable[[], T_Result],
+        storj: typing.Callable[[], T_Result],
+        strk: typing.Callable[[], T_Result],
         stx: typing.Callable[[], T_Result],
+        sui: typing.Callable[[], T_Result],
+        suku: typing.Callable[[], T_Result],
+        super: typing.Callable[[], T_Result],
+        sushi: typing.Callable[[], T_Result],
         svc: typing.Callable[[], T_Result],
+        swftc: typing.Callable[[], T_Result],
+        sylo: typing.Callable[[], T_Result],
+        syn: typing.Callable[[], T_Result],
         syp: typing.Callable[[], T_Result],
         szl: typing.Callable[[], T_Result],
+        t: typing.Callable[[], T_Result],
         thb: typing.Callable[[], T_Result],
-        theta: typing.Callable[[], T_Result],
+        tia: typing.Callable[[], T_Result],
+        time: typing.Callable[[], T_Result],
         tjs: typing.Callable[[], T_Result],
+        tmm: typing.Callable[[], T_Result],
         tmt: typing.Callable[[], T_Result],
         tnd: typing.Callable[[], T_Result],
+        tone: typing.Callable[[], T_Result],
         top: typing.Callable[[], T_Result],
-        trx: typing.Callable[[], T_Result],
+        trac: typing.Callable[[], T_Result],
+        trb: typing.Callable[[], T_Result],
+        tribe: typing.Callable[[], T_Result],
+        tru: typing.Callable[[], T_Result],
         try_: typing.Callable[[], T_Result],
         ttd: typing.Callable[[], T_Result],
-        ttt: typing.Callable[[], T_Result],
-        tusd: typing.Callable[[], T_Result],
+        tvk: typing.Callable[[], T_Result],
         twd: typing.Callable[[], T_Result],
         tzs: typing.Callable[[], T_Result],
         uah: typing.Callable[[], T_Result],
         ugx: typing.Callable[[], T_Result],
+        uma: typing.Callable[[], T_Result],
+        unfi: typing.Callable[[], T_Result],
         uni: typing.Callable[[], T_Result],
+        upi: typing.Callable[[], T_Result],
         usd: typing.Callable[[], T_Result],
         usdc: typing.Callable[[], T_Result],
-        usdp: typing.Callable[[], T_Result],
         usdt: typing.Callable[[], T_Result],
+        ust: typing.Callable[[], T_Result],
         uyu: typing.Callable[[], T_Result],
         uzs: typing.Callable[[], T_Result],
+        vara: typing.Callable[[], T_Result],
         vef: typing.Callable[[], T_Result],
+        velo: typing.Callable[[], T_Result],
+        ves: typing.Callable[[], T_Result],
         vet: typing.Callable[[], T_Result],
+        vgx: typing.Callable[[], T_Result],
         vnd: typing.Callable[[], T_Result],
+        voxel: typing.Callable[[], T_Result],
+        vtho: typing.Callable[[], T_Result],
         vuv: typing.Callable[[], T_Result],
-        waves: typing.Callable[[], T_Result],
+        wampl: typing.Callable[[], T_Result],
+        waxl: typing.Callable[[], T_Result],
         wbtc: typing.Callable[[], T_Result],
-        wemix: typing.Callable[[], T_Result],
+        wcfg: typing.Callable[[], T_Result],
+        wluna: typing.Callable[[], T_Result],
         wst: typing.Callable[[], T_Result],
         xaf: typing.Callable[[], T_Result],
         xag: typing.Callable[[], T_Result],
         xau: typing.Callable[[], T_Result],
         xcd: typing.Callable[[], T_Result],
-        xch: typing.Callable[[], T_Result],
-        xdc: typing.Callable[[], T_Result],
+        xcn: typing.Callable[[], T_Result],
         xdr: typing.Callable[[], T_Result],
-        xec: typing.Callable[[], T_Result],
-        xem: typing.Callable[[], T_Result],
         xlm: typing.Callable[[], T_Result],
-        xmr: typing.Callable[[], T_Result],
+        xmon: typing.Callable[[], T_Result],
         xof: typing.Callable[[], T_Result],
+        xpd: typing.Callable[[], T_Result],
         xpf: typing.Callable[[], T_Result],
+        xpt: typing.Callable[[], T_Result],
         xrp: typing.Callable[[], T_Result],
         xtz: typing.Callable[[], T_Result],
+        xyo: typing.Callable[[], T_Result],
         yer: typing.Callable[[], T_Result],
+        yfi: typing.Callable[[], T_Result],
+        yfii: typing.Callable[[], T_Result],
         zar: typing.Callable[[], T_Result],
         zec: typing.Callable[[], T_Result],
-        zil: typing.Callable[[], T_Result],
+        zen: typing.Callable[[], T_Result],
+        zeta: typing.Callable[[], T_Result],
         zmk: typing.Callable[[], T_Result],
         zmw: typing.Callable[[], T_Result],
-        zwl: typing.Callable[[], T_Result],
+        zrx: typing.Callable[[], T_Result],
+        zwd: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is CurrencyCode.ONE_INCH:
             return one_inch()
         if self is CurrencyCode.AAVE:
             return aave()
+        if self is CurrencyCode.ABT:
+            return abt()
+        if self is CurrencyCode.ACH:
+            return ach()
+        if self is CurrencyCode.ACS:
+            return acs()
         if self is CurrencyCode.ADA:
             return ada()
         if self is CurrencyCode.AED:
             return aed()
+        if self is CurrencyCode.AERGO:
+            return aergo()
+        if self is CurrencyCode.AERO:
+            return aero()
         if self is CurrencyCode.AFN:
             return afn()
+        if self is CurrencyCode.AGLD:
+            return agld()
+        if self is CurrencyCode.AIOZ:
+            return aioz()
+        if self is CurrencyCode.ALCX:
+            return alcx()
+        if self is CurrencyCode.ALEPH:
+            return aleph()
         if self is CurrencyCode.ALGO:
             return algo()
+        if self is CurrencyCode.ALICE:
+            return alice()
         if self is CurrencyCode.ALL:
             return all()
         if self is CurrencyCode.AMD:
@@ -579,26 +965,60 @@ class CurrencyCode(str, enum.Enum):
             return amp()
         if self is CurrencyCode.ANG:
             return ang()
+        if self is CurrencyCode.ANKR:
+            return ankr()
+        if self is CurrencyCode.ANT:
+            return ant()
         if self is CurrencyCode.AOA:
             return aoa()
-        if self is CurrencyCode.AR:
-            return ar()
+        if self is CurrencyCode.APE:
+            return ape()
+        if self is CurrencyCode.API_3:
+            return api_3()
+        if self is CurrencyCode.APT:
+            return apt()
+        if self is CurrencyCode.ARB:
+            return arb()
+        if self is CurrencyCode.ARPA:
+            return arpa()
         if self is CurrencyCode.ARS:
             return ars()
+        if self is CurrencyCode.ASM:
+            return asm()
+        if self is CurrencyCode.AST:
+            return ast()
+        if self is CurrencyCode.ATA:
+            return ata()
         if self is CurrencyCode.ATOM:
             return atom()
+        if self is CurrencyCode.AUCTION:
+            return auction()
         if self is CurrencyCode.AUD:
             return aud()
+        if self is CurrencyCode.AUDIO:
+            return audio()
+        if self is CurrencyCode.AURORA:
+            return aurora()
         if self is CurrencyCode.AVAX:
             return avax()
+        if self is CurrencyCode.AVT:
+            return avt()
         if self is CurrencyCode.AWG:
             return awg()
+        if self is CurrencyCode.AXL:
+            return axl()
         if self is CurrencyCode.AXS:
             return axs()
         if self is CurrencyCode.AZN:
             return azn()
+        if self is CurrencyCode.BADGER:
+            return badger()
+        if self is CurrencyCode.BAL:
+            return bal()
         if self is CurrencyCode.BAM:
             return bam()
+        if self is CurrencyCode.BAND:
+            return band()
         if self is CurrencyCode.BAT:
             return bat()
         if self is CurrencyCode.BBD:
@@ -611,16 +1031,32 @@ class CurrencyCode(str, enum.Enum):
             return bgn()
         if self is CurrencyCode.BHD:
             return bhd()
+        if self is CurrencyCode.BICO:
+            return bico()
         if self is CurrencyCode.BIF:
             return bif()
+        if self is CurrencyCode.BIGTIME:
+            return bigtime()
+        if self is CurrencyCode.BIT:
+            return bit()
+        if self is CurrencyCode.BLUR:
+            return blur()
+        if self is CurrencyCode.BLZ:
+            return blz()
         if self is CurrencyCode.BMD:
             return bmd()
-        if self is CurrencyCode.BNB:
-            return bnb()
         if self is CurrencyCode.BND:
             return bnd()
+        if self is CurrencyCode.BNT:
+            return bnt()
         if self is CurrencyCode.BOB:
             return bob()
+        if self is CurrencyCode.BOBA:
+            return boba()
+        if self is CurrencyCode.BOND:
+            return bond()
+        if self is CurrencyCode.BONK:
+            return bonk()
         if self is CurrencyCode.BRL:
             return brl()
         if self is CurrencyCode.BSD:
@@ -629,12 +1065,10 @@ class CurrencyCode(str, enum.Enum):
             return bsv()
         if self is CurrencyCode.BTC:
             return btc()
-        if self is CurrencyCode.BTCB:
-            return btcb()
-        if self is CurrencyCode.BTG:
-            return btg()
         if self is CurrencyCode.BTN:
             return btn()
+        if self is CurrencyCode.BTRST:
+            return btrst()
         if self is CurrencyCode.BUSD:
             return busd()
         if self is CurrencyCode.BWP:
@@ -645,14 +1079,18 @@ class CurrencyCode(str, enum.Enum):
             return byr()
         if self is CurrencyCode.BZD:
             return bzd()
+        if self is CurrencyCode.C_98:
+            return c_98()
         if self is CurrencyCode.CAD:
             return cad()
-        if self is CurrencyCode.CAKE:
-            return cake()
+        if self is CurrencyCode.CBETH:
+            return cbeth()
         if self is CurrencyCode.CDF:
             return cdf()
-        if self is CurrencyCode.CELO:
-            return celo()
+        if self is CurrencyCode.CELR:
+            return celr()
+        if self is CurrencyCode.CGLD:
+            return cgld()
         if self is CurrencyCode.CHF:
             return chf()
         if self is CurrencyCode.CHZ:
@@ -661,22 +1099,38 @@ class CurrencyCode(str, enum.Enum):
             return clf()
         if self is CurrencyCode.CLP:
             return clp()
+        if self is CurrencyCode.CLV:
+            return clv()
+        if self is CurrencyCode.CNH:
+            return cnh()
         if self is CurrencyCode.CNY:
             return cny()
         if self is CurrencyCode.COMP:
             return comp()
         if self is CurrencyCode.COP:
             return cop()
+        if self is CurrencyCode.COTI:
+            return coti()
+        if self is CurrencyCode.COVAL:
+            return coval()
         if self is CurrencyCode.CRC:
             return crc()
         if self is CurrencyCode.CRO:
             return cro()
+        if self is CurrencyCode.CRPT:
+            return crpt()
         if self is CurrencyCode.CRV:
             return crv()
+        if self is CurrencyCode.CTSI:
+            return ctsi()
+        if self is CurrencyCode.CTX:
+            return ctx()
         if self is CurrencyCode.CUC:
             return cuc()
         if self is CurrencyCode.CUP:
             return cup()
+        if self is CurrencyCode.CVC:
+            return cvc()
         if self is CurrencyCode.CVE:
             return cve()
         if self is CurrencyCode.CVX:
@@ -685,38 +1139,50 @@ class CurrencyCode(str, enum.Enum):
             return czk()
         if self is CurrencyCode.DAI:
             return dai()
-        if self is CurrencyCode.DIF:
-            return dif()
-        if self is CurrencyCode.LSR:
-            return lsr()
-        if self is CurrencyCode.SRC:
-            return src()
-        if self is CurrencyCode.BRB:
-            return brb()
+        if self is CurrencyCode.DAR:
+            return dar()
         if self is CurrencyCode.DASH:
             return dash()
-        if self is CurrencyCode.DCR:
-            return dcr()
-        if self is CurrencyCode.DFI:
-            return dfi()
+        if self is CurrencyCode.DDX:
+            return ddx()
+        if self is CurrencyCode.DESO:
+            return deso()
+        if self is CurrencyCode.DEXT:
+            return dext()
+        if self is CurrencyCode.DIA:
+            return dia()
+        if self is CurrencyCode.DIMO:
+            return dimo()
         if self is CurrencyCode.DJF:
             return djf()
         if self is CurrencyCode.DKK:
             return dkk()
+        if self is CurrencyCode.DNT:
+            return dnt()
         if self is CurrencyCode.DOGE:
             return doge()
         if self is CurrencyCode.DOP:
             return dop()
         if self is CurrencyCode.DOT:
             return dot()
+        if self is CurrencyCode.DREP:
+            return drep()
+        if self is CurrencyCode.DYP:
+            return dyp()
         if self is CurrencyCode.DZD:
             return dzd()
+        if self is CurrencyCode.EEK:
+            return eek()
         if self is CurrencyCode.EGLD:
             return egld()
         if self is CurrencyCode.EGP:
             return egp()
+        if self is CurrencyCode.ELA:
+            return ela()
         if self is CurrencyCode.ENJ:
             return enj()
+        if self is CurrencyCode.ENS:
+            return ens()
         if self is CurrencyCode.EOS:
             return eos()
         if self is CurrencyCode.ERN:
@@ -727,86 +1193,138 @@ class CurrencyCode(str, enum.Enum):
             return etc()
         if self is CurrencyCode.ETH:
             return eth()
+        if self is CurrencyCode.ETH_2:
+            return eth_2()
         if self is CurrencyCode.EUR:
             return eur()
-        if self is CurrencyCode.FEI:
-            return fei()
+        if self is CurrencyCode.EUROC:
+            return euroc()
+        if self is CurrencyCode.FARM:
+            return farm()
+        if self is CurrencyCode.FET:
+            return fet()
+        if self is CurrencyCode.FIDA:
+            return fida()
         if self is CurrencyCode.FIL:
             return fil()
+        if self is CurrencyCode.FIS:
+            return fis()
         if self is CurrencyCode.FJD:
             return fjd()
         if self is CurrencyCode.FKP:
             return fkp()
         if self is CurrencyCode.FLOW:
             return flow()
-        if self is CurrencyCode.FRAX:
-            return frax()
-        if self is CurrencyCode.FTM:
-            return ftm()
-        if self is CurrencyCode.FTT:
-            return ftt()
+        if self is CurrencyCode.FLR:
+            return flr()
+        if self is CurrencyCode.FORT:
+            return fort()
+        if self is CurrencyCode.FORTH:
+            return forth()
+        if self is CurrencyCode.FOX:
+            return fox()
+        if self is CurrencyCode.FX:
+            return fx()
+        if self is CurrencyCode.GAL:
+            return gal()
         if self is CurrencyCode.GALA:
             return gala()
         if self is CurrencyCode.GBP:
             return gbp()
         if self is CurrencyCode.GEL:
             return gel()
+        if self is CurrencyCode.GFI:
+            return gfi()
         if self is CurrencyCode.GGP:
             return ggp()
         if self is CurrencyCode.GHS:
             return ghs()
+        if self is CurrencyCode.GHST:
+            return ghst()
         if self is CurrencyCode.GIP:
             return gip()
+        if self is CurrencyCode.GLM:
+            return glm()
         if self is CurrencyCode.GMD:
             return gmd()
+        if self is CurrencyCode.GMT:
+            return gmt()
         if self is CurrencyCode.GNF:
             return gnf()
         if self is CurrencyCode.GNO:
             return gno()
+        if self is CurrencyCode.GNT:
+            return gnt()
+        if self is CurrencyCode.GODS:
+            return gods()
         if self is CurrencyCode.GRT:
             return grt()
-        if self is CurrencyCode.GT:
-            return gt()
+        if self is CurrencyCode.GST:
+            return gst()
+        if self is CurrencyCode.GTC:
+            return gtc()
         if self is CurrencyCode.GTQ:
             return gtq()
+        if self is CurrencyCode.GUSD:
+            return gusd()
         if self is CurrencyCode.GYD:
             return gyd()
+        if self is CurrencyCode.GYEN:
+            return gyen()
         if self is CurrencyCode.HBAR:
             return hbar()
+        if self is CurrencyCode.HFT:
+            return hft()
+        if self is CurrencyCode.HIGH:
+            return high()
         if self is CurrencyCode.HKD:
             return hkd()
         if self is CurrencyCode.HNL:
             return hnl()
         if self is CurrencyCode.HNT:
             return hnt()
-        if self is CurrencyCode.HOT:
-            return hot()
+        if self is CurrencyCode.HONEY:
+            return honey()
+        if self is CurrencyCode.HOPR:
+            return hopr()
         if self is CurrencyCode.HRK:
             return hrk()
-        if self is CurrencyCode.HT:
-            return ht()
         if self is CurrencyCode.HTG:
             return htg()
         if self is CurrencyCode.HUF:
             return huf()
         if self is CurrencyCode.ICP:
             return icp()
+        if self is CurrencyCode.IDEX:
+            return idex()
         if self is CurrencyCode.IDR:
             return idr()
         if self is CurrencyCode.ILS:
             return ils()
+        if self is CurrencyCode.ILV:
+            return ilv()
         if self is CurrencyCode.IMP:
             return imp()
+        if self is CurrencyCode.IMX:
+            return imx()
+        if self is CurrencyCode.INDEX:
+            return index()
         if self is CurrencyCode.INJ:
             return inj()
         if self is CurrencyCode.INR:
             return inr()
+        if self is CurrencyCode.INV:
+            return inv()
+        if self is CurrencyCode.IOTX:
+            return iotx()
         if self is CurrencyCode.IQD:
             return iqd()
         if self is CurrencyCode.IRR:
             return irr()
         if self is CurrencyCode.ISK:
             return isk()
+        if self is CurrencyCode.JASMY:
+            return jasmy()
         if self is CurrencyCode.JEP:
             return jep()
         if self is CurrencyCode.JMD:
@@ -815,26 +1333,28 @@ class CurrencyCode(str, enum.Enum):
             return jod()
         if self is CurrencyCode.JPY:
             return jpy()
+        if self is CurrencyCode.JTO:
+            return jto()
+        if self is CurrencyCode.JUP:
+            return jup()
         if self is CurrencyCode.KAVA:
             return kava()
-        if self is CurrencyCode.KCS:
-            return kcs()
-        if self is CurrencyCode.KDA:
-            return kda()
+        if self is CurrencyCode.KEEP:
+            return keep()
         if self is CurrencyCode.KES:
             return kes()
         if self is CurrencyCode.KGS:
             return kgs()
         if self is CurrencyCode.KHR:
             return khr()
-        if self is CurrencyCode.KLAY:
-            return klay()
         if self is CurrencyCode.KMF:
             return kmf()
         if self is CurrencyCode.KNC:
             return knc()
         if self is CurrencyCode.KPW:
             return kpw()
+        if self is CurrencyCode.KRL:
+            return krl()
         if self is CurrencyCode.KRW:
             return krw()
         if self is CurrencyCode.KSM:
@@ -849,60 +1369,108 @@ class CurrencyCode(str, enum.Enum):
             return lak()
         if self is CurrencyCode.LBP:
             return lbp()
-        if self is CurrencyCode.LEO:
-            return leo()
+        if self is CurrencyCode.LCX:
+            return lcx()
+        if self is CurrencyCode.LDO:
+            return ldo()
         if self is CurrencyCode.LINK:
             return link()
+        if self is CurrencyCode.LIT:
+            return lit()
         if self is CurrencyCode.LKR:
             return lkr()
+        if self is CurrencyCode.LOKA:
+            return loka()
+        if self is CurrencyCode.LOOM:
+            return loom()
+        if self is CurrencyCode.LPT:
+            return lpt()
+        if self is CurrencyCode.LQTY:
+            return lqty()
         if self is CurrencyCode.LRC:
             return lrc()
         if self is CurrencyCode.LRD:
             return lrd()
+        if self is CurrencyCode.LSETH:
+            return lseth()
         if self is CurrencyCode.LSL:
             return lsl()
         if self is CurrencyCode.LTC:
             return ltc()
         if self is CurrencyCode.LTL:
             return ltl()
-        if self is CurrencyCode.LUNA:
-            return luna()
         if self is CurrencyCode.LVL:
             return lvl()
         if self is CurrencyCode.LYD:
             return lyd()
         if self is CurrencyCode.MAD:
             return mad()
+        if self is CurrencyCode.MAGIC:
+            return magic()
         if self is CurrencyCode.MANA:
             return mana()
+        if self is CurrencyCode.MASK:
+            return mask()
+        if self is CurrencyCode.MATH:
+            return math()
         if self is CurrencyCode.MATIC:
             return matic()
+        if self is CurrencyCode.MCO_2:
+            return mco_2()
         if self is CurrencyCode.MDL:
             return mdl()
+        if self is CurrencyCode.MDT:
+            return mdt()
+        if self is CurrencyCode.MEDIA:
+            return media()
+        if self is CurrencyCode.METIS:
+            return metis()
         if self is CurrencyCode.MGA:
             return mga()
         if self is CurrencyCode.MINA:
             return mina()
-        if self is CurrencyCode.MIOTA:
-            return miota()
+        if self is CurrencyCode.MIR:
+            return mir()
         if self is CurrencyCode.MKD:
             return mkd()
         if self is CurrencyCode.MKR:
             return mkr()
+        if self is CurrencyCode.MLN:
+            return mln()
         if self is CurrencyCode.MMK:
             return mmk()
+        if self is CurrencyCode.MNDE:
+            return mnde()
         if self is CurrencyCode.MNT:
             return mnt()
+        if self is CurrencyCode.MOBILE:
+            return mobile()
+        if self is CurrencyCode.MONA:
+            return mona()
         if self is CurrencyCode.MOP:
             return mop()
+        if self is CurrencyCode.MPL:
+            return mpl()
         if self is CurrencyCode.MRO:
             return mro()
+        if self is CurrencyCode.MRU:
+            return mru()
+        if self is CurrencyCode.MSOL:
+            return msol()
+        if self is CurrencyCode.MTL:
+            return mtl()
+        if self is CurrencyCode.MULTI:
+            return multi()
         if self is CurrencyCode.MUR:
             return mur()
+        if self is CurrencyCode.MUSE:
+            return muse()
         if self is CurrencyCode.MVR:
             return mvr()
         if self is CurrencyCode.MWK:
             return mwk()
+        if self is CurrencyCode.MXC:
+            return mxc()
         if self is CurrencyCode.MXN:
             return mxn()
         if self is CurrencyCode.MYR:
@@ -911,58 +1479,142 @@ class CurrencyCode(str, enum.Enum):
             return mzn()
         if self is CurrencyCode.NAD:
             return nad()
+        if self is CurrencyCode.NCT:
+            return nct()
         if self is CurrencyCode.NEAR:
             return near()
-        if self is CurrencyCode.NEO:
-            return neo()
-        if self is CurrencyCode.NEXO:
-            return nexo()
+        if self is CurrencyCode.NEST:
+            return nest()
         if self is CurrencyCode.NGN:
             return ngn()
         if self is CurrencyCode.NIO:
             return nio()
+        if self is CurrencyCode.NKN:
+            return nkn()
+        if self is CurrencyCode.NMR:
+            return nmr()
         if self is CurrencyCode.NOK:
             return nok()
         if self is CurrencyCode.NPR:
             return npr()
+        if self is CurrencyCode.NU:
+            return nu()
         if self is CurrencyCode.NZD:
             return nzd()
-        if self is CurrencyCode.OKB:
-            return okb()
+        if self is CurrencyCode.OCEAN:
+            return ocean()
+        if self is CurrencyCode.OGN:
+            return ogn()
+        if self is CurrencyCode.OMG:
+            return omg()
         if self is CurrencyCode.OMR:
             return omr()
-        if self is CurrencyCode.ONE:
-            return one()
+        if self is CurrencyCode.ONDO:
+            return ondo()
+        if self is CurrencyCode.OOKI:
+            return ooki()
+        if self is CurrencyCode.OP:
+            return op()
+        if self is CurrencyCode.ORCA:
+            return orca()
+        if self is CurrencyCode.ORN:
+            return orn()
+        if self is CurrencyCode.OSMO:
+            return osmo()
+        if self is CurrencyCode.OXT:
+            return oxt()
         if self is CurrencyCode.PAB:
             return pab()
-        if self is CurrencyCode.PAXG:
-            return paxg()
+        if self is CurrencyCode.PAX:
+            return pax()
         if self is CurrencyCode.PEN:
             return pen()
+        if self is CurrencyCode.PERP:
+            return perp()
         if self is CurrencyCode.PGK:
             return pgk()
         if self is CurrencyCode.PHP:
             return php()
         if self is CurrencyCode.PKR:
             return pkr()
+        if self is CurrencyCode.PLA:
+            return pla()
         if self is CurrencyCode.PLN:
             return pln()
+        if self is CurrencyCode.PLU:
+            return plu()
+        if self is CurrencyCode.PNG:
+            return png()
+        if self is CurrencyCode.POLS:
+            return pols()
+        if self is CurrencyCode.POLY:
+            return poly()
+        if self is CurrencyCode.POND:
+            return pond()
+        if self is CurrencyCode.POWR:
+            return powr()
+        if self is CurrencyCode.PRIME:
+            return prime()
+        if self is CurrencyCode.PRO:
+            return pro()
+        if self is CurrencyCode.PRQ:
+            return prq()
+        if self is CurrencyCode.PUNDIX:
+            return pundix()
         if self is CurrencyCode.PYG:
             return pyg()
+        if self is CurrencyCode.PYR:
+            return pyr()
+        if self is CurrencyCode.PYUSD:
+            return pyusd()
         if self is CurrencyCode.QAR:
             return qar()
+        if self is CurrencyCode.QI:
+            return qi()
         if self is CurrencyCode.QNT:
             return qnt()
-        if self is CurrencyCode.QTUM:
-            return qtum()
+        if self is CurrencyCode.QSP:
+            return qsp()
+        if self is CurrencyCode.QUICK:
+            return quick()
+        if self is CurrencyCode.RAD:
+            return rad()
+        if self is CurrencyCode.RAI:
+            return rai()
+        if self is CurrencyCode.RARE:
+            return rare()
+        if self is CurrencyCode.RARI:
+            return rari()
+        if self is CurrencyCode.RBN:
+            return rbn()
+        if self is CurrencyCode.REN:
+            return ren()
+        if self is CurrencyCode.RENDER:
+            return render()
+        if self is CurrencyCode.REP:
+            return rep()
+        if self is CurrencyCode.REPV_2:
+            return repv_2()
+        if self is CurrencyCode.REQ:
+            return req()
+        if self is CurrencyCode.RGT:
+            return rgt()
+        if self is CurrencyCode.RLC:
+            return rlc()
+        if self is CurrencyCode.RLY:
+            return rly()
+        if self is CurrencyCode.RNDR:
+            return rndr()
         if self is CurrencyCode.RON:
             return ron()
+        if self is CurrencyCode.ROSE:
+            return rose()
+        if self is CurrencyCode.RPL:
+            return rpl()
         if self is CurrencyCode.RSD:
             return rsd()
         if self is CurrencyCode.RUB:
             return rub()
-        if self is CurrencyCode.RUNE:
-            return rune()
         if self is CurrencyCode.RWF:
             return rwf()
         if self is CurrencyCode.SAND:
@@ -975,6 +1627,10 @@ class CurrencyCode(str, enum.Enum):
             return scr()
         if self is CurrencyCode.SDG:
             return sdg()
+        if self is CurrencyCode.SEAM:
+            return seam()
+        if self is CurrencyCode.SEI:
+            return sei()
         if self is CurrencyCode.SEK:
             return sek()
         if self is CurrencyCode.SGD:
@@ -983,48 +1639,94 @@ class CurrencyCode(str, enum.Enum):
             return shib()
         if self is CurrencyCode.SHP:
             return shp()
-        if self is CurrencyCode.SLE:
-            return sle()
+        if self is CurrencyCode.SHPING:
+            return shping()
+        if self is CurrencyCode.SKK:
+            return skk()
+        if self is CurrencyCode.SKL:
+            return skl()
         if self is CurrencyCode.SLL:
             return sll()
+        if self is CurrencyCode.SNT:
+            return snt()
+        if self is CurrencyCode.SNX:
+            return snx()
         if self is CurrencyCode.SOL:
             return sol()
         if self is CurrencyCode.SOS:
             return sos()
+        if self is CurrencyCode.SPA:
+            return spa()
+        if self is CurrencyCode.SPELL:
+            return spell()
         if self is CurrencyCode.SRD:
             return srd()
+        if self is CurrencyCode.SSP:
+            return ssp()
         if self is CurrencyCode.STD:
             return std()
+        if self is CurrencyCode.STG:
+            return stg()
+        if self is CurrencyCode.STORJ:
+            return storj()
+        if self is CurrencyCode.STRK:
+            return strk()
         if self is CurrencyCode.STX:
             return stx()
+        if self is CurrencyCode.SUI:
+            return sui()
+        if self is CurrencyCode.SUKU:
+            return suku()
+        if self is CurrencyCode.SUPER:
+            return super()
+        if self is CurrencyCode.SUSHI:
+            return sushi()
         if self is CurrencyCode.SVC:
             return svc()
+        if self is CurrencyCode.SWFTC:
+            return swftc()
+        if self is CurrencyCode.SYLO:
+            return sylo()
+        if self is CurrencyCode.SYN:
+            return syn()
         if self is CurrencyCode.SYP:
             return syp()
         if self is CurrencyCode.SZL:
             return szl()
+        if self is CurrencyCode.T:
+            return t()
         if self is CurrencyCode.THB:
             return thb()
-        if self is CurrencyCode.THETA:
-            return theta()
+        if self is CurrencyCode.TIA:
+            return tia()
+        if self is CurrencyCode.TIME:
+            return time()
         if self is CurrencyCode.TJS:
             return tjs()
+        if self is CurrencyCode.TMM:
+            return tmm()
         if self is CurrencyCode.TMT:
             return tmt()
         if self is CurrencyCode.TND:
             return tnd()
+        if self is CurrencyCode.TONE:
+            return tone()
         if self is CurrencyCode.TOP:
             return top()
-        if self is CurrencyCode.TRX:
-            return trx()
+        if self is CurrencyCode.TRAC:
+            return trac()
+        if self is CurrencyCode.TRB:
+            return trb()
+        if self is CurrencyCode.TRIBE:
+            return tribe()
+        if self is CurrencyCode.TRU:
+            return tru()
         if self is CurrencyCode.TRY:
             return try_()
         if self is CurrencyCode.TTD:
             return ttd()
-        if self is CurrencyCode.TTT:
-            return ttt()
-        if self is CurrencyCode.TUSD:
-            return tusd()
+        if self is CurrencyCode.TVK:
+            return tvk()
         if self is CurrencyCode.TWD:
             return twd()
         if self is CurrencyCode.TZS:
@@ -1033,34 +1735,56 @@ class CurrencyCode(str, enum.Enum):
             return uah()
         if self is CurrencyCode.UGX:
             return ugx()
+        if self is CurrencyCode.UMA:
+            return uma()
+        if self is CurrencyCode.UNFI:
+            return unfi()
         if self is CurrencyCode.UNI:
             return uni()
+        if self is CurrencyCode.UPI:
+            return upi()
         if self is CurrencyCode.USD:
             return usd()
         if self is CurrencyCode.USDC:
             return usdc()
-        if self is CurrencyCode.USDP:
-            return usdp()
         if self is CurrencyCode.USDT:
             return usdt()
+        if self is CurrencyCode.UST:
+            return ust()
         if self is CurrencyCode.UYU:
             return uyu()
         if self is CurrencyCode.UZS:
             return uzs()
+        if self is CurrencyCode.VARA:
+            return vara()
         if self is CurrencyCode.VEF:
             return vef()
+        if self is CurrencyCode.VELO:
+            return velo()
+        if self is CurrencyCode.VES:
+            return ves()
         if self is CurrencyCode.VET:
             return vet()
+        if self is CurrencyCode.VGX:
+            return vgx()
         if self is CurrencyCode.VND:
             return vnd()
+        if self is CurrencyCode.VOXEL:
+            return voxel()
+        if self is CurrencyCode.VTHO:
+            return vtho()
         if self is CurrencyCode.VUV:
             return vuv()
-        if self is CurrencyCode.WAVES:
-            return waves()
+        if self is CurrencyCode.WAMPL:
+            return wampl()
+        if self is CurrencyCode.WAXL:
+            return waxl()
         if self is CurrencyCode.WBTC:
             return wbtc()
-        if self is CurrencyCode.WEMIX:
-            return wemix()
+        if self is CurrencyCode.WCFG:
+            return wcfg()
+        if self is CurrencyCode.WLUNA:
+            return wluna()
         if self is CurrencyCode.WST:
             return wst()
         if self is CurrencyCode.XAF:
@@ -1071,39 +1795,47 @@ class CurrencyCode(str, enum.Enum):
             return xau()
         if self is CurrencyCode.XCD:
             return xcd()
-        if self is CurrencyCode.XCH:
-            return xch()
-        if self is CurrencyCode.XDC:
-            return xdc()
+        if self is CurrencyCode.XCN:
+            return xcn()
         if self is CurrencyCode.XDR:
             return xdr()
-        if self is CurrencyCode.XEC:
-            return xec()
-        if self is CurrencyCode.XEM:
-            return xem()
         if self is CurrencyCode.XLM:
             return xlm()
-        if self is CurrencyCode.XMR:
-            return xmr()
+        if self is CurrencyCode.XMON:
+            return xmon()
         if self is CurrencyCode.XOF:
             return xof()
+        if self is CurrencyCode.XPD:
+            return xpd()
         if self is CurrencyCode.XPF:
             return xpf()
+        if self is CurrencyCode.XPT:
+            return xpt()
         if self is CurrencyCode.XRP:
             return xrp()
         if self is CurrencyCode.XTZ:
             return xtz()
+        if self is CurrencyCode.XYO:
+            return xyo()
         if self is CurrencyCode.YER:
             return yer()
+        if self is CurrencyCode.YFI:
+            return yfi()
+        if self is CurrencyCode.YFII:
+            return yfii()
         if self is CurrencyCode.ZAR:
             return zar()
         if self is CurrencyCode.ZEC:
             return zec()
-        if self is CurrencyCode.ZIL:
-            return zil()
+        if self is CurrencyCode.ZEN:
+            return zen()
+        if self is CurrencyCode.ZETA:
+            return zeta()
         if self is CurrencyCode.ZMK:
             return zmk()
         if self is CurrencyCode.ZMW:
             return zmw()
-        if self is CurrencyCode.ZWL:
-            return zwl()
+        if self is CurrencyCode.ZRX:
+            return zrx()
+        if self is CurrencyCode.ZWD:
+            return zwd()
