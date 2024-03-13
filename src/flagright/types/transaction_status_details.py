@@ -16,6 +16,7 @@ class TransactionStatusDetails(pydantic.BaseModel):
     transaction_id: str = pydantic.Field(alias="transactionId")
     reasons: typing.List[str]
     status: RuleAction
+    comment: typing.Optional[str]
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
