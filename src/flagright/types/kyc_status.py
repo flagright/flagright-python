@@ -15,6 +15,7 @@ class KycStatus(str, enum.Enum):
     NEW = "NEW"
     CANCELLED = "CANCELLED"
     MANUAL_REVIEW = "MANUAL_REVIEW"
+    EDD_IN_PROGRESS = "EDD_IN_PROGRESS"
 
     def visit(
         self,
@@ -26,6 +27,7 @@ class KycStatus(str, enum.Enum):
         new: typing.Callable[[], T_Result],
         cancelled: typing.Callable[[], T_Result],
         manual_review: typing.Callable[[], T_Result],
+        edd_in_progress: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is KycStatus.SUCCESSFUL:
             return successful()
@@ -43,3 +45,5 @@ class KycStatus(str, enum.Enum):
             return cancelled()
         if self is KycStatus.MANUAL_REVIEW:
             return manual_review()
+        if self is KycStatus.EDD_IN_PROGRESS:
+            return edd_in_progress()
