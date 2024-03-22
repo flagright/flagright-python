@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
+from .country_code import CountryCode
 from .email_id import EmailId
 from .tag import Tag
 
@@ -28,6 +29,7 @@ class GenericBankAccountDetails(pydantic.BaseModel):
         alias="bankCode",
         description="Unique identifier of the bank. In some countries, this can be the same as the bank's SWIFT code",
     )
+    country: typing.Optional[CountryCode]
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")
     email_id: typing.Optional[EmailId] = pydantic.Field(alias="emailId")
