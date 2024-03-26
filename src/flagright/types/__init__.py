@@ -23,7 +23,6 @@ from .business_optional_saved_payment_details_item import (
     BusinessOptionalSavedPaymentDetailsItem_Upi,
     BusinessOptionalSavedPaymentDetailsItem_Wallet,
 )
-from .business_response import BusinessResponse
 from .business_user_segment import BusinessUserSegment
 from .business_users_response import BusinessUsersResponse
 from .business_with_rules_result import BusinessWithRulesResult
@@ -145,7 +144,6 @@ from .user_base import UserBase
 from .user_details import UserDetails
 from .user_optional import UserOptional
 from .user_registration_status import UserRegistrationStatus
-from .user_response import UserResponse
 from .user_risk_score_details import UserRiskScoreDetails
 from .user_state import UserState
 from .user_state_details import UserStateDetails
@@ -180,7 +178,6 @@ __all__ = [
     "BusinessOptionalSavedPaymentDetailsItem_Swift",
     "BusinessOptionalSavedPaymentDetailsItem_Upi",
     "BusinessOptionalSavedPaymentDetailsItem_Wallet",
-    "BusinessResponse",
     "BusinessUserSegment",
     "BusinessUsersResponse",
     "BusinessWithRulesResult",
@@ -298,7 +295,6 @@ __all__ = [
     "UserDetails",
     "UserOptional",
     "UserRegistrationStatus",
-    "UserResponse",
     "UserRiskScoreDetails",
     "UserState",
     "UserStateDetails",

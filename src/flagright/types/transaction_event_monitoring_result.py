@@ -6,6 +6,7 @@ import typing
 from ..core.datetime_utils import serialize_datetime
 from .rules_results import RulesResults
 from .transaction import Transaction
+from .transaction_risk_scoring_result import TransactionRiskScoringResult
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -16,6 +17,7 @@ except ImportError:
 class TransactionEventMonitoringResult(RulesResults):
     event_id: str = pydantic.Field(alias="eventId")
     transaction: Transaction
+    risk_score_details: typing.Optional[TransactionRiskScoringResult] = pydantic.Field(alias="riskScoreDetails")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

@@ -11,7 +11,7 @@ from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.user import User
-from ...types.user_response import UserResponse
+from ...types.user_with_rules_result import UserWithRulesResult
 from .types.consumer_users_create_response import ConsumerUsersCreateResponse
 
 try:
@@ -224,7 +224,7 @@ class ConsumerUsersClient:
             raise ApiError(status_code=_response.status_code, body=_response.text)
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
-    def get(self, user_id: str) -> UserResponse:
+    def get(self, user_id: str) -> UserWithRulesResult:
         """
         ### GET Consumer User
 
@@ -251,7 +251,7 @@ class ConsumerUsersClient:
             timeout=60,
         )
         if 200 <= _response.status_code < 300:
-            return pydantic.parse_obj_as(UserResponse, _response.json())  # type: ignore
+            return pydantic.parse_obj_as(UserWithRulesResult, _response.json())  # type: ignore
         if _response.status_code == 401:
             raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
         if _response.status_code == 429:
@@ -464,7 +464,7 @@ class AsyncConsumerUsersClient:
             raise ApiError(status_code=_response.status_code, body=_response.text)
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
-    async def get(self, user_id: str) -> UserResponse:
+    async def get(self, user_id: str) -> UserWithRulesResult:
         """
         ### GET Consumer User
 
@@ -491,7 +491,7 @@ class AsyncConsumerUsersClient:
             timeout=60,
         )
         if 200 <= _response.status_code < 300:
-            return pydantic.parse_obj_as(UserResponse, _response.json())  # type: ignore
+            return pydantic.parse_obj_as(UserWithRulesResult, _response.json())  # type: ignore
         if _response.status_code == 401:
             raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
         if _response.status_code == 429:
