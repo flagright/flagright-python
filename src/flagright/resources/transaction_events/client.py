@@ -161,7 +161,7 @@ class TransactionEventsClient:
 
         `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](/guides/overview/entities#transaction-event).
 
-        You can retrieve any transaction event you create using the [POST Transaction Events](/api-reference/api-reference/transaction-events/create) call.
+        You can retrieve any transaction event you created using the [POST Transaction Events](/api-reference/api-reference/transaction-events/create) call.
 
         Parameters:
             - event_id: str. Unique Transaction Identifier
@@ -333,7 +333,7 @@ class AsyncTransactionEventsClient:
 
         `/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](/guides/overview/entities#transaction-event).
 
-        You can retrieve any transaction event you create using the [POST Transaction Events](/api-reference/api-reference/transaction-events/create) call.
+        You can retrieve any transaction event you created using the [POST Transaction Events](/api-reference/api-reference/transaction-events/create) call.
 
         Parameters:
             - event_id: str. Unique Transaction Identifier

@@ -12,7 +12,7 @@ from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.boolean_string import BooleanString
-from ...types.business_optional import BusinessOptional
+from ...types.business_user_event import BusinessUserEvent
 from ...types.business_with_rules_result import BusinessWithRulesResult
 
 try:
@@ -29,15 +29,7 @@ class BusinessUserEventsClient:
         self._client_wrapper = client_wrapper
 
     def create(
-        self,
-        *,
-        allow_user_type_conversion: typing.Optional[BooleanString] = None,
-        timestamp: float,
-        user_id: str,
-        event_id: typing.Optional[str] = OMIT,
-        reason: typing.Optional[str] = OMIT,
-        event_description: typing.Optional[str] = OMIT,
-        updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        self, *, allow_user_type_conversion: typing.Optional[BooleanString] = None, request: BusinessUserEvent
     ) -> BusinessWithRulesResult:
         """
         ## POST Business User Events
@@ -63,22 +55,13 @@ class BusinessUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Business user event to be applied to a Consumer user with the same user ID. This will converts a Consumer user to a Business user.
 
-            - timestamp: float. Timestamp of the event
-
-            - user_id: str. Transaction ID the event pertains to
-
-            - event_id: typing.Optional[str]. Unique event ID
-
-            - reason: typing.Optional[str]. Reason for the event or a state change
-
-            - event_description: typing.Optional[str]. Event description
-
-            - updated_business_user_attributes: typing.Optional[BusinessOptional].
+            - request: BusinessUserEvent.
         ---
         from flagright import (
             Address,
             Amount,
             BusinessOptional,
+            BusinessUserEvent,
             CompanyFinancialDetails,
             CompanyGeneralDetails,
             CompanyRegistrationDetails,
@@ -99,583 +82,579 @@ class BusinessUserEventsClient:
             api_key="YOUR_API_KEY",
         )
         client.business_user_events.create(
-            timestamp=1.1,
-            user_id="userId",
-            updated_business_user_attributes=BusinessOptional(
-                legal_entity=LegalEntity(
-                    company_general_details=CompanyGeneralDetails(
-                        legal_name="Ozkan Hazelnut Export JSC",
-                        business_industry=["Farming", "businessIndustry"],
-                        main_products_services_sold=[
-                            "Hazelnut",
-                            "mainProductsServicesSold",
+            request=BusinessUserEvent(
+                timestamp=1.1,
+                user_id="userId",
+                updated_business_user_attributes=BusinessOptional(
+                    legal_entity=LegalEntity(
+                        company_general_details=CompanyGeneralDetails(
+                            legal_name="Ozkan Hazelnut Export JSC",
+                            business_industry=["Farming", "businessIndustry"],
+                            main_products_services_sold=[
+                                "Hazelnut",
+                                "mainProductsServicesSold",
+                            ],
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                )
+                            ],
+                        ),
+                        company_financial_details=CompanyFinancialDetails(
+                            expected_transaction_amount_per_month=Amount(
+                                amount_value=800.0,
+                                amount_currency=CurrencyCode.GBP,
+                            ),
+                            expected_turnover_per_month=Amount(
+                                amount_value=8000.0,
+                                amount_currency=CurrencyCode.USD,
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                )
+                            ],
+                        ),
+                        company_registration_details=CompanyRegistrationDetails(
+                            registration_identifier="PSJ554342",
+                            registration_country=CountryCode.DE,
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                )
+                            ],
+                        ),
+                        reason_for_account_opening=[
+                            "string",
+                            "reasonForAccountOpening",
                         ],
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            )
-                        ],
+                        contact_details=ContactDetails(
+                            addresses=[
+                                Address(
+                                    address_lines=["Klara-Franke Str 20"],
+                                    postcode="10557",
+                                    city="Berlin",
+                                    state="Berlin",
+                                    country="Germany",
+                                    tags=[
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                ),
+                                Address(
+                                    address_lines=["Klara-Franke Str 20"],
+                                    postcode="10557",
+                                    city="Berlin",
+                                    state="Berlin",
+                                    country="Germany",
+                                    tags=[
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        ),
                     ),
-                    company_financial_details=CompanyFinancialDetails(
-                        expected_transaction_amount_per_month=Amount(
+                    share_holders=[
+                        Person(
+                            general_details=UserDetails(
+                                name=ConsumerName(
+                                    first_name="Baran",
+                                    middle_name="Realblood",
+                                    last_name="Ozkan",
+                                ),
+                                date_of_birth="1991-01-01",
+                                country_of_residence=CountryCode.US,
+                                country_of_nationality=CountryCode.DE,
+                            ),
+                            legal_documents=[
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                            ],
+                            contact_details=ContactDetails(
+                                email_ids=["baran@flagright.com", "emailIds"],
+                                contact_numbers=["+371 123132", "contactNumbers"],
+                                websites=["flagright.com", "websites"],
+                                addresses=[
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                        Person(
+                            general_details=UserDetails(
+                                name=ConsumerName(
+                                    first_name="Baran",
+                                    middle_name="Realblood",
+                                    last_name="Ozkan",
+                                ),
+                                date_of_birth="1991-01-01",
+                                country_of_residence=CountryCode.US,
+                                country_of_nationality=CountryCode.DE,
+                            ),
+                            legal_documents=[
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                            ],
+                            contact_details=ContactDetails(
+                                email_ids=["baran@flagright.com", "emailIds"],
+                                contact_numbers=["+371 123132", "contactNumbers"],
+                                websites=["flagright.com", "websites"],
+                                addresses=[
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                    ],
+                    directors=[
+                        Person(
+                            general_details=UserDetails(
+                                name=ConsumerName(
+                                    first_name="Baran",
+                                    middle_name="Realblood",
+                                    last_name="Ozkan",
+                                ),
+                                date_of_birth="1991-01-01",
+                                country_of_residence=CountryCode.US,
+                                country_of_nationality=CountryCode.DE,
+                            ),
+                            legal_documents=[
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                            ],
+                            contact_details=ContactDetails(
+                                email_ids=["baran@flagright.com", "emailIds"],
+                                contact_numbers=["+371 123132", "contactNumbers"],
+                                websites=["flagright.com", "websites"],
+                                addresses=[
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                        Person(
+                            general_details=UserDetails(
+                                name=ConsumerName(
+                                    first_name="Baran",
+                                    middle_name="Realblood",
+                                    last_name="Ozkan",
+                                ),
+                                date_of_birth="1991-01-01",
+                                country_of_residence=CountryCode.US,
+                                country_of_nationality=CountryCode.DE,
+                            ),
+                            legal_documents=[
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                            ],
+                            contact_details=ContactDetails(
+                                email_ids=["baran@flagright.com", "emailIds"],
+                                contact_numbers=["+371 123132", "contactNumbers"],
+                                websites=["flagright.com", "websites"],
+                                addresses=[
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                    ],
+                    transaction_limits=TransactionLimits(
+                        maximum_daily_transaction_limit=Amount(
                             amount_value=800.0,
                             amount_currency=CurrencyCode.GBP,
                         ),
-                        expected_turnover_per_month=Amount(
-                            amount_value=8000.0,
-                            amount_currency=CurrencyCode.USD,
+                        maximum_weekly_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
                         ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            )
-                        ],
+                        maximum_monthly_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
+                        ),
+                        maximum_quarterly_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
+                        ),
+                        maximum_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
+                        ),
+                        maximum_yearly_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
+                        ),
                     ),
-                    company_registration_details=CompanyRegistrationDetails(
-                        registration_identifier="PSJ554342",
-                        registration_country=CountryCode.DE,
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            )
-                        ],
-                    ),
-                    reason_for_account_opening=["string", "reasonForAccountOpening"],
-                    contact_details=ContactDetails(
-                        addresses=[
-                            Address(
-                                address_lines=["Klara-Franke Str 20"],
-                                postcode="10557",
-                                city="Berlin",
-                                state="Berlin",
-                                country="Germany",
-                                tags=[
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                            ),
-                            Address(
-                                address_lines=["Klara-Franke Str 20"],
-                                postcode="10557",
-                                city="Berlin",
-                                state="Berlin",
-                                country="Germany",
-                                tags=[
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
+                    tags=[
+                        Tag(
+                            key="customKey",
+                            value="customValue",
+                        ),
+                        Tag(
+                            key="customKey",
+                            value="customValue",
+                        ),
+                    ],
                 ),
-                share_holders=[
-                    Person(
-                        general_details=UserDetails(
-                            name=ConsumerName(
-                                first_name="Baran",
-                                middle_name="Realblood",
-                                last_name="Ozkan",
-                            ),
-                            date_of_birth="1991-01-01",
-                            country_of_residence=CountryCode.US,
-                            country_of_nationality=CountryCode.DE,
-                        ),
-                        legal_documents=[
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                        ],
-                        contact_details=ContactDetails(
-                            email_ids=["baran@flagright.com", "emailIds"],
-                            contact_numbers=["+371 123132", "contactNumbers"],
-                            websites=["flagright.com", "websites"],
-                            addresses=[
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                            ],
-                        ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                    ),
-                    Person(
-                        general_details=UserDetails(
-                            name=ConsumerName(
-                                first_name="Baran",
-                                middle_name="Realblood",
-                                last_name="Ozkan",
-                            ),
-                            date_of_birth="1991-01-01",
-                            country_of_residence=CountryCode.US,
-                            country_of_nationality=CountryCode.DE,
-                        ),
-                        legal_documents=[
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                        ],
-                        contact_details=ContactDetails(
-                            email_ids=["baran@flagright.com", "emailIds"],
-                            contact_numbers=["+371 123132", "contactNumbers"],
-                            websites=["flagright.com", "websites"],
-                            addresses=[
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                            ],
-                        ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                    ),
-                ],
-                directors=[
-                    Person(
-                        general_details=UserDetails(
-                            name=ConsumerName(
-                                first_name="Baran",
-                                middle_name="Realblood",
-                                last_name="Ozkan",
-                            ),
-                            date_of_birth="1991-01-01",
-                            country_of_residence=CountryCode.US,
-                            country_of_nationality=CountryCode.DE,
-                        ),
-                        legal_documents=[
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                        ],
-                        contact_details=ContactDetails(
-                            email_ids=["baran@flagright.com", "emailIds"],
-                            contact_numbers=["+371 123132", "contactNumbers"],
-                            websites=["flagright.com", "websites"],
-                            addresses=[
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                            ],
-                        ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                    ),
-                    Person(
-                        general_details=UserDetails(
-                            name=ConsumerName(
-                                first_name="Baran",
-                                middle_name="Realblood",
-                                last_name="Ozkan",
-                            ),
-                            date_of_birth="1991-01-01",
-                            country_of_residence=CountryCode.US,
-                            country_of_nationality=CountryCode.DE,
-                        ),
-                        legal_documents=[
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                        ],
-                        contact_details=ContactDetails(
-                            email_ids=["baran@flagright.com", "emailIds"],
-                            contact_numbers=["+371 123132", "contactNumbers"],
-                            websites=["flagright.com", "websites"],
-                            addresses=[
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                            ],
-                        ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                    ),
-                ],
-                transaction_limits=TransactionLimits(
-                    maximum_daily_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_weekly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_monthly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_quarterly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_yearly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                ),
-                tags=[
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    ),
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    ),
-                ],
             ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {"timestamp": timestamp, "userId": user_id}
-        if event_id is not OMIT:
-            _request["eventId"] = event_id
-        if reason is not OMIT:
-            _request["reason"] = reason
-        if event_description is not OMIT:
-            _request["eventDescription"] = event_description
-        if updated_business_user_attributes is not OMIT:
-            _request["updatedBusinessUserAttributes"] = updated_business_user_attributes
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/business/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
-            json=jsonable_encoder(_request),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -693,21 +672,49 @@ class BusinessUserEventsClient:
             raise ApiError(status_code=_response.status_code, body=_response.text)
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
+    def get(self, event_id: str) -> BusinessUserEvent:
+        """
+        ### GET a Business User Event
+
+        You can retrieve any business user event you created using the [POST Business User Events](/api-reference/api-reference/business-user-events/create) call.
+
+        Parameters:
+            - event_id: str. Unique Business User Event Identifier
+        ---
+        from flagright.client import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.business_user_events.get(
+            event_id="eventId",
+        )
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "GET",
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"events/business/user/{event_id}"),
+            headers=self._client_wrapper.get_headers(),
+            timeout=60,
+        )
+        if 200 <= _response.status_code < 300:
+            return pydantic.parse_obj_as(BusinessUserEvent, _response.json())  # type: ignore
+        if _response.status_code == 401:
+            raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+        if _response.status_code == 429:
+            raise TooManyRequestsError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+        try:
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, body=_response.text)
+        raise ApiError(status_code=_response.status_code, body=_response_json)
+
 
 class AsyncBusinessUserEventsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
     async def create(
-        self,
-        *,
-        allow_user_type_conversion: typing.Optional[BooleanString] = None,
-        timestamp: float,
-        user_id: str,
-        event_id: typing.Optional[str] = OMIT,
-        reason: typing.Optional[str] = OMIT,
-        event_description: typing.Optional[str] = OMIT,
-        updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        self, *, allow_user_type_conversion: typing.Optional[BooleanString] = None, request: BusinessUserEvent
     ) -> BusinessWithRulesResult:
         """
         ## POST Business User Events
@@ -733,22 +740,13 @@ class AsyncBusinessUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Business user event to be applied to a Consumer user with the same user ID. This will converts a Consumer user to a Business user.
 
-            - timestamp: float. Timestamp of the event
-
-            - user_id: str. Transaction ID the event pertains to
-
-            - event_id: typing.Optional[str]. Unique event ID
-
-            - reason: typing.Optional[str]. Reason for the event or a state change
-
-            - event_description: typing.Optional[str]. Event description
-
-            - updated_business_user_attributes: typing.Optional[BusinessOptional].
+            - request: BusinessUserEvent.
         ---
         from flagright import (
             Address,
             Amount,
             BusinessOptional,
+            BusinessUserEvent,
             CompanyFinancialDetails,
             CompanyGeneralDetails,
             CompanyRegistrationDetails,
@@ -769,583 +767,579 @@ class AsyncBusinessUserEventsClient:
             api_key="YOUR_API_KEY",
         )
         await client.business_user_events.create(
-            timestamp=1.1,
-            user_id="userId",
-            updated_business_user_attributes=BusinessOptional(
-                legal_entity=LegalEntity(
-                    company_general_details=CompanyGeneralDetails(
-                        legal_name="Ozkan Hazelnut Export JSC",
-                        business_industry=["Farming", "businessIndustry"],
-                        main_products_services_sold=[
-                            "Hazelnut",
-                            "mainProductsServicesSold",
+            request=BusinessUserEvent(
+                timestamp=1.1,
+                user_id="userId",
+                updated_business_user_attributes=BusinessOptional(
+                    legal_entity=LegalEntity(
+                        company_general_details=CompanyGeneralDetails(
+                            legal_name="Ozkan Hazelnut Export JSC",
+                            business_industry=["Farming", "businessIndustry"],
+                            main_products_services_sold=[
+                                "Hazelnut",
+                                "mainProductsServicesSold",
+                            ],
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                )
+                            ],
+                        ),
+                        company_financial_details=CompanyFinancialDetails(
+                            expected_transaction_amount_per_month=Amount(
+                                amount_value=800.0,
+                                amount_currency=CurrencyCode.GBP,
+                            ),
+                            expected_turnover_per_month=Amount(
+                                amount_value=8000.0,
+                                amount_currency=CurrencyCode.USD,
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                )
+                            ],
+                        ),
+                        company_registration_details=CompanyRegistrationDetails(
+                            registration_identifier="PSJ554342",
+                            registration_country=CountryCode.DE,
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                )
+                            ],
+                        ),
+                        reason_for_account_opening=[
+                            "string",
+                            "reasonForAccountOpening",
                         ],
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            )
-                        ],
+                        contact_details=ContactDetails(
+                            addresses=[
+                                Address(
+                                    address_lines=["Klara-Franke Str 20"],
+                                    postcode="10557",
+                                    city="Berlin",
+                                    state="Berlin",
+                                    country="Germany",
+                                    tags=[
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                ),
+                                Address(
+                                    address_lines=["Klara-Franke Str 20"],
+                                    postcode="10557",
+                                    city="Berlin",
+                                    state="Berlin",
+                                    country="Germany",
+                                    tags=[
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        ),
                     ),
-                    company_financial_details=CompanyFinancialDetails(
-                        expected_transaction_amount_per_month=Amount(
+                    share_holders=[
+                        Person(
+                            general_details=UserDetails(
+                                name=ConsumerName(
+                                    first_name="Baran",
+                                    middle_name="Realblood",
+                                    last_name="Ozkan",
+                                ),
+                                date_of_birth="1991-01-01",
+                                country_of_residence=CountryCode.US,
+                                country_of_nationality=CountryCode.DE,
+                            ),
+                            legal_documents=[
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                            ],
+                            contact_details=ContactDetails(
+                                email_ids=["baran@flagright.com", "emailIds"],
+                                contact_numbers=["+371 123132", "contactNumbers"],
+                                websites=["flagright.com", "websites"],
+                                addresses=[
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                        Person(
+                            general_details=UserDetails(
+                                name=ConsumerName(
+                                    first_name="Baran",
+                                    middle_name="Realblood",
+                                    last_name="Ozkan",
+                                ),
+                                date_of_birth="1991-01-01",
+                                country_of_residence=CountryCode.US,
+                                country_of_nationality=CountryCode.DE,
+                            ),
+                            legal_documents=[
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                            ],
+                            contact_details=ContactDetails(
+                                email_ids=["baran@flagright.com", "emailIds"],
+                                contact_numbers=["+371 123132", "contactNumbers"],
+                                websites=["flagright.com", "websites"],
+                                addresses=[
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                    ],
+                    directors=[
+                        Person(
+                            general_details=UserDetails(
+                                name=ConsumerName(
+                                    first_name="Baran",
+                                    middle_name="Realblood",
+                                    last_name="Ozkan",
+                                ),
+                                date_of_birth="1991-01-01",
+                                country_of_residence=CountryCode.US,
+                                country_of_nationality=CountryCode.DE,
+                            ),
+                            legal_documents=[
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                            ],
+                            contact_details=ContactDetails(
+                                email_ids=["baran@flagright.com", "emailIds"],
+                                contact_numbers=["+371 123132", "contactNumbers"],
+                                websites=["flagright.com", "websites"],
+                                addresses=[
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                        Person(
+                            general_details=UserDetails(
+                                name=ConsumerName(
+                                    first_name="Baran",
+                                    middle_name="Realblood",
+                                    last_name="Ozkan",
+                                ),
+                                date_of_birth="1991-01-01",
+                                country_of_residence=CountryCode.US,
+                                country_of_nationality=CountryCode.DE,
+                            ),
+                            legal_documents=[
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                                LegalDocument(
+                                    document_type="passport",
+                                    document_number="Z9431P",
+                                    document_issued_date=1639939034000.0,
+                                    document_expiration_date=1839939034000.0,
+                                    document_issued_country=CountryCode.DE,
+                                    tags=[
+                                        Tag(
+                                            key="customerType",
+                                            value="wallet",
+                                        ),
+                                        Tag(
+                                            key="customKey",
+                                            value="customValue",
+                                        ),
+                                    ],
+                                    name_on_document=ConsumerName(
+                                        first_name="Baran",
+                                        middle_name="Realblood",
+                                        last_name="Ozkan",
+                                    ),
+                                ),
+                            ],
+                            contact_details=ContactDetails(
+                                email_ids=["baran@flagright.com", "emailIds"],
+                                contact_numbers=["+371 123132", "contactNumbers"],
+                                websites=["flagright.com", "websites"],
+                                addresses=[
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                    Address(
+                                        address_lines=["Klara-Franke Str 20"],
+                                        postcode="10557",
+                                        city="Berlin",
+                                        state="Berlin",
+                                        country="Germany",
+                                        tags=[
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                            Tag(
+                                                key="customKey",
+                                                value="customValue",
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                            tags=[
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                                Tag(
+                                    key="customKey",
+                                    value="customValue",
+                                ),
+                            ],
+                        ),
+                    ],
+                    transaction_limits=TransactionLimits(
+                        maximum_daily_transaction_limit=Amount(
                             amount_value=800.0,
                             amount_currency=CurrencyCode.GBP,
                         ),
-                        expected_turnover_per_month=Amount(
-                            amount_value=8000.0,
-                            amount_currency=CurrencyCode.USD,
+                        maximum_weekly_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
                         ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            )
-                        ],
+                        maximum_monthly_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
+                        ),
+                        maximum_quarterly_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
+                        ),
+                        maximum_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
+                        ),
+                        maximum_yearly_transaction_limit=Amount(
+                            amount_value=800.0,
+                            amount_currency=CurrencyCode.GBP,
+                        ),
                     ),
-                    company_registration_details=CompanyRegistrationDetails(
-                        registration_identifier="PSJ554342",
-                        registration_country=CountryCode.DE,
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            )
-                        ],
-                    ),
-                    reason_for_account_opening=["string", "reasonForAccountOpening"],
-                    contact_details=ContactDetails(
-                        addresses=[
-                            Address(
-                                address_lines=["Klara-Franke Str 20"],
-                                postcode="10557",
-                                city="Berlin",
-                                state="Berlin",
-                                country="Germany",
-                                tags=[
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                            ),
-                            Address(
-                                address_lines=["Klara-Franke Str 20"],
-                                postcode="10557",
-                                city="Berlin",
-                                state="Berlin",
-                                country="Germany",
-                                tags=[
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
+                    tags=[
+                        Tag(
+                            key="customKey",
+                            value="customValue",
+                        ),
+                        Tag(
+                            key="customKey",
+                            value="customValue",
+                        ),
+                    ],
                 ),
-                share_holders=[
-                    Person(
-                        general_details=UserDetails(
-                            name=ConsumerName(
-                                first_name="Baran",
-                                middle_name="Realblood",
-                                last_name="Ozkan",
-                            ),
-                            date_of_birth="1991-01-01",
-                            country_of_residence=CountryCode.US,
-                            country_of_nationality=CountryCode.DE,
-                        ),
-                        legal_documents=[
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                        ],
-                        contact_details=ContactDetails(
-                            email_ids=["baran@flagright.com", "emailIds"],
-                            contact_numbers=["+371 123132", "contactNumbers"],
-                            websites=["flagright.com", "websites"],
-                            addresses=[
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                            ],
-                        ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                    ),
-                    Person(
-                        general_details=UserDetails(
-                            name=ConsumerName(
-                                first_name="Baran",
-                                middle_name="Realblood",
-                                last_name="Ozkan",
-                            ),
-                            date_of_birth="1991-01-01",
-                            country_of_residence=CountryCode.US,
-                            country_of_nationality=CountryCode.DE,
-                        ),
-                        legal_documents=[
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                        ],
-                        contact_details=ContactDetails(
-                            email_ids=["baran@flagright.com", "emailIds"],
-                            contact_numbers=["+371 123132", "contactNumbers"],
-                            websites=["flagright.com", "websites"],
-                            addresses=[
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                            ],
-                        ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                    ),
-                ],
-                directors=[
-                    Person(
-                        general_details=UserDetails(
-                            name=ConsumerName(
-                                first_name="Baran",
-                                middle_name="Realblood",
-                                last_name="Ozkan",
-                            ),
-                            date_of_birth="1991-01-01",
-                            country_of_residence=CountryCode.US,
-                            country_of_nationality=CountryCode.DE,
-                        ),
-                        legal_documents=[
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                        ],
-                        contact_details=ContactDetails(
-                            email_ids=["baran@flagright.com", "emailIds"],
-                            contact_numbers=["+371 123132", "contactNumbers"],
-                            websites=["flagright.com", "websites"],
-                            addresses=[
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                            ],
-                        ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                    ),
-                    Person(
-                        general_details=UserDetails(
-                            name=ConsumerName(
-                                first_name="Baran",
-                                middle_name="Realblood",
-                                last_name="Ozkan",
-                            ),
-                            date_of_birth="1991-01-01",
-                            country_of_residence=CountryCode.US,
-                            country_of_nationality=CountryCode.DE,
-                        ),
-                        legal_documents=[
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                            LegalDocument(
-                                document_type="passport",
-                                document_number="Z9431P",
-                                document_issued_date=1639939034000.0,
-                                document_expiration_date=1839939034000.0,
-                                document_issued_country=CountryCode.DE,
-                                tags=[
-                                    Tag(
-                                        key="customerType",
-                                        value="wallet",
-                                    ),
-                                    Tag(
-                                        key="customKey",
-                                        value="customValue",
-                                    ),
-                                ],
-                                name_on_document=ConsumerName(
-                                    first_name="Baran",
-                                    middle_name="Realblood",
-                                    last_name="Ozkan",
-                                ),
-                            ),
-                        ],
-                        contact_details=ContactDetails(
-                            email_ids=["baran@flagright.com", "emailIds"],
-                            contact_numbers=["+371 123132", "contactNumbers"],
-                            websites=["flagright.com", "websites"],
-                            addresses=[
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                                Address(
-                                    address_lines=["Klara-Franke Str 20"],
-                                    postcode="10557",
-                                    city="Berlin",
-                                    state="Berlin",
-                                    country="Germany",
-                                    tags=[
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                        Tag(
-                                            key="customKey",
-                                            value="customValue",
-                                        ),
-                                    ],
-                                ),
-                            ],
-                        ),
-                        tags=[
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                    ),
-                ],
-                transaction_limits=TransactionLimits(
-                    maximum_daily_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_weekly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_monthly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_quarterly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_yearly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                ),
-                tags=[
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    ),
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    ),
-                ],
             ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {"timestamp": timestamp, "userId": user_id}
-        if event_id is not OMIT:
-            _request["eventId"] = event_id
-        if reason is not OMIT:
-            _request["reason"] = reason
-        if event_description is not OMIT:
-            _request["eventDescription"] = event_description
-        if updated_business_user_attributes is not OMIT:
-            _request["updatedBusinessUserAttributes"] = updated_business_user_attributes
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/business/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
-            json=jsonable_encoder(_request),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -1353,6 +1347,42 @@ class AsyncBusinessUserEventsClient:
             return pydantic.parse_obj_as(BusinessWithRulesResult, _response.json())  # type: ignore
         if _response.status_code == 400:
             raise BadRequestError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+        if _response.status_code == 401:
+            raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+        if _response.status_code == 429:
+            raise TooManyRequestsError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+        try:
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, body=_response.text)
+        raise ApiError(status_code=_response.status_code, body=_response_json)
+
+    async def get(self, event_id: str) -> BusinessUserEvent:
+        """
+        ### GET a Business User Event
+
+        You can retrieve any business user event you created using the [POST Business User Events](/api-reference/api-reference/business-user-events/create) call.
+
+        Parameters:
+            - event_id: str. Unique Business User Event Identifier
+        ---
+        from flagright.client import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+        await client.business_user_events.get(
+            event_id="eventId",
+        )
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "GET",
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", f"events/business/user/{event_id}"),
+            headers=self._client_wrapper.get_headers(),
+            timeout=60,
+        )
+        if 200 <= _response.status_code < 300:
+            return pydantic.parse_obj_as(BusinessUserEvent, _response.json())  # type: ignore
         if _response.status_code == 401:
             raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
         if _response.status_code == 429:

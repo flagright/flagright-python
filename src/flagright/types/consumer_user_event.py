@@ -4,9 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .false_positive_details import FalsePositiveDetails
-from .rule_hit_direction import RuleHitDirection
-from .sanctions_details import SanctionsDetails
+from .user_optional import UserOptional
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -14,15 +12,19 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class RuleHitMeta(pydantic.BaseModel):
+class ConsumerUserEvent(pydantic.BaseModel):
     """
-    Details of rule execution, for internal purposes only
+    Model for consumer user-related events
     """
 
-    hit_directions: typing.Optional[typing.List[RuleHitDirection]] = pydantic.Field(alias="hitDirections")
-    false_positive_details: typing.Optional[FalsePositiveDetails] = pydantic.Field(alias="falsePositiveDetails")
-    sanctions_details: typing.Optional[typing.List[SanctionsDetails]] = pydantic.Field(alias="sanctionsDetails")
-    is_ongoing_screening_hit: typing.Optional[bool] = pydantic.Field(alias="isOngoingScreeningHit")
+    timestamp: float = pydantic.Field(description="Timestamp of the event")
+    user_id: str = pydantic.Field(alias="userId", description="Transaction ID the event pertains to")
+    event_id: typing.Optional[str] = pydantic.Field(alias="eventId", description="Unique event ID")
+    reason: typing.Optional[str] = pydantic.Field(description="Reason for the event or a state change")
+    event_description: typing.Optional[str] = pydantic.Field(alias="eventDescription", description="Event description")
+    updated_consumer_user_attributes: typing.Optional[UserOptional] = pydantic.Field(
+        alias="updatedConsumerUserAttributes"
+    )
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
