@@ -151,7 +151,7 @@ from .user_state import UserState
 from .user_state_details import UserStateDetails
 from .user_with_rules_result import UserWithRulesResult
 from .wallet_details import WalletDetails
-from .wallet_details_network import WalletDetailsNetwork
+from .wallet_network import WalletNetwork
 from .wallet_payment_method import WalletPaymentMethod
 from .webhook_event import WebhookEvent
 from .webhook_event_base import WebhookEventBase
@@ -305,7 +305,7 @@ __all__ = [
     "UserStateDetails",
     "UserWithRulesResult",
     "WalletDetails",
-    "WalletDetailsNetwork",
+    "WalletNetwork",
     "WalletPaymentMethod",
     "WebhookEvent",
     "WebhookEventBase",

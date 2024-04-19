@@ -6,7 +6,7 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class WalletDetailsNetwork(str, enum.Enum):
+class WalletNetwork(str, enum.Enum):
     """
     Network of the wallet
     """
@@ -63,51 +63,51 @@ class WalletDetailsNetwork(str, enum.Enum):
         algorand: typing.Callable[[], T_Result],
         celestia: typing.Callable[[], T_Result],
     ) -> T_Result:
-        if self is WalletDetailsNetwork.BITCOIN:
+        if self is WalletNetwork.BITCOIN:
             return bitcoin()
-        if self is WalletDetailsNetwork.ETHEREUM:
+        if self is WalletNetwork.ETHEREUM:
             return ethereum()
-        if self is WalletDetailsNetwork.POLYGON:
+        if self is WalletNetwork.POLYGON:
             return polygon()
-        if self is WalletDetailsNetwork.BNB_SMART_CHAIN:
+        if self is WalletNetwork.BNB_SMART_CHAIN:
             return bnb_smart_chain()
-        if self is WalletDetailsNetwork.BNB_BEACON_CHAIN:
+        if self is WalletNetwork.BNB_BEACON_CHAIN:
             return bnb_beacon_chain()
-        if self is WalletDetailsNetwork.ARBITRUM_L_2:
+        if self is WalletNetwork.ARBITRUM_L_2:
             return arbitrum_l_2()
-        if self is WalletDetailsNetwork.SOLANA:
+        if self is WalletNetwork.SOLANA:
             return solana()
-        if self is WalletDetailsNetwork.AVALANCHE_C_CHAIN:
+        if self is WalletNetwork.AVALANCHE_C_CHAIN:
             return avalanche_c_chain()
-        if self is WalletDetailsNetwork.LITECOIN:
+        if self is WalletNetwork.LITECOIN:
             return litecoin()
-        if self is WalletDetailsNetwork.BITCOIN_CASH:
+        if self is WalletNetwork.BITCOIN_CASH:
             return bitcoin_cash()
-        if self is WalletDetailsNetwork.RIPPLE:
+        if self is WalletNetwork.RIPPLE:
             return ripple()
-        if self is WalletDetailsNetwork.STELLAR:
+        if self is WalletNetwork.STELLAR:
             return stellar()
-        if self is WalletDetailsNetwork.EOS_PUBLIC:
+        if self is WalletNetwork.EOS_PUBLIC:
             return eos_public()
-        if self is WalletDetailsNetwork.TRON:
+        if self is WalletNetwork.TRON:
             return tron()
-        if self is WalletDetailsNetwork.CARDANO:
+        if self is WalletNetwork.CARDANO:
             return cardano()
-        if self is WalletDetailsNetwork.POLKADOT:
+        if self is WalletNetwork.POLKADOT:
             return polkadot()
-        if self is WalletDetailsNetwork.NEAR_PROTOCOL:
+        if self is WalletNetwork.NEAR_PROTOCOL:
             return near_protocol()
-        if self is WalletDetailsNetwork.COSMOS:
+        if self is WalletNetwork.COSMOS:
             return cosmos()
-        if self is WalletDetailsNetwork.DOGECOIN:
+        if self is WalletNetwork.DOGECOIN:
             return dogecoin()
-        if self is WalletDetailsNetwork.OPTIMISM_MAINNET:
+        if self is WalletNetwork.OPTIMISM_MAINNET:
             return optimism_mainnet()
-        if self is WalletDetailsNetwork.FANTOM:
+        if self is WalletNetwork.FANTOM:
             return fantom()
-        if self is WalletDetailsNetwork.HEDERA:
+        if self is WalletNetwork.HEDERA:
             return hedera()
-        if self is WalletDetailsNetwork.ALGORAND:
+        if self is WalletNetwork.ALGORAND:
             return algorand()
-        if self is WalletDetailsNetwork.CELESTIA:
+        if self is WalletNetwork.CELESTIA:
             return celestia()

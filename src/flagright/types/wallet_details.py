@@ -7,7 +7,7 @@ from ..core.datetime_utils import serialize_datetime
 from .amount import Amount
 from .email_id import EmailId
 from .tag import Tag
-from .wallet_details_network import WalletDetailsNetwork
+from .wallet_network import WalletNetwork
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -37,7 +37,7 @@ class WalletDetails(pydantic.BaseModel):
         alias="walletPhoneNumber", description="Phone number associated with the wallet, if any"
     )
     wallet_balance: typing.Optional[Amount] = pydantic.Field(alias="walletBalance")
-    network: typing.Optional[WalletDetailsNetwork] = pydantic.Field(description="Network of the wallet")
+    network: typing.Optional[WalletNetwork]
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
