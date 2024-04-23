@@ -124,11 +124,7 @@ class TransactionsClient:
                     Tag(
                         key="customKey",
                         value="customValue",
-                    ),
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    ),
+                    )
                 ],
                 type=TransactionType.DEPOSIT,
                 transaction_id="7b80a539eea6e78acbd6d458e5971482",
@@ -304,11 +300,7 @@ class AsyncTransactionsClient:
                     Tag(
                         key="customKey",
                         value="customValue",
-                    ),
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    ),
+                    )
                 ],
                 type=TransactionType.DEPOSIT,
                 transaction_id="7b80a539eea6e78acbd6d458e5971482",

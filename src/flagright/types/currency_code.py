@@ -483,7 +483,7 @@ class CurrencyCode(str, enum.Enum):
         aleph: typing.Callable[[], T_Result],
         algo: typing.Callable[[], T_Result],
         alice: typing.Callable[[], T_Result],
-        all: typing.Callable[[], T_Result],
+        all_: typing.Callable[[], T_Result],
         amd: typing.Callable[[], T_Result],
         amp: typing.Callable[[], T_Result],
         ang: typing.Callable[[], T_Result],
@@ -958,7 +958,7 @@ class CurrencyCode(str, enum.Enum):
         if self is CurrencyCode.ALICE:
             return alice()
         if self is CurrencyCode.ALL:
-            return all()
+            return all_()
         if self is CurrencyCode.AMD:
             return amd()
         if self is CurrencyCode.AMP:

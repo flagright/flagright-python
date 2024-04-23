@@ -52,16 +52,7 @@ class TransactionEventsClient:
         Parameters:
             - request: TransactionEvent.
         ---
-        from flagright import (
-            CountryCode,
-            CurrencyCode,
-            DeviceData,
-            Tag,
-            TransactionAmountDetails,
-            TransactionEvent,
-            TransactionState,
-            TransactionUpdatable,
-        )
+        from flagright import DeviceData, TransactionEvent, TransactionState
         from flagright.client import Flagright
 
         client = Flagright(
@@ -74,56 +65,6 @@ class TransactionEventsClient:
                 transaction_id="443dea26147a406b957d9ee3a1247b11",
                 event_id="aaeeb166147a406b957dd9147a406b957",
                 event_description="Transaction created",
-                updated_transaction_attributes=TransactionUpdatable(
-                    origin_amount_details=TransactionAmountDetails(
-                        transaction_amount=800.0,
-                        transaction_currency=CurrencyCode.EUR,
-                        country=CountryCode.DE,
-                    ),
-                    destination_amount_details=TransactionAmountDetails(
-                        transaction_amount=68351.34,
-                        transaction_currency=CurrencyCode.INR,
-                        country=CountryCode.IN,
-                    ),
-                    promotion_code_used=True,
-                    reference="loan repayment",
-                    origin_device_data=DeviceData(
-                        battery_level=95.0,
-                        device_latitude=13.0033,
-                        device_longitude=76.1004,
-                        ip_address="10.23.191.2",
-                        device_identifier="3c49f915d04485e34caba",
-                        vpn_used=False,
-                        operating_system="Android 11.2",
-                        device_maker="ASUS",
-                        device_model="Zenphone M2 Pro Max",
-                        device_year="2018",
-                        app_version="1.1.0",
-                    ),
-                    destination_device_data=DeviceData(
-                        battery_level=95.0,
-                        device_latitude=13.0033,
-                        device_longitude=76.1004,
-                        ip_address="10.23.191.2",
-                        device_identifier="3c49f915d04485e34caba",
-                        vpn_used=False,
-                        operating_system="Android 11.2",
-                        device_maker="ASUS",
-                        device_model="Zenphone M2 Pro Max",
-                        device_year="2018",
-                        app_version="1.1.0",
-                    ),
-                    tags=[
-                        Tag(
-                            key="customKey",
-                            value="customValue",
-                        ),
-                        Tag(
-                            key="customKey",
-                            value="customValue",
-                        ),
-                    ],
-                ),
                 meta_data=DeviceData(
                     battery_level=76.3,
                     device_latitude=13.009711,
@@ -224,16 +165,7 @@ class AsyncTransactionEventsClient:
         Parameters:
             - request: TransactionEvent.
         ---
-        from flagright import (
-            CountryCode,
-            CurrencyCode,
-            DeviceData,
-            Tag,
-            TransactionAmountDetails,
-            TransactionEvent,
-            TransactionState,
-            TransactionUpdatable,
-        )
+        from flagright import DeviceData, TransactionEvent, TransactionState
         from flagright.client import AsyncFlagright
 
         client = AsyncFlagright(
@@ -246,56 +178,6 @@ class AsyncTransactionEventsClient:
                 transaction_id="443dea26147a406b957d9ee3a1247b11",
                 event_id="aaeeb166147a406b957dd9147a406b957",
                 event_description="Transaction created",
-                updated_transaction_attributes=TransactionUpdatable(
-                    origin_amount_details=TransactionAmountDetails(
-                        transaction_amount=800.0,
-                        transaction_currency=CurrencyCode.EUR,
-                        country=CountryCode.DE,
-                    ),
-                    destination_amount_details=TransactionAmountDetails(
-                        transaction_amount=68351.34,
-                        transaction_currency=CurrencyCode.INR,
-                        country=CountryCode.IN,
-                    ),
-                    promotion_code_used=True,
-                    reference="loan repayment",
-                    origin_device_data=DeviceData(
-                        battery_level=95.0,
-                        device_latitude=13.0033,
-                        device_longitude=76.1004,
-                        ip_address="10.23.191.2",
-                        device_identifier="3c49f915d04485e34caba",
-                        vpn_used=False,
-                        operating_system="Android 11.2",
-                        device_maker="ASUS",
-                        device_model="Zenphone M2 Pro Max",
-                        device_year="2018",
-                        app_version="1.1.0",
-                    ),
-                    destination_device_data=DeviceData(
-                        battery_level=95.0,
-                        device_latitude=13.0033,
-                        device_longitude=76.1004,
-                        ip_address="10.23.191.2",
-                        device_identifier="3c49f915d04485e34caba",
-                        vpn_used=False,
-                        operating_system="Android 11.2",
-                        device_maker="ASUS",
-                        device_model="Zenphone M2 Pro Max",
-                        device_year="2018",
-                        app_version="1.1.0",
-                    ),
-                    tags=[
-                        Tag(
-                            key="customKey",
-                            value="customValue",
-                        ),
-                        Tag(
-                            key="customKey",
-                            value="customValue",
-                        ),
-                    ],
-                ),
                 meta_data=DeviceData(
                     battery_level=76.3,
                     device_latitude=13.009711,

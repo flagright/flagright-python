@@ -47,14 +47,11 @@ class ConsumerUsersClient:
         ---
         from flagright import (
             Address,
-            Amount,
             ConsumerName,
             ContactDetails,
             CountryCode,
-            CurrencyCode,
             LegalDocument,
             Tag,
-            TransactionLimits,
             User,
             UserDetails,
         )
@@ -86,45 +83,14 @@ class ConsumerUsersClient:
                             Tag(
                                 key="customerType",
                                 value="wallet",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
+                            )
                         ],
-                        name_on_document=ConsumerName(
-                            first_name="Baran",
-                            middle_name="Realblood",
-                            last_name="Ozkan",
-                        ),
-                    ),
-                    LegalDocument(
-                        document_type="passport",
-                        document_number="Z9431P",
-                        document_issued_date=1639939034000.0,
-                        document_expiration_date=1839939034000.0,
-                        document_issued_country=CountryCode.DE,
-                        tags=[
-                            Tag(
-                                key="customerType",
-                                value="wallet",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                        name_on_document=ConsumerName(
-                            first_name="Baran",
-                            middle_name="Realblood",
-                            last_name="Ozkan",
-                        ),
-                    ),
+                    )
                 ],
                 contact_details=ContactDetails(
-                    email_ids=["baran@flagright.com", "emailIds"],
-                    contact_numbers=["+37112345432", "contactNumbers"],
-                    websites=["flagright.com", "websites"],
+                    email_ids=["baran@flagright.com"],
+                    contact_numbers=["+37112345432"],
+                    websites=["flagright.com"],
                     addresses=[
                         Address(
                             address_lines=["Klara-Franke Str 20"],
@@ -136,67 +102,16 @@ class ConsumerUsersClient:
                                 Tag(
                                     key="customKey",
                                     value="customValue",
-                                ),
-                                Tag(
-                                    key="customKey",
-                                    value="customValue",
-                                ),
+                                )
                             ],
-                        ),
-                        Address(
-                            address_lines=["Klara-Franke Str 20"],
-                            postcode="10557",
-                            city="Berlin",
-                            state="Berlin",
-                            country="Germany",
-                            tags=[
-                                Tag(
-                                    key="customKey",
-                                    value="customValue",
-                                ),
-                                Tag(
-                                    key="customKey",
-                                    value="customValue",
-                                ),
-                            ],
-                        ),
+                        )
                     ],
-                ),
-                transaction_limits=TransactionLimits(
-                    maximum_daily_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_weekly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_monthly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_quarterly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_yearly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
                 ),
                 tags=[
                     Tag(
                         key="customKey",
                         value="customValue",
-                    ),
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    ),
+                    )
                 ],
                 user_id="96647cfd9e8fe66ee0f3362e011e34e8",
                 created_timestamp=1641654664000.0,
@@ -287,14 +202,11 @@ class AsyncConsumerUsersClient:
         ---
         from flagright import (
             Address,
-            Amount,
             ConsumerName,
             ContactDetails,
             CountryCode,
-            CurrencyCode,
             LegalDocument,
             Tag,
-            TransactionLimits,
             User,
             UserDetails,
         )
@@ -326,45 +238,14 @@ class AsyncConsumerUsersClient:
                             Tag(
                                 key="customerType",
                                 value="wallet",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
+                            )
                         ],
-                        name_on_document=ConsumerName(
-                            first_name="Baran",
-                            middle_name="Realblood",
-                            last_name="Ozkan",
-                        ),
-                    ),
-                    LegalDocument(
-                        document_type="passport",
-                        document_number="Z9431P",
-                        document_issued_date=1639939034000.0,
-                        document_expiration_date=1839939034000.0,
-                        document_issued_country=CountryCode.DE,
-                        tags=[
-                            Tag(
-                                key="customerType",
-                                value="wallet",
-                            ),
-                            Tag(
-                                key="customKey",
-                                value="customValue",
-                            ),
-                        ],
-                        name_on_document=ConsumerName(
-                            first_name="Baran",
-                            middle_name="Realblood",
-                            last_name="Ozkan",
-                        ),
-                    ),
+                    )
                 ],
                 contact_details=ContactDetails(
-                    email_ids=["baran@flagright.com", "emailIds"],
-                    contact_numbers=["+37112345432", "contactNumbers"],
-                    websites=["flagright.com", "websites"],
+                    email_ids=["baran@flagright.com"],
+                    contact_numbers=["+37112345432"],
+                    websites=["flagright.com"],
                     addresses=[
                         Address(
                             address_lines=["Klara-Franke Str 20"],
@@ -376,67 +257,16 @@ class AsyncConsumerUsersClient:
                                 Tag(
                                     key="customKey",
                                     value="customValue",
-                                ),
-                                Tag(
-                                    key="customKey",
-                                    value="customValue",
-                                ),
+                                )
                             ],
-                        ),
-                        Address(
-                            address_lines=["Klara-Franke Str 20"],
-                            postcode="10557",
-                            city="Berlin",
-                            state="Berlin",
-                            country="Germany",
-                            tags=[
-                                Tag(
-                                    key="customKey",
-                                    value="customValue",
-                                ),
-                                Tag(
-                                    key="customKey",
-                                    value="customValue",
-                                ),
-                            ],
-                        ),
+                        )
                     ],
-                ),
-                transaction_limits=TransactionLimits(
-                    maximum_daily_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_weekly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_monthly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_quarterly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
-                    maximum_yearly_transaction_limit=Amount(
-                        amount_value=800.0,
-                        amount_currency=CurrencyCode.GBP,
-                    ),
                 ),
                 tags=[
                     Tag(
                         key="customKey",
                         value="customValue",
-                    ),
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    ),
+                    )
                 ],
                 user_id="96647cfd9e8fe66ee0f3362e011e34e8",
                 created_timestamp=1641654664000.0,
