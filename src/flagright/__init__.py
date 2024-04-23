@@ -7,6 +7,7 @@ from .types import (
     Address,
     AlertClosedDetails,
     Amount,
+    ApiErrorResponse,
     BooleanString,
     Business,
     BusinessBase,
@@ -154,7 +155,7 @@ from .types import (
     WebhookEventData,
     WebhookEventType,
 )
-from .errors import BadRequestError, ForbiddenError, TooManyRequestsError, UnauthorizedError
+from .errors import BadRequestError, TooManyRequestsError, UnauthorizedError
 from .resources import (
     BusinessUsersCreateResponse,
     ConsumerUsersCreateResponse,
@@ -175,6 +176,7 @@ __all__ = [
     "Address",
     "AlertClosedDetails",
     "Amount",
+    "ApiErrorResponse",
     "BadRequestError",
     "BooleanString",
     "Business",
@@ -230,7 +232,6 @@ __all__ = [
     "FailedRulesResult",
     "FalsePositiveDetails",
     "FlagrightEnvironment",
-    "ForbiddenError",
     "Gender",
     "GeneralBankAccountPaymentMethod",
     "GenericBankAccountDetails",

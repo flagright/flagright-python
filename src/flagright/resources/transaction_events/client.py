@@ -10,6 +10,7 @@ from ...core.jsonable_encoder import jsonable_encoder
 from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
+from ...types.api_error_response import ApiErrorResponse
 from ...types.transaction_event import TransactionEvent
 from ...types.transaction_event_monitoring_result import TransactionEventMonitoringResult
 
@@ -85,11 +86,11 @@ class TransactionEventsClient:
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(TransactionEventMonitoringResult, _response.json())  # type: ignore
         if _response.status_code == 400:
-            raise BadRequestError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 401:
-            raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 429:
-            raise TooManyRequestsError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         try:
             _response_json = _response.json()
         except JSONDecodeError:
@@ -124,10 +125,12 @@ class TransactionEventsClient:
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(TransactionEvent, _response.json())  # type: ignore
+        if _response.status_code == 400:
+            raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 401:
-            raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 429:
-            raise TooManyRequestsError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         try:
             _response_json = _response.json()
         except JSONDecodeError:
@@ -198,11 +201,11 @@ class AsyncTransactionEventsClient:
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(TransactionEventMonitoringResult, _response.json())  # type: ignore
         if _response.status_code == 400:
-            raise BadRequestError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 401:
-            raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 429:
-            raise TooManyRequestsError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         try:
             _response_json = _response.json()
         except JSONDecodeError:
@@ -237,10 +240,12 @@ class AsyncTransactionEventsClient:
         )
         if 200 <= _response.status_code < 300:
             return pydantic.parse_obj_as(TransactionEvent, _response.json())  # type: ignore
+        if _response.status_code == 400:
+            raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 401:
-            raise UnauthorizedError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 429:
-            raise TooManyRequestsError(pydantic.parse_obj_as(typing.Any, _response.json()))  # type: ignore
+            raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         try:
             _response_json = _response.json()
         except JSONDecodeError:

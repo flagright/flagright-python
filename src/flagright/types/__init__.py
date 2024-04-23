@@ -6,6 +6,7 @@ from .acquisition_channel import AcquisitionChannel
 from .address import Address
 from .alert_closed_details import AlertClosedDetails
 from .amount import Amount
+from .api_error_response import ApiErrorResponse
 from .boolean_string import BooleanString
 from .business import Business
 from .business_base import BusinessBase
@@ -166,6 +167,7 @@ __all__ = [
     "Address",
     "AlertClosedDetails",
     "Amount",
+    "ApiErrorResponse",
     "BooleanString",
     "Business",
     "BusinessBase",
