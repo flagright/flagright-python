@@ -28,6 +28,7 @@ class HitRulesDetails(pydantic.BaseModel):
     rule_hit_meta: typing.Optional[RuleHitMeta] = pydantic.Field(alias="ruleHitMeta")
     labels: typing.Optional[typing.List[RuleLabels]]
     nature: typing.Optional[RuleNature]
+    is_shadow: typing.Optional[bool] = pydantic.Field(alias="isShadow")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
