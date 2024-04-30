@@ -22,6 +22,10 @@ class SourceOfFunds(str, enum.Enum):
     LEGAL = "Legal"
     SALES = "Sales"
     ROLLOVER = "Rollover"
+    EQUITY = "Equity"
+    CRYPTO = "Crypto"
+    BUSINESS = "Business"
+    EMPLOYMENT = "Employment"
 
     def visit(
         self,
@@ -40,6 +44,10 @@ class SourceOfFunds(str, enum.Enum):
         legal: typing.Callable[[], T_Result],
         sales: typing.Callable[[], T_Result],
         rollover: typing.Callable[[], T_Result],
+        equity: typing.Callable[[], T_Result],
+        crypto: typing.Callable[[], T_Result],
+        business: typing.Callable[[], T_Result],
+        employment: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is SourceOfFunds.EARNINGS:
             return earnings()
@@ -71,3 +79,11 @@ class SourceOfFunds(str, enum.Enum):
             return sales()
         if self is SourceOfFunds.ROLLOVER:
             return rollover()
+        if self is SourceOfFunds.EQUITY:
+            return equity()
+        if self is SourceOfFunds.CRYPTO:
+            return crypto()
+        if self is SourceOfFunds.BUSINESS:
+            return business()
+        if self is SourceOfFunds.EMPLOYMENT:
+            return employment()
