@@ -253,6 +253,7 @@ class CountryCode(str, enum.Enum):
     WF = "WF"
     EH = "EH"
     YE = "YE"
+    XK = "XK"
     ZM = "ZM"
     ZW = "ZW"
     AX = "AX"
@@ -506,6 +507,7 @@ class CountryCode(str, enum.Enum):
         wf: typing.Callable[[], T_Result],
         eh: typing.Callable[[], T_Result],
         ye: typing.Callable[[], T_Result],
+        xk: typing.Callable[[], T_Result],
         zm: typing.Callable[[], T_Result],
         zw: typing.Callable[[], T_Result],
         ax: typing.Callable[[], T_Result],
@@ -1003,6 +1005,8 @@ class CountryCode(str, enum.Enum):
             return eh()
         if self is CountryCode.YE:
             return ye()
+        if self is CountryCode.XK:
+            return xk()
         if self is CountryCode.ZM:
             return zm()
         if self is CountryCode.ZW:
