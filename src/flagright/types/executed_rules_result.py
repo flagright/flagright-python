@@ -4,6 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
+from .executed_rule_vars import ExecutedRuleVars
 from .rule_action import RuleAction
 from .rule_hit_meta import RuleHitMeta
 from .rule_labels import RuleLabels
@@ -27,6 +28,7 @@ class ExecutedRulesResult(pydantic.BaseModel):
     rule_action: RuleAction = pydantic.Field(alias="ruleAction")
     rule_hit: bool = pydantic.Field(alias="ruleHit")
     rule_hit_meta: typing.Optional[RuleHitMeta] = pydantic.Field(alias="ruleHitMeta")
+    vars: typing.Optional[typing.List[ExecutedRuleVars]]
     labels: typing.Optional[typing.List[RuleLabels]]
     nature: typing.Optional[RuleNature]
     is_shadow: typing.Optional[bool] = pydantic.Field(alias="isShadow")
