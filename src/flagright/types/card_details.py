@@ -50,6 +50,9 @@ class CardDetails(pydantic.BaseModel):
     payment_channel: typing.Optional[str] = pydantic.Field(alias="paymentChannel")
     card_type: typing.Optional[CardType] = pydantic.Field(alias="cardType")
     merchant_details: typing.Optional[CardMerchantDetails] = pydantic.Field(alias="merchantDetails")
+    network_provider_risk_score: typing.Optional[float] = pydantic.Field(
+        alias="networkProviderRiskScore", description="Risk score of the card from your network provider"
+    )
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )
