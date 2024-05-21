@@ -4,10 +4,21 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .business import Business
+from .acquisition_channel import AcquisitionChannel
+from .business_entity_link import BusinessEntityLink
+from .business_with_rules_result_saved_payment_details_item import BusinessWithRulesResultSavedPaymentDetailsItem
 from .executed_rules_result import ExecutedRulesResult
 from .hit_rules_details import HitRulesDetails
+from .kyc_status_details import KycStatusDetails
+from .legal_entity import LegalEntity
+from .mcc_details import MccDetails
+from .payment_method import PaymentMethod
+from .person import Person
+from .risk_level import RiskLevel
+from .tag import Tag
+from .transaction_limits import TransactionLimits
 from .user_risk_score_details import UserRiskScoreDetails
+from .user_state_details import UserStateDetails
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -15,11 +26,33 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class BusinessWithRulesResult(Business):
-    """
-    Model for business payload with rules result
-    """
-
+class BusinessWithRulesResult(pydantic.BaseModel):
+    user_id: str = pydantic.Field(alias="userId", description="Unique user ID for the user")
+    created_timestamp: float = pydantic.Field(
+        alias="createdTimestamp", description="Timestamp when the user was created"
+    )
+    legal_entity: LegalEntity = pydantic.Field(alias="legalEntity")
+    user_state_details: typing.Optional[UserStateDetails] = pydantic.Field(alias="userStateDetails")
+    kyc_status_details: typing.Optional[KycStatusDetails] = pydantic.Field(alias="kycStatusDetails")
+    share_holders: typing.Optional[typing.List[Person]] = pydantic.Field(
+        alias="shareHolders",
+        description="Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual",
+    )
+    directors: typing.Optional[typing.List[Person]] = pydantic.Field(
+        description="Director(s) of the company. Must be at least one"
+    )
+    transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
+    risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
+    allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]] = pydantic.Field(alias="allowedPaymentMethods")
+    linked_entities: typing.Optional[BusinessEntityLink] = pydantic.Field(alias="linkedEntities")
+    acquisition_channel: typing.Optional[AcquisitionChannel] = pydantic.Field(alias="acquisitionChannel")
+    saved_payment_details: typing.Optional[
+        typing.List[BusinessWithRulesResultSavedPaymentDetailsItem]
+    ] = pydantic.Field(alias="savedPaymentDetails")
+    mcc_details: typing.Optional[MccDetails] = pydantic.Field(alias="mccDetails")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
     executed_rules: typing.Optional[typing.List[ExecutedRulesResult]] = pydantic.Field(alias="executedRules")
     hit_rules: typing.Optional[typing.List[HitRulesDetails]] = pydantic.Field(alias="hitRules")
     risk_score_details: typing.Optional[UserRiskScoreDetails] = pydantic.Field(alias="riskScoreDetails")

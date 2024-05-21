@@ -82,6 +82,11 @@ class TransactionsClient:
         )
         client.transactions.verify(
             request=Transaction(
+                type=TransactionType.DEPOSIT,
+                transaction_id="7b80a539eea6e78acbd6d458e5971482",
+                timestamp=1641654664000.0,
+                origin_user_id="8650a2611d0771cba03310f74bf6",
+                destination_user_id="9350a2611e0771cba03310f74bf6",
                 origin_amount_details=TransactionAmountDetails(
                     transaction_amount=800.0,
                     transaction_currency=CurrencyCode.EUR,
@@ -126,11 +131,6 @@ class TransactionsClient:
                         value="customValue",
                     )
                 ],
-                type=TransactionType.DEPOSIT,
-                transaction_id="7b80a539eea6e78acbd6d458e5971482",
-                timestamp=1641654664000.0,
-                origin_user_id="8650a2611d0771cba03310f74bf6",
-                destination_user_id="9350a2611e0771cba03310f74bf6",
             ),
         )
         """
@@ -258,6 +258,11 @@ class AsyncTransactionsClient:
         )
         await client.transactions.verify(
             request=Transaction(
+                type=TransactionType.DEPOSIT,
+                transaction_id="7b80a539eea6e78acbd6d458e5971482",
+                timestamp=1641654664000.0,
+                origin_user_id="8650a2611d0771cba03310f74bf6",
+                destination_user_id="9350a2611e0771cba03310f74bf6",
                 origin_amount_details=TransactionAmountDetails(
                     transaction_amount=800.0,
                     transaction_currency=CurrencyCode.EUR,
@@ -302,11 +307,6 @@ class AsyncTransactionsClient:
                         value="customValue",
                     )
                 ],
-                type=TransactionType.DEPOSIT,
-                transaction_id="7b80a539eea6e78acbd6d458e5971482",
-                timestamp=1641654664000.0,
-                origin_user_id="8650a2611d0771cba03310f74bf6",
-                destination_user_id="9350a2611e0771cba03310f74bf6",
             ),
         )
         """

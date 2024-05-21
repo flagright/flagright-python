@@ -4,11 +4,63 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .transaction_base import TransactionBase
-from .transaction_updatable import TransactionUpdatable
+from .device_data import DeviceData
+from .tag import Tag
+from .transaction_amount_details import TransactionAmountDetails
+from .transaction_destination_payment_details import TransactionDestinationPaymentDetails
+from .transaction_origin_payment_details import TransactionOriginPaymentDetails
+from .transaction_state import TransactionState
+from .transaction_type import TransactionType
+
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
 
-class Transaction(TransactionBase, TransactionUpdatable):
+class Transaction(pydantic.BaseModel):
+    type: TransactionType
+    transaction_id: str = pydantic.Field(alias="transactionId", description="Unique transaction identifier")
+    timestamp: float = pydantic.Field(description="Timestamp of when transaction took place")
+    origin_user_id: typing.Optional[str] = pydantic.Field(
+        alias="originUserId", description="UserId for where the transaction originates from"
+    )
+    destination_user_id: typing.Optional[str] = pydantic.Field(
+        alias="destinationUserId",
+        description="UserId for transaction's destination. In other words, where the value is being transferred to.",
+    )
+    transaction_state: typing.Optional[TransactionState] = pydantic.Field(alias="transactionState")
+    origin_amount_details: typing.Optional[TransactionAmountDetails] = pydantic.Field(alias="originAmountDetails")
+    destination_amount_details: typing.Optional[TransactionAmountDetails] = pydantic.Field(
+        alias="destinationAmountDetails"
+    )
+    origin_payment_details: typing.Optional[TransactionOriginPaymentDetails] = pydantic.Field(
+        alias="originPaymentDetails",
+        description="Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc.",
+    )
+    destination_payment_details: typing.Optional[TransactionDestinationPaymentDetails] = pydantic.Field(
+        alias="destinationPaymentDetails",
+        description="Payment details of the destination. It can be a bank account number, wallet ID, card fingerprint etc.",
+    )
+    related_transaction_ids: typing.Optional[typing.List[str]] = pydantic.Field(
+        alias="relatedTransactionIds",
+        description="IDs of transactions related to this transaction. Ex: refund, split bills",
+    )
+    product_type: typing.Optional[str] = pydantic.Field(
+        alias="productType", description="Type of produce being used by the consumer (ex wallets, payments etc)"
+    )
+    promotion_code_used: typing.Optional[bool] = pydantic.Field(
+        alias="promotionCodeUsed", description="Whether a promotion code was used or not the transaction"
+    )
+    reference: typing.Optional[str] = pydantic.Field(
+        description="Reference field for the transaction indicating the purpose of the transaction etc."
+    )
+    origin_device_data: typing.Optional[DeviceData] = pydantic.Field(alias="originDeviceData")
+    destination_device_data: typing.Optional[DeviceData] = pydantic.Field(alias="destinationDeviceData")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
+
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
         return super().json(**kwargs_with_defaults)

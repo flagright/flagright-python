@@ -8,7 +8,6 @@ from .alert_closed_details import AlertClosedDetails
 from .amount import Amount
 from .api_error_response import ApiErrorResponse
 from .boolean_string import BooleanString
-from .business import Business
 from .business_base import BusinessBase
 from .business_entity_link import BusinessEntityLink
 from .business_optional import BusinessOptional
@@ -28,6 +27,18 @@ from .business_user_event import BusinessUserEvent
 from .business_user_segment import BusinessUserSegment
 from .business_users_response import BusinessUsersResponse
 from .business_with_rules_result import BusinessWithRulesResult
+from .business_with_rules_result_saved_payment_details_item import (
+    BusinessWithRulesResultSavedPaymentDetailsItem,
+    BusinessWithRulesResultSavedPaymentDetailsItem_Ach,
+    BusinessWithRulesResultSavedPaymentDetailsItem_Card,
+    BusinessWithRulesResultSavedPaymentDetailsItem_Check,
+    BusinessWithRulesResultSavedPaymentDetailsItem_GenericBankAccount,
+    BusinessWithRulesResultSavedPaymentDetailsItem_Iban,
+    BusinessWithRulesResultSavedPaymentDetailsItem_Mpesa,
+    BusinessWithRulesResultSavedPaymentDetailsItem_Swift,
+    BusinessWithRulesResultSavedPaymentDetailsItem_Upi,
+    BusinessWithRulesResultSavedPaymentDetailsItem_Wallet,
+)
 from .card_brand import CardBrand
 from .card_details import CardDetails
 from .card_expiry import CardExpiry
@@ -105,12 +116,36 @@ from .transaction_amount_details import TransactionAmountDetails
 from .transaction_amount_limit import TransactionAmountLimit
 from .transaction_base import TransactionBase
 from .transaction_count_limit import TransactionCountLimit
+from .transaction_destination_payment_details import (
+    TransactionDestinationPaymentDetails,
+    TransactionDestinationPaymentDetails_Ach,
+    TransactionDestinationPaymentDetails_Card,
+    TransactionDestinationPaymentDetails_Check,
+    TransactionDestinationPaymentDetails_GenericBankAccount,
+    TransactionDestinationPaymentDetails_Iban,
+    TransactionDestinationPaymentDetails_Mpesa,
+    TransactionDestinationPaymentDetails_Swift,
+    TransactionDestinationPaymentDetails_Upi,
+    TransactionDestinationPaymentDetails_Wallet,
+)
 from .transaction_event import TransactionEvent
 from .transaction_event_monitoring_result import TransactionEventMonitoringResult
 from .transaction_limit import TransactionLimit
 from .transaction_limits import TransactionLimits
 from .transaction_limits_payment_method_limits import TransactionLimitsPaymentMethodLimits
 from .transaction_monitoring_result import TransactionMonitoringResult
+from .transaction_origin_payment_details import (
+    TransactionOriginPaymentDetails,
+    TransactionOriginPaymentDetails_Ach,
+    TransactionOriginPaymentDetails_Card,
+    TransactionOriginPaymentDetails_Check,
+    TransactionOriginPaymentDetails_GenericBankAccount,
+    TransactionOriginPaymentDetails_Iban,
+    TransactionOriginPaymentDetails_Mpesa,
+    TransactionOriginPaymentDetails_Swift,
+    TransactionOriginPaymentDetails_Upi,
+    TransactionOriginPaymentDetails_Wallet,
+)
 from .transaction_risk_scoring_result import TransactionRiskScoringResult
 from .transaction_state import TransactionState
 from .transaction_status_details import TransactionStatusDetails
@@ -141,9 +176,32 @@ from .transaction_updatable_origin_payment_details import (
     TransactionUpdatableOriginPaymentDetails_Wallet,
 )
 from .transaction_with_rules_result import TransactionWithRulesResult
+from .transaction_with_rules_result_destination_payment_details import (
+    TransactionWithRulesResultDestinationPaymentDetails,
+    TransactionWithRulesResultDestinationPaymentDetails_Ach,
+    TransactionWithRulesResultDestinationPaymentDetails_Card,
+    TransactionWithRulesResultDestinationPaymentDetails_Check,
+    TransactionWithRulesResultDestinationPaymentDetails_GenericBankAccount,
+    TransactionWithRulesResultDestinationPaymentDetails_Iban,
+    TransactionWithRulesResultDestinationPaymentDetails_Mpesa,
+    TransactionWithRulesResultDestinationPaymentDetails_Swift,
+    TransactionWithRulesResultDestinationPaymentDetails_Upi,
+    TransactionWithRulesResultDestinationPaymentDetails_Wallet,
+)
+from .transaction_with_rules_result_origin_payment_details import (
+    TransactionWithRulesResultOriginPaymentDetails,
+    TransactionWithRulesResultOriginPaymentDetails_Ach,
+    TransactionWithRulesResultOriginPaymentDetails_Card,
+    TransactionWithRulesResultOriginPaymentDetails_Check,
+    TransactionWithRulesResultOriginPaymentDetails_GenericBankAccount,
+    TransactionWithRulesResultOriginPaymentDetails_Iban,
+    TransactionWithRulesResultOriginPaymentDetails_Mpesa,
+    TransactionWithRulesResultOriginPaymentDetails_Swift,
+    TransactionWithRulesResultOriginPaymentDetails_Upi,
+    TransactionWithRulesResultOriginPaymentDetails_Wallet,
+)
 from .upi_details import UpiDetails
 from .upi_payment_method import UpiPaymentMethod
-from .user import User
 from .user_base import UserBase
 from .user_details import UserDetails
 from .user_optional import UserOptional
@@ -159,6 +217,7 @@ from .webhook_event import WebhookEvent
 from .webhook_event_base import WebhookEventBase
 from .webhook_event_base_triggered_by import WebhookEventBaseTriggeredBy
 from .webhook_event_data import WebhookEventData
+from .webhook_event_triggered_by import WebhookEventTriggeredBy
 from .webhook_event_type import WebhookEventType
 
 __all__ = [
@@ -170,7 +229,6 @@ __all__ = [
     "Amount",
     "ApiErrorResponse",
     "BooleanString",
-    "Business",
     "BusinessBase",
     "BusinessEntityLink",
     "BusinessOptional",
@@ -188,6 +246,16 @@ __all__ = [
     "BusinessUserSegment",
     "BusinessUsersResponse",
     "BusinessWithRulesResult",
+    "BusinessWithRulesResultSavedPaymentDetailsItem",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_Ach",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_Card",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_Check",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_GenericBankAccount",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_Iban",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_Mpesa",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_Swift",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_Upi",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_Wallet",
     "CardBrand",
     "CardDetails",
     "CardExpiry",
@@ -265,12 +333,32 @@ __all__ = [
     "TransactionAmountLimit",
     "TransactionBase",
     "TransactionCountLimit",
+    "TransactionDestinationPaymentDetails",
+    "TransactionDestinationPaymentDetails_Ach",
+    "TransactionDestinationPaymentDetails_Card",
+    "TransactionDestinationPaymentDetails_Check",
+    "TransactionDestinationPaymentDetails_GenericBankAccount",
+    "TransactionDestinationPaymentDetails_Iban",
+    "TransactionDestinationPaymentDetails_Mpesa",
+    "TransactionDestinationPaymentDetails_Swift",
+    "TransactionDestinationPaymentDetails_Upi",
+    "TransactionDestinationPaymentDetails_Wallet",
     "TransactionEvent",
     "TransactionEventMonitoringResult",
     "TransactionLimit",
     "TransactionLimits",
     "TransactionLimitsPaymentMethodLimits",
     "TransactionMonitoringResult",
+    "TransactionOriginPaymentDetails",
+    "TransactionOriginPaymentDetails_Ach",
+    "TransactionOriginPaymentDetails_Card",
+    "TransactionOriginPaymentDetails_Check",
+    "TransactionOriginPaymentDetails_GenericBankAccount",
+    "TransactionOriginPaymentDetails_Iban",
+    "TransactionOriginPaymentDetails_Mpesa",
+    "TransactionOriginPaymentDetails_Swift",
+    "TransactionOriginPaymentDetails_Upi",
+    "TransactionOriginPaymentDetails_Wallet",
     "TransactionRiskScoringResult",
     "TransactionState",
     "TransactionStatusDetails",
@@ -297,9 +385,28 @@ __all__ = [
     "TransactionUpdatableOriginPaymentDetails_Upi",
     "TransactionUpdatableOriginPaymentDetails_Wallet",
     "TransactionWithRulesResult",
+    "TransactionWithRulesResultDestinationPaymentDetails",
+    "TransactionWithRulesResultDestinationPaymentDetails_Ach",
+    "TransactionWithRulesResultDestinationPaymentDetails_Card",
+    "TransactionWithRulesResultDestinationPaymentDetails_Check",
+    "TransactionWithRulesResultDestinationPaymentDetails_GenericBankAccount",
+    "TransactionWithRulesResultDestinationPaymentDetails_Iban",
+    "TransactionWithRulesResultDestinationPaymentDetails_Mpesa",
+    "TransactionWithRulesResultDestinationPaymentDetails_Swift",
+    "TransactionWithRulesResultDestinationPaymentDetails_Upi",
+    "TransactionWithRulesResultDestinationPaymentDetails_Wallet",
+    "TransactionWithRulesResultOriginPaymentDetails",
+    "TransactionWithRulesResultOriginPaymentDetails_Ach",
+    "TransactionWithRulesResultOriginPaymentDetails_Card",
+    "TransactionWithRulesResultOriginPaymentDetails_Check",
+    "TransactionWithRulesResultOriginPaymentDetails_GenericBankAccount",
+    "TransactionWithRulesResultOriginPaymentDetails_Iban",
+    "TransactionWithRulesResultOriginPaymentDetails_Mpesa",
+    "TransactionWithRulesResultOriginPaymentDetails_Swift",
+    "TransactionWithRulesResultOriginPaymentDetails_Upi",
+    "TransactionWithRulesResultOriginPaymentDetails_Wallet",
     "UpiDetails",
     "UpiPaymentMethod",
-    "User",
     "UserBase",
     "UserDetails",
     "UserOptional",
@@ -315,5 +422,6 @@ __all__ = [
     "WebhookEventBase",
     "WebhookEventBaseTriggeredBy",
     "WebhookEventData",
+    "WebhookEventTriggeredBy",
     "WebhookEventType",
 ]

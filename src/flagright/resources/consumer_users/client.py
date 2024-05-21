@@ -10,8 +10,20 @@ from ...core.jsonable_encoder import jsonable_encoder
 from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
+from ...types.acquisition_channel import AcquisitionChannel
 from ...types.api_error_response import ApiErrorResponse
-from ...types.user import User
+from ...types.consumer_user_segment import ConsumerUserSegment
+from ...types.contact_details import ContactDetails
+from ...types.employment_status import EmploymentStatus
+from ...types.kyc_status_details import KycStatusDetails
+from ...types.legal_document import LegalDocument
+from ...types.pep_status import PepStatus
+from ...types.risk_level import RiskLevel
+from ...types.source_of_funds import SourceOfFunds
+from ...types.tag import Tag
+from ...types.transaction_limits import TransactionLimits
+from ...types.user_details import UserDetails
+from ...types.user_state_details import UserStateDetails
 from ...types.user_with_rules_result import UserWithRulesResult
 from .types.consumer_users_create_response import ConsumerUsersCreateResponse
 
@@ -28,7 +40,27 @@ class ConsumerUsersClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def create(self, *, request: User) -> ConsumerUsersCreateResponse:
+    def create(
+        self,
+        *,
+        user_id: str,
+        created_timestamp: float,
+        user_details: typing.Optional[UserDetails] = OMIT,
+        user_state_details: typing.Optional[UserStateDetails] = OMIT,
+        kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        employment_status: typing.Optional[EmploymentStatus] = OMIT,
+        occupation: typing.Optional[str] = OMIT,
+        legal_documents: typing.Optional[typing.List[LegalDocument]] = OMIT,
+        contact_details: typing.Optional[ContactDetails] = OMIT,
+        transaction_limits: typing.Optional[TransactionLimits] = OMIT,
+        risk_level: typing.Optional[RiskLevel] = OMIT,
+        acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
+        reason_for_account_opening: typing.Optional[typing.List[str]] = OMIT,
+        source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = OMIT,
+        user_segment: typing.Optional[ConsumerUserSegment] = OMIT,
+        pep_status: typing.Optional[typing.List[PepStatus]] = OMIT,
+        tags: typing.Optional[typing.List[Tag]] = OMIT,
+    ) -> ConsumerUsersCreateResponse:
         """
         ## POST Consumer User
 
@@ -44,7 +76,39 @@ class ConsumerUsersClient:
         - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
 
         Parameters:
-            - request: User.
+            - user_id: str. Unique user ID
+
+            - created_timestamp: float. Timestamp when userId is created
+
+            - user_details: typing.Optional[UserDetails].
+
+            - user_state_details: typing.Optional[UserStateDetails].
+
+            - kyc_status_details: typing.Optional[KycStatusDetails].
+
+            - employment_status: typing.Optional[EmploymentStatus].
+
+            - occupation: typing.Optional[str].
+
+            - legal_documents: typing.Optional[typing.List[LegalDocument]]. User's legal identity documents - See Document Model for details
+
+            - contact_details: typing.Optional[ContactDetails].
+
+            - transaction_limits: typing.Optional[TransactionLimits].
+
+            - risk_level: typing.Optional[RiskLevel].
+
+            - acquisition_channel: typing.Optional[AcquisitionChannel].
+
+            - reason_for_account_opening: typing.Optional[typing.List[str]].
+
+            - source_of_funds: typing.Optional[typing.List[SourceOfFunds]].
+
+            - user_segment: typing.Optional[ConsumerUserSegment].
+
+            - pep_status: typing.Optional[typing.List[PepStatus]].
+
+            - tags: typing.Optional[typing.List[Tag]]. Additional information that can be added via tags
         ---
         from flagright import (
             Address,
@@ -53,7 +117,6 @@ class ConsumerUsersClient:
             CountryCode,
             LegalDocument,
             Tag,
-            User,
             UserDetails,
         )
         from flagright.client import Flagright
@@ -62,67 +125,96 @@ class ConsumerUsersClient:
             api_key="YOUR_API_KEY",
         )
         client.consumer_users.create(
-            request=User(
-                user_details=UserDetails(
-                    name=ConsumerName(
-                        first_name="Baran",
-                        middle_name="Realblood",
-                        last_name="Ozkan",
-                    ),
-                    date_of_birth="1991-01-01",
-                    country_of_residence=CountryCode.US,
-                    country_of_nationality=CountryCode.DE,
+            user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+            created_timestamp=1641654664000.0,
+            user_details=UserDetails(
+                name=ConsumerName(
+                    first_name="Baran",
+                    middle_name="Realblood",
+                    last_name="Ozkan",
                 ),
-                legal_documents=[
-                    LegalDocument(
-                        document_type="passport",
-                        document_number="Z9431P",
-                        document_issued_date=1639939034000.0,
-                        document_expiration_date=1839939034000.0,
-                        document_issued_country=CountryCode.DE,
+                date_of_birth="1991-01-01",
+                country_of_residence=CountryCode.US,
+                country_of_nationality=CountryCode.DE,
+            ),
+            legal_documents=[
+                LegalDocument(
+                    document_type="passport",
+                    document_number="Z9431P",
+                    document_issued_date=1639939034000.0,
+                    document_expiration_date=1839939034000.0,
+                    document_issued_country=CountryCode.DE,
+                    tags=[
+                        Tag(
+                            key="customerType",
+                            value="wallet",
+                        )
+                    ],
+                )
+            ],
+            contact_details=ContactDetails(
+                email_ids=["baran@flagright.com"],
+                contact_numbers=["+37112345432"],
+                websites=["flagright.com"],
+                addresses=[
+                    Address(
+                        address_lines=["Klara-Franke Str 20"],
+                        postcode="10557",
+                        city="Berlin",
+                        state="Berlin",
+                        country="Germany",
                         tags=[
                             Tag(
-                                key="customerType",
-                                value="wallet",
+                                key="customKey",
+                                value="customValue",
                             )
                         ],
                     )
                 ],
-                contact_details=ContactDetails(
-                    email_ids=["baran@flagright.com"],
-                    contact_numbers=["+37112345432"],
-                    websites=["flagright.com"],
-                    addresses=[
-                        Address(
-                            address_lines=["Klara-Franke Str 20"],
-                            postcode="10557",
-                            city="Berlin",
-                            state="Berlin",
-                            country="Germany",
-                            tags=[
-                                Tag(
-                                    key="customKey",
-                                    value="customValue",
-                                )
-                            ],
-                        )
-                    ],
-                ),
-                tags=[
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    )
-                ],
-                user_id="96647cfd9e8fe66ee0f3362e011e34e8",
-                created_timestamp=1641654664000.0,
             ),
+            tags=[
+                Tag(
+                    key="customKey",
+                    value="customValue",
+                )
+            ],
         )
         """
+        _request: typing.Dict[str, typing.Any] = {"userId": user_id, "createdTimestamp": created_timestamp}
+        if user_details is not OMIT:
+            _request["userDetails"] = user_details
+        if user_state_details is not OMIT:
+            _request["userStateDetails"] = user_state_details
+        if kyc_status_details is not OMIT:
+            _request["kycStatusDetails"] = kyc_status_details
+        if employment_status is not OMIT:
+            _request["employmentStatus"] = employment_status
+        if occupation is not OMIT:
+            _request["occupation"] = occupation
+        if legal_documents is not OMIT:
+            _request["legalDocuments"] = legal_documents
+        if contact_details is not OMIT:
+            _request["contactDetails"] = contact_details
+        if transaction_limits is not OMIT:
+            _request["transactionLimits"] = transaction_limits
+        if risk_level is not OMIT:
+            _request["riskLevel"] = risk_level
+        if acquisition_channel is not OMIT:
+            _request["acquisitionChannel"] = acquisition_channel
+        if reason_for_account_opening is not OMIT:
+            _request["reasonForAccountOpening"] = reason_for_account_opening
+        if source_of_funds is not OMIT:
+            _request["sourceOfFunds"] = source_of_funds
+        if user_segment is not OMIT:
+            _request["userSegment"] = user_segment
+        if pep_status is not OMIT:
+            _request["pepStatus"] = pep_status
+        if tags is not OMIT:
+            _request["tags"] = tags
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "consumer/users"),
-            json=jsonable_encoder(request),
+            json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -185,7 +277,27 @@ class AsyncConsumerUsersClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def create(self, *, request: User) -> ConsumerUsersCreateResponse:
+    async def create(
+        self,
+        *,
+        user_id: str,
+        created_timestamp: float,
+        user_details: typing.Optional[UserDetails] = OMIT,
+        user_state_details: typing.Optional[UserStateDetails] = OMIT,
+        kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        employment_status: typing.Optional[EmploymentStatus] = OMIT,
+        occupation: typing.Optional[str] = OMIT,
+        legal_documents: typing.Optional[typing.List[LegalDocument]] = OMIT,
+        contact_details: typing.Optional[ContactDetails] = OMIT,
+        transaction_limits: typing.Optional[TransactionLimits] = OMIT,
+        risk_level: typing.Optional[RiskLevel] = OMIT,
+        acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
+        reason_for_account_opening: typing.Optional[typing.List[str]] = OMIT,
+        source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = OMIT,
+        user_segment: typing.Optional[ConsumerUserSegment] = OMIT,
+        pep_status: typing.Optional[typing.List[PepStatus]] = OMIT,
+        tags: typing.Optional[typing.List[Tag]] = OMIT,
+    ) -> ConsumerUsersCreateResponse:
         """
         ## POST Consumer User
 
@@ -201,7 +313,39 @@ class AsyncConsumerUsersClient:
         - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
 
         Parameters:
-            - request: User.
+            - user_id: str. Unique user ID
+
+            - created_timestamp: float. Timestamp when userId is created
+
+            - user_details: typing.Optional[UserDetails].
+
+            - user_state_details: typing.Optional[UserStateDetails].
+
+            - kyc_status_details: typing.Optional[KycStatusDetails].
+
+            - employment_status: typing.Optional[EmploymentStatus].
+
+            - occupation: typing.Optional[str].
+
+            - legal_documents: typing.Optional[typing.List[LegalDocument]]. User's legal identity documents - See Document Model for details
+
+            - contact_details: typing.Optional[ContactDetails].
+
+            - transaction_limits: typing.Optional[TransactionLimits].
+
+            - risk_level: typing.Optional[RiskLevel].
+
+            - acquisition_channel: typing.Optional[AcquisitionChannel].
+
+            - reason_for_account_opening: typing.Optional[typing.List[str]].
+
+            - source_of_funds: typing.Optional[typing.List[SourceOfFunds]].
+
+            - user_segment: typing.Optional[ConsumerUserSegment].
+
+            - pep_status: typing.Optional[typing.List[PepStatus]].
+
+            - tags: typing.Optional[typing.List[Tag]]. Additional information that can be added via tags
         ---
         from flagright import (
             Address,
@@ -210,7 +354,6 @@ class AsyncConsumerUsersClient:
             CountryCode,
             LegalDocument,
             Tag,
-            User,
             UserDetails,
         )
         from flagright.client import AsyncFlagright
@@ -219,67 +362,96 @@ class AsyncConsumerUsersClient:
             api_key="YOUR_API_KEY",
         )
         await client.consumer_users.create(
-            request=User(
-                user_details=UserDetails(
-                    name=ConsumerName(
-                        first_name="Baran",
-                        middle_name="Realblood",
-                        last_name="Ozkan",
-                    ),
-                    date_of_birth="1991-01-01",
-                    country_of_residence=CountryCode.US,
-                    country_of_nationality=CountryCode.DE,
+            user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+            created_timestamp=1641654664000.0,
+            user_details=UserDetails(
+                name=ConsumerName(
+                    first_name="Baran",
+                    middle_name="Realblood",
+                    last_name="Ozkan",
                 ),
-                legal_documents=[
-                    LegalDocument(
-                        document_type="passport",
-                        document_number="Z9431P",
-                        document_issued_date=1639939034000.0,
-                        document_expiration_date=1839939034000.0,
-                        document_issued_country=CountryCode.DE,
+                date_of_birth="1991-01-01",
+                country_of_residence=CountryCode.US,
+                country_of_nationality=CountryCode.DE,
+            ),
+            legal_documents=[
+                LegalDocument(
+                    document_type="passport",
+                    document_number="Z9431P",
+                    document_issued_date=1639939034000.0,
+                    document_expiration_date=1839939034000.0,
+                    document_issued_country=CountryCode.DE,
+                    tags=[
+                        Tag(
+                            key="customerType",
+                            value="wallet",
+                        )
+                    ],
+                )
+            ],
+            contact_details=ContactDetails(
+                email_ids=["baran@flagright.com"],
+                contact_numbers=["+37112345432"],
+                websites=["flagright.com"],
+                addresses=[
+                    Address(
+                        address_lines=["Klara-Franke Str 20"],
+                        postcode="10557",
+                        city="Berlin",
+                        state="Berlin",
+                        country="Germany",
                         tags=[
                             Tag(
-                                key="customerType",
-                                value="wallet",
+                                key="customKey",
+                                value="customValue",
                             )
                         ],
                     )
                 ],
-                contact_details=ContactDetails(
-                    email_ids=["baran@flagright.com"],
-                    contact_numbers=["+37112345432"],
-                    websites=["flagright.com"],
-                    addresses=[
-                        Address(
-                            address_lines=["Klara-Franke Str 20"],
-                            postcode="10557",
-                            city="Berlin",
-                            state="Berlin",
-                            country="Germany",
-                            tags=[
-                                Tag(
-                                    key="customKey",
-                                    value="customValue",
-                                )
-                            ],
-                        )
-                    ],
-                ),
-                tags=[
-                    Tag(
-                        key="customKey",
-                        value="customValue",
-                    )
-                ],
-                user_id="96647cfd9e8fe66ee0f3362e011e34e8",
-                created_timestamp=1641654664000.0,
             ),
+            tags=[
+                Tag(
+                    key="customKey",
+                    value="customValue",
+                )
+            ],
         )
         """
+        _request: typing.Dict[str, typing.Any] = {"userId": user_id, "createdTimestamp": created_timestamp}
+        if user_details is not OMIT:
+            _request["userDetails"] = user_details
+        if user_state_details is not OMIT:
+            _request["userStateDetails"] = user_state_details
+        if kyc_status_details is not OMIT:
+            _request["kycStatusDetails"] = kyc_status_details
+        if employment_status is not OMIT:
+            _request["employmentStatus"] = employment_status
+        if occupation is not OMIT:
+            _request["occupation"] = occupation
+        if legal_documents is not OMIT:
+            _request["legalDocuments"] = legal_documents
+        if contact_details is not OMIT:
+            _request["contactDetails"] = contact_details
+        if transaction_limits is not OMIT:
+            _request["transactionLimits"] = transaction_limits
+        if risk_level is not OMIT:
+            _request["riskLevel"] = risk_level
+        if acquisition_channel is not OMIT:
+            _request["acquisitionChannel"] = acquisition_channel
+        if reason_for_account_opening is not OMIT:
+            _request["reasonForAccountOpening"] = reason_for_account_opening
+        if source_of_funds is not OMIT:
+            _request["sourceOfFunds"] = source_of_funds
+        if user_segment is not OMIT:
+            _request["userSegment"] = user_segment
+        if pep_status is not OMIT:
+            _request["pepStatus"] = pep_status
+        if tags is not OMIT:
+            _request["tags"] = tags
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "consumer/users"),
-            json=jsonable_encoder(request),
+            json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )

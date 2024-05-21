@@ -4,12 +4,25 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .webhook_event_base import WebhookEventBase
 from .webhook_event_data import WebhookEventData
+from .webhook_event_triggered_by import WebhookEventTriggeredBy
 from .webhook_event_type import WebhookEventType
 
+try:
+    import pydantic.v1 as pydantic  # type: ignore
+except ImportError:
+    import pydantic  # type: ignore
 
-class WebhookEvent(WebhookEventBase):
+
+class WebhookEvent(pydantic.BaseModel):
+    id: str = pydantic.Field(description="Unique identifier for the event")
+    triggered_by: WebhookEventTriggeredBy = pydantic.Field(
+        alias="triggeredBy", description="Event triggered by a user or system"
+    )
+    created_timestamp: float = pydantic.Field(
+        alias="createdTimestamp",
+        description="Time at which the event was created. Measured in ms since the Unix epoch.",
+    )
     type: WebhookEventType
     data: WebhookEventData
 

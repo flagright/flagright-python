@@ -4,10 +4,22 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
+from .acquisition_channel import AcquisitionChannel
+from .consumer_user_segment import ConsumerUserSegment
+from .contact_details import ContactDetails
+from .employment_status import EmploymentStatus
 from .executed_rules_result import ExecutedRulesResult
 from .hit_rules_details import HitRulesDetails
-from .user import User
+from .kyc_status_details import KycStatusDetails
+from .legal_document import LegalDocument
+from .pep_status import PepStatus
+from .risk_level import RiskLevel
+from .source_of_funds import SourceOfFunds
+from .tag import Tag
+from .transaction_limits import TransactionLimits
+from .user_details import UserDetails
 from .user_risk_score_details import UserRiskScoreDetails
+from .user_state_details import UserStateDetails
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -15,11 +27,28 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class UserWithRulesResult(User):
-    """
-    Model for consumer user payload with rules result
-    """
-
+class UserWithRulesResult(pydantic.BaseModel):
+    user_id: str = pydantic.Field(alias="userId", description="Unique user ID")
+    created_timestamp: float = pydantic.Field(alias="createdTimestamp", description="Timestamp when userId is created")
+    user_details: typing.Optional[UserDetails] = pydantic.Field(alias="userDetails")
+    user_state_details: typing.Optional[UserStateDetails] = pydantic.Field(alias="userStateDetails")
+    kyc_status_details: typing.Optional[KycStatusDetails] = pydantic.Field(alias="kycStatusDetails")
+    employment_status: typing.Optional[EmploymentStatus] = pydantic.Field(alias="employmentStatus")
+    occupation: typing.Optional[str]
+    legal_documents: typing.Optional[typing.List[LegalDocument]] = pydantic.Field(
+        alias="legalDocuments", description="User's legal identity documents - See Document Model for details"
+    )
+    contact_details: typing.Optional[ContactDetails] = pydantic.Field(alias="contactDetails")
+    transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
+    risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
+    acquisition_channel: typing.Optional[AcquisitionChannel] = pydantic.Field(alias="acquisitionChannel")
+    reason_for_account_opening: typing.Optional[typing.List[str]] = pydantic.Field(alias="reasonForAccountOpening")
+    source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = pydantic.Field(alias="sourceOfFunds")
+    user_segment: typing.Optional[ConsumerUserSegment] = pydantic.Field(alias="userSegment")
+    pep_status: typing.Optional[typing.List[PepStatus]] = pydantic.Field(alias="pepStatus")
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+        description="Additional information that can be added via tags"
+    )
     executed_rules: typing.Optional[typing.List[ExecutedRulesResult]] = pydantic.Field(alias="executedRules")
     hit_rules: typing.Optional[typing.List[HitRulesDetails]] = pydantic.Field(alias="hitRules")
     risk_score_details: typing.Optional[UserRiskScoreDetails] = pydantic.Field(alias="riskScoreDetails")
