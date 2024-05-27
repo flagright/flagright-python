@@ -4,6 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
+from .country_code import CountryCode
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -16,7 +17,7 @@ class CardMerchantDetails(pydantic.BaseModel):
     category: typing.Optional[str]
     mcc: typing.Optional[str] = pydantic.Field(alias="MCC")
     city: typing.Optional[str]
-    country: typing.Optional[str]
+    country: typing.Optional[CountryCode]
     state: typing.Optional[str]
     post_code: typing.Optional[str] = pydantic.Field(alias="postCode")
 
