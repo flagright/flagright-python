@@ -14,6 +14,7 @@ except ImportError:
 
 class CardMerchantDetails(pydantic.BaseModel):
     id: typing.Optional[str]
+    name: typing.Optional[str]
     category: typing.Optional[str]
     mcc: typing.Optional[str] = pydantic.Field(alias="MCC")
     city: typing.Optional[str]
