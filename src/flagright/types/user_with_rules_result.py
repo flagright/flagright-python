@@ -20,6 +20,7 @@ from .transaction_limits import TransactionLimits
 from .user_details import UserDetails
 from .user_risk_score_details import UserRiskScoreDetails
 from .user_state_details import UserStateDetails
+from .user_with_rules_result_saved_payment_details_item import UserWithRulesResultSavedPaymentDetailsItem
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -46,6 +47,9 @@ class UserWithRulesResult(pydantic.BaseModel):
     source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = pydantic.Field(alias="sourceOfFunds")
     user_segment: typing.Optional[ConsumerUserSegment] = pydantic.Field(alias="userSegment")
     pep_status: typing.Optional[typing.List[PepStatus]] = pydantic.Field(alias="pepStatus")
+    saved_payment_details: typing.Optional[typing.List[UserWithRulesResultSavedPaymentDetailsItem]] = pydantic.Field(
+        alias="savedPaymentDetails"
+    )
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )

@@ -26,6 +26,7 @@ from ...types.user_details import UserDetails
 from ...types.user_state_details import UserStateDetails
 from ...types.user_with_rules_result import UserWithRulesResult
 from .types.consumer_users_create_response import ConsumerUsersCreateResponse
+from .types.user_saved_payment_details_item import UserSavedPaymentDetailsItem
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -59,6 +60,7 @@ class ConsumerUsersClient:
         source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = OMIT,
         user_segment: typing.Optional[ConsumerUserSegment] = OMIT,
         pep_status: typing.Optional[typing.List[PepStatus]] = OMIT,
+        saved_payment_details: typing.Optional[typing.List[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.List[Tag]] = OMIT,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -107,6 +109,8 @@ class ConsumerUsersClient:
             - user_segment: typing.Optional[ConsumerUserSegment].
 
             - pep_status: typing.Optional[typing.List[PepStatus]].
+
+            - saved_payment_details: typing.Optional[typing.List[UserSavedPaymentDetailsItem]].
 
             - tags: typing.Optional[typing.List[Tag]]. Additional information that can be added via tags
         ---
@@ -209,6 +213,8 @@ class ConsumerUsersClient:
             _request["userSegment"] = user_segment
         if pep_status is not OMIT:
             _request["pepStatus"] = pep_status
+        if saved_payment_details is not OMIT:
+            _request["savedPaymentDetails"] = saved_payment_details
         if tags is not OMIT:
             _request["tags"] = tags
         _response = self._client_wrapper.httpx_client.request(
@@ -296,6 +302,7 @@ class AsyncConsumerUsersClient:
         source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = OMIT,
         user_segment: typing.Optional[ConsumerUserSegment] = OMIT,
         pep_status: typing.Optional[typing.List[PepStatus]] = OMIT,
+        saved_payment_details: typing.Optional[typing.List[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.List[Tag]] = OMIT,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -344,6 +351,8 @@ class AsyncConsumerUsersClient:
             - user_segment: typing.Optional[ConsumerUserSegment].
 
             - pep_status: typing.Optional[typing.List[PepStatus]].
+
+            - saved_payment_details: typing.Optional[typing.List[UserSavedPaymentDetailsItem]].
 
             - tags: typing.Optional[typing.List[Tag]]. Additional information that can be added via tags
         ---
@@ -446,6 +455,8 @@ class AsyncConsumerUsersClient:
             _request["userSegment"] = user_segment
         if pep_status is not OMIT:
             _request["pepStatus"] = pep_status
+        if saved_payment_details is not OMIT:
+            _request["savedPaymentDetails"] = saved_payment_details
         if tags is not OMIT:
             _request["tags"] = tags
         _response = await self._client_wrapper.httpx_client.request(

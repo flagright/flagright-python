@@ -21,7 +21,19 @@ from .business_users import (
     BusinessSavedPaymentDetailsItem_Wallet,
     BusinessUsersCreateResponse,
 )
-from .consumer_users import ConsumerUsersCreateResponse
+from .consumer_users import (
+    ConsumerUsersCreateResponse,
+    UserSavedPaymentDetailsItem,
+    UserSavedPaymentDetailsItem_Ach,
+    UserSavedPaymentDetailsItem_Card,
+    UserSavedPaymentDetailsItem_Check,
+    UserSavedPaymentDetailsItem_GenericBankAccount,
+    UserSavedPaymentDetailsItem_Iban,
+    UserSavedPaymentDetailsItem_Mpesa,
+    UserSavedPaymentDetailsItem_Swift,
+    UserSavedPaymentDetailsItem_Upi,
+    UserSavedPaymentDetailsItem_Wallet,
+)
 from .transactions import TransactionsVerifyResponse
 
 __all__ = [
@@ -38,6 +50,16 @@ __all__ = [
     "BusinessUsersCreateResponse",
     "ConsumerUsersCreateResponse",
     "TransactionsVerifyResponse",
+    "UserSavedPaymentDetailsItem",
+    "UserSavedPaymentDetailsItem_Ach",
+    "UserSavedPaymentDetailsItem_Card",
+    "UserSavedPaymentDetailsItem_Check",
+    "UserSavedPaymentDetailsItem_GenericBankAccount",
+    "UserSavedPaymentDetailsItem_Iban",
+    "UserSavedPaymentDetailsItem_Mpesa",
+    "UserSavedPaymentDetailsItem_Swift",
+    "UserSavedPaymentDetailsItem_Upi",
+    "UserSavedPaymentDetailsItem_Wallet",
     "business_user_events",
     "business_users",
     "consumer_user_events",

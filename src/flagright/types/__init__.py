@@ -205,11 +205,35 @@ from .upi_payment_method import UpiPaymentMethod
 from .user_base import UserBase
 from .user_details import UserDetails
 from .user_optional import UserOptional
+from .user_optional_saved_payment_details_item import (
+    UserOptionalSavedPaymentDetailsItem,
+    UserOptionalSavedPaymentDetailsItem_Ach,
+    UserOptionalSavedPaymentDetailsItem_Card,
+    UserOptionalSavedPaymentDetailsItem_Check,
+    UserOptionalSavedPaymentDetailsItem_GenericBankAccount,
+    UserOptionalSavedPaymentDetailsItem_Iban,
+    UserOptionalSavedPaymentDetailsItem_Mpesa,
+    UserOptionalSavedPaymentDetailsItem_Swift,
+    UserOptionalSavedPaymentDetailsItem_Upi,
+    UserOptionalSavedPaymentDetailsItem_Wallet,
+)
 from .user_registration_status import UserRegistrationStatus
 from .user_risk_score_details import UserRiskScoreDetails
 from .user_state import UserState
 from .user_state_details import UserStateDetails
 from .user_with_rules_result import UserWithRulesResult
+from .user_with_rules_result_saved_payment_details_item import (
+    UserWithRulesResultSavedPaymentDetailsItem,
+    UserWithRulesResultSavedPaymentDetailsItem_Ach,
+    UserWithRulesResultSavedPaymentDetailsItem_Card,
+    UserWithRulesResultSavedPaymentDetailsItem_Check,
+    UserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount,
+    UserWithRulesResultSavedPaymentDetailsItem_Iban,
+    UserWithRulesResultSavedPaymentDetailsItem_Mpesa,
+    UserWithRulesResultSavedPaymentDetailsItem_Swift,
+    UserWithRulesResultSavedPaymentDetailsItem_Upi,
+    UserWithRulesResultSavedPaymentDetailsItem_Wallet,
+)
 from .wallet_details import WalletDetails
 from .wallet_network import WalletNetwork
 from .wallet_payment_method import WalletPaymentMethod
@@ -410,11 +434,31 @@ __all__ = [
     "UserBase",
     "UserDetails",
     "UserOptional",
+    "UserOptionalSavedPaymentDetailsItem",
+    "UserOptionalSavedPaymentDetailsItem_Ach",
+    "UserOptionalSavedPaymentDetailsItem_Card",
+    "UserOptionalSavedPaymentDetailsItem_Check",
+    "UserOptionalSavedPaymentDetailsItem_GenericBankAccount",
+    "UserOptionalSavedPaymentDetailsItem_Iban",
+    "UserOptionalSavedPaymentDetailsItem_Mpesa",
+    "UserOptionalSavedPaymentDetailsItem_Swift",
+    "UserOptionalSavedPaymentDetailsItem_Upi",
+    "UserOptionalSavedPaymentDetailsItem_Wallet",
     "UserRegistrationStatus",
     "UserRiskScoreDetails",
     "UserState",
     "UserStateDetails",
     "UserWithRulesResult",
+    "UserWithRulesResultSavedPaymentDetailsItem",
+    "UserWithRulesResultSavedPaymentDetailsItem_Ach",
+    "UserWithRulesResultSavedPaymentDetailsItem_Card",
+    "UserWithRulesResultSavedPaymentDetailsItem_Check",
+    "UserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount",
+    "UserWithRulesResultSavedPaymentDetailsItem_Iban",
+    "UserWithRulesResultSavedPaymentDetailsItem_Mpesa",
+    "UserWithRulesResultSavedPaymentDetailsItem_Swift",
+    "UserWithRulesResultSavedPaymentDetailsItem_Upi",
+    "UserWithRulesResultSavedPaymentDetailsItem_Wallet",
     "WalletDetails",
     "WalletNetwork",
     "WalletPaymentMethod",

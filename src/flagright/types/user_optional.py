@@ -16,6 +16,7 @@ from .source_of_funds import SourceOfFunds
 from .tag import Tag
 from .transaction_limits import TransactionLimits
 from .user_details import UserDetails
+from .user_optional_saved_payment_details_item import UserOptionalSavedPaymentDetailsItem
 from .user_state_details import UserStateDetails
 
 try:
@@ -45,6 +46,9 @@ class UserOptional(pydantic.BaseModel):
     source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = pydantic.Field(alias="sourceOfFunds")
     user_segment: typing.Optional[ConsumerUserSegment] = pydantic.Field(alias="userSegment")
     pep_status: typing.Optional[typing.List[PepStatus]] = pydantic.Field(alias="pepStatus")
+    saved_payment_details: typing.Optional[typing.List[UserOptionalSavedPaymentDetailsItem]] = pydantic.Field(
+        alias="savedPaymentDetails"
+    )
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )
