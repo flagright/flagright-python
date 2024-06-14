@@ -3,6 +3,7 @@
 import typing
 
 from .alert_closed_details import AlertClosedDetails
+from .alert_opened_details import AlertOpenedDetails
 from .case_closed_details import CaseClosedDetails
 from .case_opened_details import CaseOpenedDetails
 from .kyc_status_details import KycStatusDetails
@@ -14,6 +15,7 @@ WebhookEventData = typing.Union[
     CaseClosedDetails,
     CaseOpenedDetails,
     AlertClosedDetails,
+    AlertOpenedDetails,
     TransactionStatusDetails,
     KycStatusDetails,
 ]

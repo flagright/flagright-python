@@ -13,6 +13,7 @@ class WebhookEventType(str, enum.Enum):
     TRANSACTION_STATUS_UPDATED = "TRANSACTION_STATUS_UPDATED"
     KYC_STATUS_UPDATED = "KYC_STATUS_UPDATED"
     CASE_OPENED = "CASE_OPENED"
+    ALERT_OPENED = "ALERT_OPENED"
 
     def visit(
         self,
@@ -22,6 +23,7 @@ class WebhookEventType(str, enum.Enum):
         transaction_status_updated: typing.Callable[[], T_Result],
         kyc_status_updated: typing.Callable[[], T_Result],
         case_opened: typing.Callable[[], T_Result],
+        alert_opened: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is WebhookEventType.CASE_CLOSED:
             return case_closed()
@@ -35,3 +37,5 @@ class WebhookEventType(str, enum.Enum):
             return kyc_status_updated()
         if self is WebhookEventType.CASE_OPENED:
             return case_opened()
+        if self is WebhookEventType.ALERT_OPENED:
+            return alert_opened()

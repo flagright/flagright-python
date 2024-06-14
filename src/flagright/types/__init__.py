@@ -5,6 +5,7 @@ from .ach_payment_method import AchPaymentMethod
 from .acquisition_channel import AcquisitionChannel
 from .address import Address
 from .alert_closed_details import AlertClosedDetails
+from .alert_opened_details import AlertOpenedDetails
 from .amount import Amount
 from .api_error_response import ApiErrorResponse
 from .boolean_string import BooleanString
@@ -250,6 +251,7 @@ __all__ = [
     "AcquisitionChannel",
     "Address",
     "AlertClosedDetails",
+    "AlertOpenedDetails",
     "Amount",
     "ApiErrorResponse",
     "BooleanString",
