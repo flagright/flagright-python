@@ -23,6 +23,7 @@ from ...types.source_of_funds import SourceOfFunds
 from ...types.tag import Tag
 from ...types.transaction_limits import TransactionLimits
 from ...types.user_details import UserDetails
+from ...types.user_entity_link import UserEntityLink
 from ...types.user_state_details import UserStateDetails
 from ...types.user_with_rules_result import UserWithRulesResult
 from .types.consumer_users_create_response import ConsumerUsersCreateResponse
@@ -60,6 +61,7 @@ class ConsumerUsersClient:
         source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = OMIT,
         user_segment: typing.Optional[ConsumerUserSegment] = OMIT,
         pep_status: typing.Optional[typing.List[PepStatus]] = OMIT,
+        linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.List[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.List[Tag]] = OMIT,
     ) -> ConsumerUsersCreateResponse:
@@ -109,6 +111,8 @@ class ConsumerUsersClient:
             - user_segment: typing.Optional[ConsumerUserSegment].
 
             - pep_status: typing.Optional[typing.List[PepStatus]].
+
+            - linked_entities: typing.Optional[UserEntityLink].
 
             - saved_payment_details: typing.Optional[typing.List[UserSavedPaymentDetailsItem]].
 
@@ -213,6 +217,8 @@ class ConsumerUsersClient:
             _request["userSegment"] = user_segment
         if pep_status is not OMIT:
             _request["pepStatus"] = pep_status
+        if linked_entities is not OMIT:
+            _request["linkedEntities"] = linked_entities
         if saved_payment_details is not OMIT:
             _request["savedPaymentDetails"] = saved_payment_details
         if tags is not OMIT:
@@ -302,6 +308,7 @@ class AsyncConsumerUsersClient:
         source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = OMIT,
         user_segment: typing.Optional[ConsumerUserSegment] = OMIT,
         pep_status: typing.Optional[typing.List[PepStatus]] = OMIT,
+        linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.List[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.List[Tag]] = OMIT,
     ) -> ConsumerUsersCreateResponse:
@@ -351,6 +358,8 @@ class AsyncConsumerUsersClient:
             - user_segment: typing.Optional[ConsumerUserSegment].
 
             - pep_status: typing.Optional[typing.List[PepStatus]].
+
+            - linked_entities: typing.Optional[UserEntityLink].
 
             - saved_payment_details: typing.Optional[typing.List[UserSavedPaymentDetailsItem]].
 
@@ -455,6 +464,8 @@ class AsyncConsumerUsersClient:
             _request["userSegment"] = user_segment
         if pep_status is not OMIT:
             _request["pepStatus"] = pep_status
+        if linked_entities is not OMIT:
+            _request["linkedEntities"] = linked_entities
         if saved_payment_details is not OMIT:
             _request["savedPaymentDetails"] = saved_payment_details
         if tags is not OMIT:

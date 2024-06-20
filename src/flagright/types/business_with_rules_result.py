@@ -5,7 +5,6 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .acquisition_channel import AcquisitionChannel
-from .business_entity_link import BusinessEntityLink
 from .business_with_rules_result_saved_payment_details_item import BusinessWithRulesResultSavedPaymentDetailsItem
 from .executed_rules_result import ExecutedRulesResult
 from .hit_rules_details import HitRulesDetails
@@ -17,6 +16,7 @@ from .person import Person
 from .risk_level import RiskLevel
 from .tag import Tag
 from .transaction_limits import TransactionLimits
+from .user_entity_link import UserEntityLink
 from .user_risk_score_details import UserRiskScoreDetails
 from .user_state_details import UserStateDetails
 
@@ -44,7 +44,7 @@ class BusinessWithRulesResult(pydantic.BaseModel):
     transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
     risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
     allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]] = pydantic.Field(alias="allowedPaymentMethods")
-    linked_entities: typing.Optional[BusinessEntityLink] = pydantic.Field(alias="linkedEntities")
+    linked_entities: typing.Optional[UserEntityLink] = pydantic.Field(alias="linkedEntities")
     acquisition_channel: typing.Optional[AcquisitionChannel] = pydantic.Field(alias="acquisitionChannel")
     saved_payment_details: typing.Optional[
         typing.List[BusinessWithRulesResultSavedPaymentDetailsItem]

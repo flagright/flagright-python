@@ -12,7 +12,6 @@ from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.acquisition_channel import AcquisitionChannel
 from ...types.api_error_response import ApiErrorResponse
-from ...types.business_entity_link import BusinessEntityLink
 from ...types.business_with_rules_result import BusinessWithRulesResult
 from ...types.kyc_status_details import KycStatusDetails
 from ...types.legal_entity import LegalEntity
@@ -22,6 +21,7 @@ from ...types.person import Person
 from ...types.risk_level import RiskLevel
 from ...types.tag import Tag
 from ...types.transaction_limits import TransactionLimits
+from ...types.user_entity_link import UserEntityLink
 from ...types.user_state_details import UserStateDetails
 from .types.business_saved_payment_details_item import BusinessSavedPaymentDetailsItem
 from .types.business_users_create_response import BusinessUsersCreateResponse
@@ -52,7 +52,7 @@ class BusinessUsersClient:
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]] = OMIT,
-        linked_entities: typing.Optional[BusinessEntityLink] = OMIT,
+        linked_entities: typing.Optional[UserEntityLink] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
         saved_payment_details: typing.Optional[typing.List[BusinessSavedPaymentDetailsItem]] = OMIT,
         mcc_details: typing.Optional[MccDetails] = OMIT,
@@ -94,7 +94,7 @@ class BusinessUsersClient:
 
             - allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]].
 
-            - linked_entities: typing.Optional[BusinessEntityLink].
+            - linked_entities: typing.Optional[UserEntityLink].
 
             - acquisition_channel: typing.Optional[AcquisitionChannel].
 
@@ -230,7 +230,7 @@ class AsyncBusinessUsersClient:
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]] = OMIT,
-        linked_entities: typing.Optional[BusinessEntityLink] = OMIT,
+        linked_entities: typing.Optional[UserEntityLink] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
         saved_payment_details: typing.Optional[typing.List[BusinessSavedPaymentDetailsItem]] = OMIT,
         mcc_details: typing.Optional[MccDetails] = OMIT,
@@ -272,7 +272,7 @@ class AsyncBusinessUsersClient:
 
             - allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]].
 
-            - linked_entities: typing.Optional[BusinessEntityLink].
+            - linked_entities: typing.Optional[UserEntityLink].
 
             - acquisition_channel: typing.Optional[AcquisitionChannel].
 

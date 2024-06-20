@@ -11,7 +11,7 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class BusinessEntityLink(pydantic.BaseModel):
+class UserEntityLink(pydantic.BaseModel):
     parent_user_id: typing.Optional[str] = pydantic.Field(alias="parentUserId")
     child_user_ids: typing.Optional[typing.List[str]] = pydantic.Field(alias="childUserIds")
 

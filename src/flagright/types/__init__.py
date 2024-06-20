@@ -10,7 +10,6 @@ from .amount import Amount
 from .api_error_response import ApiErrorResponse
 from .boolean_string import BooleanString
 from .business_base import BusinessBase
-from .business_entity_link import BusinessEntityLink
 from .business_optional import BusinessOptional
 from .business_optional_saved_payment_details_item import (
     BusinessOptionalSavedPaymentDetailsItem,
@@ -205,6 +204,7 @@ from .upi_details import UpiDetails
 from .upi_payment_method import UpiPaymentMethod
 from .user_base import UserBase
 from .user_details import UserDetails
+from .user_entity_link import UserEntityLink
 from .user_optional import UserOptional
 from .user_optional_saved_payment_details_item import (
     UserOptionalSavedPaymentDetailsItem,
@@ -256,7 +256,6 @@ __all__ = [
     "ApiErrorResponse",
     "BooleanString",
     "BusinessBase",
-    "BusinessEntityLink",
     "BusinessOptional",
     "BusinessOptionalSavedPaymentDetailsItem",
     "BusinessOptionalSavedPaymentDetailsItem_Ach",
@@ -435,6 +434,7 @@ __all__ = [
     "UpiPaymentMethod",
     "UserBase",
     "UserDetails",
+    "UserEntityLink",
     "UserOptional",
     "UserOptionalSavedPaymentDetailsItem",
     "UserOptionalSavedPaymentDetailsItem_Ach",

@@ -16,6 +16,7 @@ from .source_of_funds import SourceOfFunds
 from .tag import Tag
 from .transaction_limits import TransactionLimits
 from .user_details import UserDetails
+from .user_entity_link import UserEntityLink
 from .user_optional_saved_payment_details_item import UserOptionalSavedPaymentDetailsItem
 from .user_state_details import UserStateDetails
 
@@ -46,6 +47,7 @@ class UserOptional(pydantic.BaseModel):
     source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = pydantic.Field(alias="sourceOfFunds")
     user_segment: typing.Optional[ConsumerUserSegment] = pydantic.Field(alias="userSegment")
     pep_status: typing.Optional[typing.List[PepStatus]] = pydantic.Field(alias="pepStatus")
+    linked_entities: typing.Optional[UserEntityLink] = pydantic.Field(alias="linkedEntities")
     saved_payment_details: typing.Optional[typing.List[UserOptionalSavedPaymentDetailsItem]] = pydantic.Field(
         alias="savedPaymentDetails"
     )
