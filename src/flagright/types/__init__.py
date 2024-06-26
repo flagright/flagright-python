@@ -45,6 +45,7 @@ from .card_expiry import CardExpiry
 from .card_funding import CardFunding
 from .card_merchant_details import CardMerchantDetails
 from .card_payment_method import CardPaymentMethod
+from .card_status import CardStatus
 from .card_type import CardType
 from .case_closed_details import CaseClosedDetails
 from .case_management_event import CaseManagementEvent
@@ -287,6 +288,7 @@ __all__ = [
     "CardFunding",
     "CardMerchantDetails",
     "CardPaymentMethod",
+    "CardStatus",
     "CardType",
     "CaseClosedDetails",
     "CaseManagementEvent",

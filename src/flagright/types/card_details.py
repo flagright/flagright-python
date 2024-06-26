@@ -8,6 +8,7 @@ from .card_brand import CardBrand
 from .card_expiry import CardExpiry
 from .card_funding import CardFunding
 from .card_merchant_details import CardMerchantDetails
+from .card_status import CardStatus
 from .card_type import CardType
 from .consumer_name import ConsumerName
 from .country_code import CountryCode
@@ -30,6 +31,7 @@ class CardDetails(pydantic.BaseModel):
         description="Unique card fingerprint that helps identify a specific card without having to use explicit card number. This is likely available at your card payment scheme provider",
     )
     email_id: typing.Optional[EmailId] = pydantic.Field(alias="emailId")
+    card_status: typing.Optional[CardStatus] = pydantic.Field(alias="cardStatus")
     card_issued_country: typing.Optional[CountryCode] = pydantic.Field(alias="cardIssuedCountry")
     transaction_reference_field: typing.Optional[str] = pydantic.Field(
         alias="transactionReferenceField", description="Reference for the transaction"
