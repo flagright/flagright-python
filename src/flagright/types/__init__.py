@@ -99,6 +99,7 @@ from .mpesa_transaction_type import MpesaTransactionType
 from .payment_method import PaymentMethod
 from .pep_status import PepStatus
 from .person import Person
+from .place_of_birth import PlaceOfBirth
 from .risk_level import RiskLevel
 from .rule_action import RuleAction
 from .rule_failure_exception import RuleFailureException
@@ -343,6 +344,7 @@ __all__ = [
     "PaymentMethod",
     "PepStatus",
     "Person",
+    "PlaceOfBirth",
     "RiskLevel",
     "RuleAction",
     "RuleFailureException",

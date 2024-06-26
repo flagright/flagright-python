@@ -4,10 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .consumer_name import ConsumerName
 from .country_code import CountryCode
-from .gender import Gender
-from .place_of_birth import PlaceOfBirth
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -15,19 +12,14 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class UserDetails(pydantic.BaseModel):
+class PlaceOfBirth(pydantic.BaseModel):
     """
-    Model for consumer user personal details
+    Place of birth of the individual
     """
 
-    name: ConsumerName
-    date_of_birth: typing.Optional[str] = pydantic.Field(
-        alias="dateOfBirth", description="Date of birth of the user (YYYY-MM-DD)"
-    )
-    country_of_residence: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfResidence")
-    country_of_nationality: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfNationality")
-    gender: typing.Optional[Gender]
-    place_of_birth: typing.Optional[PlaceOfBirth] = pydantic.Field(alias="placeOfBirth")
+    city: typing.Optional[str]
+    state: typing.Optional[str]
+    country: CountryCode
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
@@ -40,5 +32,4 @@ class UserDetails(pydantic.BaseModel):
     class Config:
         frozen = True
         smart_union = True
-        allow_population_by_field_name = True
         json_encoders = {dt.datetime: serialize_datetime}
