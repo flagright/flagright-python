@@ -9,6 +9,7 @@ from .consumer_user_segment import ConsumerUserSegment
 from .contact_details import ContactDetails
 from .employment_status import EmploymentStatus
 from .executed_rules_result import ExecutedRulesResult
+from .expected_income import ExpectedIncome
 from .hit_rules_details import HitRulesDetails
 from .kyc_status_details import KycStatusDetails
 from .legal_document import LegalDocument
@@ -42,6 +43,7 @@ class UserWithRulesResult(pydantic.BaseModel):
     )
     contact_details: typing.Optional[ContactDetails] = pydantic.Field(alias="contactDetails")
     transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
+    expected_income: typing.Optional[ExpectedIncome] = pydantic.Field(alias="expectedIncome")
     risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
     acquisition_channel: typing.Optional[AcquisitionChannel] = pydantic.Field(alias="acquisitionChannel")
     reason_for_account_opening: typing.Optional[typing.List[str]] = pydantic.Field(alias="reasonForAccountOpening")

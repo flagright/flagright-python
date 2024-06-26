@@ -71,6 +71,7 @@ from .email_id import EmailId
 from .employment_status import EmploymentStatus
 from .executed_rule_vars import ExecutedRuleVars
 from .executed_rules_result import ExecutedRulesResult
+from .expected_income import ExpectedIncome
 from .failed_rules_result import FailedRulesResult
 from .false_positive_details import FalsePositiveDetails
 from .gender import Gender
@@ -314,6 +315,7 @@ __all__ = [
     "EmploymentStatus",
     "ExecutedRuleVars",
     "ExecutedRulesResult",
+    "ExpectedIncome",
     "FailedRulesResult",
     "FalsePositiveDetails",
     "Gender",

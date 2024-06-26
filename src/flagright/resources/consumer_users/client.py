@@ -15,6 +15,7 @@ from ...types.api_error_response import ApiErrorResponse
 from ...types.consumer_user_segment import ConsumerUserSegment
 from ...types.contact_details import ContactDetails
 from ...types.employment_status import EmploymentStatus
+from ...types.expected_income import ExpectedIncome
 from ...types.kyc_status_details import KycStatusDetails
 from ...types.legal_document import LegalDocument
 from ...types.pep_status import PepStatus
@@ -55,6 +56,7 @@ class ConsumerUsersClient:
         legal_documents: typing.Optional[typing.List[LegalDocument]] = OMIT,
         contact_details: typing.Optional[ContactDetails] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
+        expected_income: typing.Optional[ExpectedIncome] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
         reason_for_account_opening: typing.Optional[typing.List[str]] = OMIT,
@@ -99,6 +101,8 @@ class ConsumerUsersClient:
             - contact_details: typing.Optional[ContactDetails].
 
             - transaction_limits: typing.Optional[TransactionLimits].
+
+            - expected_income: typing.Optional[ExpectedIncome].
 
             - risk_level: typing.Optional[RiskLevel].
 
@@ -205,6 +209,8 @@ class ConsumerUsersClient:
             _request["contactDetails"] = contact_details
         if transaction_limits is not OMIT:
             _request["transactionLimits"] = transaction_limits
+        if expected_income is not OMIT:
+            _request["expectedIncome"] = expected_income
         if risk_level is not OMIT:
             _request["riskLevel"] = risk_level
         if acquisition_channel is not OMIT:
@@ -302,6 +308,7 @@ class AsyncConsumerUsersClient:
         legal_documents: typing.Optional[typing.List[LegalDocument]] = OMIT,
         contact_details: typing.Optional[ContactDetails] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
+        expected_income: typing.Optional[ExpectedIncome] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
         reason_for_account_opening: typing.Optional[typing.List[str]] = OMIT,
@@ -346,6 +353,8 @@ class AsyncConsumerUsersClient:
             - contact_details: typing.Optional[ContactDetails].
 
             - transaction_limits: typing.Optional[TransactionLimits].
+
+            - expected_income: typing.Optional[ExpectedIncome].
 
             - risk_level: typing.Optional[RiskLevel].
 
@@ -452,6 +461,8 @@ class AsyncConsumerUsersClient:
             _request["contactDetails"] = contact_details
         if transaction_limits is not OMIT:
             _request["transactionLimits"] = transaction_limits
+        if expected_income is not OMIT:
+            _request["expectedIncome"] = expected_income
         if risk_level is not OMIT:
             _request["riskLevel"] = risk_level
         if acquisition_channel is not OMIT:
