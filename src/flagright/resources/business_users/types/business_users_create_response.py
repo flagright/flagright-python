@@ -4,10 +4,10 @@ import datetime as dt
 import typing
 
 from ....core.datetime_utils import serialize_datetime
-from ....types.business_users_response import BusinessUsersResponse
+from ....types.business_user_monitoring_result import BusinessUserMonitoringResult
 
 
-class BusinessUsersCreateResponse(BusinessUsersResponse):
+class BusinessUsersCreateResponse(BusinessUserMonitoringResult):
     message: typing.Optional[str]
 
     def json(self, **kwargs: typing.Any) -> str:

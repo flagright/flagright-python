@@ -24,8 +24,8 @@ from .business_optional_saved_payment_details_item import (
     BusinessOptionalSavedPaymentDetailsItem_Wallet,
 )
 from .business_user_event import BusinessUserEvent
+from .business_user_monitoring_result import BusinessUserMonitoringResult
 from .business_user_segment import BusinessUserSegment
-from .business_users_response import BusinessUsersResponse
 from .business_with_rules_result import BusinessWithRulesResult
 from .business_with_rules_result_saved_payment_details_item import (
     BusinessWithRulesResultSavedPaymentDetailsItem,
@@ -60,8 +60,8 @@ from .company_general_details import CompanyGeneralDetails
 from .company_registration_details import CompanyRegistrationDetails
 from .consumer_name import ConsumerName
 from .consumer_user_event import ConsumerUserEvent
+from .consumer_user_monitoring_result import ConsumerUserMonitoringResult
 from .consumer_user_segment import ConsumerUserSegment
-from .consumer_users_response import ConsumerUsersResponse
 from .contact_details import ContactDetails
 from .country_code import CountryCode
 from .currency_code import CurrencyCode
@@ -271,8 +271,8 @@ __all__ = [
     "BusinessOptionalSavedPaymentDetailsItem_Upi",
     "BusinessOptionalSavedPaymentDetailsItem_Wallet",
     "BusinessUserEvent",
+    "BusinessUserMonitoringResult",
     "BusinessUserSegment",
-    "BusinessUsersResponse",
     "BusinessWithRulesResult",
     "BusinessWithRulesResultSavedPaymentDetailsItem",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Ach",
@@ -305,8 +305,8 @@ __all__ = [
     "CompanyRegistrationDetails",
     "ConsumerName",
     "ConsumerUserEvent",
+    "ConsumerUserMonitoringResult",
     "ConsumerUserSegment",
-    "ConsumerUsersResponse",
     "ContactDetails",
     "CountryCode",
     "CurrencyCode",

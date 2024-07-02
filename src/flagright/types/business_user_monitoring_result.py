@@ -14,7 +14,7 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class BusinessUsersResponse(pydantic.BaseModel):
+class BusinessUserMonitoringResult(pydantic.BaseModel):
     """
     Model for business user risk score response
     """
