@@ -28,6 +28,9 @@ class BusinessOptional(pydantic.BaseModel):
     Model for a business user - optional fields
     """
 
+    activated_timestamp: typing.Optional[float] = pydantic.Field(
+        alias="activatedTimestamp", description="Timestamp when the user was activated"
+    )
     user_state_details: typing.Optional[UserStateDetails] = pydantic.Field(alias="userStateDetails")
     kyc_status_details: typing.Optional[KycStatusDetails] = pydantic.Field(alias="kycStatusDetails")
     legal_entity: typing.Optional[LegalEntity] = pydantic.Field(alias="legalEntity")

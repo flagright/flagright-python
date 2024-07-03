@@ -32,6 +32,9 @@ class UserOptional(pydantic.BaseModel):
     Model for User details
     """
 
+    activated_timestamp: typing.Optional[float] = pydantic.Field(
+        alias="activatedTimestamp", description="Timestamp when user was activated"
+    )
     user_details: typing.Optional[UserDetails] = pydantic.Field(alias="userDetails")
     user_state_details: typing.Optional[UserStateDetails] = pydantic.Field(alias="userStateDetails")
     kyc_status_details: typing.Optional[KycStatusDetails] = pydantic.Field(alias="kycStatusDetails")

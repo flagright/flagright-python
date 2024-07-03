@@ -48,6 +48,7 @@ class ConsumerUsersClient:
         *,
         user_id: str,
         created_timestamp: float,
+        activated_timestamp: typing.Optional[float] = OMIT,
         user_details: typing.Optional[UserDetails] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
@@ -85,6 +86,8 @@ class ConsumerUsersClient:
             - user_id: str. Unique user ID
 
             - created_timestamp: float. Timestamp when userId is created
+
+            - activated_timestamp: typing.Optional[float]. Timestamp when user was activated
 
             - user_details: typing.Optional[UserDetails].
 
@@ -193,6 +196,8 @@ class ConsumerUsersClient:
         )
         """
         _request: typing.Dict[str, typing.Any] = {"userId": user_id, "createdTimestamp": created_timestamp}
+        if activated_timestamp is not OMIT:
+            _request["activatedTimestamp"] = activated_timestamp
         if user_details is not OMIT:
             _request["userDetails"] = user_details
         if user_state_details is not OMIT:
@@ -300,6 +305,7 @@ class AsyncConsumerUsersClient:
         *,
         user_id: str,
         created_timestamp: float,
+        activated_timestamp: typing.Optional[float] = OMIT,
         user_details: typing.Optional[UserDetails] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
@@ -337,6 +343,8 @@ class AsyncConsumerUsersClient:
             - user_id: str. Unique user ID
 
             - created_timestamp: float. Timestamp when userId is created
+
+            - activated_timestamp: typing.Optional[float]. Timestamp when user was activated
 
             - user_details: typing.Optional[UserDetails].
 
@@ -445,6 +453,8 @@ class AsyncConsumerUsersClient:
         )
         """
         _request: typing.Dict[str, typing.Any] = {"userId": user_id, "createdTimestamp": created_timestamp}
+        if activated_timestamp is not OMIT:
+            _request["activatedTimestamp"] = activated_timestamp
         if user_details is not OMIT:
             _request["userDetails"] = user_details
         if user_state_details is not OMIT:

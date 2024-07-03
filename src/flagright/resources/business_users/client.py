@@ -45,6 +45,7 @@ class BusinessUsersClient:
         user_id: str,
         created_timestamp: float,
         legal_entity: LegalEntity,
+        activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
         share_holders: typing.Optional[typing.List[Person]] = OMIT,
@@ -79,6 +80,8 @@ class BusinessUsersClient:
             - created_timestamp: float. Timestamp when the user was created
 
             - legal_entity: LegalEntity.
+
+            - activated_timestamp: typing.Optional[float]. Timestamp when the user was activated
 
             - user_state_details: typing.Optional[UserStateDetails].
 
@@ -127,6 +130,8 @@ class BusinessUsersClient:
             "createdTimestamp": created_timestamp,
             "legalEntity": legal_entity,
         }
+        if activated_timestamp is not OMIT:
+            _request["activatedTimestamp"] = activated_timestamp
         if user_state_details is not OMIT:
             _request["userStateDetails"] = user_state_details
         if kyc_status_details is not OMIT:
@@ -223,6 +228,7 @@ class AsyncBusinessUsersClient:
         user_id: str,
         created_timestamp: float,
         legal_entity: LegalEntity,
+        activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
         share_holders: typing.Optional[typing.List[Person]] = OMIT,
@@ -257,6 +263,8 @@ class AsyncBusinessUsersClient:
             - created_timestamp: float. Timestamp when the user was created
 
             - legal_entity: LegalEntity.
+
+            - activated_timestamp: typing.Optional[float]. Timestamp when the user was activated
 
             - user_state_details: typing.Optional[UserStateDetails].
 
@@ -305,6 +313,8 @@ class AsyncBusinessUsersClient:
             "createdTimestamp": created_timestamp,
             "legalEntity": legal_entity,
         }
+        if activated_timestamp is not OMIT:
+            _request["activatedTimestamp"] = activated_timestamp
         if user_state_details is not OMIT:
             _request["userStateDetails"] = user_state_details
         if kyc_status_details is not OMIT:

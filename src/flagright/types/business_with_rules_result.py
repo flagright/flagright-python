@@ -32,6 +32,9 @@ class BusinessWithRulesResult(pydantic.BaseModel):
         alias="createdTimestamp", description="Timestamp when the user was created"
     )
     legal_entity: LegalEntity = pydantic.Field(alias="legalEntity")
+    activated_timestamp: typing.Optional[float] = pydantic.Field(
+        alias="activatedTimestamp", description="Timestamp when the user was activated"
+    )
     user_state_details: typing.Optional[UserStateDetails] = pydantic.Field(alias="userStateDetails")
     kyc_status_details: typing.Optional[KycStatusDetails] = pydantic.Field(alias="kycStatusDetails")
     share_holders: typing.Optional[typing.List[Person]] = pydantic.Field(

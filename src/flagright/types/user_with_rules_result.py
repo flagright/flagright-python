@@ -33,6 +33,9 @@ except ImportError:
 class UserWithRulesResult(pydantic.BaseModel):
     user_id: str = pydantic.Field(alias="userId", description="Unique user ID")
     created_timestamp: float = pydantic.Field(alias="createdTimestamp", description="Timestamp when userId is created")
+    activated_timestamp: typing.Optional[float] = pydantic.Field(
+        alias="activatedTimestamp", description="Timestamp when user was activated"
+    )
     user_details: typing.Optional[UserDetails] = pydantic.Field(alias="userDetails")
     user_state_details: typing.Optional[UserStateDetails] = pydantic.Field(alias="userStateDetails")
     kyc_status_details: typing.Optional[KycStatusDetails] = pydantic.Field(alias="kycStatusDetails")
