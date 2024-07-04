@@ -17,6 +17,7 @@ class ListSubtype(str, enum.Enum):
     BANK_SWIFT_CODE = "BANK_SWIFT_CODE"
     UPI_IDENTIFYING_NUMBER = "UPI_IDENTIFYING_NUMBER"
     IP_ADDRESS = "IP_ADDRESS"
+    DEVICE_IDENTIFIER = "DEVICE_IDENTIFIER"
     STRING = "STRING"
 
     def visit(
@@ -31,6 +32,7 @@ class ListSubtype(str, enum.Enum):
         bank_swift_code: typing.Callable[[], T_Result],
         upi_identifying_number: typing.Callable[[], T_Result],
         ip_address: typing.Callable[[], T_Result],
+        device_identifier: typing.Callable[[], T_Result],
         string: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is ListSubtype.USER_ID:
@@ -53,5 +55,7 @@ class ListSubtype(str, enum.Enum):
             return upi_identifying_number()
         if self is ListSubtype.IP_ADDRESS:
             return ip_address()
+        if self is ListSubtype.DEVICE_IDENTIFIER:
+            return device_identifier()
         if self is ListSubtype.STRING:
             return string()
