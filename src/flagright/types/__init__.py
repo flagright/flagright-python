@@ -133,6 +133,7 @@ from .transaction_destination_payment_details import (
 )
 from .transaction_event import TransactionEvent
 from .transaction_event_monitoring_result import TransactionEventMonitoringResult
+from .transaction_event_with_rules_result import TransactionEventWithRulesResult
 from .transaction_limit import TransactionLimit
 from .transaction_limits import TransactionLimits
 from .transaction_limits_payment_method_limits import TransactionLimitsPaymentMethodLimits
@@ -376,6 +377,7 @@ __all__ = [
     "TransactionDestinationPaymentDetails_Wallet",
     "TransactionEvent",
     "TransactionEventMonitoringResult",
+    "TransactionEventWithRulesResult",
     "TransactionLimit",
     "TransactionLimits",
     "TransactionLimitsPaymentMethodLimits",
