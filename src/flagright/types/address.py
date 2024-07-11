@@ -17,7 +17,7 @@ class Address(pydantic.BaseModel):
     Model for standardized address
     """
 
-    address_lines: typing.List[typing.Any] = pydantic.Field(
+    address_lines: typing.List[str] = pydantic.Field(
         alias="addressLines", description="Address lines of the user's residence address"
     )
     postcode: typing.Optional[str] = pydantic.Field(description="Post code of the user's residence address")
