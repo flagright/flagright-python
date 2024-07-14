@@ -110,6 +110,8 @@ from .rule_nature import RuleNature
 from .rules_results import RulesResults
 from .sanctions_details import SanctionsDetails
 from .sanctions_details_entity_type import SanctionsDetailsEntityType
+from .sanctions_hit_context import SanctionsHitContext
+from .sanctions_screening_entity import SanctionsScreeningEntity
 from .source_of_funds import SourceOfFunds
 from .swift_details import SwiftDetails
 from .swift_payment_method import SwiftPaymentMethod
@@ -356,6 +358,8 @@ __all__ = [
     "RulesResults",
     "SanctionsDetails",
     "SanctionsDetailsEntityType",
+    "SanctionsHitContext",
+    "SanctionsScreeningEntity",
     "SourceOfFunds",
     "SwiftDetails",
     "SwiftPaymentMethod",

@@ -4,8 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .sanctions_details_entity_type import SanctionsDetailsEntityType
-from .sanctions_hit_context import SanctionsHitContext
+from .sanctions_screening_entity import SanctionsScreeningEntity
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -13,13 +12,12 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class SanctionsDetails(pydantic.BaseModel):
-    name: str
-    search_id: str = pydantic.Field(alias="searchId")
+class SanctionsHitContext(pydantic.BaseModel):
+    entity: typing.Optional[SanctionsScreeningEntity]
+    user_id: typing.Optional[str] = pydantic.Field(alias="userId")
+    transaction_id: typing.Optional[str] = pydantic.Field(alias="transactionId")
+    rule_instance_id: typing.Optional[str] = pydantic.Field(alias="ruleInstanceId")
     iban: typing.Optional[str]
-    entity_type: typing.Optional[SanctionsDetailsEntityType] = pydantic.Field(alias="entityType")
-    sanction_hit_ids: typing.Optional[typing.List[str]] = pydantic.Field(alias="sanctionHitIds")
-    hit_context: typing.Optional[SanctionsHitContext] = pydantic.Field(alias="hitContext")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
