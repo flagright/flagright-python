@@ -49,6 +49,7 @@ class CardDetails(pydantic.BaseModel):
     card_authenticated: typing.Optional[bool] = pydantic.Field(
         alias="cardAuthenticated", description="Authentication of Card"
     )
+    card_tokenized: typing.Optional[bool] = pydantic.Field(alias="cardTokenized", description="Was the card tokenized")
     card_present: typing.Optional[bool] = pydantic.Field(alias="cardPresent", description="Card Present")
     payment_channel: typing.Optional[str] = pydantic.Field(alias="paymentChannel")
     card_type: typing.Optional[CardType] = pydantic.Field(alias="cardType")
