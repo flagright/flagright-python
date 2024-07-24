@@ -100,6 +100,8 @@ from .payment_method import PaymentMethod
 from .pep_status import PepStatus
 from .person import Person
 from .place_of_birth import PlaceOfBirth
+from .pos_details import PosDetails
+from .pos_entry_mode import PosEntryMode
 from .risk_level import RiskLevel
 from .rule_action import RuleAction
 from .rule_failure_exception import RuleFailureException
@@ -348,6 +350,8 @@ __all__ = [
     "PepStatus",
     "Person",
     "PlaceOfBirth",
+    "PosDetails",
+    "PosEntryMode",
     "RiskLevel",
     "RuleAction",
     "RuleFailureException",

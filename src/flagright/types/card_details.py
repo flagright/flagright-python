@@ -13,6 +13,7 @@ from .card_type import CardType
 from .consumer_name import ConsumerName
 from .country_code import CountryCode
 from .email_id import EmailId
+from .pos_details import PosDetails
 from .tag import Tag
 
 try:
@@ -41,6 +42,7 @@ class CardDetails(pydantic.BaseModel):
     )
     name_on_card: typing.Optional[ConsumerName] = pydantic.Field(alias="nameOnCard")
     card_expiry: typing.Optional[CardExpiry] = pydantic.Field(alias="cardExpiry")
+    pos_details: typing.Optional[PosDetails] = pydantic.Field(alias="posDetails")
     card_last_4_digits: typing.Optional[str] = pydantic.Field(
         alias="cardLast4Digits", description="Last 4 digits of Card"
     )
