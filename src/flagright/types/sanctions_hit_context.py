@@ -4,6 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
+from .sanctions_details_entity_type import SanctionsDetailsEntityType
 from .sanctions_screening_entity import SanctionsScreeningEntity
 
 try:
@@ -14,10 +15,13 @@ except ImportError:
 
 class SanctionsHitContext(pydantic.BaseModel):
     entity: typing.Optional[SanctionsScreeningEntity]
+    entity_type: typing.Optional[SanctionsDetailsEntityType] = pydantic.Field(alias="entityType")
     user_id: typing.Optional[str] = pydantic.Field(alias="userId")
     transaction_id: typing.Optional[str] = pydantic.Field(alias="transactionId")
     rule_instance_id: typing.Optional[str] = pydantic.Field(alias="ruleInstanceId")
     iban: typing.Optional[str]
+    year_of_birth: typing.Optional[float] = pydantic.Field(alias="yearOfBirth")
+    search_term: typing.Optional[str] = pydantic.Field(alias="searchTerm")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
