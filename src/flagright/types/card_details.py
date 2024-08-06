@@ -4,6 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
+from .amount import Amount
 from .card_brand import CardBrand
 from .card_expiry import CardExpiry
 from .card_funding import CardFunding
@@ -55,6 +56,7 @@ class CardDetails(pydantic.BaseModel):
     card_present: typing.Optional[bool] = pydantic.Field(alias="cardPresent", description="Card Present")
     payment_channel: typing.Optional[str] = pydantic.Field(alias="paymentChannel")
     card_type: typing.Optional[CardType] = pydantic.Field(alias="cardType")
+    card_balance: typing.Optional[Amount] = pydantic.Field(alias="cardBalance")
     merchant_details: typing.Optional[CardMerchantDetails] = pydantic.Field(alias="merchantDetails")
     network_provider_risk_score: typing.Optional[float] = pydantic.Field(
         alias="networkProviderRiskScore", description="Risk score of the card from your network provider"
