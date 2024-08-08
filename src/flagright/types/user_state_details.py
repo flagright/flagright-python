@@ -13,7 +13,6 @@ except ImportError:
 
 
 class UserStateDetails(pydantic.BaseModel):
-    user_id: typing.Optional[str] = pydantic.Field(alias="userId")
     reason: typing.Optional[str]
     state: UserState
 
@@ -28,5 +27,4 @@ class UserStateDetails(pydantic.BaseModel):
     class Config:
         frozen = True
         smart_union = True
-        allow_population_by_field_name = True
         json_encoders = {dt.datetime: serialize_datetime}
