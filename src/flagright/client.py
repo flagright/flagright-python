@@ -19,7 +19,7 @@ class Flagright:
         self,
         *,
         base_url: typing.Optional[str] = None,
-        environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT,
+        environment: FlagrightEnvironment = FlagrightEnvironment.SANDBOX_API_SERVER_EU_1,
         api_key: str,
         timeout: typing.Optional[float] = 60,
         httpx_client: typing.Optional[httpx.Client] = None
@@ -42,7 +42,7 @@ class AsyncFlagright:
         self,
         *,
         base_url: typing.Optional[str] = None,
-        environment: FlagrightEnvironment = FlagrightEnvironment.DEFAULT,
+        environment: FlagrightEnvironment = FlagrightEnvironment.SANDBOX_API_SERVER_EU_1,
         api_key: str,
         timeout: typing.Optional[float] = 60,
         httpx_client: typing.Optional[httpx.AsyncClient] = None

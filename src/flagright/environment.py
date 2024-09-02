@@ -4,4 +4,5 @@ import enum
 
 
 class FlagrightEnvironment(enum.Enum):
-    DEFAULT = "https://sandbox.api.flagright.com"
+    SANDBOX_API_SERVER_EU_1 = "https://sandbox.api.flagright.com"
+    SANDBOX_API_SERVER_ASIA_1 = "https://sandbox-asia-1.api.flagright.com"
