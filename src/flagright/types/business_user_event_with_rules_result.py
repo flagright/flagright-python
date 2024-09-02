@@ -4,9 +4,10 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .device_data import DeviceData
-from .transaction_state import TransactionState
-from .transaction_updatable import TransactionUpdatable
+from .business_optional import BusinessOptional
+from .executed_rules_result import ExecutedRulesResult
+from .hit_rules_details import HitRulesDetails
+from .user_risk_score_details import UserRiskScoreDetails
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -14,21 +15,18 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class TransactionEvent(pydantic.BaseModel):
-    """
-    Model for transaction-related events
-    """
-
-    transaction_state: TransactionState = pydantic.Field(alias="transactionState")
+class BusinessUserEventWithRulesResult(pydantic.BaseModel):
     timestamp: float = pydantic.Field(description="Timestamp of the event")
-    transaction_id: str = pydantic.Field(alias="transactionId", description="Transaction ID the event pertains to")
+    user_id: str = pydantic.Field(alias="userId", description="Transaction ID the event pertains to")
     event_id: typing.Optional[str] = pydantic.Field(alias="eventId", description="Unique event ID")
     reason: typing.Optional[str] = pydantic.Field(description="Reason for the event or a state change")
     event_description: typing.Optional[str] = pydantic.Field(alias="eventDescription", description="Event description")
-    updated_transaction_attributes: typing.Optional[TransactionUpdatable] = pydantic.Field(
-        alias="updatedTransactionAttributes"
+    updated_business_user_attributes: typing.Optional[BusinessOptional] = pydantic.Field(
+        alias="updatedBusinessUserAttributes"
     )
-    meta_data: typing.Optional[DeviceData] = pydantic.Field(alias="metaData")
+    executed_rules: typing.Optional[typing.List[ExecutedRulesResult]] = pydantic.Field(alias="executedRules")
+    hit_rules: typing.Optional[typing.List[HitRulesDetails]] = pydantic.Field(alias="hitRules")
+    risk_score_details: typing.Optional[UserRiskScoreDetails] = pydantic.Field(alias="riskScoreDetails")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

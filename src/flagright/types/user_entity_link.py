@@ -13,7 +13,6 @@ except ImportError:
 
 class UserEntityLink(pydantic.BaseModel):
     parent_user_id: typing.Optional[str] = pydantic.Field(alias="parentUserId")
-    child_user_ids: typing.Optional[typing.List[str]] = pydantic.Field(alias="childUserIds")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

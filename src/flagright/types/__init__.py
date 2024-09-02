@@ -23,7 +23,7 @@ from .business_optional_saved_payment_details_item import (
     BusinessOptionalSavedPaymentDetailsItem_Upi,
     BusinessOptionalSavedPaymentDetailsItem_Wallet,
 )
-from .business_user_event import BusinessUserEvent
+from .business_user_event_with_rules_result import BusinessUserEventWithRulesResult
 from .business_user_monitoring_result import BusinessUserMonitoringResult
 from .business_user_segment import BusinessUserSegment
 from .business_with_rules_result import BusinessWithRulesResult
@@ -59,7 +59,7 @@ from .company_financial_details import CompanyFinancialDetails
 from .company_general_details import CompanyGeneralDetails
 from .company_registration_details import CompanyRegistrationDetails
 from .consumer_name import ConsumerName
-from .consumer_user_event import ConsumerUserEvent
+from .consumer_user_event_with_rules_result import ConsumerUserEventWithRulesResult
 from .consumer_user_monitoring_result import ConsumerUserMonitoringResult
 from .consumer_user_segment import ConsumerUserSegment
 from .contact_details import ContactDetails
@@ -135,7 +135,6 @@ from .transaction_destination_payment_details import (
     TransactionDestinationPaymentDetails_Upi,
     TransactionDestinationPaymentDetails_Wallet,
 )
-from .transaction_event import TransactionEvent
 from .transaction_event_monitoring_result import TransactionEventMonitoringResult
 from .transaction_event_with_rules_result import TransactionEventWithRulesResult
 from .transaction_limit import TransactionLimit
@@ -228,6 +227,7 @@ from .user_optional_saved_payment_details_item import (
 )
 from .user_registration_status import UserRegistrationStatus
 from .user_risk_score_details import UserRiskScoreDetails
+from .user_rules_result import UserRulesResult
 from .user_state import UserState
 from .user_state_details import UserStateDetails
 from .user_with_rules_result import UserWithRulesResult
@@ -275,7 +275,7 @@ __all__ = [
     "BusinessOptionalSavedPaymentDetailsItem_Swift",
     "BusinessOptionalSavedPaymentDetailsItem_Upi",
     "BusinessOptionalSavedPaymentDetailsItem_Wallet",
-    "BusinessUserEvent",
+    "BusinessUserEventWithRulesResult",
     "BusinessUserMonitoringResult",
     "BusinessUserSegment",
     "BusinessWithRulesResult",
@@ -309,7 +309,7 @@ __all__ = [
     "CompanyGeneralDetails",
     "CompanyRegistrationDetails",
     "ConsumerName",
-    "ConsumerUserEvent",
+    "ConsumerUserEventWithRulesResult",
     "ConsumerUserMonitoringResult",
     "ConsumerUserSegment",
     "ContactDetails",
@@ -383,7 +383,6 @@ __all__ = [
     "TransactionDestinationPaymentDetails_Swift",
     "TransactionDestinationPaymentDetails_Upi",
     "TransactionDestinationPaymentDetails_Wallet",
-    "TransactionEvent",
     "TransactionEventMonitoringResult",
     "TransactionEventWithRulesResult",
     "TransactionLimit",
@@ -464,6 +463,7 @@ __all__ = [
     "UserOptionalSavedPaymentDetailsItem_Wallet",
     "UserRegistrationStatus",
     "UserRiskScoreDetails",
+    "UserRulesResult",
     "UserState",
     "UserStateDetails",
     "UserWithRulesResult",

@@ -13,7 +13,8 @@ from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.api_error_response import ApiErrorResponse
 from ...types.boolean_string import BooleanString
-from ...types.business_user_event import BusinessUserEvent
+from ...types.business_optional import BusinessOptional
+from ...types.business_user_event_with_rules_result import BusinessUserEventWithRulesResult
 from ...types.business_with_rules_result import BusinessWithRulesResult
 
 try:
@@ -30,7 +31,15 @@ class BusinessUserEventsClient:
         self._client_wrapper = client_wrapper
 
     def create(
-        self, *, allow_user_type_conversion: typing.Optional[BooleanString] = None, request: BusinessUserEvent
+        self,
+        *,
+        allow_user_type_conversion: typing.Optional[BooleanString] = None,
+        timestamp: float,
+        user_id: str,
+        event_id: typing.Optional[str] = OMIT,
+        reason: typing.Optional[str] = OMIT,
+        event_description: typing.Optional[str] = OMIT,
+        updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
     ) -> BusinessWithRulesResult:
         """
         ## POST Business User Events
@@ -56,26 +65,42 @@ class BusinessUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Business user event to be applied to a Consumer user with the same user ID. This will converts a Consumer user to a Business user.
 
-            - request: BusinessUserEvent.
+            - timestamp: float. Timestamp of the event
+
+            - user_id: str. Transaction ID the event pertains to
+
+            - event_id: typing.Optional[str]. Unique event ID
+
+            - reason: typing.Optional[str]. Reason for the event or a state change
+
+            - event_description: typing.Optional[str]. Event description
+
+            - updated_business_user_attributes: typing.Optional[BusinessOptional].
         ---
-        from flagright import BusinessUserEvent
         from flagright.client import Flagright
 
         client = Flagright(
             api_key="YOUR_API_KEY",
         )
         client.business_user_events.create(
-            request=BusinessUserEvent(
-                timestamp=1.1,
-                user_id="userId",
-            ),
+            timestamp=1.1,
+            user_id="userId",
         )
         """
+        _request: typing.Dict[str, typing.Any] = {"timestamp": timestamp, "userId": user_id}
+        if event_id is not OMIT:
+            _request["eventId"] = event_id
+        if reason is not OMIT:
+            _request["reason"] = reason
+        if event_description is not OMIT:
+            _request["eventDescription"] = event_description
+        if updated_business_user_attributes is not OMIT:
+            _request["updatedBusinessUserAttributes"] = updated_business_user_attributes
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/business/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
-            json=jsonable_encoder(request),
+            json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -93,7 +118,7 @@ class BusinessUserEventsClient:
             raise ApiError(status_code=_response.status_code, body=_response.text)
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
-    def get(self, event_id: str) -> BusinessUserEvent:
+    def get(self, event_id: str) -> BusinessUserEventWithRulesResult:
         """
         ### GET a Business User Event
 
@@ -118,7 +143,7 @@ class BusinessUserEventsClient:
             timeout=60,
         )
         if 200 <= _response.status_code < 300:
-            return pydantic.parse_obj_as(BusinessUserEvent, _response.json())  # type: ignore
+            return pydantic.parse_obj_as(BusinessUserEventWithRulesResult, _response.json())  # type: ignore
         if _response.status_code == 400:
             raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 401:
@@ -137,7 +162,15 @@ class AsyncBusinessUserEventsClient:
         self._client_wrapper = client_wrapper
 
     async def create(
-        self, *, allow_user_type_conversion: typing.Optional[BooleanString] = None, request: BusinessUserEvent
+        self,
+        *,
+        allow_user_type_conversion: typing.Optional[BooleanString] = None,
+        timestamp: float,
+        user_id: str,
+        event_id: typing.Optional[str] = OMIT,
+        reason: typing.Optional[str] = OMIT,
+        event_description: typing.Optional[str] = OMIT,
+        updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
     ) -> BusinessWithRulesResult:
         """
         ## POST Business User Events
@@ -163,26 +196,42 @@ class AsyncBusinessUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Business user event to be applied to a Consumer user with the same user ID. This will converts a Consumer user to a Business user.
 
-            - request: BusinessUserEvent.
+            - timestamp: float. Timestamp of the event
+
+            - user_id: str. Transaction ID the event pertains to
+
+            - event_id: typing.Optional[str]. Unique event ID
+
+            - reason: typing.Optional[str]. Reason for the event or a state change
+
+            - event_description: typing.Optional[str]. Event description
+
+            - updated_business_user_attributes: typing.Optional[BusinessOptional].
         ---
-        from flagright import BusinessUserEvent
         from flagright.client import AsyncFlagright
 
         client = AsyncFlagright(
             api_key="YOUR_API_KEY",
         )
         await client.business_user_events.create(
-            request=BusinessUserEvent(
-                timestamp=1.1,
-                user_id="userId",
-            ),
+            timestamp=1.1,
+            user_id="userId",
         )
         """
+        _request: typing.Dict[str, typing.Any] = {"timestamp": timestamp, "userId": user_id}
+        if event_id is not OMIT:
+            _request["eventId"] = event_id
+        if reason is not OMIT:
+            _request["reason"] = reason
+        if event_description is not OMIT:
+            _request["eventDescription"] = event_description
+        if updated_business_user_attributes is not OMIT:
+            _request["updatedBusinessUserAttributes"] = updated_business_user_attributes
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/business/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
-            json=jsonable_encoder(request),
+            json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -200,7 +249,7 @@ class AsyncBusinessUserEventsClient:
             raise ApiError(status_code=_response.status_code, body=_response.text)
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
-    async def get(self, event_id: str) -> BusinessUserEvent:
+    async def get(self, event_id: str) -> BusinessUserEventWithRulesResult:
         """
         ### GET a Business User Event
 
@@ -225,7 +274,7 @@ class AsyncBusinessUserEventsClient:
             timeout=60,
         )
         if 200 <= _response.status_code < 300:
-            return pydantic.parse_obj_as(BusinessUserEvent, _response.json())  # type: ignore
+            return pydantic.parse_obj_as(BusinessUserEventWithRulesResult, _response.json())  # type: ignore
         if _response.status_code == 400:
             raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 401:
