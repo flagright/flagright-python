@@ -68,6 +68,7 @@ from .currency_code import CurrencyCode
 from .date import Date
 from .device_data import DeviceData
 from .email_id import EmailId
+from .employment_details import EmploymentDetails
 from .employment_status import EmploymentStatus
 from .executed_rule_vars import ExecutedRuleVars
 from .executed_rules_result import ExecutedRulesResult
@@ -92,6 +93,7 @@ from .list_key_metadata import ListKeyMetadata
 from .list_metadata import ListMetadata
 from .list_subtype import ListSubtype
 from .list_type import ListType
+from .martial_status import MartialStatus
 from .mcc_details import MccDetails
 from .mpesa_details import MpesaDetails
 from .mpesa_payment_method import MpesaPaymentMethod
@@ -318,6 +320,7 @@ __all__ = [
     "Date",
     "DeviceData",
     "EmailId",
+    "EmploymentDetails",
     "EmploymentStatus",
     "ExecutedRuleVars",
     "ExecutedRulesResult",
@@ -342,6 +345,7 @@ __all__ = [
     "ListMetadata",
     "ListSubtype",
     "ListType",
+    "MartialStatus",
     "MccDetails",
     "MpesaDetails",
     "MpesaPaymentMethod",

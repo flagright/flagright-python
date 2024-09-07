@@ -24,6 +24,9 @@ class Address(pydantic.BaseModel):
     city: str = pydantic.Field(description="City of the user's residence address")
     state: typing.Optional[str] = pydantic.Field(description="State of the user's residence address")
     country: str = pydantic.Field(description="User's country of residence")
+    address_type: typing.Optional[str] = pydantic.Field(
+        alias="addressType", description="Type of the address (ex - Residential, Postal, etc.)"
+    )
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )

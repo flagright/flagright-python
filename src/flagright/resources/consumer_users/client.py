@@ -14,6 +14,7 @@ from ...types.acquisition_channel import AcquisitionChannel
 from ...types.api_error_response import ApiErrorResponse
 from ...types.consumer_user_segment import ConsumerUserSegment
 from ...types.contact_details import ContactDetails
+from ...types.employment_details import EmploymentDetails
 from ...types.employment_status import EmploymentStatus
 from ...types.expected_income import ExpectedIncome
 from ...types.kyc_status_details import KycStatusDetails
@@ -56,6 +57,7 @@ class ConsumerUsersClient:
         occupation: typing.Optional[str] = OMIT,
         legal_documents: typing.Optional[typing.List[LegalDocument]] = OMIT,
         contact_details: typing.Optional[ContactDetails] = OMIT,
+        employment_details: typing.Optional[EmploymentDetails] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_income: typing.Optional[ExpectedIncome] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -102,6 +104,8 @@ class ConsumerUsersClient:
             - legal_documents: typing.Optional[typing.List[LegalDocument]]. User's legal identity documents - See Document Model for details
 
             - contact_details: typing.Optional[ContactDetails].
+
+            - employment_details: typing.Optional[EmploymentDetails].
 
             - transaction_limits: typing.Optional[TransactionLimits].
 
@@ -212,6 +216,8 @@ class ConsumerUsersClient:
             _request["legalDocuments"] = legal_documents
         if contact_details is not OMIT:
             _request["contactDetails"] = contact_details
+        if employment_details is not OMIT:
+            _request["employmentDetails"] = employment_details
         if transaction_limits is not OMIT:
             _request["transactionLimits"] = transaction_limits
         if expected_income is not OMIT:
@@ -313,6 +319,7 @@ class AsyncConsumerUsersClient:
         occupation: typing.Optional[str] = OMIT,
         legal_documents: typing.Optional[typing.List[LegalDocument]] = OMIT,
         contact_details: typing.Optional[ContactDetails] = OMIT,
+        employment_details: typing.Optional[EmploymentDetails] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_income: typing.Optional[ExpectedIncome] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -359,6 +366,8 @@ class AsyncConsumerUsersClient:
             - legal_documents: typing.Optional[typing.List[LegalDocument]]. User's legal identity documents - See Document Model for details
 
             - contact_details: typing.Optional[ContactDetails].
+
+            - employment_details: typing.Optional[EmploymentDetails].
 
             - transaction_limits: typing.Optional[TransactionLimits].
 
@@ -469,6 +478,8 @@ class AsyncConsumerUsersClient:
             _request["legalDocuments"] = legal_documents
         if contact_details is not OMIT:
             _request["contactDetails"] = contact_details
+        if employment_details is not OMIT:
+            _request["employmentDetails"] = employment_details
         if transaction_limits is not OMIT:
             _request["transactionLimits"] = transaction_limits
         if expected_income is not OMIT:

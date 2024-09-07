@@ -7,6 +7,7 @@ from ..core.datetime_utils import serialize_datetime
 from .acquisition_channel import AcquisitionChannel
 from .consumer_user_segment import ConsumerUserSegment
 from .contact_details import ContactDetails
+from .employment_details import EmploymentDetails
 from .employment_status import EmploymentStatus
 from .executed_rules_result import ExecutedRulesResult
 from .expected_income import ExpectedIncome
@@ -45,6 +46,7 @@ class UserWithRulesResult(pydantic.BaseModel):
         alias="legalDocuments", description="User's legal identity documents - See Document Model for details"
     )
     contact_details: typing.Optional[ContactDetails] = pydantic.Field(alias="contactDetails")
+    employment_details: typing.Optional[EmploymentDetails] = pydantic.Field(alias="employmentDetails")
     transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
     expected_income: typing.Optional[ExpectedIncome] = pydantic.Field(alias="expectedIncome")
     risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
