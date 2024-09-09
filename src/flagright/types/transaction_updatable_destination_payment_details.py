@@ -8,6 +8,7 @@ import typing_extensions
 
 from .ach_details import AchDetails
 from .card_details import CardDetails
+from .cash_details import CashDetails
 from .check_details import CheckDetails
 from .generic_bank_account_details import GenericBankAccountDetails
 from .iban_details import IbanDetails
@@ -98,7 +99,7 @@ class TransactionUpdatableDestinationPaymentDetails_Check(CheckDetails):
         allow_population_by_field_name = True
 
 
-class TransactionUpdatableDestinationPaymentDetails_Cash(CheckDetails):
+class TransactionUpdatableDestinationPaymentDetails_Cash(CashDetails):
     method: typing_extensions.Literal["CASH"]
 
     class Config:

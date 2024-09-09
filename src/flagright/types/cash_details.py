@@ -4,9 +4,6 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .address import Address
-from .check_delivery_status import CheckDeliveryStatus
-from .tag import Tag
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -14,16 +11,8 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class CheckDetails(pydantic.BaseModel):
-    check_number: typing.Optional[str] = pydantic.Field(alias="checkNumber")
-    check_identifier: typing.Optional[str] = pydantic.Field(alias="checkIdentifier")
-    name: typing.Optional[str]
-    delivery_status: typing.Optional[CheckDeliveryStatus] = pydantic.Field(alias="deliveryStatus")
-    eta_timestamp: typing.Optional[float] = pydantic.Field(alias="etaTimestamp")
-    shipping_address: typing.Optional[Address] = pydantic.Field(alias="shippingAddress")
-    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
-        description="Additional information that can be added via tags"
-    )
+class CashDetails(pydantic.BaseModel):
+    identifier: typing.Optional[str] = pydantic.Field(description="Identifier for the cash transaction")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
@@ -36,5 +25,4 @@ class CheckDetails(pydantic.BaseModel):
     class Config:
         frozen = True
         smart_union = True
-        allow_population_by_field_name = True
         json_encoders = {dt.datetime: serialize_datetime}

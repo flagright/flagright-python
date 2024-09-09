@@ -55,6 +55,7 @@ from .case_management_event import CaseManagementEvent
 from .case_management_event_case_status import CaseManagementEventCaseStatus
 from .case_management_event_case_status_reason import CaseManagementEventCaseStatusReason
 from .case_opened_details import CaseOpenedDetails
+from .cash_details import CashDetails
 from .cash_payment_method import CashPaymentMethod
 from .check_delivery_status import CheckDeliveryStatus
 from .check_details import CheckDetails
@@ -336,6 +337,7 @@ __all__ = [
     "CaseManagementEventCaseStatus",
     "CaseManagementEventCaseStatusReason",
     "CaseOpenedDetails",
+    "CashDetails",
     "CashPaymentMethod",
     "CheckDeliveryStatus",
     "CheckDetails",
