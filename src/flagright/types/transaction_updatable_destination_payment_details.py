@@ -98,6 +98,15 @@ class TransactionUpdatableDestinationPaymentDetails_Check(CheckDetails):
         allow_population_by_field_name = True
 
 
+class TransactionUpdatableDestinationPaymentDetails_Cash(CheckDetails):
+    method: typing_extensions.Literal["CASH"]
+
+    class Config:
+        frozen = True
+        smart_union = True
+        allow_population_by_field_name = True
+
+
 TransactionUpdatableDestinationPaymentDetails = typing.Union[
     TransactionUpdatableDestinationPaymentDetails_Card,
     TransactionUpdatableDestinationPaymentDetails_GenericBankAccount,
@@ -108,4 +117,5 @@ TransactionUpdatableDestinationPaymentDetails = typing.Union[
     TransactionUpdatableDestinationPaymentDetails_Swift,
     TransactionUpdatableDestinationPaymentDetails_Mpesa,
     TransactionUpdatableDestinationPaymentDetails_Check,
+    TransactionUpdatableDestinationPaymentDetails_Cash,
 ]

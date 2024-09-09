@@ -16,6 +16,7 @@ class PaymentMethod(str, enum.Enum):
     SWIFT = "SWIFT"
     WALLET = "WALLET"
     CHECK = "CHECK"
+    CASH = "CASH"
 
     def visit(
         self,
@@ -28,6 +29,7 @@ class PaymentMethod(str, enum.Enum):
         swift: typing.Callable[[], T_Result],
         wallet: typing.Callable[[], T_Result],
         check: typing.Callable[[], T_Result],
+        cash: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is PaymentMethod.ACH:
             return ach()
@@ -47,3 +49,5 @@ class PaymentMethod(str, enum.Enum):
             return wallet()
         if self is PaymentMethod.CHECK:
             return check()
+        if self is PaymentMethod.CASH:
+            return cash()

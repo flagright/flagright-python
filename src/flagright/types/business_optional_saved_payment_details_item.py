@@ -98,6 +98,15 @@ class BusinessOptionalSavedPaymentDetailsItem_Check(CheckDetails):
         allow_population_by_field_name = True
 
 
+class BusinessOptionalSavedPaymentDetailsItem_Cash(CheckDetails):
+    method: typing_extensions.Literal["CASH"]
+
+    class Config:
+        frozen = True
+        smart_union = True
+        allow_population_by_field_name = True
+
+
 BusinessOptionalSavedPaymentDetailsItem = typing.Union[
     BusinessOptionalSavedPaymentDetailsItem_Card,
     BusinessOptionalSavedPaymentDetailsItem_GenericBankAccount,
@@ -108,4 +117,5 @@ BusinessOptionalSavedPaymentDetailsItem = typing.Union[
     BusinessOptionalSavedPaymentDetailsItem_Upi,
     BusinessOptionalSavedPaymentDetailsItem_Wallet,
     BusinessOptionalSavedPaymentDetailsItem_Check,
+    BusinessOptionalSavedPaymentDetailsItem_Cash,
 ]

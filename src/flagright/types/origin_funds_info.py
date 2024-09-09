@@ -11,8 +11,13 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class CheckDetails(pydantic.BaseModel):
-    identifier: typing.Optional[str] = pydantic.Field(description="Identifier for the cash transaction")
+class OriginFundsInfo(pydantic.BaseModel):
+    """
+    Model for origin funds information
+    """
+
+    source_of_funds: str = pydantic.Field(alias="sourceOfFunds", description="Source of funds for the transaction")
+    source_of_wealth: str = pydantic.Field(alias="sourceOfWealth", description="Source of wealth")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
@@ -25,4 +30,5 @@ class CheckDetails(pydantic.BaseModel):
     class Config:
         frozen = True
         smart_union = True
+        allow_population_by_field_name = True
         json_encoders = {dt.datetime: serialize_datetime}

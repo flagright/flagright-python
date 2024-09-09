@@ -98,6 +98,15 @@ class UserWithRulesResultSavedPaymentDetailsItem_Check(CheckDetails):
         allow_population_by_field_name = True
 
 
+class UserWithRulesResultSavedPaymentDetailsItem_Cash(CheckDetails):
+    method: typing_extensions.Literal["CASH"]
+
+    class Config:
+        frozen = True
+        smart_union = True
+        allow_population_by_field_name = True
+
+
 UserWithRulesResultSavedPaymentDetailsItem = typing.Union[
     UserWithRulesResultSavedPaymentDetailsItem_Card,
     UserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount,
@@ -108,4 +117,5 @@ UserWithRulesResultSavedPaymentDetailsItem = typing.Union[
     UserWithRulesResultSavedPaymentDetailsItem_Upi,
     UserWithRulesResultSavedPaymentDetailsItem_Wallet,
     UserWithRulesResultSavedPaymentDetailsItem_Check,
+    UserWithRulesResultSavedPaymentDetailsItem_Cash,
 ]

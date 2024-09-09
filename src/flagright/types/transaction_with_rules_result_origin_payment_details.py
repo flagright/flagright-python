@@ -98,6 +98,15 @@ class TransactionWithRulesResultOriginPaymentDetails_Check(CheckDetails):
         allow_population_by_field_name = True
 
 
+class TransactionWithRulesResultOriginPaymentDetails_Cash(CheckDetails):
+    method: typing_extensions.Literal["CASH"]
+
+    class Config:
+        frozen = True
+        smart_union = True
+        allow_population_by_field_name = True
+
+
 TransactionWithRulesResultOriginPaymentDetails = typing.Union[
     TransactionWithRulesResultOriginPaymentDetails_Card,
     TransactionWithRulesResultOriginPaymentDetails_GenericBankAccount,
@@ -108,4 +117,5 @@ TransactionWithRulesResultOriginPaymentDetails = typing.Union[
     TransactionWithRulesResultOriginPaymentDetails_Upi,
     TransactionWithRulesResultOriginPaymentDetails_Wallet,
     TransactionWithRulesResultOriginPaymentDetails_Check,
+    TransactionWithRulesResultOriginPaymentDetails_Cash,
 ]

@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .device_data import DeviceData
+from .origin_funds_info import OriginFundsInfo
 from .tag import Tag
 from .transaction_amount_details import TransactionAmountDetails
 from .transaction_state import TransactionState
@@ -32,9 +33,9 @@ class TransactionUpdatable(pydantic.BaseModel):
         description="Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc.",
     )
     destination_payment_details: typing.Optional[TransactionUpdatableDestinationPaymentDetails] = pydantic.Field(
-        alias="destinationPaymentDetails",
-        description="Payment details of the destination. It can be a bank account number, wallet ID, card fingerprint etc.",
+        alias="destinationPaymentDetails"
     )
+    origin_funds_info: typing.Optional[OriginFundsInfo] = pydantic.Field(alias="originFundsInfo")
     related_transaction_ids: typing.Optional[typing.List[str]] = pydantic.Field(
         alias="relatedTransactionIds",
         description="IDs of transactions related to this transaction. Ex: refund, split bills",
