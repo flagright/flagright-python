@@ -16,6 +16,8 @@ class EmploymentStatus(str, enum.Enum):
     SOLE_PROPRIETOR = "SOLE_PROPRIETOR"
     PENSIONER = "PENSIONER"
     COMPANY_OWNER = "COMPANY_OWNER"
+    OTHER = "OTHER"
+    NA = "NA"
 
     def visit(
         self,
@@ -28,6 +30,8 @@ class EmploymentStatus(str, enum.Enum):
         sole_proprietor: typing.Callable[[], T_Result],
         pensioner: typing.Callable[[], T_Result],
         company_owner: typing.Callable[[], T_Result],
+        other: typing.Callable[[], T_Result],
+        na: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is EmploymentStatus.UNEMPLOYED:
             return unemployed()
@@ -47,3 +51,7 @@ class EmploymentStatus(str, enum.Enum):
             return pensioner()
         if self is EmploymentStatus.COMPANY_OWNER:
             return company_owner()
+        if self is EmploymentStatus.OTHER:
+            return other()
+        if self is EmploymentStatus.NA:
+            return na()
