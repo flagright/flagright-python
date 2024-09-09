@@ -11,11 +11,9 @@ from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.api_error_response import ApiErrorResponse
-from ...types.device_data import DeviceData
+from ...types.transaction_event import TransactionEvent
 from ...types.transaction_event_monitoring_result import TransactionEventMonitoringResult
 from ...types.transaction_event_with_rules_result import TransactionEventWithRulesResult
-from ...types.transaction_state import TransactionState
-from ...types.transaction_updatable import TransactionUpdatable
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -30,18 +28,7 @@ class TransactionEventsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def create(
-        self,
-        *,
-        transaction_state: TransactionState,
-        timestamp: float,
-        transaction_id: str,
-        event_id: typing.Optional[str] = OMIT,
-        reason: typing.Optional[str] = OMIT,
-        event_description: typing.Optional[str] = OMIT,
-        updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
-        meta_data: typing.Optional[DeviceData] = OMIT,
-    ) -> TransactionEventMonitoringResult:
+    def create(self, *, request: TransactionEvent) -> TransactionEventMonitoringResult:
         """
         ## POST Transaction Events
 
@@ -65,62 +52,35 @@ class TransactionEventsClient:
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
         Parameters:
-            - transaction_state: TransactionState.
-
-            - timestamp: float. Timestamp of the event
-
-            - transaction_id: str. Transaction ID the event pertains to
-
-            - event_id: typing.Optional[str]. Unique event ID
-
-            - reason: typing.Optional[str]. Reason for the event or a state change
-
-            - event_description: typing.Optional[str]. Event description
-
-            - updated_transaction_attributes: typing.Optional[TransactionUpdatable].
-
-            - meta_data: typing.Optional[DeviceData].
+            - request: TransactionEvent.
         ---
-        from flagright import DeviceData, TransactionState
+        from flagright import DeviceData, TransactionEvent, TransactionState
         from flagright.client import Flagright
 
         client = Flagright(
             api_key="YOUR_API_KEY",
         )
         client.transaction_events.create(
-            transaction_state=TransactionState.SUCCESSFUL,
-            timestamp=1431231244001.0,
-            transaction_id="443dea26147a406b957d9ee3a1247b11",
-            event_id="aaeeb166147a406b957dd9147a406b957",
-            event_description="Transaction created",
-            meta_data=DeviceData(
-                battery_level=76.3,
-                device_latitude=13.009711,
-                device_longitude=76.102898,
-                ip_address="79.144.2.20",
-                vpn_used=True,
+            request=TransactionEvent(
+                transaction_state=TransactionState.SUCCESSFUL,
+                timestamp=1431231244001.0,
+                transaction_id="443dea26147a406b957d9ee3a1247b11",
+                event_id="aaeeb166147a406b957dd9147a406b957",
+                event_description="Transaction created",
+                meta_data=DeviceData(
+                    battery_level=76.3,
+                    device_latitude=13.009711,
+                    device_longitude=76.102898,
+                    ip_address="79.144.2.20",
+                    vpn_used=True,
+                ),
             ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {
-            "transactionState": transaction_state,
-            "timestamp": timestamp,
-            "transactionId": transaction_id,
-        }
-        if event_id is not OMIT:
-            _request["eventId"] = event_id
-        if reason is not OMIT:
-            _request["reason"] = reason
-        if event_description is not OMIT:
-            _request["eventDescription"] = event_description
-        if updated_transaction_attributes is not OMIT:
-            _request["updatedTransactionAttributes"] = updated_transaction_attributes
-        if meta_data is not OMIT:
-            _request["metaData"] = meta_data
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/transaction"),
-            json=jsonable_encoder(_request),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -183,18 +143,7 @@ class AsyncTransactionEventsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def create(
-        self,
-        *,
-        transaction_state: TransactionState,
-        timestamp: float,
-        transaction_id: str,
-        event_id: typing.Optional[str] = OMIT,
-        reason: typing.Optional[str] = OMIT,
-        event_description: typing.Optional[str] = OMIT,
-        updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
-        meta_data: typing.Optional[DeviceData] = OMIT,
-    ) -> TransactionEventMonitoringResult:
+    async def create(self, *, request: TransactionEvent) -> TransactionEventMonitoringResult:
         """
         ## POST Transaction Events
 
@@ -218,62 +167,35 @@ class AsyncTransactionEventsClient:
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
         Parameters:
-            - transaction_state: TransactionState.
-
-            - timestamp: float. Timestamp of the event
-
-            - transaction_id: str. Transaction ID the event pertains to
-
-            - event_id: typing.Optional[str]. Unique event ID
-
-            - reason: typing.Optional[str]. Reason for the event or a state change
-
-            - event_description: typing.Optional[str]. Event description
-
-            - updated_transaction_attributes: typing.Optional[TransactionUpdatable].
-
-            - meta_data: typing.Optional[DeviceData].
+            - request: TransactionEvent.
         ---
-        from flagright import DeviceData, TransactionState
+        from flagright import DeviceData, TransactionEvent, TransactionState
         from flagright.client import AsyncFlagright
 
         client = AsyncFlagright(
             api_key="YOUR_API_KEY",
         )
         await client.transaction_events.create(
-            transaction_state=TransactionState.SUCCESSFUL,
-            timestamp=1431231244001.0,
-            transaction_id="443dea26147a406b957d9ee3a1247b11",
-            event_id="aaeeb166147a406b957dd9147a406b957",
-            event_description="Transaction created",
-            meta_data=DeviceData(
-                battery_level=76.3,
-                device_latitude=13.009711,
-                device_longitude=76.102898,
-                ip_address="79.144.2.20",
-                vpn_used=True,
+            request=TransactionEvent(
+                transaction_state=TransactionState.SUCCESSFUL,
+                timestamp=1431231244001.0,
+                transaction_id="443dea26147a406b957d9ee3a1247b11",
+                event_id="aaeeb166147a406b957dd9147a406b957",
+                event_description="Transaction created",
+                meta_data=DeviceData(
+                    battery_level=76.3,
+                    device_latitude=13.009711,
+                    device_longitude=76.102898,
+                    ip_address="79.144.2.20",
+                    vpn_used=True,
+                ),
             ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {
-            "transactionState": transaction_state,
-            "timestamp": timestamp,
-            "transactionId": transaction_id,
-        }
-        if event_id is not OMIT:
-            _request["eventId"] = event_id
-        if reason is not OMIT:
-            _request["reason"] = reason
-        if event_description is not OMIT:
-            _request["eventDescription"] = event_description
-        if updated_transaction_attributes is not OMIT:
-            _request["updatedTransactionAttributes"] = updated_transaction_attributes
-        if meta_data is not OMIT:
-            _request["metaData"] = meta_data
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/transaction"),
-            json=jsonable_encoder(_request),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )

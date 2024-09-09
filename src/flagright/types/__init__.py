@@ -8,6 +8,7 @@ from .alert_closed_details import AlertClosedDetails
 from .alert_opened_details import AlertOpenedDetails
 from .amount import Amount
 from .api_error_response import ApiErrorResponse
+from .batch_response import BatchResponse
 from .boolean_string import BooleanString
 from .business_base import BusinessBase
 from .business_optional import BusinessOptional
@@ -59,6 +60,7 @@ from .company_financial_details import CompanyFinancialDetails
 from .company_general_details import CompanyGeneralDetails
 from .company_registration_details import CompanyRegistrationDetails
 from .consumer_name import ConsumerName
+from .consumer_user_event import ConsumerUserEvent
 from .consumer_user_event_with_rules_result import ConsumerUserEventWithRulesResult
 from .consumer_user_monitoring_result import ConsumerUserMonitoringResult
 from .consumer_user_segment import ConsumerUserSegment
@@ -137,6 +139,7 @@ from .transaction_destination_payment_details import (
     TransactionDestinationPaymentDetails_Upi,
     TransactionDestinationPaymentDetails_Wallet,
 )
+from .transaction_event import TransactionEvent
 from .transaction_event_monitoring_result import TransactionEventMonitoringResult
 from .transaction_event_with_rules_result import TransactionEventWithRulesResult
 from .transaction_limit import TransactionLimit
@@ -211,6 +214,7 @@ from .transaction_with_rules_result_origin_payment_details import (
 )
 from .upi_details import UpiDetails
 from .upi_payment_method import UpiPaymentMethod
+from .user import User
 from .user_base import UserBase
 from .user_details import UserDetails
 from .user_entity_link import UserEntityLink
@@ -230,6 +234,18 @@ from .user_optional_saved_payment_details_item import (
 from .user_registration_status import UserRegistrationStatus
 from .user_risk_score_details import UserRiskScoreDetails
 from .user_rules_result import UserRulesResult
+from .user_saved_payment_details_item import (
+    UserSavedPaymentDetailsItem,
+    UserSavedPaymentDetailsItem_Ach,
+    UserSavedPaymentDetailsItem_Card,
+    UserSavedPaymentDetailsItem_Check,
+    UserSavedPaymentDetailsItem_GenericBankAccount,
+    UserSavedPaymentDetailsItem_Iban,
+    UserSavedPaymentDetailsItem_Mpesa,
+    UserSavedPaymentDetailsItem_Swift,
+    UserSavedPaymentDetailsItem_Upi,
+    UserSavedPaymentDetailsItem_Wallet,
+)
 from .user_state import UserState
 from .user_state_details import UserStateDetails
 from .user_with_rules_result import UserWithRulesResult
@@ -264,6 +280,7 @@ __all__ = [
     "AlertOpenedDetails",
     "Amount",
     "ApiErrorResponse",
+    "BatchResponse",
     "BooleanString",
     "BusinessBase",
     "BusinessOptional",
@@ -311,6 +328,7 @@ __all__ = [
     "CompanyGeneralDetails",
     "CompanyRegistrationDetails",
     "ConsumerName",
+    "ConsumerUserEvent",
     "ConsumerUserEventWithRulesResult",
     "ConsumerUserMonitoringResult",
     "ConsumerUserSegment",
@@ -387,6 +405,7 @@ __all__ = [
     "TransactionDestinationPaymentDetails_Swift",
     "TransactionDestinationPaymentDetails_Upi",
     "TransactionDestinationPaymentDetails_Wallet",
+    "TransactionEvent",
     "TransactionEventMonitoringResult",
     "TransactionEventWithRulesResult",
     "TransactionLimit",
@@ -451,6 +470,7 @@ __all__ = [
     "TransactionWithRulesResultOriginPaymentDetails_Wallet",
     "UpiDetails",
     "UpiPaymentMethod",
+    "User",
     "UserBase",
     "UserDetails",
     "UserEntityLink",
@@ -468,6 +488,16 @@ __all__ = [
     "UserRegistrationStatus",
     "UserRiskScoreDetails",
     "UserRulesResult",
+    "UserSavedPaymentDetailsItem",
+    "UserSavedPaymentDetailsItem_Ach",
+    "UserSavedPaymentDetailsItem_Card",
+    "UserSavedPaymentDetailsItem_Check",
+    "UserSavedPaymentDetailsItem_GenericBankAccount",
+    "UserSavedPaymentDetailsItem_Iban",
+    "UserSavedPaymentDetailsItem_Mpesa",
+    "UserSavedPaymentDetailsItem_Swift",
+    "UserSavedPaymentDetailsItem_Upi",
+    "UserSavedPaymentDetailsItem_Wallet",
     "UserState",
     "UserStateDetails",
     "UserWithRulesResult",

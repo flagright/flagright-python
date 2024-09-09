@@ -6,15 +6,15 @@ import typing
 
 import typing_extensions
 
-from ....types.ach_details import AchDetails
-from ....types.card_details import CardDetails
-from ....types.check_details import CheckDetails
-from ....types.generic_bank_account_details import GenericBankAccountDetails
-from ....types.iban_details import IbanDetails
-from ....types.mpesa_details import MpesaDetails
-from ....types.swift_details import SwiftDetails
-from ....types.upi_details import UpiDetails
-from ....types.wallet_details import WalletDetails
+from .ach_details import AchDetails
+from .card_details import CardDetails
+from .check_details import CheckDetails
+from .generic_bank_account_details import GenericBankAccountDetails
+from .iban_details import IbanDetails
+from .mpesa_details import MpesaDetails
+from .swift_details import SwiftDetails
+from .upi_details import UpiDetails
+from .wallet_details import WalletDetails
 
 
 class UserSavedPaymentDetailsItem_Card(CardDetails):

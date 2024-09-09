@@ -6,6 +6,7 @@ import httpx
 
 from .core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from .environment import FlagrightEnvironment
+from .resources.batch.client import AsyncBatchClient, BatchClient
 from .resources.business_user_events.client import AsyncBusinessUserEventsClient, BusinessUserEventsClient
 from .resources.business_users.client import AsyncBusinessUsersClient, BusinessUsersClient
 from .resources.consumer_user_events.client import AsyncConsumerUserEventsClient, ConsumerUserEventsClient
@@ -30,6 +31,7 @@ class Flagright:
             httpx_client=httpx.Client(timeout=timeout) if httpx_client is None else httpx_client,
         )
         self.transactions = TransactionsClient(client_wrapper=self._client_wrapper)
+        self.batch = BatchClient(client_wrapper=self._client_wrapper)
         self.transaction_events = TransactionEventsClient(client_wrapper=self._client_wrapper)
         self.consumer_users = ConsumerUsersClient(client_wrapper=self._client_wrapper)
         self.business_users = BusinessUsersClient(client_wrapper=self._client_wrapper)
@@ -53,6 +55,7 @@ class AsyncFlagright:
             httpx_client=httpx.AsyncClient(timeout=timeout) if httpx_client is None else httpx_client,
         )
         self.transactions = AsyncTransactionsClient(client_wrapper=self._client_wrapper)
+        self.batch = AsyncBatchClient(client_wrapper=self._client_wrapper)
         self.transaction_events = AsyncTransactionEventsClient(client_wrapper=self._client_wrapper)
         self.consumer_users = AsyncConsumerUsersClient(client_wrapper=self._client_wrapper)
         self.business_users = AsyncBusinessUsersClient(client_wrapper=self._client_wrapper)

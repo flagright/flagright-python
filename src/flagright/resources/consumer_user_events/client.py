@@ -13,8 +13,8 @@ from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.api_error_response import ApiErrorResponse
 from ...types.boolean_string import BooleanString
+from ...types.consumer_user_event import ConsumerUserEvent
 from ...types.consumer_user_event_with_rules_result import ConsumerUserEventWithRulesResult
-from ...types.user_optional import UserOptional
 from ...types.user_with_rules_result import UserWithRulesResult
 
 try:
@@ -31,15 +31,7 @@ class ConsumerUserEventsClient:
         self._client_wrapper = client_wrapper
 
     def create(
-        self,
-        *,
-        allow_user_type_conversion: typing.Optional[BooleanString] = None,
-        timestamp: float,
-        user_id: str,
-        event_id: typing.Optional[str] = OMIT,
-        reason: typing.Optional[str] = OMIT,
-        event_description: typing.Optional[str] = OMIT,
-        updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
+        self, *, allow_user_type_conversion: typing.Optional[BooleanString] = None, request: ConsumerUserEvent
     ) -> UserWithRulesResult:
         """
         ## POST Consumer User Events
@@ -65,42 +57,26 @@ class ConsumerUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Consumer user event to be applied to a Business user with the same user ID. This will converts a Business user to a Consumer user.
 
-            - timestamp: float. Timestamp of the event
-
-            - user_id: str. Transaction ID the event pertains to
-
-            - event_id: typing.Optional[str]. Unique event ID
-
-            - reason: typing.Optional[str]. Reason for the event or a state change
-
-            - event_description: typing.Optional[str]. Event description
-
-            - updated_consumer_user_attributes: typing.Optional[UserOptional].
+            - request: ConsumerUserEvent.
         ---
+        from flagright import ConsumerUserEvent
         from flagright.client import Flagright
 
         client = Flagright(
             api_key="YOUR_API_KEY",
         )
         client.consumer_user_events.create(
-            timestamp=1.1,
-            user_id="userId",
+            request=ConsumerUserEvent(
+                timestamp=1.1,
+                user_id="userId",
+            ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {"timestamp": timestamp, "userId": user_id}
-        if event_id is not OMIT:
-            _request["eventId"] = event_id
-        if reason is not OMIT:
-            _request["reason"] = reason
-        if event_description is not OMIT:
-            _request["eventDescription"] = event_description
-        if updated_consumer_user_attributes is not OMIT:
-            _request["updatedConsumerUserAttributes"] = updated_consumer_user_attributes
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/consumer/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
-            json=jsonable_encoder(_request),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -162,15 +138,7 @@ class AsyncConsumerUserEventsClient:
         self._client_wrapper = client_wrapper
 
     async def create(
-        self,
-        *,
-        allow_user_type_conversion: typing.Optional[BooleanString] = None,
-        timestamp: float,
-        user_id: str,
-        event_id: typing.Optional[str] = OMIT,
-        reason: typing.Optional[str] = OMIT,
-        event_description: typing.Optional[str] = OMIT,
-        updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
+        self, *, allow_user_type_conversion: typing.Optional[BooleanString] = None, request: ConsumerUserEvent
     ) -> UserWithRulesResult:
         """
         ## POST Consumer User Events
@@ -196,42 +164,26 @@ class AsyncConsumerUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Consumer user event to be applied to a Business user with the same user ID. This will converts a Business user to a Consumer user.
 
-            - timestamp: float. Timestamp of the event
-
-            - user_id: str. Transaction ID the event pertains to
-
-            - event_id: typing.Optional[str]. Unique event ID
-
-            - reason: typing.Optional[str]. Reason for the event or a state change
-
-            - event_description: typing.Optional[str]. Event description
-
-            - updated_consumer_user_attributes: typing.Optional[UserOptional].
+            - request: ConsumerUserEvent.
         ---
+        from flagright import ConsumerUserEvent
         from flagright.client import AsyncFlagright
 
         client = AsyncFlagright(
             api_key="YOUR_API_KEY",
         )
         await client.consumer_user_events.create(
-            timestamp=1.1,
-            user_id="userId",
+            request=ConsumerUserEvent(
+                timestamp=1.1,
+                user_id="userId",
+            ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {"timestamp": timestamp, "userId": user_id}
-        if event_id is not OMIT:
-            _request["eventId"] = event_id
-        if reason is not OMIT:
-            _request["reason"] = reason
-        if event_description is not OMIT:
-            _request["eventDescription"] = event_description
-        if updated_consumer_user_attributes is not OMIT:
-            _request["updatedConsumerUserAttributes"] = updated_consumer_user_attributes
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/consumer/user"),
             params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
-            json=jsonable_encoder(_request),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
