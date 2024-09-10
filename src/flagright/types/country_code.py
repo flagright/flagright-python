@@ -253,10 +253,34 @@ class CountryCode(str, enum.Enum):
     WF = "WF"
     EH = "EH"
     YE = "YE"
-    XK = "XK"
     ZM = "ZM"
     ZW = "ZW"
     AX = "AX"
+    XA = "XA"
+    XB = "XB"
+    XC = "XC"
+    XD = "XD"
+    XE = "XE"
+    XF = "XF"
+    XG = "XG"
+    XH = "XH"
+    XI = "XI"
+    XJ = "XJ"
+    XK = "XK"
+    XL = "XL"
+    XM = "XM"
+    XN = "XN"
+    XO = "XO"
+    XP = "XP"
+    XQ = "XQ"
+    XR = "XR"
+    XS = "XS"
+    XT = "XT"
+    XU = "XU"
+    XV = "XV"
+    XW = "XW"
+    XY = "XY"
+    XZ = "XZ"
     NOT_APPLICABLE = "N/A"
 
     def visit(
@@ -507,10 +531,34 @@ class CountryCode(str, enum.Enum):
         wf: typing.Callable[[], T_Result],
         eh: typing.Callable[[], T_Result],
         ye: typing.Callable[[], T_Result],
-        xk: typing.Callable[[], T_Result],
         zm: typing.Callable[[], T_Result],
         zw: typing.Callable[[], T_Result],
         ax: typing.Callable[[], T_Result],
+        xa: typing.Callable[[], T_Result],
+        xb: typing.Callable[[], T_Result],
+        xc: typing.Callable[[], T_Result],
+        xd: typing.Callable[[], T_Result],
+        xe: typing.Callable[[], T_Result],
+        xf: typing.Callable[[], T_Result],
+        xg: typing.Callable[[], T_Result],
+        xh: typing.Callable[[], T_Result],
+        xi: typing.Callable[[], T_Result],
+        xj: typing.Callable[[], T_Result],
+        xk: typing.Callable[[], T_Result],
+        xl: typing.Callable[[], T_Result],
+        xm: typing.Callable[[], T_Result],
+        xn: typing.Callable[[], T_Result],
+        xo: typing.Callable[[], T_Result],
+        xp: typing.Callable[[], T_Result],
+        xq: typing.Callable[[], T_Result],
+        xr: typing.Callable[[], T_Result],
+        xs: typing.Callable[[], T_Result],
+        xt: typing.Callable[[], T_Result],
+        xu: typing.Callable[[], T_Result],
+        xv: typing.Callable[[], T_Result],
+        xw: typing.Callable[[], T_Result],
+        xy: typing.Callable[[], T_Result],
+        xz: typing.Callable[[], T_Result],
         not_applicable: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is CountryCode.AF:
@@ -1005,13 +1053,61 @@ class CountryCode(str, enum.Enum):
             return eh()
         if self is CountryCode.YE:
             return ye()
-        if self is CountryCode.XK:
-            return xk()
         if self is CountryCode.ZM:
             return zm()
         if self is CountryCode.ZW:
             return zw()
         if self is CountryCode.AX:
             return ax()
+        if self is CountryCode.XA:
+            return xa()
+        if self is CountryCode.XB:
+            return xb()
+        if self is CountryCode.XC:
+            return xc()
+        if self is CountryCode.XD:
+            return xd()
+        if self is CountryCode.XE:
+            return xe()
+        if self is CountryCode.XF:
+            return xf()
+        if self is CountryCode.XG:
+            return xg()
+        if self is CountryCode.XH:
+            return xh()
+        if self is CountryCode.XI:
+            return xi()
+        if self is CountryCode.XJ:
+            return xj()
+        if self is CountryCode.XK:
+            return xk()
+        if self is CountryCode.XL:
+            return xl()
+        if self is CountryCode.XM:
+            return xm()
+        if self is CountryCode.XN:
+            return xn()
+        if self is CountryCode.XO:
+            return xo()
+        if self is CountryCode.XP:
+            return xp()
+        if self is CountryCode.XQ:
+            return xq()
+        if self is CountryCode.XR:
+            return xr()
+        if self is CountryCode.XS:
+            return xs()
+        if self is CountryCode.XT:
+            return xt()
+        if self is CountryCode.XU:
+            return xu()
+        if self is CountryCode.XV:
+            return xv()
+        if self is CountryCode.XW:
+            return xw()
+        if self is CountryCode.XY:
+            return xy()
+        if self is CountryCode.XZ:
+            return xz()
         if self is CountryCode.NOT_APPLICABLE:
             return not_applicable()
