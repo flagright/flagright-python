@@ -6,9 +6,9 @@ import typing
 T_Result = typing.TypeVar("T_Result")
 
 
-class MartialStatus(str, enum.Enum):
+class MaritalStatus(str, enum.Enum):
     """
-    Martial status of the individual
+    Marital status of the individual
     """
 
     DIVORCED = "DIVORCED"
@@ -25,13 +25,13 @@ class MartialStatus(str, enum.Enum):
         widowed: typing.Callable[[], T_Result],
         na: typing.Callable[[], T_Result],
     ) -> T_Result:
-        if self is MartialStatus.DIVORCED:
+        if self is MaritalStatus.DIVORCED:
             return divorced()
-        if self is MartialStatus.MARRIED:
+        if self is MaritalStatus.MARRIED:
             return married()
-        if self is MartialStatus.SINGLE:
+        if self is MaritalStatus.SINGLE:
             return single()
-        if self is MartialStatus.WIDOWED:
+        if self is MaritalStatus.WIDOWED:
             return widowed()
-        if self is MartialStatus.NA:
+        if self is MaritalStatus.NA:
             return na()

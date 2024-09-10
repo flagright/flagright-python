@@ -7,7 +7,7 @@ from ..core.datetime_utils import serialize_datetime
 from .consumer_name import ConsumerName
 from .country_code import CountryCode
 from .gender import Gender
-from .martial_status import MartialStatus
+from .marital_status import MaritalStatus
 from .place_of_birth import PlaceOfBirth
 
 try:
@@ -31,7 +31,7 @@ class UserDetails(pydantic.BaseModel):
     country_of_residence: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfResidence")
     country_of_nationality: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfNationality")
     gender: typing.Optional[Gender]
-    martial_status: typing.Optional[MartialStatus] = pydantic.Field(alias="martialStatus")
+    marital_status: typing.Optional[MaritalStatus] = pydantic.Field(alias="maritalStatus")
     place_of_birth: typing.Optional[PlaceOfBirth] = pydantic.Field(alias="placeOfBirth")
 
     def json(self, **kwargs: typing.Any) -> str:

@@ -99,7 +99,7 @@ from .list_key_metadata import ListKeyMetadata
 from .list_metadata import ListMetadata
 from .list_subtype import ListSubtype
 from .list_type import ListType
-from .martial_status import MartialStatus
+from .marital_status import MaritalStatus
 from .mcc_details import MccDetails
 from .mpesa_details import MpesaDetails
 from .mpesa_payment_method import MpesaPaymentMethod
@@ -381,7 +381,7 @@ __all__ = [
     "ListMetadata",
     "ListSubtype",
     "ListType",
-    "MartialStatus",
+    "MaritalStatus",
     "MccDetails",
     "MpesaDetails",
     "MpesaPaymentMethod",
