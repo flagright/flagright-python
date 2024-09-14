@@ -21,7 +21,7 @@ class UserDetails(pydantic.BaseModel):
     Model for consumer user personal details
     """
 
-    name: ConsumerName
+    name: typing.Optional[ConsumerName]
     date_of_birth: typing.Optional[str] = pydantic.Field(
         alias="dateOfBirth", description="Date of birth of the user (YYYY-MM-DD)"
     )
