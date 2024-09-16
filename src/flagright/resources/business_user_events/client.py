@@ -13,7 +13,7 @@ from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.api_error_response import ApiErrorResponse
 from ...types.boolean_string import BooleanString
-from ...types.business_optional import BusinessOptional
+from ...types.business_user_event import BusinessUserEvent
 from ...types.business_user_event_with_rules_result import BusinessUserEventWithRulesResult
 from ...types.business_with_rules_result import BusinessWithRulesResult
 
@@ -34,12 +34,8 @@ class BusinessUserEventsClient:
         self,
         *,
         allow_user_type_conversion: typing.Optional[BooleanString] = None,
-        timestamp: float,
-        user_id: str,
-        event_id: typing.Optional[str] = OMIT,
-        reason: typing.Optional[str] = OMIT,
-        event_description: typing.Optional[str] = OMIT,
-        updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        request: BusinessUserEvent,
     ) -> BusinessWithRulesResult:
         """
         ## POST Business User Events
@@ -65,42 +61,30 @@ class BusinessUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Business user event to be applied to a Consumer user with the same user ID. This will converts a Consumer user to a Business user.
 
-            - timestamp: float. Timestamp of the event
+            - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
 
-            - user_id: str. Transaction ID the event pertains to
-
-            - event_id: typing.Optional[str]. Unique event ID
-
-            - reason: typing.Optional[str]. Reason for the event or a state change
-
-            - event_description: typing.Optional[str]. Event description
-
-            - updated_business_user_attributes: typing.Optional[BusinessOptional].
+            - request: BusinessUserEvent.
         ---
+        from flagright import BusinessUserEvent
         from flagright.client import Flagright
 
         client = Flagright(
             api_key="YOUR_API_KEY",
         )
         client.business_user_events.create(
-            timestamp=1.1,
-            user_id="userId",
+            request=BusinessUserEvent(
+                timestamp=1.1,
+                user_id="userId",
+            ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {"timestamp": timestamp, "userId": user_id}
-        if event_id is not OMIT:
-            _request["eventId"] = event_id
-        if reason is not OMIT:
-            _request["reason"] = reason
-        if event_description is not OMIT:
-            _request["eventDescription"] = event_description
-        if updated_business_user_attributes is not OMIT:
-            _request["updatedBusinessUserAttributes"] = updated_business_user_attributes
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/business/user"),
-            params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
-            json=jsonable_encoder(_request),
+            params=remove_none_from_dict(
+                {"allowUserTypeConversion": allow_user_type_conversion, "lockCraRiskLevel": lock_cra_risk_level}
+            ),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -165,12 +149,8 @@ class AsyncBusinessUserEventsClient:
         self,
         *,
         allow_user_type_conversion: typing.Optional[BooleanString] = None,
-        timestamp: float,
-        user_id: str,
-        event_id: typing.Optional[str] = OMIT,
-        reason: typing.Optional[str] = OMIT,
-        event_description: typing.Optional[str] = OMIT,
-        updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        request: BusinessUserEvent,
     ) -> BusinessWithRulesResult:
         """
         ## POST Business User Events
@@ -196,42 +176,30 @@ class AsyncBusinessUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Business user event to be applied to a Consumer user with the same user ID. This will converts a Consumer user to a Business user.
 
-            - timestamp: float. Timestamp of the event
+            - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
 
-            - user_id: str. Transaction ID the event pertains to
-
-            - event_id: typing.Optional[str]. Unique event ID
-
-            - reason: typing.Optional[str]. Reason for the event or a state change
-
-            - event_description: typing.Optional[str]. Event description
-
-            - updated_business_user_attributes: typing.Optional[BusinessOptional].
+            - request: BusinessUserEvent.
         ---
+        from flagright import BusinessUserEvent
         from flagright.client import AsyncFlagright
 
         client = AsyncFlagright(
             api_key="YOUR_API_KEY",
         )
         await client.business_user_events.create(
-            timestamp=1.1,
-            user_id="userId",
+            request=BusinessUserEvent(
+                timestamp=1.1,
+                user_id="userId",
+            ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {"timestamp": timestamp, "userId": user_id}
-        if event_id is not OMIT:
-            _request["eventId"] = event_id
-        if reason is not OMIT:
-            _request["reason"] = reason
-        if event_description is not OMIT:
-            _request["eventDescription"] = event_description
-        if updated_business_user_attributes is not OMIT:
-            _request["updatedBusinessUserAttributes"] = updated_business_user_attributes
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/business/user"),
-            params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
-            json=jsonable_encoder(_request),
+            params=remove_none_from_dict(
+                {"allowUserTypeConversion": allow_user_type_conversion, "lockCraRiskLevel": lock_cra_risk_level}
+            ),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )

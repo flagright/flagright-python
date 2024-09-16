@@ -31,7 +31,11 @@ class ConsumerUserEventsClient:
         self._client_wrapper = client_wrapper
 
     def create(
-        self, *, allow_user_type_conversion: typing.Optional[BooleanString] = None, request: ConsumerUserEvent
+        self,
+        *,
+        allow_user_type_conversion: typing.Optional[BooleanString] = None,
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        request: ConsumerUserEvent,
     ) -> UserWithRulesResult:
         """
         ## POST Consumer User Events
@@ -57,6 +61,8 @@ class ConsumerUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Consumer user event to be applied to a Business user with the same user ID. This will converts a Business user to a Consumer user.
 
+            - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
+
             - request: ConsumerUserEvent.
         ---
         from flagright import ConsumerUserEvent
@@ -75,7 +81,9 @@ class ConsumerUserEventsClient:
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/consumer/user"),
-            params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
+            params=remove_none_from_dict(
+                {"allowUserTypeConversion": allow_user_type_conversion, "lockCraRiskLevel": lock_cra_risk_level}
+            ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -138,7 +146,11 @@ class AsyncConsumerUserEventsClient:
         self._client_wrapper = client_wrapper
 
     async def create(
-        self, *, allow_user_type_conversion: typing.Optional[BooleanString] = None, request: ConsumerUserEvent
+        self,
+        *,
+        allow_user_type_conversion: typing.Optional[BooleanString] = None,
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        request: ConsumerUserEvent,
     ) -> UserWithRulesResult:
         """
         ## POST Consumer User Events
@@ -164,6 +176,8 @@ class AsyncConsumerUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Consumer user event to be applied to a Business user with the same user ID. This will converts a Business user to a Consumer user.
 
+            - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
+
             - request: ConsumerUserEvent.
         ---
         from flagright import ConsumerUserEvent
@@ -182,7 +196,9 @@ class AsyncConsumerUserEventsClient:
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/consumer/user"),
-            params=remove_none_from_dict({"allowUserTypeConversion": allow_user_type_conversion}),
+            params=remove_none_from_dict(
+                {"allowUserTypeConversion": allow_user_type_conversion, "lockCraRiskLevel": lock_cra_risk_level}
+            ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,

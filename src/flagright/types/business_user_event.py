@@ -4,8 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .batch_response_failed_record import BatchResponseFailedRecord
-from .batch_response_status import BatchResponseStatus
+from .business_optional import BusinessOptional
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -13,17 +12,19 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class BatchResponse(pydantic.BaseModel):
+class BusinessUserEvent(pydantic.BaseModel):
     """
-    Response from creation of a batch
+    Model for business user-related events
     """
 
-    status: BatchResponseStatus
-    batch_id: str = pydantic.Field(alias="batchId")
-    successful: float
-    failed: float
-    failed_records: typing.Optional[typing.List[BatchResponseFailedRecord]] = pydantic.Field(alias="failedRecords")
-    message: typing.Optional[str]
+    timestamp: float = pydantic.Field(description="Timestamp of the event")
+    user_id: str = pydantic.Field(alias="userId", description="Transaction ID the event pertains to")
+    event_id: typing.Optional[str] = pydantic.Field(alias="eventId", description="Unique event ID")
+    reason: typing.Optional[str] = pydantic.Field(description="Reason for the event or a state change")
+    event_description: typing.Optional[str] = pydantic.Field(alias="eventDescription", description="Event description")
+    updated_business_user_attributes: typing.Optional[BusinessOptional] = pydantic.Field(
+        alias="updatedBusinessUserAttributes"
+    )
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

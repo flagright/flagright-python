@@ -7,23 +7,14 @@ from json.decoder import JSONDecodeError
 from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.jsonable_encoder import jsonable_encoder
+from ...core.remove_none_from_dict import remove_none_from_dict
 from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
-from ...types.acquisition_channel import AcquisitionChannel
 from ...types.api_error_response import ApiErrorResponse
+from ...types.boolean_string import BooleanString
+from ...types.business import Business
 from ...types.business_with_rules_result import BusinessWithRulesResult
-from ...types.kyc_status_details import KycStatusDetails
-from ...types.legal_entity import LegalEntity
-from ...types.mcc_details import MccDetails
-from ...types.payment_method import PaymentMethod
-from ...types.person import Person
-from ...types.risk_level import RiskLevel
-from ...types.tag import Tag
-from ...types.transaction_limits import TransactionLimits
-from ...types.user_entity_link import UserEntityLink
-from ...types.user_state_details import UserStateDetails
-from .types.business_saved_payment_details_item import BusinessSavedPaymentDetailsItem
 from .types.business_users_create_response import BusinessUsersCreateResponse
 
 try:
@@ -40,24 +31,7 @@ class BusinessUsersClient:
         self._client_wrapper = client_wrapper
 
     def create(
-        self,
-        *,
-        user_id: str,
-        created_timestamp: float,
-        legal_entity: LegalEntity,
-        activated_timestamp: typing.Optional[float] = OMIT,
-        user_state_details: typing.Optional[UserStateDetails] = OMIT,
-        kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
-        share_holders: typing.Optional[typing.List[Person]] = OMIT,
-        directors: typing.Optional[typing.List[Person]] = OMIT,
-        transaction_limits: typing.Optional[TransactionLimits] = OMIT,
-        risk_level: typing.Optional[RiskLevel] = OMIT,
-        allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]] = OMIT,
-        linked_entities: typing.Optional[UserEntityLink] = OMIT,
-        acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
-        saved_payment_details: typing.Optional[typing.List[BusinessSavedPaymentDetailsItem]] = OMIT,
-        mcc_details: typing.Optional[MccDetails] = OMIT,
-        tags: typing.Optional[typing.List[Tag]] = OMIT,
+        self, *, lock_cra_risk_level: typing.Optional[BooleanString] = None, request: Business
     ) -> BusinessUsersCreateResponse:
         """
         ## POST Business User
@@ -75,91 +49,35 @@ class BusinessUsersClient:
         - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
 
         Parameters:
-            - user_id: str. Unique user ID for the user
+            - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
 
-            - created_timestamp: float. Timestamp when the user was created
-
-            - legal_entity: LegalEntity.
-
-            - activated_timestamp: typing.Optional[float]. Timestamp when the user was activated
-
-            - user_state_details: typing.Optional[UserStateDetails].
-
-            - kyc_status_details: typing.Optional[KycStatusDetails].
-
-            - share_holders: typing.Optional[typing.List[Person]]. Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
-
-            - directors: typing.Optional[typing.List[Person]]. Director(s) of the company. Must be at least one
-
-            - transaction_limits: typing.Optional[TransactionLimits].
-
-            - risk_level: typing.Optional[RiskLevel].
-
-            - allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]].
-
-            - linked_entities: typing.Optional[UserEntityLink].
-
-            - acquisition_channel: typing.Optional[AcquisitionChannel].
-
-            - saved_payment_details: typing.Optional[typing.List[BusinessSavedPaymentDetailsItem]].
-
-            - mcc_details: typing.Optional[MccDetails].
-
-            - tags: typing.Optional[typing.List[Tag]]. Additional information that can be added via tags
+            - request: Business.
         ---
-        from flagright import CompanyGeneralDetails, LegalEntity
+        from flagright import Business, CompanyGeneralDetails, LegalEntity
         from flagright.client import Flagright
 
         client = Flagright(
             api_key="YOUR_API_KEY",
         )
         client.business_users.create(
-            user_id="userId",
-            created_timestamp=1.1,
-            legal_entity=LegalEntity(
-                company_general_details=CompanyGeneralDetails(
-                    legal_name="Ozkan Hazelnut Export JSC",
-                    business_industry=["Farming"],
-                    main_products_services_sold=["Hazelnut"],
+            request=Business(
+                user_id="userId",
+                created_timestamp=1.1,
+                legal_entity=LegalEntity(
+                    company_general_details=CompanyGeneralDetails(
+                        legal_name="Ozkan Hazelnut Export JSC",
+                        business_industry=["Farming"],
+                        main_products_services_sold=["Hazelnut"],
+                    ),
                 ),
             ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {
-            "userId": user_id,
-            "createdTimestamp": created_timestamp,
-            "legalEntity": legal_entity,
-        }
-        if activated_timestamp is not OMIT:
-            _request["activatedTimestamp"] = activated_timestamp
-        if user_state_details is not OMIT:
-            _request["userStateDetails"] = user_state_details
-        if kyc_status_details is not OMIT:
-            _request["kycStatusDetails"] = kyc_status_details
-        if share_holders is not OMIT:
-            _request["shareHolders"] = share_holders
-        if directors is not OMIT:
-            _request["directors"] = directors
-        if transaction_limits is not OMIT:
-            _request["transactionLimits"] = transaction_limits
-        if risk_level is not OMIT:
-            _request["riskLevel"] = risk_level
-        if allowed_payment_methods is not OMIT:
-            _request["allowedPaymentMethods"] = allowed_payment_methods
-        if linked_entities is not OMIT:
-            _request["linkedEntities"] = linked_entities
-        if acquisition_channel is not OMIT:
-            _request["acquisitionChannel"] = acquisition_channel
-        if saved_payment_details is not OMIT:
-            _request["savedPaymentDetails"] = saved_payment_details
-        if mcc_details is not OMIT:
-            _request["mccDetails"] = mcc_details
-        if tags is not OMIT:
-            _request["tags"] = tags
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "business/users"),
-            json=jsonable_encoder(_request),
+            params=remove_none_from_dict({"lockCraRiskLevel": lock_cra_risk_level}),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )
@@ -223,24 +141,7 @@ class AsyncBusinessUsersClient:
         self._client_wrapper = client_wrapper
 
     async def create(
-        self,
-        *,
-        user_id: str,
-        created_timestamp: float,
-        legal_entity: LegalEntity,
-        activated_timestamp: typing.Optional[float] = OMIT,
-        user_state_details: typing.Optional[UserStateDetails] = OMIT,
-        kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
-        share_holders: typing.Optional[typing.List[Person]] = OMIT,
-        directors: typing.Optional[typing.List[Person]] = OMIT,
-        transaction_limits: typing.Optional[TransactionLimits] = OMIT,
-        risk_level: typing.Optional[RiskLevel] = OMIT,
-        allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]] = OMIT,
-        linked_entities: typing.Optional[UserEntityLink] = OMIT,
-        acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
-        saved_payment_details: typing.Optional[typing.List[BusinessSavedPaymentDetailsItem]] = OMIT,
-        mcc_details: typing.Optional[MccDetails] = OMIT,
-        tags: typing.Optional[typing.List[Tag]] = OMIT,
+        self, *, lock_cra_risk_level: typing.Optional[BooleanString] = None, request: Business
     ) -> BusinessUsersCreateResponse:
         """
         ## POST Business User
@@ -258,91 +159,35 @@ class AsyncBusinessUsersClient:
         - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
 
         Parameters:
-            - user_id: str. Unique user ID for the user
+            - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
 
-            - created_timestamp: float. Timestamp when the user was created
-
-            - legal_entity: LegalEntity.
-
-            - activated_timestamp: typing.Optional[float]. Timestamp when the user was activated
-
-            - user_state_details: typing.Optional[UserStateDetails].
-
-            - kyc_status_details: typing.Optional[KycStatusDetails].
-
-            - share_holders: typing.Optional[typing.List[Person]]. Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
-
-            - directors: typing.Optional[typing.List[Person]]. Director(s) of the company. Must be at least one
-
-            - transaction_limits: typing.Optional[TransactionLimits].
-
-            - risk_level: typing.Optional[RiskLevel].
-
-            - allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]].
-
-            - linked_entities: typing.Optional[UserEntityLink].
-
-            - acquisition_channel: typing.Optional[AcquisitionChannel].
-
-            - saved_payment_details: typing.Optional[typing.List[BusinessSavedPaymentDetailsItem]].
-
-            - mcc_details: typing.Optional[MccDetails].
-
-            - tags: typing.Optional[typing.List[Tag]]. Additional information that can be added via tags
+            - request: Business.
         ---
-        from flagright import CompanyGeneralDetails, LegalEntity
+        from flagright import Business, CompanyGeneralDetails, LegalEntity
         from flagright.client import AsyncFlagright
 
         client = AsyncFlagright(
             api_key="YOUR_API_KEY",
         )
         await client.business_users.create(
-            user_id="userId",
-            created_timestamp=1.1,
-            legal_entity=LegalEntity(
-                company_general_details=CompanyGeneralDetails(
-                    legal_name="Ozkan Hazelnut Export JSC",
-                    business_industry=["Farming"],
-                    main_products_services_sold=["Hazelnut"],
+            request=Business(
+                user_id="userId",
+                created_timestamp=1.1,
+                legal_entity=LegalEntity(
+                    company_general_details=CompanyGeneralDetails(
+                        legal_name="Ozkan Hazelnut Export JSC",
+                        business_industry=["Farming"],
+                        main_products_services_sold=["Hazelnut"],
+                    ),
                 ),
             ),
         )
         """
-        _request: typing.Dict[str, typing.Any] = {
-            "userId": user_id,
-            "createdTimestamp": created_timestamp,
-            "legalEntity": legal_entity,
-        }
-        if activated_timestamp is not OMIT:
-            _request["activatedTimestamp"] = activated_timestamp
-        if user_state_details is not OMIT:
-            _request["userStateDetails"] = user_state_details
-        if kyc_status_details is not OMIT:
-            _request["kycStatusDetails"] = kyc_status_details
-        if share_holders is not OMIT:
-            _request["shareHolders"] = share_holders
-        if directors is not OMIT:
-            _request["directors"] = directors
-        if transaction_limits is not OMIT:
-            _request["transactionLimits"] = transaction_limits
-        if risk_level is not OMIT:
-            _request["riskLevel"] = risk_level
-        if allowed_payment_methods is not OMIT:
-            _request["allowedPaymentMethods"] = allowed_payment_methods
-        if linked_entities is not OMIT:
-            _request["linkedEntities"] = linked_entities
-        if acquisition_channel is not OMIT:
-            _request["acquisitionChannel"] = acquisition_channel
-        if saved_payment_details is not OMIT:
-            _request["savedPaymentDetails"] = saved_payment_details
-        if mcc_details is not OMIT:
-            _request["mccDetails"] = mcc_details
-        if tags is not OMIT:
-            _request["tags"] = tags
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "business/users"),
-            json=jsonable_encoder(_request),
+            params=remove_none_from_dict({"lockCraRiskLevel": lock_cra_risk_level}),
+            json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
         )

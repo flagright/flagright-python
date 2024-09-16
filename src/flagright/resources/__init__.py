@@ -9,35 +9,11 @@ from . import (
     transaction_events,
     transactions,
 )
-from .business_users import (
-    BusinessSavedPaymentDetailsItem,
-    BusinessSavedPaymentDetailsItem_Ach,
-    BusinessSavedPaymentDetailsItem_Card,
-    BusinessSavedPaymentDetailsItem_Cash,
-    BusinessSavedPaymentDetailsItem_Check,
-    BusinessSavedPaymentDetailsItem_GenericBankAccount,
-    BusinessSavedPaymentDetailsItem_Iban,
-    BusinessSavedPaymentDetailsItem_Mpesa,
-    BusinessSavedPaymentDetailsItem_Swift,
-    BusinessSavedPaymentDetailsItem_Upi,
-    BusinessSavedPaymentDetailsItem_Wallet,
-    BusinessUsersCreateResponse,
-)
+from .business_users import BusinessUsersCreateResponse
 from .consumer_users import ConsumerUsersCreateResponse
 from .transactions import TransactionsVerifyResponse
 
 __all__ = [
-    "BusinessSavedPaymentDetailsItem",
-    "BusinessSavedPaymentDetailsItem_Ach",
-    "BusinessSavedPaymentDetailsItem_Card",
-    "BusinessSavedPaymentDetailsItem_Cash",
-    "BusinessSavedPaymentDetailsItem_Check",
-    "BusinessSavedPaymentDetailsItem_GenericBankAccount",
-    "BusinessSavedPaymentDetailsItem_Iban",
-    "BusinessSavedPaymentDetailsItem_Mpesa",
-    "BusinessSavedPaymentDetailsItem_Swift",
-    "BusinessSavedPaymentDetailsItem_Upi",
-    "BusinessSavedPaymentDetailsItem_Wallet",
     "BusinessUsersCreateResponse",
     "ConsumerUsersCreateResponse",
     "TransactionsVerifyResponse",

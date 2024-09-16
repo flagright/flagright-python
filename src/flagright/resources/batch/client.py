@@ -14,6 +14,8 @@ from ...errors.unauthorized_error import UnauthorizedError
 from ...types.api_error_response import ApiErrorResponse
 from ...types.batch_response import BatchResponse
 from ...types.boolean_string import BooleanString
+from ...types.business import Business
+from ...types.business_user_event import BusinessUserEvent
 from ...types.consumer_user_event import ConsumerUserEvent
 from ...types.transaction import Transaction
 from ...types.transaction_event import TransactionEvent
@@ -191,6 +193,61 @@ class BatchClient:
             raise ApiError(status_code=_response.status_code, body=_response.text)
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
+    def create_business_users(
+        self, *, batch_id: typing.Optional[str] = OMIT, data: typing.List[Business]
+    ) -> BatchResponse:
+        """
+        Parameters:
+            - batch_id: typing.Optional[str].
+
+            - data: typing.List[Business].
+        ---
+        from flagright import Business, CompanyGeneralDetails, LegalEntity
+        from flagright.client import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.batch.create_business_users(
+            data=[
+                Business(
+                    user_id="userId",
+                    created_timestamp=1.1,
+                    legal_entity=LegalEntity(
+                        company_general_details=CompanyGeneralDetails(
+                            legal_name="Ozkan Hazelnut Export JSC",
+                            business_industry=["Farming"],
+                            main_products_services_sold=["Hazelnut"],
+                        ),
+                    ),
+                )
+            ],
+        )
+        """
+        _request: typing.Dict[str, typing.Any] = {"data": data}
+        if batch_id is not OMIT:
+            _request["batchId"] = batch_id
+        _response = self._client_wrapper.httpx_client.request(
+            "POST",
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "batch/business/users"),
+            json=jsonable_encoder(_request),
+            headers=self._client_wrapper.get_headers(),
+            timeout=60,
+        )
+        if 200 <= _response.status_code < 300:
+            return pydantic.parse_obj_as(BatchResponse, _response.json())  # type: ignore
+        if _response.status_code == 400:
+            raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 401:
+            raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 429:
+            raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        try:
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, body=_response.text)
+        raise ApiError(status_code=_response.status_code, body=_response_json)
+
     def create_consumer_user_events(
         self, *, batch_id: typing.Optional[str] = OMIT, data: typing.List[ConsumerUserEvent]
     ) -> BatchResponse:
@@ -221,6 +278,54 @@ class BatchClient:
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "batch/events/consumer/user"),
+            json=jsonable_encoder(_request),
+            headers=self._client_wrapper.get_headers(),
+            timeout=60,
+        )
+        if 200 <= _response.status_code < 300:
+            return pydantic.parse_obj_as(BatchResponse, _response.json())  # type: ignore
+        if _response.status_code == 400:
+            raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 401:
+            raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 429:
+            raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        try:
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, body=_response.text)
+        raise ApiError(status_code=_response.status_code, body=_response_json)
+
+    def create_business_user_events(
+        self, *, batch_id: typing.Optional[str] = OMIT, data: typing.List[BusinessUserEvent]
+    ) -> BatchResponse:
+        """
+        Parameters:
+            - batch_id: typing.Optional[str].
+
+            - data: typing.List[BusinessUserEvent].
+        ---
+        from flagright import BusinessUserEvent
+        from flagright.client import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.batch.create_business_user_events(
+            data=[
+                BusinessUserEvent(
+                    timestamp=1.1,
+                    user_id="userId",
+                )
+            ],
+        )
+        """
+        _request: typing.Dict[str, typing.Any] = {"data": data}
+        if batch_id is not OMIT:
+            _request["batchId"] = batch_id
+        _response = self._client_wrapper.httpx_client.request(
+            "POST",
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "batch/events/business/user"),
             json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -405,6 +510,61 @@ class AsyncBatchClient:
             raise ApiError(status_code=_response.status_code, body=_response.text)
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
+    async def create_business_users(
+        self, *, batch_id: typing.Optional[str] = OMIT, data: typing.List[Business]
+    ) -> BatchResponse:
+        """
+        Parameters:
+            - batch_id: typing.Optional[str].
+
+            - data: typing.List[Business].
+        ---
+        from flagright import Business, CompanyGeneralDetails, LegalEntity
+        from flagright.client import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+        await client.batch.create_business_users(
+            data=[
+                Business(
+                    user_id="userId",
+                    created_timestamp=1.1,
+                    legal_entity=LegalEntity(
+                        company_general_details=CompanyGeneralDetails(
+                            legal_name="Ozkan Hazelnut Export JSC",
+                            business_industry=["Farming"],
+                            main_products_services_sold=["Hazelnut"],
+                        ),
+                    ),
+                )
+            ],
+        )
+        """
+        _request: typing.Dict[str, typing.Any] = {"data": data}
+        if batch_id is not OMIT:
+            _request["batchId"] = batch_id
+        _response = await self._client_wrapper.httpx_client.request(
+            "POST",
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "batch/business/users"),
+            json=jsonable_encoder(_request),
+            headers=self._client_wrapper.get_headers(),
+            timeout=60,
+        )
+        if 200 <= _response.status_code < 300:
+            return pydantic.parse_obj_as(BatchResponse, _response.json())  # type: ignore
+        if _response.status_code == 400:
+            raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 401:
+            raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 429:
+            raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        try:
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, body=_response.text)
+        raise ApiError(status_code=_response.status_code, body=_response_json)
+
     async def create_consumer_user_events(
         self, *, batch_id: typing.Optional[str] = OMIT, data: typing.List[ConsumerUserEvent]
     ) -> BatchResponse:
@@ -435,6 +595,54 @@ class AsyncBatchClient:
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "batch/events/consumer/user"),
+            json=jsonable_encoder(_request),
+            headers=self._client_wrapper.get_headers(),
+            timeout=60,
+        )
+        if 200 <= _response.status_code < 300:
+            return pydantic.parse_obj_as(BatchResponse, _response.json())  # type: ignore
+        if _response.status_code == 400:
+            raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 401:
+            raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 429:
+            raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        try:
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, body=_response.text)
+        raise ApiError(status_code=_response.status_code, body=_response_json)
+
+    async def create_business_user_events(
+        self, *, batch_id: typing.Optional[str] = OMIT, data: typing.List[BusinessUserEvent]
+    ) -> BatchResponse:
+        """
+        Parameters:
+            - batch_id: typing.Optional[str].
+
+            - data: typing.List[BusinessUserEvent].
+        ---
+        from flagright import BusinessUserEvent
+        from flagright.client import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+        await client.batch.create_business_user_events(
+            data=[
+                BusinessUserEvent(
+                    timestamp=1.1,
+                    user_id="userId",
+                )
+            ],
+        )
+        """
+        _request: typing.Dict[str, typing.Any] = {"data": data}
+        if batch_id is not OMIT:
+            _request["batchId"] = batch_id
+        _response = await self._client_wrapper.httpx_client.request(
+            "POST",
+            urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "batch/events/business/user"),
             json=jsonable_encoder(_request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,

@@ -4,8 +4,6 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .batch_response_failed_record import BatchResponseFailedRecord
-from .batch_response_status import BatchResponseStatus
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -13,17 +11,13 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class BatchResponse(pydantic.BaseModel):
+class BatchResponseFailedRecord(pydantic.BaseModel):
     """
-    Response from creation of a batch
+    Failed record in a batch response
     """
 
-    status: BatchResponseStatus
-    batch_id: str = pydantic.Field(alias="batchId")
-    successful: float
-    failed: float
-    failed_records: typing.Optional[typing.List[BatchResponseFailedRecord]] = pydantic.Field(alias="failedRecords")
-    message: typing.Optional[str]
+    id: typing.Optional[str]
+    reason_code: typing.Optional[str] = pydantic.Field(alias="reasonCode")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

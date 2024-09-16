@@ -7,10 +7,12 @@ from json.decoder import JSONDecodeError
 from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.jsonable_encoder import jsonable_encoder
+from ...core.remove_none_from_dict import remove_none_from_dict
 from ...errors.bad_request_error import BadRequestError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.api_error_response import ApiErrorResponse
+from ...types.boolean_string import BooleanString
 from ...types.user import User
 from ...types.user_with_rules_result import UserWithRulesResult
 from .types.consumer_users_create_response import ConsumerUsersCreateResponse
@@ -28,7 +30,9 @@ class ConsumerUsersClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def create(self, *, request: User) -> ConsumerUsersCreateResponse:
+    def create(
+        self, *, lock_cra_risk_level: typing.Optional[BooleanString] = None, request: User
+    ) -> ConsumerUsersCreateResponse:
         """
         ## POST Consumer User
 
@@ -44,6 +48,8 @@ class ConsumerUsersClient:
         - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
 
         Parameters:
+            - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
+
             - request: User.
         ---
         from flagright import (
@@ -122,6 +128,7 @@ class ConsumerUsersClient:
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "consumer/users"),
+            params=remove_none_from_dict({"lockCraRiskLevel": lock_cra_risk_level}),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -185,7 +192,9 @@ class AsyncConsumerUsersClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def create(self, *, request: User) -> ConsumerUsersCreateResponse:
+    async def create(
+        self, *, lock_cra_risk_level: typing.Optional[BooleanString] = None, request: User
+    ) -> ConsumerUsersCreateResponse:
         """
         ## POST Consumer User
 
@@ -201,6 +210,8 @@ class AsyncConsumerUsersClient:
         - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
 
         Parameters:
+            - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
+
             - request: User.
         ---
         from flagright import (
@@ -279,6 +290,7 @@ class AsyncConsumerUsersClient:
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "consumer/users"),
+            params=remove_none_from_dict({"lockCraRiskLevel": lock_cra_risk_level}),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
