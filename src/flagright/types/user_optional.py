@@ -15,12 +15,12 @@ from .legal_document import LegalDocument
 from .pep_status import PepStatus
 from .risk_level import RiskLevel
 from .source_of_funds import SourceOfFunds
-from .tag import Tag
 from .transaction_limits import TransactionLimits
 from .user_details import UserDetails
 from .user_entity_link import UserEntityLink
 from .user_optional_saved_payment_details_item import UserOptionalSavedPaymentDetailsItem
 from .user_state_details import UserStateDetails
+from .user_tag import UserTag
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -58,7 +58,7 @@ class UserOptional(pydantic.BaseModel):
     saved_payment_details: typing.Optional[typing.List[UserOptionalSavedPaymentDetailsItem]] = pydantic.Field(
         alias="savedPaymentDetails"
     )
-    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+    tags: typing.Optional[typing.List[UserTag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )
 

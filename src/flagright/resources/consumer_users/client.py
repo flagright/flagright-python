@@ -61,6 +61,7 @@ class ConsumerUsersClient:
             Tag,
             User,
             UserDetails,
+            UserTag,
         )
         from flagright.client import Flagright
 
@@ -117,7 +118,7 @@ class ConsumerUsersClient:
                     ],
                 ),
                 tags=[
-                    Tag(
+                    UserTag(
                         key="customKey",
                         value="customValue",
                     )
@@ -223,6 +224,7 @@ class AsyncConsumerUsersClient:
             Tag,
             User,
             UserDetails,
+            UserTag,
         )
         from flagright.client import AsyncFlagright
 
@@ -279,7 +281,7 @@ class AsyncConsumerUsersClient:
                     ],
                 ),
                 tags=[
-                    Tag(
+                    UserTag(
                         key="customKey",
                         value="customValue",
                     )

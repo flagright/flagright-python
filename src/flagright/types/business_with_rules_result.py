@@ -14,11 +14,11 @@ from .mcc_details import MccDetails
 from .payment_method import PaymentMethod
 from .person import Person
 from .risk_level import RiskLevel
-from .tag import Tag
 from .transaction_limits import TransactionLimits
 from .user_entity_link import UserEntityLink
 from .user_risk_score_details import UserRiskScoreDetails
 from .user_state_details import UserStateDetails
+from .user_tag import UserTag
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -53,7 +53,7 @@ class BusinessWithRulesResult(pydantic.BaseModel):
         typing.List[BusinessWithRulesResultSavedPaymentDetailsItem]
     ] = pydantic.Field(alias="savedPaymentDetails")
     mcc_details: typing.Optional[MccDetails] = pydantic.Field(alias="mccDetails")
-    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
+    tags: typing.Optional[typing.List[UserTag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )
     executed_rules: typing.Optional[typing.List[ExecutedRulesResult]] = pydantic.Field(alias="executedRules")

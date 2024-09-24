@@ -12,7 +12,7 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class ExecutedRuleVars(pydantic.BaseModel):
+class ExecutedLogicVars(pydantic.BaseModel):
     direction: typing.Optional[RuleHitDirection]
     value: typing.Dict[str, typing.Any]
 

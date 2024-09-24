@@ -4,7 +4,6 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
-from .risk_level import RiskLevel
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -12,17 +11,12 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class TransactionRiskScoringResult(pydantic.BaseModel):
-    trs_score: float = pydantic.Field(alias="trsScore", description="Transaction risk scoring score")
-    trs_risk_level: RiskLevel = pydantic.Field(alias="trsRiskLevel")
-    origin_user_cra_risk_score: typing.Optional[float] = pydantic.Field(
-        alias="originUserCraRiskScore", description="Origin user's CRA risk score"
+class UserTag(pydantic.BaseModel):
+    key: str = pydantic.Field(description="Key value when you are creating a custom variable")
+    value: str = pydantic.Field(description="Value for a given key when you are creating a custom variable")
+    is_editable: typing.Optional[bool] = pydantic.Field(
+        alias="isEditable", description="Flag to indicate if the tag is editable over the console"
     )
-    destination_user_cra_risk_score: typing.Optional[float] = pydantic.Field(
-        alias="destinationUserCraRiskScore", description="Destination user's CRA risk score"
-    )
-    origin_user_cra_risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="originUserCraRiskLevel")
-    destination_user_cra_risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="destinationUserCraRiskLevel")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

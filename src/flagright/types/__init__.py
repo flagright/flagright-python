@@ -93,7 +93,7 @@ from .device_data import DeviceData
 from .email_id import EmailId
 from .employment_details import EmploymentDetails
 from .employment_status import EmploymentStatus
-from .executed_rule_vars import ExecutedRuleVars
+from .executed_logic_vars import ExecutedLogicVars
 from .executed_rules_result import ExecutedRulesResult
 from .expected_income import ExpectedIncome
 from .failed_rules_result import FailedRulesResult
@@ -278,6 +278,7 @@ from .user_saved_payment_details_item import (
 )
 from .user_state import UserState
 from .user_state_details import UserStateDetails
+from .user_tag import UserTag
 from .user_with_rules_result import UserWithRulesResult
 from .user_with_rules_result_saved_payment_details_item import (
     UserWithRulesResultSavedPaymentDetailsItem,
@@ -390,7 +391,7 @@ __all__ = [
     "EmailId",
     "EmploymentDetails",
     "EmploymentStatus",
-    "ExecutedRuleVars",
+    "ExecutedLogicVars",
     "ExecutedRulesResult",
     "ExpectedIncome",
     "FailedRulesResult",
@@ -559,6 +560,7 @@ __all__ = [
     "UserSavedPaymentDetailsItem_Wallet",
     "UserState",
     "UserStateDetails",
+    "UserTag",
     "UserWithRulesResult",
     "UserWithRulesResultSavedPaymentDetailsItem",
     "UserWithRulesResultSavedPaymentDetailsItem_Ach",
