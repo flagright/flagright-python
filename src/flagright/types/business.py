@@ -44,6 +44,9 @@ class Business(pydantic.BaseModel):
     transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
     risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
     allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]] = pydantic.Field(alias="allowedPaymentMethods")
+    last_transaction_timestamp: typing.Optional[float] = pydantic.Field(
+        alias="lastTransactionTimestamp", description="Timestamp of the last successful transaction of the user"
+    )
     linked_entities: typing.Optional[UserEntityLink] = pydantic.Field(alias="linkedEntities")
     acquisition_channel: typing.Optional[AcquisitionChannel] = pydantic.Field(alias="acquisitionChannel")
     saved_payment_details: typing.Optional[typing.List[BusinessSavedPaymentDetailsItem]] = pydantic.Field(

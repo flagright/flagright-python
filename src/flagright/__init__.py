@@ -280,7 +280,7 @@ from .types import (
     WebhookEventTriggeredBy,
     WebhookEventType,
 )
-from .errors import BadRequestError, TooManyRequestsError, UnauthorizedError
+from .errors import BadRequestError, ConflictError, TooManyRequestsError, UnauthorizedError
 from .resources import (
     BusinessUsersCreateResponse,
     ConsumerUsersCreateResponse,
@@ -372,6 +372,7 @@ __all__ = [
     "CompanyFinancialDetails",
     "CompanyGeneralDetails",
     "CompanyRegistrationDetails",
+    "ConflictError",
     "ConsumerName",
     "ConsumerUserEvent",
     "ConsumerUserEventWithRulesResult",

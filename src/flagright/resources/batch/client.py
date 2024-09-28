@@ -9,6 +9,7 @@ from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.jsonable_encoder import jsonable_encoder
 from ...core.remove_none_from_dict import remove_none_from_dict
 from ...errors.bad_request_error import BadRequestError
+from ...errors.conflict_error import ConflictError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
 from ...types.api_error_response import ApiErrorResponse
@@ -139,6 +140,8 @@ class BatchClient:
             raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 401:
             raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 409:
+            raise ConflictError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 429:
             raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         try:
@@ -454,6 +457,8 @@ class AsyncBatchClient:
             raise BadRequestError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 401:
             raise UnauthorizedError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
+        if _response.status_code == 409:
+            raise ConflictError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         if _response.status_code == 429:
             raise TooManyRequestsError(pydantic.parse_obj_as(ApiErrorResponse, _response.json()))  # type: ignore
         try:

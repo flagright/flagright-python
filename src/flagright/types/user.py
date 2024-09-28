@@ -52,6 +52,9 @@ class User(pydantic.BaseModel):
     source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = pydantic.Field(alias="sourceOfFunds")
     user_segment: typing.Optional[ConsumerUserSegment] = pydantic.Field(alias="userSegment")
     pep_status: typing.Optional[typing.List[PepStatus]] = pydantic.Field(alias="pepStatus")
+    last_transaction_timestamp: typing.Optional[float] = pydantic.Field(
+        alias="lastTransactionTimestamp", description="Timestamp of the last successful transaction of the user"
+    )
     linked_entities: typing.Optional[UserEntityLink] = pydantic.Field(alias="linkedEntities")
     saved_payment_details: typing.Optional[typing.List[UserSavedPaymentDetailsItem]] = pydantic.Field(
         alias="savedPaymentDetails"
