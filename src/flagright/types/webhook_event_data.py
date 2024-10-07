@@ -9,6 +9,7 @@ from .case_opened_details import CaseOpenedDetails
 from .kyc_status_details import KycStatusDetails
 from .transaction_status_details import TransactionStatusDetails
 from .user_state_details import UserStateDetails
+from .user_tags_update import UserTagsUpdate
 
 WebhookEventData = typing.Union[
     UserStateDetails,
@@ -18,4 +19,5 @@ WebhookEventData = typing.Union[
     AlertOpenedDetails,
     TransactionStatusDetails,
     KycStatusDetails,
+    UserTagsUpdate,
 ]

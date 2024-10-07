@@ -4,6 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
+from .user_tag import UserTag
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -11,15 +12,9 @@ except ImportError:
     import pydantic  # type: ignore
 
 
-class OriginFundsInfo(pydantic.BaseModel):
-    """
-    Model for origin funds information
-    """
-
-    source_of_funds: typing.Optional[str] = pydantic.Field(
-        alias="sourceOfFunds", description="Source of funds for the transaction"
-    )
-    source_of_wealth: typing.Optional[str] = pydantic.Field(alias="sourceOfWealth", description="Source of wealth")
+class UserTagsUpdate(pydantic.BaseModel):
+    user_id: typing.Optional[str] = pydantic.Field(alias="userId")
+    tags: typing.Optional[typing.List[UserTag]]
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

@@ -279,6 +279,7 @@ from .user_saved_payment_details_item import (
 from .user_state import UserState
 from .user_state_details import UserStateDetails
 from .user_tag import UserTag
+from .user_tags_update import UserTagsUpdate
 from .user_with_rules_result import UserWithRulesResult
 from .user_with_rules_result_saved_payment_details_item import (
     UserWithRulesResultSavedPaymentDetailsItem,
@@ -561,6 +562,7 @@ __all__ = [
     "UserState",
     "UserStateDetails",
     "UserTag",
+    "UserTagsUpdate",
     "UserWithRulesResult",
     "UserWithRulesResultSavedPaymentDetailsItem",
     "UserWithRulesResultSavedPaymentDetailsItem_Ach",

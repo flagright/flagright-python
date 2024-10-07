@@ -21,6 +21,7 @@ class ListHeader(pydantic.BaseModel):
     metadata: typing.Optional[ListMetadata]
     created_timestamp: float = pydantic.Field(alias="createdTimestamp")
     size: float
+    version: typing.Optional[float]
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
