@@ -23,6 +23,7 @@ class CompanyRegistrationDetails(pydantic.BaseModel):
         description="Commercial registry registration number for the company in its registration country",
     )
     registration_country: CountryCode = pydantic.Field(alias="registrationCountry")
+    tax_residence_country: typing.Optional[CountryCode] = pydantic.Field(alias="taxResidenceCountry")
     tax_identifier: typing.Optional[str] = pydantic.Field(
         alias="taxIdentifier", description="Tax ID number of the registered entity"
     )

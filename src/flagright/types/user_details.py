@@ -29,10 +29,12 @@ class UserDetails(pydantic.BaseModel):
         alias="userCategory", description="Internal category of the user"
     )
     country_of_residence: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfResidence")
+    country_of_tax_residence: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfTaxResidence")
     country_of_nationality: typing.Optional[CountryCode] = pydantic.Field(alias="countryOfNationality")
     gender: typing.Optional[Gender]
     marital_status: typing.Optional[MaritalStatus] = pydantic.Field(alias="maritalStatus")
     place_of_birth: typing.Optional[PlaceOfBirth] = pydantic.Field(alias="placeOfBirth")
+    alias: typing.Optional[typing.List[str]] = pydantic.Field(description="Alias names of the user")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

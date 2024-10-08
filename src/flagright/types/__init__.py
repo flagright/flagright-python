@@ -87,6 +87,7 @@ from .consumer_user_monitoring_result import ConsumerUserMonitoringResult
 from .consumer_user_segment import ConsumerUserSegment
 from .contact_details import ContactDetails
 from .country_code import CountryCode
+from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
 from .currency_code import CurrencyCode
 from .date import Date
 from .device_data import DeviceData
@@ -386,6 +387,7 @@ __all__ = [
     "ConsumerUserSegment",
     "ContactDetails",
     "CountryCode",
+    "CraRiskLevelUpdatedDetails",
     "CurrencyCode",
     "Date",
     "DeviceData",

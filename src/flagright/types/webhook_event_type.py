@@ -15,6 +15,7 @@ class WebhookEventType(str, enum.Enum):
     CASE_OPENED = "CASE_OPENED"
     ALERT_OPENED = "ALERT_OPENED"
     USER_TAGS_UPDATED = "USER_TAGS_UPDATED"
+    CRA_RISK_LEVEL_UPDATED = "CRA_RISK_LEVEL_UPDATED"
 
     def visit(
         self,
@@ -26,6 +27,7 @@ class WebhookEventType(str, enum.Enum):
         case_opened: typing.Callable[[], T_Result],
         alert_opened: typing.Callable[[], T_Result],
         user_tags_updated: typing.Callable[[], T_Result],
+        cra_risk_level_updated: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is WebhookEventType.CASE_CLOSED:
             return case_closed()
@@ -43,3 +45,5 @@ class WebhookEventType(str, enum.Enum):
             return alert_opened()
         if self is WebhookEventType.USER_TAGS_UPDATED:
             return user_tags_updated()
+        if self is WebhookEventType.CRA_RISK_LEVEL_UPDATED:
+            return cra_risk_level_updated()
