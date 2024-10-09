@@ -124,6 +124,7 @@ from .mpesa_payment_method import MpesaPaymentMethod
 from .mpesa_transaction_type import MpesaTransactionType
 from .origin_funds_info import OriginFundsInfo
 from .payment_method import PaymentMethod
+from .pep_rank import PepRank
 from .pep_status import PepStatus
 from .person import Person
 from .place_of_birth import PlaceOfBirth
@@ -424,6 +425,7 @@ __all__ = [
     "MpesaTransactionType",
     "OriginFundsInfo",
     "PaymentMethod",
+    "PepRank",
     "PepStatus",
     "Person",
     "PlaceOfBirth",

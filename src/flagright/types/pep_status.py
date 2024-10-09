@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .country_code import CountryCode
+from .pep_rank import PepRank
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -15,6 +16,7 @@ except ImportError:
 class PepStatus(pydantic.BaseModel):
     is_pep_hit: bool = pydantic.Field(alias="isPepHit")
     pep_country: typing.Optional[CountryCode] = pydantic.Field(alias="pepCountry")
+    pep_rank: typing.Optional[PepRank] = pydantic.Field(alias="pepRank")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

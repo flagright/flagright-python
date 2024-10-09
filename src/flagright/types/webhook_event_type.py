@@ -14,6 +14,7 @@ class WebhookEventType(str, enum.Enum):
     KYC_STATUS_UPDATED = "KYC_STATUS_UPDATED"
     CASE_OPENED = "CASE_OPENED"
     ALERT_OPENED = "ALERT_OPENED"
+    PEP_STATUS_UPDATED = "PEP_STATUS_UPDATED"
     USER_TAGS_UPDATED = "USER_TAGS_UPDATED"
     CRA_RISK_LEVEL_UPDATED = "CRA_RISK_LEVEL_UPDATED"
 
@@ -26,6 +27,7 @@ class WebhookEventType(str, enum.Enum):
         kyc_status_updated: typing.Callable[[], T_Result],
         case_opened: typing.Callable[[], T_Result],
         alert_opened: typing.Callable[[], T_Result],
+        pep_status_updated: typing.Callable[[], T_Result],
         user_tags_updated: typing.Callable[[], T_Result],
         cra_risk_level_updated: typing.Callable[[], T_Result],
     ) -> T_Result:
@@ -43,6 +45,8 @@ class WebhookEventType(str, enum.Enum):
             return case_opened()
         if self is WebhookEventType.ALERT_OPENED:
             return alert_opened()
+        if self is WebhookEventType.PEP_STATUS_UPDATED:
+            return pep_status_updated()
         if self is WebhookEventType.USER_TAGS_UPDATED:
             return user_tags_updated()
         if self is WebhookEventType.CRA_RISK_LEVEL_UPDATED:
