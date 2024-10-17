@@ -19,6 +19,7 @@ class ListSubtype(str, enum.Enum):
     IP_ADDRESS = "IP_ADDRESS"
     DEVICE_IDENTIFIER = "DEVICE_IDENTIFIER"
     STRING = "STRING"
+    COUNTRY = "COUNTRY"
 
     def visit(
         self,
@@ -34,6 +35,7 @@ class ListSubtype(str, enum.Enum):
         ip_address: typing.Callable[[], T_Result],
         device_identifier: typing.Callable[[], T_Result],
         string: typing.Callable[[], T_Result],
+        country: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is ListSubtype.USER_ID:
             return user_id()
@@ -59,3 +61,5 @@ class ListSubtype(str, enum.Enum):
             return device_identifier()
         if self is ListSubtype.STRING:
             return string()
+        if self is ListSubtype.COUNTRY:
+            return country()
