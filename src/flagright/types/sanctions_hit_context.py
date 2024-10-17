@@ -14,7 +14,7 @@ except ImportError:
 
 
 class SanctionsHitContext(pydantic.BaseModel):
-    entity: typing.Optional[SanctionsScreeningEntity]
+    entity: SanctionsScreeningEntity
     entity_type: typing.Optional[SanctionsDetailsEntityType] = pydantic.Field(alias="entityType")
     user_id: typing.Optional[str] = pydantic.Field(alias="userId")
     transaction_id: typing.Optional[str] = pydantic.Field(alias="transactionId")

@@ -20,7 +20,7 @@ class WalletDetails(pydantic.BaseModel):
     Standardized model for a Generic wallet transaction
     """
 
-    wallet_type: str = pydantic.Field(
+    wallet_type: typing.Optional[str] = pydantic.Field(
         alias="walletType",
         description="Wallet type if there are various types of wallets belonging to the same user. E.g. Checking, savings, vault, different currency wallets etc.",
     )
