@@ -31,7 +31,12 @@ class ConsumerUsersClient:
         self._client_wrapper = client_wrapper
 
     def create(
-        self, *, lock_cra_risk_level: typing.Optional[BooleanString] = None, request: User
+        self,
+        *,
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        validate_user_id: typing.Optional[BooleanString] = None,
+        krs_only: typing.Optional[BooleanString] = None,
+        request: User,
     ) -> ConsumerUsersCreateResponse:
         """
         ## POST Consumer User
@@ -49,6 +54,10 @@ class ConsumerUsersClient:
 
         Parameters:
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
+
+            - validate_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate the userId
+
+            - krs_only: typing.Optional[BooleanString].
 
             - request: User.
         ---
@@ -129,7 +138,9 @@ class ConsumerUsersClient:
         _response = self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "consumer/users"),
-            params=remove_none_from_dict({"lockCraRiskLevel": lock_cra_risk_level}),
+            params=remove_none_from_dict(
+                {"lockCraRiskLevel": lock_cra_risk_level, "validateUserId": validate_user_id, "_krsOnly": krs_only}
+            ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,
@@ -194,7 +205,12 @@ class AsyncConsumerUsersClient:
         self._client_wrapper = client_wrapper
 
     async def create(
-        self, *, lock_cra_risk_level: typing.Optional[BooleanString] = None, request: User
+        self,
+        *,
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        validate_user_id: typing.Optional[BooleanString] = None,
+        krs_only: typing.Optional[BooleanString] = None,
+        request: User,
     ) -> ConsumerUsersCreateResponse:
         """
         ## POST Consumer User
@@ -212,6 +228,10 @@ class AsyncConsumerUsersClient:
 
         Parameters:
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
+
+            - validate_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate the userId
+
+            - krs_only: typing.Optional[BooleanString].
 
             - request: User.
         ---
@@ -292,7 +312,9 @@ class AsyncConsumerUsersClient:
         _response = await self._client_wrapper.httpx_client.request(
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "consumer/users"),
-            params=remove_none_from_dict({"lockCraRiskLevel": lock_cra_risk_level}),
+            params=remove_none_from_dict(
+                {"lockCraRiskLevel": lock_cra_risk_level, "validateUserId": validate_user_id, "_krsOnly": krs_only}
+            ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
             timeout=60,

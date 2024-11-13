@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
+from .amount import Amount
 from .email_id import EmailId
 from .tag import Tag
 
@@ -25,6 +26,7 @@ class AchDetails(pydantic.BaseModel):
     account_number: typing.Optional[str] = pydantic.Field(
         alias="accountNumber", description="Bank account number of the individual"
     )
+    account_balance: typing.Optional[Amount] = pydantic.Field(alias="accountBalance")
     bank_name: typing.Optional[str] = pydantic.Field(alias="bankName", description="Name of the bank")
     name: typing.Optional[str] = pydantic.Field(description="Name of the account holder")
     bank_address: typing.Optional[Address] = pydantic.Field(alias="bankAddress")

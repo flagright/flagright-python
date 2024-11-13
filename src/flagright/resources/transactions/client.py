@@ -35,6 +35,8 @@ class TransactionsClient:
         *,
         validate_origin_user_id: typing.Optional[BooleanString] = None,
         validate_destination_user_id: typing.Optional[BooleanString] = None,
+        validate_transaction_id: typing.Optional[BooleanString] = None,
+        trs_only: typing.Optional[BooleanString] = None,
         request: Transaction,
     ) -> TransactionsVerifyResponse:
         """
@@ -63,6 +65,10 @@ class TransactionsClient:
             - validate_origin_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided originUserId exist. True by default
 
             - validate_destination_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided destinationUserId exist. True by default
+
+            - validate_transaction_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided transactionId exist. True by default
+
+            - trs_only: typing.Optional[BooleanString].
 
             - request: Transaction.
         ---
@@ -141,6 +147,8 @@ class TransactionsClient:
                 {
                     "validateOriginUserId": validate_origin_user_id,
                     "validateDestinationUserId": validate_destination_user_id,
+                    "validateTransactionId": validate_transaction_id,
+                    "_trsOnly": trs_only,
                 }
             ),
             json=jsonable_encoder(request),
@@ -211,6 +219,8 @@ class AsyncTransactionsClient:
         *,
         validate_origin_user_id: typing.Optional[BooleanString] = None,
         validate_destination_user_id: typing.Optional[BooleanString] = None,
+        validate_transaction_id: typing.Optional[BooleanString] = None,
+        trs_only: typing.Optional[BooleanString] = None,
         request: Transaction,
     ) -> TransactionsVerifyResponse:
         """
@@ -239,6 +249,10 @@ class AsyncTransactionsClient:
             - validate_origin_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided originUserId exist. True by default
 
             - validate_destination_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided destinationUserId exist. True by default
+
+            - validate_transaction_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided transactionId exist. True by default
+
+            - trs_only: typing.Optional[BooleanString].
 
             - request: Transaction.
         ---
@@ -317,6 +331,8 @@ class AsyncTransactionsClient:
                 {
                     "validateOriginUserId": validate_origin_user_id,
                     "validateDestinationUserId": validate_destination_user_id,
+                    "validateTransactionId": validate_transaction_id,
+                    "_trsOnly": trs_only,
                 }
             ),
             json=jsonable_encoder(request),

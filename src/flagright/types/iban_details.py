@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
+from .amount import Amount
 from .country_code import CountryCode
 from .email_id import EmailId
 from .tag import Tag
@@ -30,6 +31,7 @@ class IbanDetails(pydantic.BaseModel):
     iban: typing.Optional[str] = pydantic.Field(
         alias="IBAN", description="Account number of the user. Can be account number, IBAN number etc."
     )
+    account_balance: typing.Optional[Amount] = pydantic.Field(alias="accountBalance")
     name: typing.Optional[str] = pydantic.Field(description="Name of the bank account holder")
     email_id: typing.Optional[EmailId] = pydantic.Field(alias="emailId")
     bank_branch_code: typing.Optional[str] = pydantic.Field(

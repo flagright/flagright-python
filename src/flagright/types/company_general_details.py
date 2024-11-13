@@ -19,7 +19,7 @@ class CompanyGeneralDetails(pydantic.BaseModel):
     Model for business user company general details
     """
 
-    legal_name: str = pydantic.Field(alias="legalName", description="Legal name of the company")
+    legal_name: typing.Optional[str] = pydantic.Field(alias="legalName", description="Legal name of the company")
     business_industry: typing.Optional[typing.List[str]] = pydantic.Field(
         alias="businessIndustry", description="The industry in which the business operates for a business customer"
     )

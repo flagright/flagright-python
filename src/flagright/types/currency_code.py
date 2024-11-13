@@ -464,6 +464,23 @@ class CurrencyCode(str, enum.Enum):
     ZMW = "ZMW"
     ZRX = "ZRX"
     ZWD = "ZWD"
+    FDUSD = "FDUSD"
+    AGX = "AGX"
+    AUX = "AUX"
+    BNB = "BNB"
+    CUBE = "CUBE"
+    EMON = "EMON"
+    FDGT = "FDGT"
+    KGLD = "KGLD"
+    LODE = "LODE"
+    PASS = "PASS"
+    PREMIA = "PREMIA"
+    TAB_1 = "TAB1"
+    TD_USD = "TD-USD"
+    TRX = "TRX"
+    TYUGA = "TYUGA"
+    VIC = "VIC"
+    XAI = "XAI"
 
     def visit(
         self,
@@ -924,6 +941,23 @@ class CurrencyCode(str, enum.Enum):
         zmw: typing.Callable[[], T_Result],
         zrx: typing.Callable[[], T_Result],
         zwd: typing.Callable[[], T_Result],
+        fdusd: typing.Callable[[], T_Result],
+        agx: typing.Callable[[], T_Result],
+        aux: typing.Callable[[], T_Result],
+        bnb: typing.Callable[[], T_Result],
+        cube: typing.Callable[[], T_Result],
+        emon: typing.Callable[[], T_Result],
+        fdgt: typing.Callable[[], T_Result],
+        kgld: typing.Callable[[], T_Result],
+        lode: typing.Callable[[], T_Result],
+        pass_: typing.Callable[[], T_Result],
+        premia: typing.Callable[[], T_Result],
+        tab_1: typing.Callable[[], T_Result],
+        td_usd: typing.Callable[[], T_Result],
+        trx: typing.Callable[[], T_Result],
+        tyuga: typing.Callable[[], T_Result],
+        vic: typing.Callable[[], T_Result],
+        xai: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is CurrencyCode.ONE_INCH:
             return one_inch()
@@ -1839,3 +1873,37 @@ class CurrencyCode(str, enum.Enum):
             return zrx()
         if self is CurrencyCode.ZWD:
             return zwd()
+        if self is CurrencyCode.FDUSD:
+            return fdusd()
+        if self is CurrencyCode.AGX:
+            return agx()
+        if self is CurrencyCode.AUX:
+            return aux()
+        if self is CurrencyCode.BNB:
+            return bnb()
+        if self is CurrencyCode.CUBE:
+            return cube()
+        if self is CurrencyCode.EMON:
+            return emon()
+        if self is CurrencyCode.FDGT:
+            return fdgt()
+        if self is CurrencyCode.KGLD:
+            return kgld()
+        if self is CurrencyCode.LODE:
+            return lode()
+        if self is CurrencyCode.PASS:
+            return pass_()
+        if self is CurrencyCode.PREMIA:
+            return premia()
+        if self is CurrencyCode.TAB_1:
+            return tab_1()
+        if self is CurrencyCode.TD_USD:
+            return td_usd()
+        if self is CurrencyCode.TRX:
+            return trx()
+        if self is CurrencyCode.TYUGA:
+            return tyuga()
+        if self is CurrencyCode.VIC:
+            return vic()
+        if self is CurrencyCode.XAI:
+            return xai()

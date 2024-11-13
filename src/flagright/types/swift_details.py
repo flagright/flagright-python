@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .address import Address
+from .amount import Amount
 from .email_id import EmailId
 from .tag import Tag
 
@@ -23,6 +24,7 @@ class SwiftDetails(pydantic.BaseModel):
         alias="swiftCode", description="SWIFT code of the financial institution"
     )
     account_number: typing.Optional[str] = pydantic.Field(alias="accountNumber", description="Account number")
+    account_balance: typing.Optional[Amount] = pydantic.Field(alias="accountBalance")
     account_type: typing.Optional[str] = pydantic.Field(
         alias="accountType", description="Account type. E.g. Checking, Savings etc."
     )

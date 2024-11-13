@@ -19,6 +19,8 @@ class WalletNetwork(str, enum.Enum):
     ARBITRUM_L_2 = "ARBITRUM_L2"
     SOLANA = "SOLANA"
     AVALANCHE_C_CHAIN = "AVALANCHE_C_CHAIN"
+    TEZOS = "TEZOS"
+    VICTION = "VICTION"
     LITECOIN = "LITECOIN"
     BITCOIN_CASH = "BITCOIN_CASH"
     RIPPLE = "RIPPLE"
@@ -46,6 +48,8 @@ class WalletNetwork(str, enum.Enum):
         arbitrum_l_2: typing.Callable[[], T_Result],
         solana: typing.Callable[[], T_Result],
         avalanche_c_chain: typing.Callable[[], T_Result],
+        tezos: typing.Callable[[], T_Result],
+        viction: typing.Callable[[], T_Result],
         litecoin: typing.Callable[[], T_Result],
         bitcoin_cash: typing.Callable[[], T_Result],
         ripple: typing.Callable[[], T_Result],
@@ -79,6 +83,10 @@ class WalletNetwork(str, enum.Enum):
             return solana()
         if self is WalletNetwork.AVALANCHE_C_CHAIN:
             return avalanche_c_chain()
+        if self is WalletNetwork.TEZOS:
+            return tezos()
+        if self is WalletNetwork.VICTION:
+            return viction()
         if self is WalletNetwork.LITECOIN:
             return litecoin()
         if self is WalletNetwork.BITCOIN_CASH:
