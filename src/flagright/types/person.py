@@ -7,6 +7,7 @@ from ..core.datetime_utils import serialize_datetime
 from .contact_details import ContactDetails
 from .legal_document import LegalDocument
 from .pep_status import PepStatus
+from .person_attachment import PersonAttachment
 from .tag import Tag
 from .user_details import UserDetails
 
@@ -21,6 +22,7 @@ class Person(pydantic.BaseModel):
     Model for a generic individual - different from User model by not having userId field
     """
 
+    user_id: typing.Optional[str] = pydantic.Field(alias="userId", description="Unique user ID for the person")
     general_details: UserDetails = pydantic.Field(alias="generalDetails")
     legal_documents: typing.Optional[typing.List[LegalDocument]] = pydantic.Field(
         alias="legalDocuments", description="User's legal identity documents - See Document Model for details"
@@ -29,6 +31,9 @@ class Person(pydantic.BaseModel):
     pep_status: typing.Optional[typing.List[PepStatus]] = pydantic.Field(alias="pepStatus")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
+    )
+    attachments: typing.Optional[typing.List[PersonAttachment]] = pydantic.Field(
+        description="User's attachments uploaded by business user"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

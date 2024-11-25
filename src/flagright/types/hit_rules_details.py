@@ -24,6 +24,9 @@ class HitRulesDetails(pydantic.BaseModel):
     rule_instance_id: str = pydantic.Field(alias="ruleInstanceId")
     rule_name: str = pydantic.Field(alias="ruleName", description="Name of the rule")
     rule_description: str = pydantic.Field(alias="ruleDescription", description="Description of the rule")
+    executed_at: typing.Optional[float] = pydantic.Field(
+        alias="executedAt", description="Timestamp when the rule was hit"
+    )
     rule_action: RuleAction = pydantic.Field(alias="ruleAction")
     rule_hit_meta: typing.Optional[RuleHitMeta] = pydantic.Field(alias="ruleHitMeta")
     labels: typing.Optional[typing.List[RuleLabels]]

@@ -4,6 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
+from .country_code import CountryCode
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -29,6 +30,7 @@ class DeviceData(pydantic.BaseModel):
     ip_address: typing.Optional[str] = pydantic.Field(
         alias="ipAddress", description="IP address of the device at a given timestamp for an event or transaction"
     )
+    ip_country: typing.Optional[CountryCode] = pydantic.Field(alias="ipCountry")
     device_identifier: typing.Optional[str] = pydantic.Field(
         alias="deviceIdentifier", description="Device identifier number"
     )

@@ -99,6 +99,7 @@ from .executed_rules_result import ExecutedRulesResult
 from .expected_income import ExpectedIncome
 from .failed_rules_result import FailedRulesResult
 from .false_positive_details import FalsePositiveDetails
+from .file_info import FileInfo
 from .gender import Gender
 from .general_bank_account_payment_method import GeneralBankAccountPaymentMethod
 from .generic_bank_account_details import GenericBankAccountDetails
@@ -127,6 +128,7 @@ from .payment_method import PaymentMethod
 from .pep_rank import PepRank
 from .pep_status import PepStatus
 from .person import Person
+from .person_attachment import PersonAttachment
 from .place_of_birth import PlaceOfBirth
 from .pos_details import PosDetails
 from .pos_entry_mode import PosEntryMode
@@ -400,6 +402,7 @@ __all__ = [
     "ExpectedIncome",
     "FailedRulesResult",
     "FalsePositiveDetails",
+    "FileInfo",
     "Gender",
     "GeneralBankAccountPaymentMethod",
     "GenericBankAccountDetails",
@@ -428,6 +431,7 @@ __all__ = [
     "PepRank",
     "PepStatus",
     "Person",
+    "PersonAttachment",
     "PlaceOfBirth",
     "PosDetails",
     "PosEntryMode",

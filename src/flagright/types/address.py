@@ -21,9 +21,9 @@ class Address(pydantic.BaseModel):
         alias="addressLines", description="Address lines of the user's residence address"
     )
     postcode: typing.Optional[str] = pydantic.Field(description="Post code of the user's residence address")
-    city: str = pydantic.Field(description="City of the user's residence address")
+    city: typing.Optional[str] = pydantic.Field(description="City of the user's residence address")
     state: typing.Optional[str] = pydantic.Field(description="State of the user's residence address")
-    country: str = pydantic.Field(description="User's country of residence")
+    country: typing.Optional[str] = pydantic.Field(description="User's country of residence")
     address_type: typing.Optional[str] = pydantic.Field(
         alias="addressType", description="Type of the address (ex - Residential, Postal, etc.)"
     )

@@ -27,6 +27,9 @@ class ExecutedRulesResult(pydantic.BaseModel):
     rule_description: str = pydantic.Field(alias="ruleDescription", description="Description of the rule")
     rule_action: RuleAction = pydantic.Field(alias="ruleAction")
     rule_hit: bool = pydantic.Field(alias="ruleHit")
+    executed_at: typing.Optional[float] = pydantic.Field(
+        alias="executedAt", description="Timestamp when the rule was executed"
+    )
     rule_hit_meta: typing.Optional[RuleHitMeta] = pydantic.Field(alias="ruleHitMeta")
     vars: typing.Optional[typing.List[ExecutedLogicVars]]
     labels: typing.Optional[typing.List[RuleLabels]]
