@@ -34,6 +34,7 @@ class BusinessUsersClient:
         self,
         *,
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
         krs_only: typing.Optional[BooleanString] = None,
         request: Business,
@@ -55,6 +56,8 @@ class BusinessUsersClient:
 
         Parameters:
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
+
+            - lock_kyc_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the KYC risk level for the user.
 
             - validate_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate the userId
 
@@ -86,7 +89,12 @@ class BusinessUsersClient:
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "business/users"),
             params=remove_none_from_dict(
-                {"lockCraRiskLevel": lock_cra_risk_level, "validateUserId": validate_user_id, "_krsOnly": krs_only}
+                {
+                    "lockCraRiskLevel": lock_cra_risk_level,
+                    "lockKycRiskLevel": lock_kyc_risk_level,
+                    "validateUserId": validate_user_id,
+                    "_krsOnly": krs_only,
+                }
             ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
@@ -155,6 +163,7 @@ class AsyncBusinessUsersClient:
         self,
         *,
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
         krs_only: typing.Optional[BooleanString] = None,
         request: Business,
@@ -176,6 +185,8 @@ class AsyncBusinessUsersClient:
 
         Parameters:
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
+
+            - lock_kyc_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the KYC risk level for the user.
 
             - validate_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate the userId
 
@@ -207,7 +218,12 @@ class AsyncBusinessUsersClient:
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "business/users"),
             params=remove_none_from_dict(
-                {"lockCraRiskLevel": lock_cra_risk_level, "validateUserId": validate_user_id, "_krsOnly": krs_only}
+                {
+                    "lockCraRiskLevel": lock_cra_risk_level,
+                    "lockKycRiskLevel": lock_kyc_risk_level,
+                    "validateUserId": validate_user_id,
+                    "_krsOnly": krs_only,
+                }
             ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),

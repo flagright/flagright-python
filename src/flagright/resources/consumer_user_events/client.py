@@ -35,6 +35,7 @@ class ConsumerUserEventsClient:
         self,
         *,
         allow_user_type_conversion: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         request: ConsumerUserEvent,
     ) -> UserWithRulesResult:
@@ -62,6 +63,8 @@ class ConsumerUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Consumer user event to be applied to a Business user with the same user ID. This will converts a Business user to a Consumer user.
 
+            - lock_kyc_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the KYC risk level for the user.
+
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
 
             - request: ConsumerUserEvent.
@@ -83,7 +86,11 @@ class ConsumerUserEventsClient:
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/consumer/user"),
             params=remove_none_from_dict(
-                {"allowUserTypeConversion": allow_user_type_conversion, "lockCraRiskLevel": lock_cra_risk_level}
+                {
+                    "allowUserTypeConversion": allow_user_type_conversion,
+                    "lockKycRiskLevel": lock_kyc_risk_level,
+                    "lockCraRiskLevel": lock_cra_risk_level,
+                }
             ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),
@@ -152,6 +159,7 @@ class AsyncConsumerUserEventsClient:
         self,
         *,
         allow_user_type_conversion: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         request: ConsumerUserEvent,
     ) -> UserWithRulesResult:
@@ -179,6 +187,8 @@ class AsyncConsumerUserEventsClient:
         Parameters:
             - allow_user_type_conversion: typing.Optional[BooleanString]. Boolean string whether Flagright should allow a Consumer user event to be applied to a Business user with the same user ID. This will converts a Business user to a Consumer user.
 
+            - lock_kyc_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the KYC risk level for the user.
+
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
 
             - request: ConsumerUserEvent.
@@ -200,7 +210,11 @@ class AsyncConsumerUserEventsClient:
             "POST",
             urllib.parse.urljoin(f"{self._client_wrapper.get_base_url()}/", "events/consumer/user"),
             params=remove_none_from_dict(
-                {"allowUserTypeConversion": allow_user_type_conversion, "lockCraRiskLevel": lock_cra_risk_level}
+                {
+                    "allowUserTypeConversion": allow_user_type_conversion,
+                    "lockKycRiskLevel": lock_kyc_risk_level,
+                    "lockCraRiskLevel": lock_cra_risk_level,
+                }
             ),
             json=jsonable_encoder(request),
             headers=self._client_wrapper.get_headers(),

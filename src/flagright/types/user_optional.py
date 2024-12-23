@@ -13,6 +13,7 @@ from .expected_income import ExpectedIncome
 from .kyc_status_details import KycStatusDetails
 from .legal_document import LegalDocument
 from .pep_status import PepStatus
+from .person_attachment import PersonAttachment
 from .risk_level import RiskLevel
 from .source_of_funds import SourceOfFunds
 from .transaction_limits import TransactionLimits
@@ -49,6 +50,7 @@ class UserOptional(pydantic.BaseModel):
     transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
     expected_income: typing.Optional[ExpectedIncome] = pydantic.Field(alias="expectedIncome")
     risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
+    kyc_risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="kycRiskLevel")
     acquisition_channel: typing.Optional[AcquisitionChannel] = pydantic.Field(alias="acquisitionChannel")
     reason_for_account_opening: typing.Optional[typing.List[str]] = pydantic.Field(alias="reasonForAccountOpening")
     source_of_funds: typing.Optional[typing.List[SourceOfFunds]] = pydantic.Field(alias="sourceOfFunds")
@@ -63,6 +65,9 @@ class UserOptional(pydantic.BaseModel):
     )
     tags: typing.Optional[typing.List[UserTag]] = pydantic.Field(
         description="Additional information that can be added via tags"
+    )
+    attachments: typing.Optional[typing.List[PersonAttachment]] = pydantic.Field(
+        description="Uploaded user's attachment"
     )
 
     def json(self, **kwargs: typing.Any) -> str:

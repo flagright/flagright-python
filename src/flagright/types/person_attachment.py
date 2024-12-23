@@ -22,6 +22,7 @@ class PersonAttachment(pydantic.BaseModel):
     files: typing.List[FileInfo]
     user_id: str = pydantic.Field(alias="userId")
     created_at: typing.Optional[float] = pydantic.Field(alias="createdAt")
+    deleted_at: typing.Optional[float] = pydantic.Field(alias="deletedAt")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

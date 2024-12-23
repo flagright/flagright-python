@@ -13,6 +13,7 @@ from .legal_entity import LegalEntity
 from .mcc_details import MccDetails
 from .payment_method import PaymentMethod
 from .person import Person
+from .person_attachment import PersonAttachment
 from .risk_level import RiskLevel
 from .transaction_limits import TransactionLimits
 from .user_entity_link import UserEntityLink
@@ -46,6 +47,7 @@ class BusinessWithRulesResult(pydantic.BaseModel):
     )
     transaction_limits: typing.Optional[TransactionLimits] = pydantic.Field(alias="transactionLimits")
     risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="riskLevel")
+    kyc_risk_level: typing.Optional[RiskLevel] = pydantic.Field(alias="kycRiskLevel")
     allowed_payment_methods: typing.Optional[typing.List[PaymentMethod]] = pydantic.Field(alias="allowedPaymentMethods")
     last_transaction_timestamp: typing.Optional[float] = pydantic.Field(
         alias="lastTransactionTimestamp", description="Timestamp of the last successful transaction of the user"
@@ -58,6 +60,9 @@ class BusinessWithRulesResult(pydantic.BaseModel):
     mcc_details: typing.Optional[MccDetails] = pydantic.Field(alias="mccDetails")
     tags: typing.Optional[typing.List[UserTag]] = pydantic.Field(
         description="Additional information that can be added via tags"
+    )
+    attachments: typing.Optional[typing.List[PersonAttachment]] = pydantic.Field(
+        description="User's attachments uploaded by business user"
     )
     executed_rules: typing.Optional[typing.List[ExecutedRulesResult]] = pydantic.Field(alias="executedRules")
     hit_rules: typing.Optional[typing.List[HitRulesDetails]] = pydantic.Field(alias="hitRules")
