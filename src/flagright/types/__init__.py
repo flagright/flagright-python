@@ -120,8 +120,6 @@ from .list_subtype import ListSubtype
 from .list_type import ListType
 from .list_updated_details import ListUpdatedDetails
 from .list_updated_details_action import ListUpdatedDetailsAction
-from .list_updated_details_items_item import ListUpdatedDetailsItemsItem
-from .list_updated_details_items_item_metadata import ListUpdatedDetailsItemsItemMetadata
 from .marital_status import MaritalStatus
 from .mcc_details import MccDetails
 from .mpesa_details import MpesaDetails
@@ -427,8 +425,6 @@ __all__ = [
     "ListType",
     "ListUpdatedDetails",
     "ListUpdatedDetailsAction",
-    "ListUpdatedDetailsItemsItem",
-    "ListUpdatedDetailsItemsItemMetadata",
     "MaritalStatus",
     "MccDetails",
     "MpesaDetails",
