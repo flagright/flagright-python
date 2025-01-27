@@ -4,6 +4,7 @@ import datetime as dt
 import typing
 
 from ..core.datetime_utils import serialize_datetime
+from .list_metadata_ttl import ListMetadataTtl
 
 try:
     import pydantic.v1 as pydantic  # type: ignore
@@ -16,6 +17,7 @@ class ListMetadata(pydantic.BaseModel):
     description: typing.Optional[str] = pydantic.Field(description="List description")
     status: typing.Optional[bool]
     checksum: typing.Optional[str]
+    ttl: typing.Optional[ListMetadataTtl]
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

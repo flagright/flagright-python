@@ -48,11 +48,12 @@ class BusinessUsersClient:
 
         ### Payload
 
+
         Each business user needs three mandatory fields:
 
-        - `userId` - Unique identifier for the user
-        - `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
-        - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
+        * `userId` - Unique identifier for the user
+        * `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
+        * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
 
         Parameters:
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
@@ -177,11 +178,12 @@ class AsyncBusinessUsersClient:
 
         ### Payload
 
+
         Each business user needs three mandatory fields:
 
-        - `userId` - Unique identifier for the user
-        - `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
-        - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
+        * `userId` - Unique identifier for the user
+        * `legalEntity` - Details of the business legal entity (CompanyGeneralDetails, FinancialDetails etc) - only `legalName`in `CompanyGeneralDetails` is mandatory
+        * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
 
         Parameters:
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.

@@ -116,6 +116,8 @@ from .list_header import ListHeader
 from .list_item import ListItem
 from .list_key_metadata import ListKeyMetadata
 from .list_metadata import ListMetadata
+from .list_metadata_ttl import ListMetadataTtl
+from .list_metadata_ttl_unit import ListMetadataTtlUnit
 from .list_subtype import ListSubtype
 from .list_type import ListType
 from .list_updated_details import ListUpdatedDetails
@@ -421,6 +423,8 @@ __all__ = [
     "ListItem",
     "ListKeyMetadata",
     "ListMetadata",
+    "ListMetadataTtl",
+    "ListMetadataTtlUnit",
     "ListSubtype",
     "ListType",
     "ListUpdatedDetails",

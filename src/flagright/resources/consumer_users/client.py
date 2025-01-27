@@ -50,8 +50,8 @@ class ConsumerUsersClient:
 
         Each consumer user needs two mandatory fields:
 
-        - `userId` - Unique identifier for the user
-        - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
+        * `userId` - Unique identifier for the user
+        * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
 
         Parameters:
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.
@@ -232,8 +232,8 @@ class AsyncConsumerUsersClient:
 
         Each consumer user needs two mandatory fields:
 
-        - `userId` - Unique identifier for the user
-        - `createdTimestamp` - UNIX timestamp in _milliseconds_ for when the User is created in your system
+        * `userId` - Unique identifier for the user
+        * `createdTimestamp` - UNIX timestamp in *milliseconds* for when the User is created in your system
 
         Parameters:
             - lock_cra_risk_level: typing.Optional[BooleanString]. Boolean string whether Flagright should lock the CRA risk level for the user.

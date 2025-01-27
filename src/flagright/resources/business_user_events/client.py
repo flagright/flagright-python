@@ -46,8 +46,8 @@ class BusinessUserEventsClient:
 
         User events are created after the initial `POST /business/users` call (which creates a user) and are used to:
 
-        - Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
-        - Update the user details, using the `updatedBusinessUserAttributes` field.
+        * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
+        * Update the user details, using the `updatedBusinessUserAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use user events.
 
@@ -55,8 +55,8 @@ class BusinessUserEventsClient:
 
         Each user event needs three mandatory fields:
 
-        - `timestamp`- the timestamp of when the event was created or occured in your system
-        - `userId` - The ID of the transaction for which this event is generated.
+        * `timestamp`- the timestamp of when the event was created or occured in your system
+        * `userId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
@@ -115,7 +115,6 @@ class BusinessUserEventsClient:
     def get(self, event_id: str) -> BusinessUserEventWithRulesResult:
         """
         ### GET a Business User Event
-
         You can retrieve any business user event you created using the [POST Business User Events](/api-reference/api-reference/business-user-events/create) call.
 
         Parameters:
@@ -170,8 +169,8 @@ class AsyncBusinessUserEventsClient:
 
         User events are created after the initial `POST /business/users` call (which creates a user) and are used to:
 
-        - Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
-        - Update the user details, using the `updatedBusinessUserAttributes` field.
+        * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
+        * Update the user details, using the `updatedBusinessUserAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use user events.
 
@@ -179,8 +178,8 @@ class AsyncBusinessUserEventsClient:
 
         Each user event needs three mandatory fields:
 
-        - `timestamp`- the timestamp of when the event was created or occured in your system
-        - `userId` - The ID of the transaction for which this event is generated.
+        * `timestamp`- the timestamp of when the event was created or occured in your system
+        * `userId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
@@ -239,7 +238,6 @@ class AsyncBusinessUserEventsClient:
     async def get(self, event_id: str) -> BusinessUserEventWithRulesResult:
         """
         ### GET a Business User Event
-
         You can retrieve any business user event you created using the [POST Business User Events](/api-reference/api-reference/business-user-events/create) call.
 
         Parameters:

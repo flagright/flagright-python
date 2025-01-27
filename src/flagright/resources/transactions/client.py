@@ -46,20 +46,21 @@ class TransactionsClient:
 
         In order to pass the payload of a transaction to Flagright and verify the transaction, you will need to call this endpoint with the transaction payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup.
 
+
         ### Payload
 
         Here are some of the most used payload fields explained (you can find the full payload [schema below](/api-reference/api-reference/transactions/verify#request) with 1 line descriptions):
 
-        - `type`: Type of transaction (Ex: `WITHDRAWAL`, `DEPOSIT`, `TRANSFER` etc).
-        - `transactionId` - Unique Identifier for the transaction. Flagright API will generate a `transactionId` if this field is left empty
-        - `timestamp` - UNIX timestamp in _milliseconds_ of when the transaction took place
-        - `transactionState` - The state of the transaction, set to `CREATED` by default. [More details here](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
-        - `originUserId` - Unique identifier (if any) of the user who is sending the money. This user must be created within the Flagright system before using the [create a consumer user](/api-reference/api-reference/consumer-users/create) or [create a business user](/api-reference/api-reference/business-users/create) endpoint
-        - `destinationUserId` - Unique identifier (if any) of the user who is receiving the money. This user must be created within the Flagright system before using the [create a consumer user](/api-reference/api-reference/consumer-users/create) or [create a business user](/api-reference/api-reference/business-users/create) endpoint
-        - `originAmountDetails` - Details of the amount being sent from the origin
-        - `destinationAmountDetails` - Details of the amount being received at the destination
-        - `originPaymentDetails` - Payment details (if any) used at the origin (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
-        - `destinationPaymentDetails` - Payment details (if any) used at the destination (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
+        * `type`: Type of transaction (Ex: `WITHDRAWAL`, `DEPOSIT`, `TRANSFER` etc).
+        * `transactionId` - Unique Identifier for the transaction. Flagright API will generate a `transactionId` if this field is left empty
+        * `timestamp` - UNIX timestamp in *milliseconds* of when the transaction took place
+        * `transactionState` - The state of the transaction, set to `CREATED` by default. [More details here](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
+        * `originUserId` - Unique identifier (if any) of the user who is sending the money. This user must be created within the Flagright system before using the [create a consumer user](/api-reference/api-reference/consumer-users/create) or [create a business user](/api-reference/api-reference/business-users/create) endpoint
+        * `destinationUserId` - Unique identifier (if any) of the user who is receiving the money. This user must be created within the Flagright system before using the [create a consumer user](/api-reference/api-reference/consumer-users/create) or [create a business user](/api-reference/api-reference/business-users/create) endpoint
+        * `originAmountDetails` - Details of the amount being sent from the origin
+        * `destinationAmountDetails` - Details of the amount being received at the destination
+        * `originPaymentDetails` - Payment details (if any) used at the origin (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
+        * `destinationPaymentDetails` - Payment details (if any) used at the destination (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
 
         Parameters:
             - validate_origin_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided originUserId exist. True by default
@@ -79,6 +80,8 @@ class TransactionsClient:
             Tag,
             Transaction,
             TransactionAmountDetails,
+            TransactionDestinationPaymentDetails_Cash,
+            TransactionOriginPaymentDetails_Cash,
             TransactionType,
         )
         from flagright.client import Flagright
@@ -102,6 +105,12 @@ class TransactionsClient:
                     transaction_amount=68351.34,
                     transaction_currency=CurrencyCode.INR,
                     country=CountryCode.IN,
+                ),
+                origin_payment_details=TransactionOriginPaymentDetails_Cash(
+                    method="CASH",
+                ),
+                destination_payment_details=TransactionDestinationPaymentDetails_Cash(
+                    method="CASH",
                 ),
                 promotion_code_used=True,
                 reference="loan repayment",
@@ -230,20 +239,21 @@ class AsyncTransactionsClient:
 
         In order to pass the payload of a transaction to Flagright and verify the transaction, you will need to call this endpoint with the transaction payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup.
 
+
         ### Payload
 
         Here are some of the most used payload fields explained (you can find the full payload [schema below](/api-reference/api-reference/transactions/verify#request) with 1 line descriptions):
 
-        - `type`: Type of transaction (Ex: `WITHDRAWAL`, `DEPOSIT`, `TRANSFER` etc).
-        - `transactionId` - Unique Identifier for the transaction. Flagright API will generate a `transactionId` if this field is left empty
-        - `timestamp` - UNIX timestamp in _milliseconds_ of when the transaction took place
-        - `transactionState` - The state of the transaction, set to `CREATED` by default. [More details here](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
-        - `originUserId` - Unique identifier (if any) of the user who is sending the money. This user must be created within the Flagright system before using the [create a consumer user](/api-reference/api-reference/consumer-users/create) or [create a business user](/api-reference/api-reference/business-users/create) endpoint
-        - `destinationUserId` - Unique identifier (if any) of the user who is receiving the money. This user must be created within the Flagright system before using the [create a consumer user](/api-reference/api-reference/consumer-users/create) or [create a business user](/api-reference/api-reference/business-users/create) endpoint
-        - `originAmountDetails` - Details of the amount being sent from the origin
-        - `destinationAmountDetails` - Details of the amount being received at the destination
-        - `originPaymentDetails` - Payment details (if any) used at the origin (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
-        - `destinationPaymentDetails` - Payment details (if any) used at the destination (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
+        * `type`: Type of transaction (Ex: `WITHDRAWAL`, `DEPOSIT`, `TRANSFER` etc).
+        * `transactionId` - Unique Identifier for the transaction. Flagright API will generate a `transactionId` if this field is left empty
+        * `timestamp` - UNIX timestamp in *milliseconds* of when the transaction took place
+        * `transactionState` - The state of the transaction, set to `CREATED` by default. [More details here](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
+        * `originUserId` - Unique identifier (if any) of the user who is sending the money. This user must be created within the Flagright system before using the [create a consumer user](/api-reference/api-reference/consumer-users/create) or [create a business user](/api-reference/api-reference/business-users/create) endpoint
+        * `destinationUserId` - Unique identifier (if any) of the user who is receiving the money. This user must be created within the Flagright system before using the [create a consumer user](/api-reference/api-reference/consumer-users/create) or [create a business user](/api-reference/api-reference/business-users/create) endpoint
+        * `originAmountDetails` - Details of the amount being sent from the origin
+        * `destinationAmountDetails` - Details of the amount being received at the destination
+        * `originPaymentDetails` - Payment details (if any) used at the origin (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
+        * `destinationPaymentDetails` - Payment details (if any) used at the destination (ex: `CARD`, `IBAN`, `WALLET` etc). You can click on the dropdown next to the field in the schema below to view all supported payment types.
 
         Parameters:
             - validate_origin_user_id: typing.Optional[BooleanString]. Boolean string whether Flagright should validate if provided originUserId exist. True by default
@@ -263,6 +273,8 @@ class AsyncTransactionsClient:
             Tag,
             Transaction,
             TransactionAmountDetails,
+            TransactionDestinationPaymentDetails_Cash,
+            TransactionOriginPaymentDetails_Cash,
             TransactionType,
         )
         from flagright.client import AsyncFlagright
@@ -286,6 +298,12 @@ class AsyncTransactionsClient:
                     transaction_amount=68351.34,
                     transaction_currency=CurrencyCode.INR,
                     country=CountryCode.IN,
+                ),
+                origin_payment_details=TransactionOriginPaymentDetails_Cash(
+                    method="CASH",
+                ),
+                destination_payment_details=TransactionDestinationPaymentDetails_Cash(
+                    method="CASH",
                 ),
                 promotion_code_used=True,
                 reference="loan repayment",

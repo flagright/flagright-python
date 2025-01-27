@@ -46,8 +46,8 @@ class ConsumerUserEventsClient:
 
         User events are created after the initial `POST /consumer/users` call (which creates a user) and are used to:
 
-        - Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
-        - Update the user details, using the `updatedConsumerUserAttributes` field.
+        * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
+        * Update the user details, using the `updatedConsumerUserAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use user events.
 
@@ -55,8 +55,8 @@ class ConsumerUserEventsClient:
 
         Each user event needs three mandatory fields:
 
-        - `timestamp`- the timestamp of when the event was created or occured in your system
-        - `userId` - The ID of the transaction for which this event is generated.
+        * `timestamp`- the timestamp of when the event was created or occured in your system
+        * `userId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
@@ -115,7 +115,6 @@ class ConsumerUserEventsClient:
     def get(self, event_id: str) -> ConsumerUserEventWithRulesResult:
         """
         ### GET a Consumer User Event
-
         You can retrieve any consumer user event you created using the [POST Consumer User Events](/api-reference/api-reference/consumer-user-events/create) call.
 
         Parameters:
@@ -170,8 +169,8 @@ class AsyncConsumerUserEventsClient:
 
         User events are created after the initial `POST /consumer/users` call (which creates a user) and are used to:
 
-        - Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
-        - Update the user details, using the `updatedConsumerUserAttributes` field.
+        * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
+        * Update the user details, using the `updatedConsumerUserAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use user events.
 
@@ -179,8 +178,8 @@ class AsyncConsumerUserEventsClient:
 
         Each user event needs three mandatory fields:
 
-        - `timestamp`- the timestamp of when the event was created or occured in your system
-        - `userId` - The ID of the transaction for which this event is generated.
+        * `timestamp`- the timestamp of when the event was created or occured in your system
+        * `userId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
@@ -239,7 +238,6 @@ class AsyncConsumerUserEventsClient:
     async def get(self, event_id: str) -> ConsumerUserEventWithRulesResult:
         """
         ### GET a Consumer User Event
-
         You can retrieve any consumer user event you created using the [POST Consumer User Events](/api-reference/api-reference/consumer-user-events/create) call.
 
         Parameters:

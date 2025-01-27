@@ -36,8 +36,8 @@ class TransactionEventsClient:
 
         Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
 
-        - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
-        - Update the transaction details, using the `updatedTransactionAttributes` field.
+        * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
+        * Update the transaction details, using the `updatedTransactionAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use transaction events.
 
@@ -45,9 +45,9 @@ class TransactionEventsClient:
 
         Each transaction event needs three mandatory fields:
 
-        - `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
-        - `timestamp`- the timestamp of when the event was created or occured in your system
-        - `transactionId` - The ID of the transaction for which this event is generated.
+        * `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
+        * `timestamp`- the timestamp of when the event was created or occured in your system
+        * `transactionId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
@@ -151,8 +151,8 @@ class AsyncTransactionEventsClient:
 
         Transaction events are created after the initial `POST /transactions` call (which creates a transaction) and are used to:
 
-        - Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
-        - Update the transaction details, using the `updatedTransactionAttributes` field.
+        * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
+        * Update the transaction details, using the `updatedTransactionAttributes` field.
 
         > If you have neither of the above two use cases, you do not need to use transaction events.
 
@@ -160,9 +160,9 @@ class AsyncTransactionEventsClient:
 
         Each transaction event needs three mandatory fields:
 
-        - `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
-        - `timestamp`- the timestamp of when the event was created or occured in your system
-        - `transactionId` - The ID of the transaction for which this event is generated.
+        * `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
+        * `timestamp`- the timestamp of when the event was created or occured in your system
+        * `transactionId` - The ID of the transaction for which this event is generated.
 
         In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 
