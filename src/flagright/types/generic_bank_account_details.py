@@ -42,6 +42,9 @@ class GenericBankAccountDetails(pydantic.BaseModel):
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"
     )
+    transit_number: typing.Optional[str] = pydantic.Field(
+        alias="transitNumber", description="Transit number of the bank account"
+    )
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}

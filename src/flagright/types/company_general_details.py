@@ -5,6 +5,7 @@ import typing
 
 from ..core.datetime_utils import serialize_datetime
 from .business_user_segment import BusinessUserSegment
+from .country_code import CountryCode
 from .tag import Tag
 from .user_registration_status import UserRegistrationStatus
 
@@ -30,6 +31,9 @@ class CompanyGeneralDetails(pydantic.BaseModel):
         alias="userSegment", description="Segmentation of the business user"
     )
     user_registration_status: typing.Optional[UserRegistrationStatus] = pydantic.Field(alias="userRegistrationStatus")
+    operating_countries: typing.Optional[typing.List[CountryCode]] = pydantic.Field(
+        alias="operatingCountries", description="Countries where the business operates"
+    )
     alias: typing.Optional[typing.List[str]] = pydantic.Field(description="Alias names of the business entity")
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(
         description="Additional information that can be added via tags"

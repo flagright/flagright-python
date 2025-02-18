@@ -15,6 +15,7 @@ class SanctionsDetailsEntityType(str, enum.Enum):
     PAYMENT_NAME = "PAYMENT_NAME"
     PAYMENT_BENEFICIARY_NAME = "PAYMENT_BENEFICIARY_NAME"
     BANK_NAME = "BANK_NAME"
+    BANK_ACCOUNT_HOLDER_NAME = "BANK_ACCOUNT_HOLDER_NAME"
 
     def visit(
         self,
@@ -26,6 +27,7 @@ class SanctionsDetailsEntityType(str, enum.Enum):
         payment_name: typing.Callable[[], T_Result],
         payment_beneficiary_name: typing.Callable[[], T_Result],
         bank_name: typing.Callable[[], T_Result],
+        bank_account_holder_name: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is SanctionsDetailsEntityType.CONSUMER_NAME:
             return consumer_name()
@@ -43,3 +45,5 @@ class SanctionsDetailsEntityType(str, enum.Enum):
             return payment_beneficiary_name()
         if self is SanctionsDetailsEntityType.BANK_NAME:
             return bank_name()
+        if self is SanctionsDetailsEntityType.BANK_ACCOUNT_HOLDER_NAME:
+            return bank_account_holder_name()

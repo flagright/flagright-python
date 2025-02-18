@@ -20,7 +20,7 @@ class ListHeader(pydantic.BaseModel):
     subtype: ListSubtype
     metadata: typing.Optional[ListMetadata]
     created_timestamp: float = pydantic.Field(alias="createdTimestamp")
-    size: float
+    size: typing.Optional[float]
     version: typing.Optional[float]
 
     def json(self, **kwargs: typing.Any) -> str:
