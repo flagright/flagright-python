@@ -19,6 +19,7 @@ class RuleLabels(str, enum.Enum):
     SANCTIONS = "SANCTIONS"
     SANCTIONS_PEP = "SANCTIONS_PEP"
     SANCTIONS_PEP_ADVERSE_MEDIA = "SANCTIONS_PEP_ADVERSE_MEDIA"
+    SANCTIONS_MANUAL_REVIEW = "SANCTIONS_MANUAL_REVIEW"
 
     def visit(
         self,
@@ -34,6 +35,7 @@ class RuleLabels(str, enum.Enum):
         sanctions: typing.Callable[[], T_Result],
         sanctions_pep: typing.Callable[[], T_Result],
         sanctions_pep_adverse_media: typing.Callable[[], T_Result],
+        sanctions_manual_review: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is RuleLabels.UNEXPECTED_BEHAVIOR:
             return unexpected_behavior()
@@ -59,3 +61,5 @@ class RuleLabels(str, enum.Enum):
             return sanctions_pep()
         if self is RuleLabels.SANCTIONS_PEP_ADVERSE_MEDIA:
             return sanctions_pep_adverse_media()
+        if self is RuleLabels.SANCTIONS_MANUAL_REVIEW:
+            return sanctions_manual_review()
