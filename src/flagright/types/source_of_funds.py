@@ -26,6 +26,10 @@ class SourceOfFunds(str, enum.Enum):
     CRYPTO = "Crypto"
     BUSINESS = "Business"
     EMPLOYMENT = "Employment"
+    SALARY = "Salary"
+    REAL_ESTATE_SALE = "Real Estate Sale"
+    REAL_ESTATE_RENTAL = "Real Estate Rental"
+    COMPANY_EXIT = "Company Exit"
 
     def visit(
         self,
@@ -48,6 +52,10 @@ class SourceOfFunds(str, enum.Enum):
         crypto: typing.Callable[[], T_Result],
         business: typing.Callable[[], T_Result],
         employment: typing.Callable[[], T_Result],
+        salary: typing.Callable[[], T_Result],
+        real_estate_sale: typing.Callable[[], T_Result],
+        real_estate_rental: typing.Callable[[], T_Result],
+        company_exit: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is SourceOfFunds.EARNINGS:
             return earnings()
@@ -87,3 +95,11 @@ class SourceOfFunds(str, enum.Enum):
             return business()
         if self is SourceOfFunds.EMPLOYMENT:
             return employment()
+        if self is SourceOfFunds.SALARY:
+            return salary()
+        if self is SourceOfFunds.REAL_ESTATE_SALE:
+            return real_estate_sale()
+        if self is SourceOfFunds.REAL_ESTATE_RENTAL:
+            return real_estate_rental()
+        if self is SourceOfFunds.COMPANY_EXIT:
+            return company_exit()
