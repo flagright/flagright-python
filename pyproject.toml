@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "flagright"
-version = "1.6.52"
+version = "v1.7.0"
 description = ""
 readme = "README.md"
 authors = []
