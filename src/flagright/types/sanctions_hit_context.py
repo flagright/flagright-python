@@ -19,11 +19,9 @@ class SanctionsHitContext(pydantic.BaseModel):
     user_id: typing.Optional[str] = pydantic.Field(alias="userId")
     transaction_id: typing.Optional[str] = pydantic.Field(alias="transactionId")
     rule_instance_id: typing.Optional[str] = pydantic.Field(alias="ruleInstanceId")
-    rule_id: typing.Optional[str] = pydantic.Field(alias="ruleId")
     iban: typing.Optional[str]
     year_of_birth: typing.Optional[float] = pydantic.Field(alias="yearOfBirth")
     search_term: typing.Optional[str] = pydantic.Field(alias="searchTerm")
-    payment_method_id: typing.Optional[str] = pydantic.Field(alias="paymentMethodId")
 
     def json(self, **kwargs: typing.Any) -> str:
         kwargs_with_defaults: typing.Any = {"by_alias": True, "exclude_unset": True, **kwargs}
