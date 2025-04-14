@@ -41,6 +41,7 @@ class UserWithRulesResult(pydantic.BaseModel):
     user_details: typing.Optional[UserDetails] = pydantic.Field(alias="userDetails")
     user_state_details: typing.Optional[UserStateDetails] = pydantic.Field(alias="userStateDetails")
     kyc_status_details: typing.Optional[KycStatusDetails] = pydantic.Field(alias="kycStatusDetails")
+    eodd_date: typing.Optional[float] = pydantic.Field(alias="eoddDate")
     employment_status: typing.Optional[EmploymentStatus] = pydantic.Field(alias="employmentStatus")
     occupation: typing.Optional[str]
     legal_documents: typing.Optional[typing.List[LegalDocument]] = pydantic.Field(
