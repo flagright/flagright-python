@@ -290,10 +290,7 @@ from .types import (
     WebhookEventType,
 )
 from .errors import BadRequestError, ConflictError, TooManyRequestsError, UnauthorizedError
-from .resources import (
-    BusinessUsersCreateResponse,
-    ConsumerUsersCreateResponse,
-    TransactionsVerifyResponse,
+from . import (
     batch,
     business_user_events,
     business_users,
@@ -302,7 +299,12 @@ from .resources import (
     transaction_events,
     transactions,
 )
+from .business_users import BusinessUsersCreateResponse
+from .client import AsyncFlagright, Flagright
+from .consumer_users import ConsumerUsersCreateResponse
 from .environment import FlagrightEnvironment
+from .transactions import TransactionsVerifyResponse
+from .version import __version__
 
 __all__ = [
     "AchDetails",
@@ -313,6 +315,7 @@ __all__ = [
     "AlertOpenedDetails",
     "Amount",
     "ApiErrorResponse",
+    "AsyncFlagright",
     "BadRequestError",
     "BatchResponse",
     "BatchResponseFailedRecord",
@@ -403,6 +406,7 @@ __all__ = [
     "FailedRulesResult",
     "FalsePositiveDetails",
     "FileInfo",
+    "Flagright",
     "FlagrightEnvironment",
     "Gender",
     "GeneralBankAccountPaymentMethod",
@@ -600,6 +604,7 @@ __all__ = [
     "WebhookEventData",
     "WebhookEventTriggeredBy",
     "WebhookEventType",
+    "__version__",
     "batch",
     "business_user_events",
     "business_users",

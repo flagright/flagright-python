@@ -2,4 +2,4 @@
 
 import typing
 
-ListKeyMetadata = typing.Dict[str, typing.Any]
+ListKeyMetadata = typing.Dict[str, typing.Optional[typing.Any]]
