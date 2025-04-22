@@ -481,6 +481,7 @@ class CurrencyCode(str, enum.Enum):
     TYUGA = "TYUGA"
     VIC = "VIC"
     XAI = "XAI"
+    SLE = "SLE"
 
     def visit(
         self,
@@ -958,6 +959,7 @@ class CurrencyCode(str, enum.Enum):
         tyuga: typing.Callable[[], T_Result],
         vic: typing.Callable[[], T_Result],
         xai: typing.Callable[[], T_Result],
+        sle: typing.Callable[[], T_Result],
     ) -> T_Result:
         if self is CurrencyCode.ONE_INCH:
             return one_inch()
@@ -1907,3 +1909,5 @@ class CurrencyCode(str, enum.Enum):
             return vic()
         if self is CurrencyCode.XAI:
             return xai()
+        if self is CurrencyCode.SLE:
+            return sle()
