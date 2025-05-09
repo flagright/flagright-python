@@ -193,7 +193,6 @@ from .transaction_origin_payment_details import (
 from .transaction_risk_scoring_result import TransactionRiskScoringResult
 from .transaction_state import TransactionState
 from .transaction_status_details import TransactionStatusDetails
-from .transaction_type import TransactionType
 from .transaction_updatable import TransactionUpdatable
 from .transaction_updatable_destination_payment_details import (
     TransactionUpdatableDestinationPaymentDetails,
@@ -496,7 +495,6 @@ __all__ = [
     "TransactionRiskScoringResult",
     "TransactionState",
     "TransactionStatusDetails",
-    "TransactionType",
     "TransactionUpdatable",
     "TransactionUpdatableDestinationPaymentDetails",
     "TransactionUpdatableDestinationPaymentDetails_Ach",

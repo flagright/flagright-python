@@ -2,7 +2,6 @@
 
 import typing
 from ..core.client_wrapper import SyncClientWrapper
-from ..types.transaction_type import TransactionType
 from ..types.boolean_string import BooleanString
 from ..types.transaction_state import TransactionState
 from ..types.transaction_amount_details import TransactionAmountDetails
@@ -38,7 +37,7 @@ class RawTransactionsClient:
     def verify(
         self,
         *,
-        type: TransactionType,
+        type: str,
         transaction_id: str,
         timestamp: float,
         validate_origin_user_id: typing.Optional[BooleanString] = None,
@@ -87,7 +86,8 @@ class RawTransactionsClient:
 
         Parameters
         ----------
-        type : TransactionType
+        type : str
+            Type of transaction (ex: DEPOSIT, WITHDRAWAL, TRANSFER, EXTERNAL_PAYMENT, REFUND, OTHER)
 
         transaction_id : str
             Unique transaction identifier
@@ -328,7 +328,7 @@ class AsyncRawTransactionsClient:
     async def verify(
         self,
         *,
-        type: TransactionType,
+        type: str,
         transaction_id: str,
         timestamp: float,
         validate_origin_user_id: typing.Optional[BooleanString] = None,
@@ -377,7 +377,8 @@ class AsyncRawTransactionsClient:
 
         Parameters
         ----------
-        type : TransactionType
+        type : str
+            Type of transaction (ex: DEPOSIT, WITHDRAWAL, TRANSFER, EXTERNAL_PAYMENT, REFUND, OTHER)
 
         transaction_id : str
             Unique transaction identifier

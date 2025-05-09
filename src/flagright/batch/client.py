@@ -74,7 +74,7 @@ class BatchClient:
         client.batch.verify_transaction(
             data=[
                 Transaction(
-                    type="DEPOSIT",
+                    type="type",
                     transaction_id="transactionId",
                     timestamp=1.1,
                 )
@@ -370,7 +370,7 @@ class AsyncBatchClient:
             await client.batch.verify_transaction(
                 data=[
                     Transaction(
-                        type="DEPOSIT",
+                        type="type",
                         transaction_id="transactionId",
                         timestamp=1.1,
                     )

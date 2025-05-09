@@ -137,7 +137,7 @@ client.transactions.verify(
 <dl>
 <dd>
 
-**type:** `TransactionType` 
+**type:** `str` — Type of transaction (ex: DEPOSIT, WITHDRAWAL, TRANSFER, EXTERNAL_PAYMENT, REFUND, OTHER)
     
 </dd>
 </dl>
@@ -421,7 +421,7 @@ client = Flagright(
 client.batch.verify_transaction(
     data=[
         Transaction(
-            type="DEPOSIT",
+            type="type",
             transaction_id="transactionId",
             timestamp=1.1,
         )

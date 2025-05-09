@@ -18,9 +18,11 @@ class SanctionsHitContext(UniversalBaseModel):
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
     transaction_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="transactionId")] = None
     rule_instance_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ruleInstanceId")] = None
+    rule_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ruleId")] = None
     iban: typing.Optional[str] = None
     year_of_birth: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="yearOfBirth")] = None
     search_term: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="searchTerm")] = None
+    payment_method_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="paymentMethodId")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
