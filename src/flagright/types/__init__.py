@@ -4,6 +4,7 @@ from .ach_details import AchDetails
 from .ach_payment_method import AchPaymentMethod
 from .acquisition_channel import AcquisitionChannel
 from .address import Address
+from .adverse_media_status import AdverseMediaStatus
 from .alert_closed_details import AlertClosedDetails
 from .alert_opened_details import AlertOpenedDetails
 from .amount import Amount
@@ -24,6 +25,7 @@ from .business_optional_saved_payment_details_item import (
     BusinessOptionalSavedPaymentDetailsItem_GenericBankAccount,
     BusinessOptionalSavedPaymentDetailsItem_Iban,
     BusinessOptionalSavedPaymentDetailsItem_Mpesa,
+    BusinessOptionalSavedPaymentDetailsItem_Npp,
     BusinessOptionalSavedPaymentDetailsItem_Swift,
     BusinessOptionalSavedPaymentDetailsItem_Upi,
     BusinessOptionalSavedPaymentDetailsItem_Wallet,
@@ -37,6 +39,7 @@ from .business_saved_payment_details_item import (
     BusinessSavedPaymentDetailsItem_GenericBankAccount,
     BusinessSavedPaymentDetailsItem_Iban,
     BusinessSavedPaymentDetailsItem_Mpesa,
+    BusinessSavedPaymentDetailsItem_Npp,
     BusinessSavedPaymentDetailsItem_Swift,
     BusinessSavedPaymentDetailsItem_Upi,
     BusinessSavedPaymentDetailsItem_Wallet,
@@ -55,6 +58,7 @@ from .business_with_rules_result_saved_payment_details_item import (
     BusinessWithRulesResultSavedPaymentDetailsItem_GenericBankAccount,
     BusinessWithRulesResultSavedPaymentDetailsItem_Iban,
     BusinessWithRulesResultSavedPaymentDetailsItem_Mpesa,
+    BusinessWithRulesResultSavedPaymentDetailsItem_Npp,
     BusinessWithRulesResultSavedPaymentDetailsItem_Swift,
     BusinessWithRulesResultSavedPaymentDetailsItem_Upi,
     BusinessWithRulesResultSavedPaymentDetailsItem_Wallet,
@@ -127,6 +131,8 @@ from .mcc_details import MccDetails
 from .mpesa_details import MpesaDetails
 from .mpesa_payment_method import MpesaPaymentMethod
 from .mpesa_transaction_type import MpesaTransactionType
+from .npp_details import NppDetails
+from .npp_payment_method import NppPaymentMethod
 from .origin_funds_info import OriginFundsInfo
 from .payment_method import PaymentMethod
 from .pep_rank import PepRank
@@ -148,6 +154,7 @@ from .sanctions_details import SanctionsDetails
 from .sanctions_details_entity_type import SanctionsDetailsEntityType
 from .sanctions_hit_context import SanctionsHitContext
 from .sanctions_screening_entity import SanctionsScreeningEntity
+from .sanctions_status import SanctionsStatus
 from .source_of_funds import SourceOfFunds
 from .swift_details import SwiftDetails
 from .swift_payment_method import SwiftPaymentMethod
@@ -166,6 +173,7 @@ from .transaction_destination_payment_details import (
     TransactionDestinationPaymentDetails_GenericBankAccount,
     TransactionDestinationPaymentDetails_Iban,
     TransactionDestinationPaymentDetails_Mpesa,
+    TransactionDestinationPaymentDetails_Npp,
     TransactionDestinationPaymentDetails_Swift,
     TransactionDestinationPaymentDetails_Upi,
     TransactionDestinationPaymentDetails_Wallet,
@@ -186,6 +194,7 @@ from .transaction_origin_payment_details import (
     TransactionOriginPaymentDetails_GenericBankAccount,
     TransactionOriginPaymentDetails_Iban,
     TransactionOriginPaymentDetails_Mpesa,
+    TransactionOriginPaymentDetails_Npp,
     TransactionOriginPaymentDetails_Swift,
     TransactionOriginPaymentDetails_Upi,
     TransactionOriginPaymentDetails_Wallet,
@@ -203,6 +212,7 @@ from .transaction_updatable_destination_payment_details import (
     TransactionUpdatableDestinationPaymentDetails_GenericBankAccount,
     TransactionUpdatableDestinationPaymentDetails_Iban,
     TransactionUpdatableDestinationPaymentDetails_Mpesa,
+    TransactionUpdatableDestinationPaymentDetails_Npp,
     TransactionUpdatableDestinationPaymentDetails_Swift,
     TransactionUpdatableDestinationPaymentDetails_Upi,
     TransactionUpdatableDestinationPaymentDetails_Wallet,
@@ -216,6 +226,7 @@ from .transaction_updatable_origin_payment_details import (
     TransactionUpdatableOriginPaymentDetails_GenericBankAccount,
     TransactionUpdatableOriginPaymentDetails_Iban,
     TransactionUpdatableOriginPaymentDetails_Mpesa,
+    TransactionUpdatableOriginPaymentDetails_Npp,
     TransactionUpdatableOriginPaymentDetails_Swift,
     TransactionUpdatableOriginPaymentDetails_Upi,
     TransactionUpdatableOriginPaymentDetails_Wallet,
@@ -230,6 +241,7 @@ from .transaction_with_rules_result_destination_payment_details import (
     TransactionWithRulesResultDestinationPaymentDetails_GenericBankAccount,
     TransactionWithRulesResultDestinationPaymentDetails_Iban,
     TransactionWithRulesResultDestinationPaymentDetails_Mpesa,
+    TransactionWithRulesResultDestinationPaymentDetails_Npp,
     TransactionWithRulesResultDestinationPaymentDetails_Swift,
     TransactionWithRulesResultDestinationPaymentDetails_Upi,
     TransactionWithRulesResultDestinationPaymentDetails_Wallet,
@@ -243,6 +255,7 @@ from .transaction_with_rules_result_origin_payment_details import (
     TransactionWithRulesResultOriginPaymentDetails_GenericBankAccount,
     TransactionWithRulesResultOriginPaymentDetails_Iban,
     TransactionWithRulesResultOriginPaymentDetails_Mpesa,
+    TransactionWithRulesResultOriginPaymentDetails_Npp,
     TransactionWithRulesResultOriginPaymentDetails_Swift,
     TransactionWithRulesResultOriginPaymentDetails_Upi,
     TransactionWithRulesResultOriginPaymentDetails_Wallet,
@@ -263,6 +276,7 @@ from .user_optional_saved_payment_details_item import (
     UserOptionalSavedPaymentDetailsItem_GenericBankAccount,
     UserOptionalSavedPaymentDetailsItem_Iban,
     UserOptionalSavedPaymentDetailsItem_Mpesa,
+    UserOptionalSavedPaymentDetailsItem_Npp,
     UserOptionalSavedPaymentDetailsItem_Swift,
     UserOptionalSavedPaymentDetailsItem_Upi,
     UserOptionalSavedPaymentDetailsItem_Wallet,
@@ -279,6 +293,7 @@ from .user_saved_payment_details_item import (
     UserSavedPaymentDetailsItem_GenericBankAccount,
     UserSavedPaymentDetailsItem_Iban,
     UserSavedPaymentDetailsItem_Mpesa,
+    UserSavedPaymentDetailsItem_Npp,
     UserSavedPaymentDetailsItem_Swift,
     UserSavedPaymentDetailsItem_Upi,
     UserSavedPaymentDetailsItem_Wallet,
@@ -297,6 +312,7 @@ from .user_with_rules_result_saved_payment_details_item import (
     UserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount,
     UserWithRulesResultSavedPaymentDetailsItem_Iban,
     UserWithRulesResultSavedPaymentDetailsItem_Mpesa,
+    UserWithRulesResultSavedPaymentDetailsItem_Npp,
     UserWithRulesResultSavedPaymentDetailsItem_Swift,
     UserWithRulesResultSavedPaymentDetailsItem_Upi,
     UserWithRulesResultSavedPaymentDetailsItem_Wallet,
@@ -316,6 +332,7 @@ __all__ = [
     "AchPaymentMethod",
     "AcquisitionChannel",
     "Address",
+    "AdverseMediaStatus",
     "AlertClosedDetails",
     "AlertOpenedDetails",
     "Amount",
@@ -335,6 +352,7 @@ __all__ = [
     "BusinessOptionalSavedPaymentDetailsItem_GenericBankAccount",
     "BusinessOptionalSavedPaymentDetailsItem_Iban",
     "BusinessOptionalSavedPaymentDetailsItem_Mpesa",
+    "BusinessOptionalSavedPaymentDetailsItem_Npp",
     "BusinessOptionalSavedPaymentDetailsItem_Swift",
     "BusinessOptionalSavedPaymentDetailsItem_Upi",
     "BusinessOptionalSavedPaymentDetailsItem_Wallet",
@@ -346,6 +364,7 @@ __all__ = [
     "BusinessSavedPaymentDetailsItem_GenericBankAccount",
     "BusinessSavedPaymentDetailsItem_Iban",
     "BusinessSavedPaymentDetailsItem_Mpesa",
+    "BusinessSavedPaymentDetailsItem_Npp",
     "BusinessSavedPaymentDetailsItem_Swift",
     "BusinessSavedPaymentDetailsItem_Upi",
     "BusinessSavedPaymentDetailsItem_Wallet",
@@ -362,6 +381,7 @@ __all__ = [
     "BusinessWithRulesResultSavedPaymentDetailsItem_GenericBankAccount",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Iban",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Mpesa",
+    "BusinessWithRulesResultSavedPaymentDetailsItem_Npp",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Swift",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Upi",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Wallet",
@@ -433,6 +453,8 @@ __all__ = [
     "MpesaDetails",
     "MpesaPaymentMethod",
     "MpesaTransactionType",
+    "NppDetails",
+    "NppPaymentMethod",
     "OriginFundsInfo",
     "PaymentMethod",
     "PepRank",
@@ -454,6 +476,7 @@ __all__ = [
     "SanctionsDetailsEntityType",
     "SanctionsHitContext",
     "SanctionsScreeningEntity",
+    "SanctionsStatus",
     "SourceOfFunds",
     "SwiftDetails",
     "SwiftPaymentMethod",
@@ -471,6 +494,7 @@ __all__ = [
     "TransactionDestinationPaymentDetails_GenericBankAccount",
     "TransactionDestinationPaymentDetails_Iban",
     "TransactionDestinationPaymentDetails_Mpesa",
+    "TransactionDestinationPaymentDetails_Npp",
     "TransactionDestinationPaymentDetails_Swift",
     "TransactionDestinationPaymentDetails_Upi",
     "TransactionDestinationPaymentDetails_Wallet",
@@ -489,6 +513,7 @@ __all__ = [
     "TransactionOriginPaymentDetails_GenericBankAccount",
     "TransactionOriginPaymentDetails_Iban",
     "TransactionOriginPaymentDetails_Mpesa",
+    "TransactionOriginPaymentDetails_Npp",
     "TransactionOriginPaymentDetails_Swift",
     "TransactionOriginPaymentDetails_Upi",
     "TransactionOriginPaymentDetails_Wallet",
@@ -504,6 +529,7 @@ __all__ = [
     "TransactionUpdatableDestinationPaymentDetails_GenericBankAccount",
     "TransactionUpdatableDestinationPaymentDetails_Iban",
     "TransactionUpdatableDestinationPaymentDetails_Mpesa",
+    "TransactionUpdatableDestinationPaymentDetails_Npp",
     "TransactionUpdatableDestinationPaymentDetails_Swift",
     "TransactionUpdatableDestinationPaymentDetails_Upi",
     "TransactionUpdatableDestinationPaymentDetails_Wallet",
@@ -515,6 +541,7 @@ __all__ = [
     "TransactionUpdatableOriginPaymentDetails_GenericBankAccount",
     "TransactionUpdatableOriginPaymentDetails_Iban",
     "TransactionUpdatableOriginPaymentDetails_Mpesa",
+    "TransactionUpdatableOriginPaymentDetails_Npp",
     "TransactionUpdatableOriginPaymentDetails_Swift",
     "TransactionUpdatableOriginPaymentDetails_Upi",
     "TransactionUpdatableOriginPaymentDetails_Wallet",
@@ -527,6 +554,7 @@ __all__ = [
     "TransactionWithRulesResultDestinationPaymentDetails_GenericBankAccount",
     "TransactionWithRulesResultDestinationPaymentDetails_Iban",
     "TransactionWithRulesResultDestinationPaymentDetails_Mpesa",
+    "TransactionWithRulesResultDestinationPaymentDetails_Npp",
     "TransactionWithRulesResultDestinationPaymentDetails_Swift",
     "TransactionWithRulesResultDestinationPaymentDetails_Upi",
     "TransactionWithRulesResultDestinationPaymentDetails_Wallet",
@@ -538,6 +566,7 @@ __all__ = [
     "TransactionWithRulesResultOriginPaymentDetails_GenericBankAccount",
     "TransactionWithRulesResultOriginPaymentDetails_Iban",
     "TransactionWithRulesResultOriginPaymentDetails_Mpesa",
+    "TransactionWithRulesResultOriginPaymentDetails_Npp",
     "TransactionWithRulesResultOriginPaymentDetails_Swift",
     "TransactionWithRulesResultOriginPaymentDetails_Upi",
     "TransactionWithRulesResultOriginPaymentDetails_Wallet",
@@ -556,6 +585,7 @@ __all__ = [
     "UserOptionalSavedPaymentDetailsItem_GenericBankAccount",
     "UserOptionalSavedPaymentDetailsItem_Iban",
     "UserOptionalSavedPaymentDetailsItem_Mpesa",
+    "UserOptionalSavedPaymentDetailsItem_Npp",
     "UserOptionalSavedPaymentDetailsItem_Swift",
     "UserOptionalSavedPaymentDetailsItem_Upi",
     "UserOptionalSavedPaymentDetailsItem_Wallet",
@@ -570,6 +600,7 @@ __all__ = [
     "UserSavedPaymentDetailsItem_GenericBankAccount",
     "UserSavedPaymentDetailsItem_Iban",
     "UserSavedPaymentDetailsItem_Mpesa",
+    "UserSavedPaymentDetailsItem_Npp",
     "UserSavedPaymentDetailsItem_Swift",
     "UserSavedPaymentDetailsItem_Upi",
     "UserSavedPaymentDetailsItem_Wallet",
@@ -586,6 +617,7 @@ __all__ = [
     "UserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount",
     "UserWithRulesResultSavedPaymentDetailsItem_Iban",
     "UserWithRulesResultSavedPaymentDetailsItem_Mpesa",
+    "UserWithRulesResultSavedPaymentDetailsItem_Npp",
     "UserWithRulesResultSavedPaymentDetailsItem_Swift",
     "UserWithRulesResultSavedPaymentDetailsItem_Upi",
     "UserWithRulesResultSavedPaymentDetailsItem_Wallet",

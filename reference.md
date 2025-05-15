@@ -16,15 +16,15 @@
 
 `/transactions` endpoint allows you to operate on the [Transaction entity.](/guides/overview/entities#transaction)
 
-In order to pass the payload of a transaction to Flagright and verify the transaction, you will need to call this endpoint with the transaction payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup. 
+In order to pass the payload of a transaction to Flagright and verify the transaction, you will need to call this endpoint with the transaction payload. Not all fields are mandatory, you will only need to pass in the fields that you have and are relevant for your compliance setup.
 
 
 ### Payload
 
 Here are some of the most used payload fields explained (you can find the full payload [schema below](/api-reference/api-reference/transactions/verify#request) with 1 line descriptions):
 
-* `type`: Type of transaction (Ex: `WITHDRAWAL`, `DEPOSIT`, `TRANSFER` etc). 
-* `transactionId` - Unique Identifier for the transaction. 
+* `type`: Type of transaction (Ex: `WITHDRAWAL`, `DEPOSIT`, `TRANSFER` etc).
+* `transactionId` - Unique Identifier for the transaction.
 * `timestamp` - UNIX timestamp in *milliseconds* of when the transaction took place
 * `transactionState` - The state of the transaction, set to `CREATED` by default. [More details here](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
 * `originUserId` - Unique identifier (if any) of the user who is sending the money. This user must be created within the Flagright system before using the [create a consumer user](/api-reference/api-reference/consumer-users/create) or [create a business user](/api-reference/api-reference/business-users/create) endpoint
@@ -861,7 +861,7 @@ Transaction events are created after the initial `POST /transactions` call (whic
 * Update the STATE of the transaction, using the `transactionState` field and manage the [Transaction Lifecycle](/guides/overview/entities#transaction-lifecycle-through-transaction-events)
 * Update the transaction details, using the `updatedTransactionAttributes` field.
 
-> If you have neither of the above two use cases, you do not need to use transaction events. 
+> If you have neither of the above two use cases, you do not need to use transaction events.
 
 ### Payload
 
@@ -869,7 +869,7 @@ Each transaction event needs three mandatory fields:
 
 * `transactionState` - STATE of the transaction -> value is set to `CREATED` after `POST /transactions` call
 * `timestamp`- the timestamp of when the event was created or occured in your system
-* `transactionId` - The ID of the transaction for which this event is generated. 
+* `transactionId` - The ID of the transaction for which this event is generated.
 
 In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 </dd>
@@ -1010,7 +1010,7 @@ client.transaction_events.create(
 
 ### GET Transaction Events
 
-`/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](/guides/overview/entities#transaction-event). 
+`/events/transaction` endpoint allows you to operate on the [Transaction Events entity.](/guides/overview/entities#transaction-event).
 
 You can retrieve any transaction event you created using the [POST Transaction Events](/api-reference/api-reference/transaction-events/create) call.
 </dd>
@@ -1386,6 +1386,22 @@ client.consumer_users.create(
 <dd>
 
 **pep_status:** `typing.Optional[typing.Sequence[PepStatus]]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sanctions_status:** `typing.Optional[SanctionsStatus]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**adverse_media_status:** `typing.Optional[AdverseMediaStatus]` 
     
 </dd>
 </dl>
@@ -1883,14 +1899,14 @@ User events are created after the initial `POST /consumer/users` call (which cre
 * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
 * Update the user details, using the `updatedConsumerUserAttributes` field.
 
-> If you have neither of the above two use cases, you do not need to use user events. 
+> If you have neither of the above two use cases, you do not need to use user events.
 
 ### Payload
 
 Each user event needs three mandatory fields:
 
 * `timestamp`- the timestamp of when the event was created or occured in your system
-* `userId` - The ID of the transaction for which this event is generated. 
+* `userId` - The ID of the transaction for which this event is generated.
 
 In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 </dd>
@@ -2108,14 +2124,14 @@ User events are created after the initial `POST /business/users` call (which cre
 * Update the STATE and KYC Status of the user, using the `userStateDetails` or `kycStatusDetails` field
 * Update the user details, using the `updatedBusinessUserAttributes` field.
 
-> If you have neither of the above two use cases, you do not need to use user events. 
+> If you have neither of the above two use cases, you do not need to use user events.
 
 ### Payload
 
 Each user event needs three mandatory fields:
 
 * `timestamp`- the timestamp of when the event was created or occured in your system
-* `userId` - The ID of the transaction for which this event is generated. 
+* `userId` - The ID of the transaction for which this event is generated.
 
 In order to make individual events retrievable, you also need to pass in a unique `eventId` to the request body.
 </dd>

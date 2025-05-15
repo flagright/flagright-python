@@ -86,6 +86,10 @@ class TransactionWithRulesResultOriginPaymentDetails_GenericBankAccount(Universa
     bank_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankCode")] = None
     country: typing.Optional[CountryCode] = None
     name: typing.Optional[str] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    date_of_birth: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dateOfBirth")] = None
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     special_instructions: typing_extensions.Annotated[
@@ -309,6 +313,45 @@ class TransactionWithRulesResultOriginPaymentDetails_Cash(UniversalBaseModel):
             extra = pydantic.Extra.allow
 
 
+class TransactionWithRulesResultOriginPaymentDetails_Npp(UniversalBaseModel):
+    """
+    Payment details of the origin. It can be a bank account number, wallet ID, card fingerprint etc.
+    """
+
+    method: typing.Literal["NPP"] = "NPP"
+    account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
+    name: typing.Optional[ConsumerName] = None
+    email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
+    contact_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="contactNumber")] = None
+    bsb: typing.Optional[str] = None
+    pay_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="payId")] = None
+    end_to_end_id: typing_extensions.Annotated[str, FieldMetadata(alias="endToEndId")]
+    osko_reference: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="oskoReference")] = None
+    pay_id_reference: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="payIdReference")] = None
+    is_instant: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isInstant")] = None
+    remittance_information: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="remittanceInformation")
+    ] = None
+    remittance_advice: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="remittanceAdvice")] = None
+    tags: typing.Optional[typing.List[Tag]] = None
+    processing_date: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="processingDate")] = None
+    settlement_date: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="settlementDate")] = None
+    reference_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="referenceNumber")] = None
+    trace_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="traceNumber")] = None
+    message_format: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="messageFormat")] = None
+    bank_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankName")] = None
+    address: typing.Optional[Address] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
 TransactionWithRulesResultOriginPaymentDetails = typing.Union[
     TransactionWithRulesResultOriginPaymentDetails_Card,
     TransactionWithRulesResultOriginPaymentDetails_GenericBankAccount,
@@ -320,4 +363,5 @@ TransactionWithRulesResultOriginPaymentDetails = typing.Union[
     TransactionWithRulesResultOriginPaymentDetails_Wallet,
     TransactionWithRulesResultOriginPaymentDetails_Check,
     TransactionWithRulesResultOriginPaymentDetails_Cash,
+    TransactionWithRulesResultOriginPaymentDetails_Npp,
 ]

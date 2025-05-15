@@ -16,6 +16,8 @@ WebhookEventType = typing.Union[
         "USER_TAGS_DELETED",
         "CRA_RISK_LEVEL_UPDATED",
         "LIST_UPDATED",
+        "SANCTIONS_STATUS_UPDATED",
+        "ADVERSE_MEDIA_STATUS_UPDATED",
     ],
     typing.Any,
 ]

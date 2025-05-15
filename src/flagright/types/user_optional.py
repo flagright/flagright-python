@@ -19,6 +19,8 @@ from .acquisition_channel import AcquisitionChannel
 from .source_of_funds import SourceOfFunds
 from .consumer_user_segment import ConsumerUserSegment
 from .pep_status import PepStatus
+from .sanctions_status import SanctionsStatus
+from .adverse_media_status import AdverseMediaStatus
 from .user_entity_link import UserEntityLink
 from .user_optional_saved_payment_details_item import UserOptionalSavedPaymentDetailsItem
 from .user_tag import UserTag
@@ -85,6 +87,12 @@ class UserOptional(UniversalBaseModel):
     ] = None
     pep_status: typing_extensions.Annotated[
         typing.Optional[typing.List[PepStatus]], FieldMetadata(alias="pepStatus")
+    ] = None
+    sanctions_status: typing_extensions.Annotated[
+        typing.Optional[SanctionsStatus], FieldMetadata(alias="sanctionsStatus")
+    ] = None
+    adverse_media_status: typing_extensions.Annotated[
+        typing.Optional[AdverseMediaStatus], FieldMetadata(alias="adverseMediaStatus")
     ] = None
     last_transaction_timestamp: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="lastTransactionTimestamp")
