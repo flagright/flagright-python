@@ -38,9 +38,7 @@ class NppDetails(UniversalBaseModel):
     BSB number
     """
 
-    pay_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="payId")] = pydantic.Field(
-        default=None
-    )
+    pay_id: typing_extensions.Annotated[str, FieldMetadata(alias="payId")] = pydantic.Field()
     """
     PayID
     """

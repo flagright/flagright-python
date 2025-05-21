@@ -324,7 +324,7 @@ class TransactionOriginPaymentDetails_Npp(UniversalBaseModel):
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     contact_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="contactNumber")] = None
     bsb: typing.Optional[str] = None
-    pay_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="payId")] = None
+    pay_id: typing_extensions.Annotated[str, FieldMetadata(alias="payId")]
     end_to_end_id: typing_extensions.Annotated[str, FieldMetadata(alias="endToEndId")]
     osko_reference: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="oskoReference")] = None
     pay_id_reference: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="payIdReference")] = None
