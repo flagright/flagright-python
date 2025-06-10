@@ -57,7 +57,6 @@ class ConsumerUsersClient:
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
-        krs_only: typing.Optional[BooleanString] = None,
         activated_timestamp: typing.Optional[float] = OMIT,
         user_details: typing.Optional[UserDetails] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
@@ -116,8 +115,6 @@ class ConsumerUsersClient:
 
         validate_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate the userId
-
-        krs_only : typing.Optional[BooleanString]
 
         activated_timestamp : typing.Optional[float]
             Timestamp when user was activated
@@ -262,7 +259,6 @@ class ConsumerUsersClient:
             lock_cra_risk_level=lock_cra_risk_level,
             lock_kyc_risk_level=lock_kyc_risk_level,
             validate_user_id=validate_user_id,
-            krs_only=krs_only,
             activated_timestamp=activated_timestamp,
             user_details=user_details,
             user_state_details=user_state_details,
@@ -352,7 +348,6 @@ class AsyncConsumerUsersClient:
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
-        krs_only: typing.Optional[BooleanString] = None,
         activated_timestamp: typing.Optional[float] = OMIT,
         user_details: typing.Optional[UserDetails] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
@@ -411,8 +406,6 @@ class AsyncConsumerUsersClient:
 
         validate_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate the userId
-
-        krs_only : typing.Optional[BooleanString]
 
         activated_timestamp : typing.Optional[float]
             Timestamp when user was activated
@@ -565,7 +558,6 @@ class AsyncConsumerUsersClient:
             lock_cra_risk_level=lock_cra_risk_level,
             lock_kyc_risk_level=lock_kyc_risk_level,
             validate_user_id=validate_user_id,
-            krs_only=krs_only,
             activated_timestamp=activated_timestamp,
             user_details=user_details,
             user_state_details=user_state_details,

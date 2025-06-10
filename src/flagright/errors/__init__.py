@@ -2,7 +2,8 @@
 
 from .bad_request_error import BadRequestError
 from .conflict_error import ConflictError
+from .not_found_error import NotFoundError
 from .too_many_requests_error import TooManyRequestsError
 from .unauthorized_error import UnauthorizedError
 
-__all__ = ["BadRequestError", "ConflictError", "TooManyRequestsError", "UnauthorizedError"]
+__all__ = ["BadRequestError", "ConflictError", "NotFoundError", "TooManyRequestsError", "UnauthorizedError"]

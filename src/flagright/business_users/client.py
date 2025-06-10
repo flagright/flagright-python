@@ -51,7 +51,6 @@ class BusinessUsersClient:
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
-        krs_only: typing.Optional[BooleanString] = None,
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
@@ -104,8 +103,6 @@ class BusinessUsersClient:
 
         validate_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate the userId
-
-        krs_only : typing.Optional[BooleanString]
 
         activated_timestamp : typing.Optional[float]
             Timestamp when the user was activated
@@ -179,7 +176,6 @@ class BusinessUsersClient:
             lock_cra_risk_level=lock_cra_risk_level,
             lock_kyc_risk_level=lock_kyc_risk_level,
             validate_user_id=validate_user_id,
-            krs_only=krs_only,
             activated_timestamp=activated_timestamp,
             user_state_details=user_state_details,
             kyc_status_details=kyc_status_details,
@@ -260,7 +256,6 @@ class AsyncBusinessUsersClient:
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
-        krs_only: typing.Optional[BooleanString] = None,
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
@@ -313,8 +308,6 @@ class AsyncBusinessUsersClient:
 
         validate_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate the userId
-
-        krs_only : typing.Optional[BooleanString]
 
         activated_timestamp : typing.Optional[float]
             Timestamp when the user was activated
@@ -396,7 +389,6 @@ class AsyncBusinessUsersClient:
             lock_cra_risk_level=lock_cra_risk_level,
             lock_kyc_risk_level=lock_kyc_risk_level,
             validate_user_id=validate_user_id,
-            krs_only=krs_only,
             activated_timestamp=activated_timestamp,
             user_state_details=user_state_details,
             kyc_status_details=kyc_status_details,

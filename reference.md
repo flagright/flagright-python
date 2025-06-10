@@ -177,22 +177,6 @@ client.transactions.verify(
 <dl>
 <dd>
 
-**validate_transaction_id:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should validate if provided transactionId exist. True by default
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**trs_only:** `typing.Optional[BooleanString]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **origin_user_id:** `typing.Optional[str]` — UserId for where the transaction originates from
     
 </dd>
@@ -467,6 +451,78 @@ client.batch.verify_transaction(
 <dd>
 
 **batch_id:** `typing.Optional[str]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.batch.<a href="src/flagright/batch/client.py">get</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from flagright import Flagright
+
+client = Flagright(
+    api_key="YOUR_API_KEY",
+)
+client.batch.get(
+    batch_id="batchId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batch_id:** `str` — Unique Batch Identifier
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `typing.Optional[PageSize]` — Page size (default 20)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page:** `typing.Optional[Page]` — Page
     
 </dd>
 </dl>
@@ -1233,14 +1289,6 @@ client.consumer_users.create(
 <dl>
 <dd>
 
-**krs_only:** `typing.Optional[BooleanString]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **activated_timestamp:** `typing.Optional[float]` — Timestamp when user was activated
     
 </dd>
@@ -1648,14 +1696,6 @@ client.business_users.create(
 <dd>
 
 **validate_user_id:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should validate the userId
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**krs_only:** `typing.Optional[BooleanString]` 
     
 </dd>
 </dl>

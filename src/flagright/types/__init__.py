@@ -9,9 +9,50 @@ from .alert_closed_details import AlertClosedDetails
 from .alert_opened_details import AlertOpenedDetails
 from .amount import Amount
 from .api_error_response import ApiErrorResponse
+from .batch_business_user_event_with_rules_result import BatchBusinessUserEventWithRulesResult
+from .batch_business_user_events_with_rules_result import BatchBusinessUserEventsWithRulesResult
+from .batch_business_user_with_rules_result import BatchBusinessUserWithRulesResult
+from .batch_business_user_with_rules_result_saved_payment_details_item import (
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Card,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Cash,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Check,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Iban,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Mpesa,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Npp,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Swift,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Upi,
+    BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Wallet,
+)
+from .batch_business_users_with_rules_results import BatchBusinessUsersWithRulesResults
+from .batch_consumer_user_event_with_rules_result import BatchConsumerUserEventWithRulesResult
+from .batch_consumer_user_events_rules_result import BatchConsumerUserEventsRulesResult
+from .batch_consumer_user_with_rules_result import BatchConsumerUserWithRulesResult
+from .batch_consumer_user_with_rules_result_saved_payment_details_item import (
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Ach,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Card,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Cash,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Check,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Iban,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Mpesa,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Npp,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Swift,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Upi,
+    BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Wallet,
+)
+from .batch_consumer_users_with_rules_result import BatchConsumerUsersWithRulesResult
 from .batch_response import BatchResponse
 from .batch_response_failed_record import BatchResponseFailedRecord
 from .batch_response_status import BatchResponseStatus
+from .batch_transaction_event_monitoring_result import BatchTransactionEventMonitoringResult
+from .batch_transaction_event_monitoring_results import BatchTransactionEventMonitoringResults
+from .batch_transaction_monitoring_result import BatchTransactionMonitoringResult
+from .batch_transaction_monitoring_results import BatchTransactionMonitoringResults
+from .batch_user_rules_result import BatchUserRulesResult
 from .boolean_string import BooleanString
 from .business import Business
 from .business_base import BusinessBase
@@ -108,6 +149,7 @@ from .gender import Gender
 from .general_bank_account_payment_method import GeneralBankAccountPaymentMethod
 from .generic_bank_account_details import GenericBankAccountDetails
 from .hit_rules_details import HitRulesDetails
+from .hit_rules_results import HitRulesResults
 from .iban_details import IbanDetails
 from .iban_payment_method import IbanPaymentMethod
 from .kyc_status import KycStatus
@@ -134,6 +176,8 @@ from .mpesa_transaction_type import MpesaTransactionType
 from .npp_details import NppDetails
 from .npp_payment_method import NppPaymentMethod
 from .origin_funds_info import OriginFundsInfo
+from .page import Page
+from .page_size import PageSize
 from .payment_method import PaymentMethod
 from .pep_rank import PepRank
 from .pep_status import PepStatus
@@ -337,9 +381,46 @@ __all__ = [
     "AlertOpenedDetails",
     "Amount",
     "ApiErrorResponse",
+    "BatchBusinessUserEventWithRulesResult",
+    "BatchBusinessUserEventsWithRulesResult",
+    "BatchBusinessUserWithRulesResult",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Card",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Cash",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Check",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Iban",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Mpesa",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Npp",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Swift",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Upi",
+    "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Wallet",
+    "BatchBusinessUsersWithRulesResults",
+    "BatchConsumerUserEventWithRulesResult",
+    "BatchConsumerUserEventsRulesResult",
+    "BatchConsumerUserWithRulesResult",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Ach",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Card",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Cash",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Check",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Iban",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Mpesa",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Npp",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Swift",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Upi",
+    "BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Wallet",
+    "BatchConsumerUsersWithRulesResult",
     "BatchResponse",
     "BatchResponseFailedRecord",
     "BatchResponseStatus",
+    "BatchTransactionEventMonitoringResult",
+    "BatchTransactionEventMonitoringResults",
+    "BatchTransactionMonitoringResult",
+    "BatchTransactionMonitoringResults",
+    "BatchUserRulesResult",
     "BooleanString",
     "Business",
     "BusinessBase",
@@ -430,6 +511,7 @@ __all__ = [
     "GeneralBankAccountPaymentMethod",
     "GenericBankAccountDetails",
     "HitRulesDetails",
+    "HitRulesResults",
     "IbanDetails",
     "IbanPaymentMethod",
     "KycStatus",
@@ -456,6 +538,8 @@ __all__ = [
     "NppDetails",
     "NppPaymentMethod",
     "OriginFundsInfo",
+    "Page",
+    "PageSize",
     "PaymentMethod",
     "PepRank",
     "PepStatus",

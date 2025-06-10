@@ -55,7 +55,6 @@ class RawConsumerUsersClient:
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
-        krs_only: typing.Optional[BooleanString] = None,
         activated_timestamp: typing.Optional[float] = OMIT,
         user_details: typing.Optional[UserDetails] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
@@ -114,8 +113,6 @@ class RawConsumerUsersClient:
 
         validate_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate the userId
-
-        krs_only : typing.Optional[BooleanString]
 
         activated_timestamp : typing.Optional[float]
             Timestamp when user was activated
@@ -189,7 +186,6 @@ class RawConsumerUsersClient:
                 "lockCraRiskLevel": lock_cra_risk_level,
                 "lockKycRiskLevel": lock_kyc_risk_level,
                 "validateUserId": validate_user_id,
-                "_krsOnly": krs_only,
             },
             json={
                 "userId": user_id,
@@ -383,7 +379,6 @@ class AsyncRawConsumerUsersClient:
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
-        krs_only: typing.Optional[BooleanString] = None,
         activated_timestamp: typing.Optional[float] = OMIT,
         user_details: typing.Optional[UserDetails] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
@@ -442,8 +437,6 @@ class AsyncRawConsumerUsersClient:
 
         validate_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate the userId
-
-        krs_only : typing.Optional[BooleanString]
 
         activated_timestamp : typing.Optional[float]
             Timestamp when user was activated
@@ -517,7 +510,6 @@ class AsyncRawConsumerUsersClient:
                 "lockCraRiskLevel": lock_cra_risk_level,
                 "lockKycRiskLevel": lock_kyc_risk_level,
                 "validateUserId": validate_user_id,
-                "_krsOnly": krs_only,
             },
             json={
                 "userId": user_id,

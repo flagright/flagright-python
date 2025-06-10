@@ -49,7 +49,6 @@ class RawBusinessUsersClient:
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
-        krs_only: typing.Optional[BooleanString] = None,
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
@@ -102,8 +101,6 @@ class RawBusinessUsersClient:
 
         validate_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate the userId
-
-        krs_only : typing.Optional[BooleanString]
 
         activated_timestamp : typing.Optional[float]
             Timestamp when the user was activated
@@ -158,7 +155,6 @@ class RawBusinessUsersClient:
                 "lockCraRiskLevel": lock_cra_risk_level,
                 "lockKycRiskLevel": lock_kyc_risk_level,
                 "validateUserId": validate_user_id,
-                "_krsOnly": krs_only,
             },
             json={
                 "userId": user_id,
@@ -340,7 +336,6 @@ class AsyncRawBusinessUsersClient:
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         validate_user_id: typing.Optional[BooleanString] = None,
-        krs_only: typing.Optional[BooleanString] = None,
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
@@ -393,8 +388,6 @@ class AsyncRawBusinessUsersClient:
 
         validate_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate the userId
-
-        krs_only : typing.Optional[BooleanString]
 
         activated_timestamp : typing.Optional[float]
             Timestamp when the user was activated
@@ -449,7 +442,6 @@ class AsyncRawBusinessUsersClient:
                 "lockCraRiskLevel": lock_cra_risk_level,
                 "lockKycRiskLevel": lock_kyc_risk_level,
                 "validateUserId": validate_user_id,
-                "_krsOnly": krs_only,
             },
             json={
                 "userId": user_id,

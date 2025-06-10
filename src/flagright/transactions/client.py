@@ -44,8 +44,6 @@ class TransactionsClient:
         timestamp: float,
         validate_origin_user_id: typing.Optional[BooleanString] = None,
         validate_destination_user_id: typing.Optional[BooleanString] = None,
-        validate_transaction_id: typing.Optional[BooleanString] = None,
-        trs_only: typing.Optional[BooleanString] = None,
         origin_user_id: typing.Optional[str] = OMIT,
         destination_user_id: typing.Optional[str] = OMIT,
         transaction_state: typing.Optional[TransactionState] = OMIT,
@@ -102,11 +100,6 @@ class TransactionsClient:
 
         validate_destination_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate if provided destinationUserId exist. True by default
-
-        validate_transaction_id : typing.Optional[BooleanString]
-            Boolean string whether Flagright should validate if provided transactionId exist. True by default
-
-        trs_only : typing.Optional[BooleanString]
 
         origin_user_id : typing.Optional[str]
             UserId for where the transaction originates from
@@ -238,8 +231,6 @@ class TransactionsClient:
             timestamp=timestamp,
             validate_origin_user_id=validate_origin_user_id,
             validate_destination_user_id=validate_destination_user_id,
-            validate_transaction_id=validate_transaction_id,
-            trs_only=trs_only,
             origin_user_id=origin_user_id,
             destination_user_id=destination_user_id,
             transaction_state=transaction_state,
@@ -320,8 +311,6 @@ class AsyncTransactionsClient:
         timestamp: float,
         validate_origin_user_id: typing.Optional[BooleanString] = None,
         validate_destination_user_id: typing.Optional[BooleanString] = None,
-        validate_transaction_id: typing.Optional[BooleanString] = None,
-        trs_only: typing.Optional[BooleanString] = None,
         origin_user_id: typing.Optional[str] = OMIT,
         destination_user_id: typing.Optional[str] = OMIT,
         transaction_state: typing.Optional[TransactionState] = OMIT,
@@ -378,11 +367,6 @@ class AsyncTransactionsClient:
 
         validate_destination_user_id : typing.Optional[BooleanString]
             Boolean string whether Flagright should validate if provided destinationUserId exist. True by default
-
-        validate_transaction_id : typing.Optional[BooleanString]
-            Boolean string whether Flagright should validate if provided transactionId exist. True by default
-
-        trs_only : typing.Optional[BooleanString]
 
         origin_user_id : typing.Optional[str]
             UserId for where the transaction originates from
@@ -522,8 +506,6 @@ class AsyncTransactionsClient:
             timestamp=timestamp,
             validate_origin_user_id=validate_origin_user_id,
             validate_destination_user_id=validate_destination_user_id,
-            validate_transaction_id=validate_transaction_id,
-            trs_only=trs_only,
             origin_user_id=origin_user_id,
             destination_user_id=destination_user_id,
             transaction_state=transaction_state,
