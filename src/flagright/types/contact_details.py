@@ -6,6 +6,7 @@ import typing
 from ..core.serialization import FieldMetadata
 import pydantic
 from .address import Address
+from .consumer_name import ConsumerName
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -44,6 +45,8 @@ class ContactDetails(UniversalBaseModel):
     """
     Address(es) of the company
     """
+
+    name: typing.Optional[ConsumerName] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
