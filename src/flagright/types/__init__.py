@@ -122,6 +122,7 @@ from .cash_payment_method import CashPaymentMethod
 from .check_delivery_status import CheckDeliveryStatus
 from .check_details import CheckDetails
 from .check_payment_method import CheckPaymentMethod
+from .column_type import ColumnType
 from .company_financial_details import CompanyFinancialDetails
 from .company_general_details import CompanyGeneralDetails
 from .company_registration_details import CompanyRegistrationDetails
@@ -134,6 +135,7 @@ from .contact_details import ContactDetails
 from .country_code import CountryCode
 from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
 from .currency_code import CurrencyCode
+from .custom_column import CustomColumn
 from .date import Date
 from .device_data import DeviceData
 from .email_id import EmailId
@@ -484,6 +486,7 @@ __all__ = [
     "CheckDeliveryStatus",
     "CheckDetails",
     "CheckPaymentMethod",
+    "ColumnType",
     "CompanyFinancialDetails",
     "CompanyGeneralDetails",
     "CompanyRegistrationDetails",
@@ -496,6 +499,7 @@ __all__ = [
     "CountryCode",
     "CraRiskLevelUpdatedDetails",
     "CurrencyCode",
+    "CustomColumn",
     "Date",
     "DeviceData",
     "EmailId",

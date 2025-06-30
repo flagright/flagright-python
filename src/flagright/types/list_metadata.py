@@ -3,6 +3,7 @@
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
 import pydantic
+from .custom_column import CustomColumn
 from .list_metadata_ttl import ListMetadataTtl
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -20,6 +21,7 @@ class ListMetadata(UniversalBaseModel):
 
     status: typing.Optional[bool] = None
     checksum: typing.Optional[str] = None
+    columns: typing.Optional[typing.List[CustomColumn]] = None
     ttl: typing.Optional[ListMetadataTtl] = None
 
     if IS_PYDANTIC_V2:

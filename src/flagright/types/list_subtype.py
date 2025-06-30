@@ -17,6 +17,7 @@ ListSubtype = typing.Union[
         "DEVICE_IDENTIFIER",
         "STRING",
         "COUNTRY",
+        "CUSTOM",
     ],
     typing.Any,
 ]
