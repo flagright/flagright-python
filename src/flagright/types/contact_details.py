@@ -7,6 +7,7 @@ from ..core.serialization import FieldMetadata
 import pydantic
 from .address import Address
 from .consumer_name import ConsumerName
+from .tag import Tag
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -47,6 +48,10 @@ class ContactDetails(UniversalBaseModel):
     """
 
     name: typing.Optional[ConsumerName] = None
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
+    """
+    Additional information that can be added via tags
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
