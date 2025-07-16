@@ -83,6 +83,7 @@ class ConsumerUsersClient:
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -172,6 +173,8 @@ class ConsumerUsersClient:
 
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             Uploaded user's attachment
+
+        update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -285,6 +288,7 @@ class ConsumerUsersClient:
             saved_payment_details=saved_payment_details,
             tags=tags,
             attachments=attachments,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data
@@ -374,6 +378,7 @@ class AsyncConsumerUsersClient:
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -463,6 +468,8 @@ class AsyncConsumerUsersClient:
 
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             Uploaded user's attachment
+
+        update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -584,6 +591,7 @@ class AsyncConsumerUsersClient:
             saved_payment_details=saved_payment_details,
             tags=tags,
             attachments=attachments,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data

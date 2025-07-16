@@ -42,6 +42,7 @@ class TransactionEventsClient:
         event_description: typing.Optional[str] = OMIT,
         updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionEventMonitoringResult:
         """
@@ -89,6 +90,8 @@ class TransactionEventsClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -128,6 +131,7 @@ class TransactionEventsClient:
             event_description=event_description,
             updated_transaction_attributes=updated_transaction_attributes,
             meta_data=meta_data,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data
@@ -196,6 +200,7 @@ class AsyncTransactionEventsClient:
         event_description: typing.Optional[str] = OMIT,
         updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionEventMonitoringResult:
         """
@@ -242,6 +247,8 @@ class AsyncTransactionEventsClient:
         updated_transaction_attributes : typing.Optional[TransactionUpdatable]
 
         meta_data : typing.Optional[DeviceData]
+
+        update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -290,6 +297,7 @@ class AsyncTransactionEventsClient:
             event_description=event_description,
             updated_transaction_attributes=updated_transaction_attributes,
             meta_data=meta_data,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data

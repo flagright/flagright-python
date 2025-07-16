@@ -297,6 +297,14 @@ client.transactions.verify(
 <dl>
 <dd>
 
+**update_count:** `typing.Optional[float]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -1040,6 +1048,14 @@ client.transaction_events.create(
 <dl>
 <dd>
 
+**update_count:** `typing.Optional[float]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -1497,6 +1513,14 @@ client.consumer_users.create(
 <dl>
 <dd>
 
+**update_count:** `typing.Optional[float]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -1831,6 +1855,14 @@ client.business_users.create(
 <dl>
 <dd>
 
+**update_count:** `typing.Optional[float]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2059,6 +2091,14 @@ client.consumer_user_events.create(
 <dl>
 <dd>
 
+**update_count:** `typing.Optional[float]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2277,6 +2317,14 @@ client.business_user_events.create(
 <dd>
 
 **updated_business_user_attributes:** `typing.Optional[BusinessOptional]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**update_count:** `typing.Optional[float]` 
     
 </dd>
 </dl>

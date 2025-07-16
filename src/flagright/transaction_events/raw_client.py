@@ -40,6 +40,7 @@ class RawTransactionEventsClient:
         event_description: typing.Optional[str] = OMIT,
         updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[TransactionEventMonitoringResult]:
         """
@@ -87,6 +88,8 @@ class RawTransactionEventsClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -111,6 +114,7 @@ class RawTransactionEventsClient:
                 "metaData": convert_and_respect_annotation_metadata(
                     object_=meta_data, annotation=DeviceData, direction="write"
                 ),
+                "updateCount": update_count,
             },
             request_options=request_options,
             omit=OMIT,
@@ -249,6 +253,7 @@ class AsyncRawTransactionEventsClient:
         event_description: typing.Optional[str] = OMIT,
         updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[TransactionEventMonitoringResult]:
         """
@@ -296,6 +301,8 @@ class AsyncRawTransactionEventsClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -320,6 +327,7 @@ class AsyncRawTransactionEventsClient:
                 "metaData": convert_and_respect_annotation_metadata(
                     object_=meta_data, annotation=DeviceData, direction="write"
                 ),
+                "updateCount": update_count,
             },
             request_options=request_options,
             omit=OMIT,

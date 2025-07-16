@@ -57,6 +57,7 @@ class RawTransactionsClient:
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[TransactionsVerifyResponse]:
         """
@@ -137,6 +138,8 @@ class RawTransactionsClient:
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -189,6 +192,7 @@ class RawTransactionsClient:
                 "tags": convert_and_respect_annotation_metadata(
                     object_=tags, annotation=typing.Sequence[Tag], direction="write"
                 ),
+                "updateCount": update_count,
             },
             request_options=request_options,
             omit=OMIT,
@@ -339,6 +343,7 @@ class AsyncRawTransactionsClient:
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[TransactionsVerifyResponse]:
         """
@@ -419,6 +424,8 @@ class AsyncRawTransactionsClient:
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -471,6 +478,7 @@ class AsyncRawTransactionsClient:
                 "tags": convert_and_respect_annotation_metadata(
                     object_=tags, annotation=typing.Sequence[Tag], direction="write"
                 ),
+                "updateCount": update_count,
             },
             request_options=request_options,
             omit=OMIT,

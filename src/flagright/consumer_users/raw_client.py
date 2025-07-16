@@ -81,6 +81,7 @@ class RawConsumerUsersClient:
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -171,6 +172,8 @@ class RawConsumerUsersClient:
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             Uploaded user's attachment
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -244,6 +247,7 @@ class RawConsumerUsersClient:
                 "attachments": convert_and_respect_annotation_metadata(
                     object_=attachments, annotation=typing.Sequence[PersonAttachment], direction="write"
                 ),
+                "updateCount": update_count,
             },
             request_options=request_options,
             omit=OMIT,
@@ -405,6 +409,7 @@ class AsyncRawConsumerUsersClient:
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -495,6 +500,8 @@ class AsyncRawConsumerUsersClient:
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             Uploaded user's attachment
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -568,6 +575,7 @@ class AsyncRawConsumerUsersClient:
                 "attachments": convert_and_respect_annotation_metadata(
                     object_=attachments, annotation=typing.Sequence[PersonAttachment], direction="write"
                 ),
+                "updateCount": update_count,
             },
             request_options=request_options,
             omit=OMIT,

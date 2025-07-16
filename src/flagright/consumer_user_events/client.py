@@ -42,6 +42,7 @@ class ConsumerUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UserWithRulesResult:
         """
@@ -93,6 +94,8 @@ class ConsumerUserEventsClient:
 
         updated_consumer_user_attributes : typing.Optional[UserOptional]
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -123,6 +126,7 @@ class ConsumerUserEventsClient:
             reason=reason,
             event_description=event_description,
             updated_consumer_user_attributes=updated_consumer_user_attributes,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data
@@ -189,6 +193,7 @@ class AsyncConsumerUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UserWithRulesResult:
         """
@@ -240,6 +245,8 @@ class AsyncConsumerUserEventsClient:
 
         updated_consumer_user_attributes : typing.Optional[UserOptional]
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -278,6 +285,7 @@ class AsyncConsumerUserEventsClient:
             reason=reason,
             event_description=event_description,
             updated_consumer_user_attributes=updated_consumer_user_attributes,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data

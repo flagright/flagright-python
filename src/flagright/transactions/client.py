@@ -59,6 +59,7 @@ class TransactionsClient:
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -138,6 +139,8 @@ class TransactionsClient:
 
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
+
+        update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -246,6 +249,7 @@ class TransactionsClient:
             origin_device_data=origin_device_data,
             destination_device_data=destination_device_data,
             tags=tags,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data
@@ -326,6 +330,7 @@ class AsyncTransactionsClient:
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -405,6 +410,8 @@ class AsyncTransactionsClient:
 
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
+
+        update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -521,6 +528,7 @@ class AsyncTransactionsClient:
             origin_device_data=origin_device_data,
             destination_device_data=destination_device_data,
             tags=tags,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data

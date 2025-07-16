@@ -67,6 +67,7 @@ class BusinessUsersClient:
         mcc_details: typing.Optional[MccDetails] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -142,6 +143,8 @@ class BusinessUsersClient:
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             User's attachments uploaded by business user
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -192,6 +195,7 @@ class BusinessUsersClient:
             mcc_details=mcc_details,
             tags=tags,
             attachments=attachments,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data
@@ -272,6 +276,7 @@ class AsyncBusinessUsersClient:
         mcc_details: typing.Optional[MccDetails] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -347,6 +352,8 @@ class AsyncBusinessUsersClient:
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             User's attachments uploaded by business user
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -405,6 +412,7 @@ class AsyncBusinessUsersClient:
             mcc_details=mcc_details,
             tags=tags,
             attachments=attachments,
+            update_count=update_count,
             request_options=request_options,
         )
         return response.data

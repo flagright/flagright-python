@@ -111,6 +111,7 @@ class TransactionWithRulesResult(UniversalBaseModel):
     Additional information that can be added via tags
     """
 
+    update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
     executed_rules: typing_extensions.Annotated[typing.List[ExecutedRulesResult], FieldMetadata(alias="executedRules")]
     hit_rules: typing_extensions.Annotated[typing.List[HitRulesDetails], FieldMetadata(alias="hitRules")]
     status: RuleAction

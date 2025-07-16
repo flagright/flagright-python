@@ -65,6 +65,7 @@ class RawBusinessUsersClient:
         mcc_details: typing.Optional[MccDetails] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BusinessUsersCreateResponse]:
         """
@@ -140,6 +141,8 @@ class RawBusinessUsersClient:
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             User's attachments uploaded by business user
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -200,6 +203,7 @@ class RawBusinessUsersClient:
                 "attachments": convert_and_respect_annotation_metadata(
                     object_=attachments, annotation=typing.Sequence[PersonAttachment], direction="write"
                 ),
+                "updateCount": update_count,
             },
             request_options=request_options,
             omit=OMIT,
@@ -352,6 +356,7 @@ class AsyncRawBusinessUsersClient:
         mcc_details: typing.Optional[MccDetails] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BusinessUsersCreateResponse]:
         """
@@ -427,6 +432,8 @@ class AsyncRawBusinessUsersClient:
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             User's attachments uploaded by business user
 
+        update_count : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -487,6 +494,7 @@ class AsyncRawBusinessUsersClient:
                 "attachments": convert_and_respect_annotation_metadata(
                     object_=attachments, annotation=typing.Sequence[PersonAttachment], direction="write"
                 ),
+                "updateCount": update_count,
             },
             request_options=request_options,
             omit=OMIT,

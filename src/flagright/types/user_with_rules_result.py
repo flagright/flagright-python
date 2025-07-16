@@ -127,6 +127,7 @@ class UserWithRulesResult(UniversalBaseModel):
     Uploaded user's attachment
     """
 
+    update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None

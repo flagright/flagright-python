@@ -50,6 +50,7 @@ class TransactionEventWithRulesResult(UniversalBaseModel):
         typing.Optional[TransactionUpdatable], FieldMetadata(alias="updatedTransactionAttributes")
     ] = None
     meta_data: typing_extensions.Annotated[typing.Optional[DeviceData], FieldMetadata(alias="metaData")] = None
+    update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None
