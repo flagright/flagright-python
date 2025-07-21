@@ -109,7 +109,7 @@ class TransactionEventsClient:
         )
         client.transaction_events.create(
             transaction_state="SUCCESSFUL",
-            timestamp=1431231244001.0,
+            timestamp=1752526580000.0,
             transaction_id="443dea26147a406b957d9ee3a1247b11",
             event_id="aaeeb166147a406b957dd9147a406b957",
             event_description="Transaction created",
@@ -272,7 +272,7 @@ class AsyncTransactionEventsClient:
         async def main() -> None:
             await client.transaction_events.create(
                 transaction_state="SUCCESSFUL",
-                timestamp=1431231244001.0,
+                timestamp=1752526580000.0,
                 transaction_id="443dea26147a406b957d9ee3a1247b11",
                 event_id="aaeeb166147a406b957dd9147a406b957",
                 event_description="Transaction created",

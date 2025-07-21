@@ -5,6 +5,7 @@ import typing_extensions
 from ..core.serialization import FieldMetadata
 from .transaction import Transaction
 import typing
+from .rule_action import RuleAction
 from .transaction_risk_scoring_result import TransactionRiskScoringResult
 from .executed_rules_result import ExecutedRulesResult
 import pydantic
@@ -15,6 +16,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 class TransactionEventMonitoringResult(UniversalBaseModel):
     event_id: typing_extensions.Annotated[str, FieldMetadata(alias="eventId")]
     transaction: Transaction
+    status: typing.Optional[RuleAction] = None
     risk_score_details: typing_extensions.Annotated[
         typing.Optional[TransactionRiskScoringResult], FieldMetadata(alias="riskScoreDetails")
     ] = None
