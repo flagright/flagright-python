@@ -372,6 +372,8 @@ from .webhook_event_base_triggered_by import WebhookEventBaseTriggeredBy
 from .webhook_event_data import WebhookEventData
 from .webhook_event_triggered_by import WebhookEventTriggeredBy
 from .webhook_event_type import WebhookEventType
+from .webhook_kyc_status_details import WebhookKycStatusDetails
+from .webhook_user_state_details import WebhookUserStateDetails
 
 __all__ = [
     "AchDetails",
@@ -718,4 +720,6 @@ __all__ = [
     "WebhookEventData",
     "WebhookEventTriggeredBy",
     "WebhookEventType",
+    "WebhookKycStatusDetails",
+    "WebhookUserStateDetails",
 ]

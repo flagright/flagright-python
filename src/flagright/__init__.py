@@ -345,6 +345,8 @@ from .types import (
     WebhookEventData,
     WebhookEventTriggeredBy,
     WebhookEventType,
+    WebhookKycStatusDetails,
+    WebhookUserStateDetails,
 )
 from .errors import BadRequestError, ConflictError, NotFoundError, TooManyRequestsError, UnauthorizedError
 from . import (
@@ -719,6 +721,8 @@ __all__ = [
     "WebhookEventData",
     "WebhookEventTriggeredBy",
     "WebhookEventType",
+    "WebhookKycStatusDetails",
+    "WebhookUserStateDetails",
     "__version__",
     "batch",
     "business_user_events",
