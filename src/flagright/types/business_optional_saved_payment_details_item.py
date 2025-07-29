@@ -90,6 +90,7 @@ class BusinessOptionalSavedPaymentDetailsItem_GenericBankAccount(UniversalBaseMo
     payment_channel: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="paymentChannel")] = None
     tags: typing.Optional[typing.List[Tag]] = None
     transit_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="transitNumber")] = None
+    address: typing.Optional[Address] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
