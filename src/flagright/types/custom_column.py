@@ -2,14 +2,17 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 from .column_type import ColumnType
-from ..core.pydantic_utilities import IS_PYDANTIC_V2
+import typing_extensions
 import typing
+from ..core.serialization import FieldMetadata
+from ..core.pydantic_utilities import IS_PYDANTIC_V2
 import pydantic
 
 
 class CustomColumn(UniversalBaseModel):
     key: str
     type: ColumnType
+    primary_key: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="primaryKey")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
