@@ -16,6 +16,7 @@ from ..types.business_saved_payment_details_item import BusinessSavedPaymentDeta
 from ..types.mcc_details import MccDetails
 from ..types.user_tag import UserTag
 from ..types.person_attachment import PersonAttachment
+from ..types.device_data import DeviceData
 from ..core.request_options import RequestOptions
 from ..core.http_response import HttpResponse
 from .types.business_users_create_response import BusinessUsersCreateResponse
@@ -65,6 +66,7 @@ class RawBusinessUsersClient:
         mcc_details: typing.Optional[MccDetails] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        meta_data: typing.Optional[DeviceData] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BusinessUsersCreateResponse]:
@@ -141,6 +143,8 @@ class RawBusinessUsersClient:
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             User's attachments uploaded by business user
 
+        meta_data : typing.Optional[DeviceData]
+
         update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
@@ -202,6 +206,9 @@ class RawBusinessUsersClient:
                 ),
                 "attachments": convert_and_respect_annotation_metadata(
                     object_=attachments, annotation=typing.Sequence[PersonAttachment], direction="write"
+                ),
+                "metaData": convert_and_respect_annotation_metadata(
+                    object_=meta_data, annotation=DeviceData, direction="write"
                 ),
                 "updateCount": update_count,
             },
@@ -356,6 +363,7 @@ class AsyncRawBusinessUsersClient:
         mcc_details: typing.Optional[MccDetails] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        meta_data: typing.Optional[DeviceData] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BusinessUsersCreateResponse]:
@@ -432,6 +440,8 @@ class AsyncRawBusinessUsersClient:
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             User's attachments uploaded by business user
 
+        meta_data : typing.Optional[DeviceData]
+
         update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
@@ -493,6 +503,9 @@ class AsyncRawBusinessUsersClient:
                 ),
                 "attachments": convert_and_respect_annotation_metadata(
                     object_=attachments, annotation=typing.Sequence[PersonAttachment], direction="write"
+                ),
+                "metaData": convert_and_respect_annotation_metadata(
+                    object_=meta_data, annotation=DeviceData, direction="write"
                 ),
                 "updateCount": update_count,
             },

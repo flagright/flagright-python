@@ -24,6 +24,7 @@ from ..types.user_entity_link import UserEntityLink
 from ..types.user_saved_payment_details_item import UserSavedPaymentDetailsItem
 from ..types.user_tag import UserTag
 from ..types.person_attachment import PersonAttachment
+from ..types.device_data import DeviceData
 from ..core.request_options import RequestOptions
 from .types.consumer_users_create_response import ConsumerUsersCreateResponse
 from ..types.user_with_rules_result import UserWithRulesResult
@@ -83,6 +84,7 @@ class ConsumerUsersClient:
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        meta_data: typing.Optional[DeviceData] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
@@ -173,6 +175,8 @@ class ConsumerUsersClient:
 
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             Uploaded user's attachment
+
+        meta_data : typing.Optional[DeviceData]
 
         update_count : typing.Optional[float]
 
@@ -288,6 +292,7 @@ class ConsumerUsersClient:
             saved_payment_details=saved_payment_details,
             tags=tags,
             attachments=attachments,
+            meta_data=meta_data,
             update_count=update_count,
             request_options=request_options,
         )
@@ -378,6 +383,7 @@ class AsyncConsumerUsersClient:
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
+        meta_data: typing.Optional[DeviceData] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
@@ -468,6 +474,8 @@ class AsyncConsumerUsersClient:
 
         attachments : typing.Optional[typing.Sequence[PersonAttachment]]
             Uploaded user's attachment
+
+        meta_data : typing.Optional[DeviceData]
 
         update_count : typing.Optional[float]
 
@@ -591,6 +599,7 @@ class AsyncConsumerUsersClient:
             saved_payment_details=saved_payment_details,
             tags=tags,
             attachments=attachments,
+            meta_data=meta_data,
             update_count=update_count,
             request_options=request_options,
         )

@@ -1513,6 +1513,14 @@ client.consumer_users.create(
 <dl>
 <dd>
 
+**meta_data:** `typing.Optional[DeviceData]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **update_count:** `typing.Optional[float]` 
     
 </dd>
@@ -1848,6 +1856,14 @@ client.business_users.create(
 <dd>
 
 **attachments:** `typing.Optional[typing.Sequence[PersonAttachment]]` — User's attachments uploaded by business user
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**meta_data:** `typing.Optional[DeviceData]` 
     
 </dd>
 </dl>

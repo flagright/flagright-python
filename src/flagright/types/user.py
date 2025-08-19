@@ -25,6 +25,7 @@ from .user_entity_link import UserEntityLink
 from .user_saved_payment_details_item import UserSavedPaymentDetailsItem
 from .user_tag import UserTag
 from .person_attachment import PersonAttachment
+from .device_data import DeviceData
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -123,6 +124,7 @@ class User(UniversalBaseModel):
     Uploaded user's attachment
     """
 
+    meta_data: typing_extensions.Annotated[typing.Optional[DeviceData], FieldMetadata(alias="metaData")] = None
     update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
 
     if IS_PYDANTIC_V2:

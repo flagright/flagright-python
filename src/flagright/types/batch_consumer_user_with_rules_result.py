@@ -27,6 +27,7 @@ from .batch_consumer_user_with_rules_result_saved_payment_details_item import (
 )
 from .user_tag import UserTag
 from .person_attachment import PersonAttachment
+from .device_data import DeviceData
 from .executed_rules_result import ExecutedRulesResult
 from .user_risk_score_details import UserRiskScoreDetails
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
@@ -128,6 +129,7 @@ class BatchConsumerUserWithRulesResult(UniversalBaseModel):
     Uploaded user's attachment
     """
 
+    meta_data: typing_extensions.Annotated[typing.Optional[DeviceData], FieldMetadata(alias="metaData")] = None
     update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
