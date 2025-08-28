@@ -21,6 +21,8 @@ class TransactionLimitsPaymentMethodLimits(UniversalBaseModel):
     swift: typing_extensions.Annotated[typing.Optional[TransactionLimit], FieldMetadata(alias="SWIFT")] = None
     wallet: typing_extensions.Annotated[typing.Optional[TransactionLimit], FieldMetadata(alias="WALLET")] = None
     check: typing_extensions.Annotated[typing.Optional[TransactionLimit], FieldMetadata(alias="CHECK")] = None
+    cash: typing_extensions.Annotated[typing.Optional[TransactionLimit], FieldMetadata(alias="CASH")] = None
+    npp: typing_extensions.Annotated[typing.Optional[TransactionLimit], FieldMetadata(alias="NPP")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -6,6 +6,7 @@ from ..core.serialization import FieldMetadata
 import typing
 from .sanctions_details_entity_type import SanctionsDetailsEntityType
 from .sanctions_hit_context import SanctionsHitContext
+from .rule_hit_direction import RuleHitDirection
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 import pydantic
 
@@ -22,6 +23,9 @@ class SanctionsDetails(UniversalBaseModel):
     ] = None
     hit_context: typing_extensions.Annotated[
         typing.Optional[SanctionsHitContext], FieldMetadata(alias="hitContext")
+    ] = None
+    hit_direction: typing_extensions.Annotated[
+        typing.Optional[RuleHitDirection], FieldMetadata(alias="hitDirection")
     ] = None
 
     if IS_PYDANTIC_V2:

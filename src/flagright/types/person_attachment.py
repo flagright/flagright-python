@@ -24,6 +24,7 @@ class PersonAttachment(UniversalBaseModel):
     user_id: typing_extensions.Annotated[str, FieldMetadata(alias="userId")]
     created_at: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="createdAt")] = None
     deleted_at: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="deletedAt")] = None
+    tags: typing.Optional[typing.List[str]] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
