@@ -90,6 +90,12 @@ class GenericBankAccountDetails(UniversalBaseModel):
     """
 
     address: typing.Optional[Address] = None
+    routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Routing number of the bank
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

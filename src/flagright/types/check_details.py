@@ -22,6 +22,7 @@ class CheckDetails(UniversalBaseModel):
     shipping_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="shippingAddress")] = (
         None
     )
+    account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags

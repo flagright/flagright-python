@@ -60,6 +60,7 @@ class SwiftDetails(UniversalBaseModel):
     Special instructions if any
     """
 
+    address: typing.Optional[Address] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags

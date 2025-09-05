@@ -91,6 +91,7 @@ class BusinessWithRulesResultSavedPaymentDetailsItem_GenericBankAccount(Universa
     tags: typing.Optional[typing.List[Tag]] = None
     transit_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="transitNumber")] = None
     address: typing.Optional[Address] = None
+    routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -161,6 +162,7 @@ class BusinessWithRulesResultSavedPaymentDetailsItem_Swift(UniversalBaseModel):
     special_instructions: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="specialInstructions")
     ] = None
+    address: typing.Optional[Address] = None
     tags: typing.Optional[typing.List[Tag]] = None
 
     if IS_PYDANTIC_V2:
@@ -248,6 +250,7 @@ class BusinessWithRulesResultSavedPaymentDetailsItem_Check(UniversalBaseModel):
     shipping_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="shippingAddress")] = (
         None
     )
+    account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
     tags: typing.Optional[typing.List[Tag]] = None
 
     if IS_PYDANTIC_V2:
