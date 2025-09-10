@@ -38,12 +38,16 @@ class NppDetails(UniversalBaseModel):
     BSB number
     """
 
-    pay_id: typing_extensions.Annotated[str, FieldMetadata(alias="payId")] = pydantic.Field()
+    pay_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="payId")] = pydantic.Field(
+        default=None
+    )
     """
     PayID
     """
 
-    end_to_end_id: typing_extensions.Annotated[str, FieldMetadata(alias="endToEndId")] = pydantic.Field()
+    end_to_end_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endToEndId")] = (
+        pydantic.Field(default=None)
+    )
     """
     End to End ID
     """

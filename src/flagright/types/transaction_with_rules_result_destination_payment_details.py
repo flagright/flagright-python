@@ -183,6 +183,9 @@ class TransactionWithRulesResultDestinationPaymentDetails_Wallet(UniversalBaseMo
     )
     wallet_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="walletBalance")] = None
     network: typing.Optional[WalletNetwork] = None
+    address: typing.Optional[Address] = None
+    nationality: typing.Optional[CountryCode] = None
+    date_of_birth: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dateOfBirth")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -198,6 +201,7 @@ class TransactionWithRulesResultDestinationPaymentDetails_Swift(UniversalBaseMod
     method: typing.Literal["SWIFT"] = "SWIFT"
     swift_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="swiftCode")] = None
     account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
+    routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = None
     account_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="accountBalance")] = None
     account_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountType")] = None
     bank_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankName")] = None
@@ -242,6 +246,7 @@ class TransactionWithRulesResultDestinationPaymentDetails_Check(UniversalBaseMod
     method: typing.Literal["CHECK"] = "CHECK"
     check_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="checkNumber")] = None
     check_identifier: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="checkIdentifier")] = None
+    routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = None
     name: typing.Optional[str] = None
     delivery_status: typing_extensions.Annotated[
         typing.Optional[CheckDeliveryStatus], FieldMetadata(alias="deliveryStatus")
@@ -284,8 +289,8 @@ class TransactionWithRulesResultDestinationPaymentDetails_Npp(UniversalBaseModel
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     contact_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="contactNumber")] = None
     bsb: typing.Optional[str] = None
-    pay_id: typing_extensions.Annotated[str, FieldMetadata(alias="payId")]
-    end_to_end_id: typing_extensions.Annotated[str, FieldMetadata(alias="endToEndId")]
+    pay_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="payId")] = None
+    end_to_end_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endToEndId")] = None
     osko_reference: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="oskoReference")] = None
     pay_id_reference: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="payIdReference")] = None
     is_instant: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isInstant")] = None

@@ -31,6 +31,13 @@ class SwiftDetails(UniversalBaseModel):
     Account number
     """
 
+    routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Routing number of the bank
+    """
+
     account_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="accountBalance")] = None
     account_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountType")] = (
         pydantic.Field(default=None)

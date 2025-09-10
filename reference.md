@@ -669,6 +669,22 @@ client.batch.create_consumer_users(
 <dl>
 <dd>
 
+**lock_cra_risk_level:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should lock the CRA risk level for the user.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lock_kyc_risk_level:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should lock the KYC risk level for the user.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **batch_id:** `typing.Optional[str]` 
     
 </dd>
@@ -745,6 +761,22 @@ client.batch.create_business_users(
 <dl>
 <dd>
 
+**lock_cra_risk_level:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should lock the CRA risk level for the user.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lock_kyc_risk_level:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should lock the KYC risk level for the user.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **batch_id:** `typing.Optional[str]` 
     
 </dd>
@@ -814,6 +846,22 @@ client.batch.create_consumer_user_events(
 <dl>
 <dd>
 
+**lock_cra_risk_level:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should lock the CRA risk level for the user.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lock_kyc_risk_level:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should lock the KYC risk level for the user.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **batch_id:** `typing.Optional[str]` 
     
 </dd>
@@ -876,6 +924,22 @@ client.batch.create_business_user_events(
 <dd>
 
 **data:** `typing.Sequence[BusinessUserEvent]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lock_cra_risk_level:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should lock the CRA risk level for the user.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lock_kyc_risk_level:** `typing.Optional[BooleanString]` — Boolean string whether Flagright should lock the KYC risk level for the user.
     
 </dd>
 </dl>

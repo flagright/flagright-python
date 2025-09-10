@@ -9,6 +9,8 @@ from .email_id import EmailId
 from .tag import Tag
 from .amount import Amount
 from .wallet_network import WalletNetwork
+from .address import Address
+from .country_code import CountryCode
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -58,6 +60,14 @@ class WalletDetails(UniversalBaseModel):
 
     wallet_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="walletBalance")] = None
     network: typing.Optional[WalletNetwork] = None
+    address: typing.Optional[Address] = None
+    nationality: typing.Optional[CountryCode] = None
+    date_of_birth: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dateOfBirth")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Date of birth of the account holder (YYYY-MM-DD)
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

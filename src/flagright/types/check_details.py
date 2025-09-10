@@ -4,16 +4,23 @@ from ..core.pydantic_utilities import UniversalBaseModel
 import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
+import pydantic
 from .check_delivery_status import CheckDeliveryStatus
 from .address import Address
 from .tag import Tag
-import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class CheckDetails(UniversalBaseModel):
     check_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="checkNumber")] = None
     check_identifier: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="checkIdentifier")] = None
+    routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Routing number of the bank
+    """
+
     name: typing.Optional[str] = None
     delivery_status: typing_extensions.Annotated[
         typing.Optional[CheckDeliveryStatus], FieldMetadata(alias="deliveryStatus")

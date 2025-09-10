@@ -309,6 +309,8 @@ class RawBatchClient:
         self,
         *,
         data: typing.Sequence[User],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BatchResponse]:
@@ -316,6 +318,12 @@ class RawBatchClient:
         Parameters
         ----------
         data : typing.Sequence[User]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -330,6 +338,10 @@ class RawBatchClient:
         _response = self._client_wrapper.httpx_client.request(
             "batch/consumer/users",
             method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(
@@ -391,6 +403,8 @@ class RawBatchClient:
         self,
         *,
         data: typing.Sequence[Business],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BatchResponse]:
@@ -398,6 +412,12 @@ class RawBatchClient:
         Parameters
         ----------
         data : typing.Sequence[Business]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -412,6 +432,10 @@ class RawBatchClient:
         _response = self._client_wrapper.httpx_client.request(
             "batch/business/users",
             method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(
@@ -473,6 +497,8 @@ class RawBatchClient:
         self,
         *,
         data: typing.Sequence[ConsumerUserEvent],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BatchResponse]:
@@ -480,6 +506,12 @@ class RawBatchClient:
         Parameters
         ----------
         data : typing.Sequence[ConsumerUserEvent]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -494,6 +526,10 @@ class RawBatchClient:
         _response = self._client_wrapper.httpx_client.request(
             "batch/events/consumer/user",
             method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(
@@ -555,6 +591,8 @@ class RawBatchClient:
         self,
         *,
         data: typing.Sequence[BusinessUserEvent],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BatchResponse]:
@@ -562,6 +600,12 @@ class RawBatchClient:
         Parameters
         ----------
         data : typing.Sequence[BusinessUserEvent]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -576,6 +620,10 @@ class RawBatchClient:
         _response = self._client_wrapper.httpx_client.request(
             "batch/events/business/user",
             method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(
@@ -910,6 +958,8 @@ class AsyncRawBatchClient:
         self,
         *,
         data: typing.Sequence[User],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BatchResponse]:
@@ -917,6 +967,12 @@ class AsyncRawBatchClient:
         Parameters
         ----------
         data : typing.Sequence[User]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -931,6 +987,10 @@ class AsyncRawBatchClient:
         _response = await self._client_wrapper.httpx_client.request(
             "batch/consumer/users",
             method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(
@@ -992,6 +1052,8 @@ class AsyncRawBatchClient:
         self,
         *,
         data: typing.Sequence[Business],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BatchResponse]:
@@ -999,6 +1061,12 @@ class AsyncRawBatchClient:
         Parameters
         ----------
         data : typing.Sequence[Business]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -1013,6 +1081,10 @@ class AsyncRawBatchClient:
         _response = await self._client_wrapper.httpx_client.request(
             "batch/business/users",
             method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(
@@ -1074,6 +1146,8 @@ class AsyncRawBatchClient:
         self,
         *,
         data: typing.Sequence[ConsumerUserEvent],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BatchResponse]:
@@ -1081,6 +1155,12 @@ class AsyncRawBatchClient:
         Parameters
         ----------
         data : typing.Sequence[ConsumerUserEvent]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -1095,6 +1175,10 @@ class AsyncRawBatchClient:
         _response = await self._client_wrapper.httpx_client.request(
             "batch/events/consumer/user",
             method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(
@@ -1156,6 +1240,8 @@ class AsyncRawBatchClient:
         self,
         *,
         data: typing.Sequence[BusinessUserEvent],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BatchResponse]:
@@ -1163,6 +1249,12 @@ class AsyncRawBatchClient:
         Parameters
         ----------
         data : typing.Sequence[BusinessUserEvent]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -1177,6 +1269,10 @@ class AsyncRawBatchClient:
         _response = await self._client_wrapper.httpx_client.request(
             "batch/events/business/user",
             method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(

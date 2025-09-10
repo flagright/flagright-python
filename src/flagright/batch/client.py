@@ -183,6 +183,8 @@ class BatchClient:
         self,
         *,
         data: typing.Sequence[User],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchResponse:
@@ -190,6 +192,12 @@ class BatchClient:
         Parameters
         ----------
         data : typing.Sequence[User]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -217,13 +225,21 @@ class BatchClient:
             ],
         )
         """
-        response = self._raw_client.create_consumer_users(data=data, batch_id=batch_id, request_options=request_options)
+        response = self._raw_client.create_consumer_users(
+            data=data,
+            lock_cra_risk_level=lock_cra_risk_level,
+            lock_kyc_risk_level=lock_kyc_risk_level,
+            batch_id=batch_id,
+            request_options=request_options,
+        )
         return response.data
 
     def create_business_users(
         self,
         *,
         data: typing.Sequence[Business],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchResponse:
@@ -231,6 +247,12 @@ class BatchClient:
         Parameters
         ----------
         data : typing.Sequence[Business]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -265,13 +287,21 @@ class BatchClient:
             ],
         )
         """
-        response = self._raw_client.create_business_users(data=data, batch_id=batch_id, request_options=request_options)
+        response = self._raw_client.create_business_users(
+            data=data,
+            lock_cra_risk_level=lock_cra_risk_level,
+            lock_kyc_risk_level=lock_kyc_risk_level,
+            batch_id=batch_id,
+            request_options=request_options,
+        )
         return response.data
 
     def create_consumer_user_events(
         self,
         *,
         data: typing.Sequence[ConsumerUserEvent],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchResponse:
@@ -279,6 +309,12 @@ class BatchClient:
         Parameters
         ----------
         data : typing.Sequence[ConsumerUserEvent]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -307,7 +343,11 @@ class BatchClient:
         )
         """
         response = self._raw_client.create_consumer_user_events(
-            data=data, batch_id=batch_id, request_options=request_options
+            data=data,
+            lock_cra_risk_level=lock_cra_risk_level,
+            lock_kyc_risk_level=lock_kyc_risk_level,
+            batch_id=batch_id,
+            request_options=request_options,
         )
         return response.data
 
@@ -315,6 +355,8 @@ class BatchClient:
         self,
         *,
         data: typing.Sequence[BusinessUserEvent],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchResponse:
@@ -322,6 +364,12 @@ class BatchClient:
         Parameters
         ----------
         data : typing.Sequence[BusinessUserEvent]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -350,7 +398,11 @@ class BatchClient:
         )
         """
         response = self._raw_client.create_business_user_events(
-            data=data, batch_id=batch_id, request_options=request_options
+            data=data,
+            lock_cra_risk_level=lock_cra_risk_level,
+            lock_kyc_risk_level=lock_kyc_risk_level,
+            batch_id=batch_id,
+            request_options=request_options,
         )
         return response.data
 
@@ -540,6 +592,8 @@ class AsyncBatchClient:
         self,
         *,
         data: typing.Sequence[User],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchResponse:
@@ -547,6 +601,12 @@ class AsyncBatchClient:
         Parameters
         ----------
         data : typing.Sequence[User]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -583,7 +643,11 @@ class AsyncBatchClient:
         asyncio.run(main())
         """
         response = await self._raw_client.create_consumer_users(
-            data=data, batch_id=batch_id, request_options=request_options
+            data=data,
+            lock_cra_risk_level=lock_cra_risk_level,
+            lock_kyc_risk_level=lock_kyc_risk_level,
+            batch_id=batch_id,
+            request_options=request_options,
         )
         return response.data
 
@@ -591,6 +655,8 @@ class AsyncBatchClient:
         self,
         *,
         data: typing.Sequence[Business],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchResponse:
@@ -598,6 +664,12 @@ class AsyncBatchClient:
         Parameters
         ----------
         data : typing.Sequence[Business]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -646,7 +718,11 @@ class AsyncBatchClient:
         asyncio.run(main())
         """
         response = await self._raw_client.create_business_users(
-            data=data, batch_id=batch_id, request_options=request_options
+            data=data,
+            lock_cra_risk_level=lock_cra_risk_level,
+            lock_kyc_risk_level=lock_kyc_risk_level,
+            batch_id=batch_id,
+            request_options=request_options,
         )
         return response.data
 
@@ -654,6 +730,8 @@ class AsyncBatchClient:
         self,
         *,
         data: typing.Sequence[ConsumerUserEvent],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchResponse:
@@ -661,6 +739,12 @@ class AsyncBatchClient:
         Parameters
         ----------
         data : typing.Sequence[ConsumerUserEvent]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -697,7 +781,11 @@ class AsyncBatchClient:
         asyncio.run(main())
         """
         response = await self._raw_client.create_consumer_user_events(
-            data=data, batch_id=batch_id, request_options=request_options
+            data=data,
+            lock_cra_risk_level=lock_cra_risk_level,
+            lock_kyc_risk_level=lock_kyc_risk_level,
+            batch_id=batch_id,
+            request_options=request_options,
         )
         return response.data
 
@@ -705,6 +793,8 @@ class AsyncBatchClient:
         self,
         *,
         data: typing.Sequence[BusinessUserEvent],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchResponse:
@@ -712,6 +802,12 @@ class AsyncBatchClient:
         Parameters
         ----------
         data : typing.Sequence[BusinessUserEvent]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
 
         batch_id : typing.Optional[str]
 
@@ -748,6 +844,10 @@ class AsyncBatchClient:
         asyncio.run(main())
         """
         response = await self._raw_client.create_business_user_events(
-            data=data, batch_id=batch_id, request_options=request_options
+            data=data,
+            lock_cra_risk_level=lock_cra_risk_level,
+            lock_kyc_risk_level=lock_kyc_risk_level,
+            batch_id=batch_id,
+            request_options=request_options,
         )
         return response.data
