@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 import pydantic
 
 
-class AlertClosedDetails(UniversalBaseModel):
+class AlertStatusDetails(UniversalBaseModel):
     alert_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="alertId")] = None
     status: typing.Optional[str] = None
     reasons: typing.Optional[typing.List[str]] = None

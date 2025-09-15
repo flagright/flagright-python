@@ -5,8 +5,8 @@ from .ach_payment_method import AchPaymentMethod
 from .acquisition_channel import AcquisitionChannel
 from .address import Address
 from .adverse_media_status import AdverseMediaStatus
-from .alert_closed_details import AlertClosedDetails
 from .alert_opened_details import AlertOpenedDetails
+from .alert_status_details import AlertStatusDetails
 from .amount import Amount
 from .api_error_response import ApiErrorResponse
 from .batch_business_user_event_with_rules_result import BatchBusinessUserEventWithRulesResult
@@ -112,11 +112,11 @@ from .card_merchant_details import CardMerchantDetails
 from .card_payment_method import CardPaymentMethod
 from .card_status import CardStatus
 from .card_type import CardType
-from .case_closed_details import CaseClosedDetails
 from .case_management_event import CaseManagementEvent
 from .case_management_event_case_status import CaseManagementEventCaseStatus
 from .case_management_event_case_status_reason import CaseManagementEventCaseStatusReason
 from .case_opened_details import CaseOpenedDetails
+from .case_status_details import CaseStatusDetails
 from .cash_details import CashDetails
 from .cash_payment_method import CashPaymentMethod
 from .check_delivery_status import CheckDeliveryStatus
@@ -381,8 +381,8 @@ __all__ = [
     "AcquisitionChannel",
     "Address",
     "AdverseMediaStatus",
-    "AlertClosedDetails",
     "AlertOpenedDetails",
+    "AlertStatusDetails",
     "Amount",
     "ApiErrorResponse",
     "BatchBusinessUserEventWithRulesResult",
@@ -478,11 +478,11 @@ __all__ = [
     "CardPaymentMethod",
     "CardStatus",
     "CardType",
-    "CaseClosedDetails",
     "CaseManagementEvent",
     "CaseManagementEventCaseStatus",
     "CaseManagementEventCaseStatusReason",
     "CaseOpenedDetails",
+    "CaseStatusDetails",
     "CashDetails",
     "CashPaymentMethod",
     "CheckDeliveryStatus",

@@ -18,6 +18,8 @@ WebhookEventType = typing.Union[
         "LIST_UPDATED",
         "SANCTIONS_STATUS_UPDATED",
         "ADVERSE_MEDIA_STATUS_UPDATED",
+        "CASE_ESCALATED",
+        "ALERT_ESCALATED",
     ],
     typing.Any,
 ]
