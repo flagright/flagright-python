@@ -16,10 +16,10 @@ from .card_funding import CardFunding
 from .card_type import CardType
 from .amount import Amount
 from .card_merchant_details import CardMerchantDetails
+from .address import Address
 from .tag import Tag
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 import pydantic
-from .address import Address
 from .mpesa_transaction_type import MpesaTransactionType
 from .wallet_network import WalletNetwork
 from .check_delivery_status import CheckDeliveryStatus
@@ -57,6 +57,7 @@ class BusinessOptionalSavedPaymentDetailsItem_Card(UniversalBaseModel):
     network_provider_risk_score: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="networkProviderRiskScore")
     ] = None
+    address: typing.Optional[Address] = None
     tags: typing.Optional[typing.List[Tag]] = None
 
     if IS_PYDANTIC_V2:
@@ -182,6 +183,8 @@ class BusinessOptionalSavedPaymentDetailsItem_Mpesa(UniversalBaseModel):
     transaction_type: typing_extensions.Annotated[MpesaTransactionType, FieldMetadata(alias="transactionType")]
     phone_number: typing_extensions.Annotated[str, FieldMetadata(alias="phoneNumber")]
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
+    name: typing.Optional[str] = None
+    address: typing.Optional[Address] = None
     tags: typing.Optional[typing.List[Tag]] = None
 
     if IS_PYDANTIC_V2:
@@ -271,6 +274,8 @@ class BusinessOptionalSavedPaymentDetailsItem_Check(UniversalBaseModel):
 class BusinessOptionalSavedPaymentDetailsItem_Cash(UniversalBaseModel):
     method: typing.Literal["CASH"] = "CASH"
     identifier: typing.Optional[str] = None
+    address: typing.Optional[Address] = None
+    name: typing.Optional[str] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

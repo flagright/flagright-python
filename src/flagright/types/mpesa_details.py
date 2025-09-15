@@ -7,6 +7,7 @@ import pydantic
 from .mpesa_transaction_type import MpesaTransactionType
 import typing
 from .email_id import EmailId
+from .address import Address
 from .tag import Tag
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -28,6 +29,12 @@ class MpesaDetails(UniversalBaseModel):
     """
 
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Name of the account holder
+    """
+
+    address: typing.Optional[Address] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags

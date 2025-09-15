@@ -16,6 +16,7 @@ from .card_funding import CardFunding
 from .card_type import CardType
 from .amount import Amount
 from .card_merchant_details import CardMerchantDetails
+from .address import Address
 from .tag import Tag
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -97,6 +98,7 @@ class CardDetails(UniversalBaseModel):
     Risk score of the card from your network provider
     """
 
+    address: typing.Optional[Address] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags
