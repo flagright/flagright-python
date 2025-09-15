@@ -5,6 +5,7 @@ import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
 import typing
+from .transaction_state import TransactionState
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -41,6 +42,10 @@ class TransactionBase(UniversalBaseModel):
     """
     UserId for transaction's destination. In other words, where the value is being transferred to.
     """
+
+    transaction_state: typing_extensions.Annotated[
+        typing.Optional[TransactionState], FieldMetadata(alias="transactionState")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

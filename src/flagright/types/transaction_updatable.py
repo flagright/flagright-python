@@ -3,9 +3,8 @@
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing_extensions
 import typing
-from .transaction_state import TransactionState
-from ..core.serialization import FieldMetadata
 from .transaction_amount_details import TransactionAmountDetails
+from ..core.serialization import FieldMetadata
 from .transaction_updatable_origin_payment_details import TransactionUpdatableOriginPaymentDetails
 import pydantic
 from .transaction_updatable_destination_payment_details import TransactionUpdatableDestinationPaymentDetails
@@ -20,9 +19,6 @@ class TransactionUpdatable(UniversalBaseModel):
     Model for transaction additional payload
     """
 
-    transaction_state: typing_extensions.Annotated[
-        typing.Optional[TransactionState], FieldMetadata(alias="transactionState")
-    ] = None
     origin_amount_details: typing_extensions.Annotated[
         typing.Optional[TransactionAmountDetails], FieldMetadata(alias="originAmountDetails")
     ] = None
