@@ -185,7 +185,9 @@ class TransactionUpdatableDestinationPaymentDetails_Wallet(UniversalBaseModel):
     wallet_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="walletBalance")] = None
     network: typing.Optional[WalletNetwork] = None
     address: typing.Optional[Address] = None
-    nationality: typing.Optional[CountryCode] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
     date_of_birth: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dateOfBirth")] = None
 
     if IS_PYDANTIC_V2:
