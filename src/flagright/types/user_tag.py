@@ -19,6 +19,13 @@ class UserTag(UniversalBaseModel):
     Value for a given key when you are creating a custom variable
     """
 
+    is_timestamp: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isTimestamp")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Flag to indicate if the tag value is a timestamp
+    """
+
     is_editable: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEditable")] = pydantic.Field(
         default=None
     )

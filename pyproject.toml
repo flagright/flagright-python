@@ -3,7 +3,7 @@ name = "flagright"
 
 [tool.poetry]
 name = "flagright"
-version = "1.8.6"
+version = "1.8.7"
 description = ""
 readme = "README.md"
 authors = []

@@ -2,8 +2,10 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import pydantic
-from ..core.pydantic_utilities import IS_PYDANTIC_V2
+import typing_extensions
 import typing
+from ..core.serialization import FieldMetadata
+from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class Tag(UniversalBaseModel):
@@ -19,6 +21,13 @@ class Tag(UniversalBaseModel):
     value: str = pydantic.Field()
     """
     Value for a given key when you are creating a custom variable
+    """
+
+    is_timestamp: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isTimestamp")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Flag to indicate if the tag value is a timestamp
     """
 
     if IS_PYDANTIC_V2:
