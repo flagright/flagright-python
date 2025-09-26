@@ -60,6 +60,8 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.transactions.verify(
+    validate_origin_user_id="true",
+    validate_destination_user_id="true",
     type="DEPOSIT",
     transaction_id="7b80a539eea6e78acbd6d458e5971482",
     timestamp=1641654664000.0,
@@ -411,6 +413,8 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.batch.verify_transaction(
+    validate_origin_user_id="true",
+    validate_destination_user_id="true",
     data=[
         Transaction(
             type="type",
@@ -498,6 +502,8 @@ client = Flagright(
 )
 client.batch.get(
     batch_id="batchId",
+    page_size=1.1,
+    page=1.1,
 )
 
 ```
@@ -639,6 +645,8 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.batch.create_consumer_users(
+    lock_cra_risk_level="true",
+    lock_kyc_risk_level="true",
     data=[
         User(
             user_id="userId",
@@ -724,6 +732,8 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.batch.create_business_users(
+    lock_cra_risk_level="true",
+    lock_kyc_risk_level="true",
     data=[
         Business(
             user_id="userId",
@@ -816,6 +826,8 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.batch.create_consumer_user_events(
+    lock_cra_risk_level="true",
+    lock_kyc_risk_level="true",
     data=[
         ConsumerUserEvent(
             timestamp=1.1,
@@ -901,6 +913,8 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.batch.create_business_user_events(
+    lock_cra_risk_level="true",
+    lock_kyc_risk_level="true",
     data=[
         BusinessUserEvent(
             timestamp=1.1,
@@ -1260,6 +1274,9 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.consumer_users.create(
+    lock_cra_risk_level="true",
+    lock_kyc_risk_level="true",
+    validate_user_id="true",
     user_id="96647cfd9e8fe66ee0f3362e011e34e8",
     created_timestamp=1641654664000.0,
     user_details=UserDetails(
@@ -1726,6 +1743,9 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.business_users.create(
+    lock_cra_risk_level="true",
+    lock_kyc_risk_level="true",
+    validate_user_id="true",
     user_id="userId",
     created_timestamp=1.1,
     legal_entity=LegalEntity(
@@ -2081,6 +2101,9 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.consumer_user_events.create(
+    allow_user_type_conversion="true",
+    lock_kyc_risk_level="true",
+    lock_cra_risk_level="true",
     timestamp=1.1,
     user_id="userId",
 )
@@ -2314,6 +2337,9 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.business_user_events.create(
+    allow_user_type_conversion="true",
+    lock_kyc_risk_level="true",
+    lock_cra_risk_level="true",
     timestamp=1.1,
     user_id="userId",
 )
