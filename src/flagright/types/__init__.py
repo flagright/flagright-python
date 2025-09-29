@@ -196,6 +196,7 @@ if typing.TYPE_CHECKING:
     from .pos_entry_mode import PosEntryMode
     from .risk_level import RiskLevel
     from .rule_action import RuleAction
+    from .rule_execution_sanctions_details import RuleExecutionSanctionsDetails
     from .rule_failure_exception import RuleFailureException
     from .rule_hit_direction import RuleHitDirection
     from .rule_hit_meta import RuleHitMeta
@@ -561,6 +562,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PosEntryMode": ".pos_entry_mode",
     "RiskLevel": ".risk_level",
     "RuleAction": ".rule_action",
+    "RuleExecutionSanctionsDetails": ".rule_execution_sanctions_details",
     "RuleFailureException": ".rule_failure_exception",
     "RuleHitDirection": ".rule_hit_direction",
     "RuleHitMeta": ".rule_hit_meta",
@@ -932,6 +934,7 @@ __all__ = [
     "PosEntryMode",
     "RiskLevel",
     "RuleAction",
+    "RuleExecutionSanctionsDetails",
     "RuleFailureException",
     "RuleHitDirection",
     "RuleHitMeta",
