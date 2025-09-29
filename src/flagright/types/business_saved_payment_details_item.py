@@ -237,6 +237,7 @@ class BusinessSavedPaymentDetailsItem_Wallet(UniversalBaseModel):
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
     ] = None
     date_of_birth: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dateOfBirth")] = None
+    transaction_hash: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="transactionHash")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

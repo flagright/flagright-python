@@ -71,6 +71,13 @@ class WalletDetails(UniversalBaseModel):
     Date of birth of the account holder (YYYY-MM-DD)
     """
 
+    transaction_hash: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="transactionHash")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    A hash is a cryptographic fingerprint that uniquely identifies a blockchain transaction on the network, whereas a transactionId is just an internal reference used by a wallet or platform to track the transaction in its own system.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:
