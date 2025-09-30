@@ -159,6 +159,7 @@ class TransactionUpdatableDestinationPaymentDetails_Upi(UniversalBaseModel):
         None
     )
     name: typing.Optional[str] = None
+    address: typing.Optional[Address] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     tags: typing.Optional[typing.List[Tag]] = None
 

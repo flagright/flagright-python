@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .address import Address
 from .email_id import EmailId
 from .tag import Tag
 
@@ -39,6 +40,7 @@ class UpiDetails(UniversalBaseModel):
     Name of the account holder
     """
 
+    address: typing.Optional[Address] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
