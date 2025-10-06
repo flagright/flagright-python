@@ -11,6 +11,7 @@ from .amount import Amount
 from .country_code import CountryCode
 from .email_id import EmailId
 from .tag import Tag
+from .user_details import UserDetails
 from .wallet_network import WalletNetwork
 
 
@@ -63,6 +64,9 @@ class WalletDetails(UniversalBaseModel):
     address: typing.Optional[Address] = None
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    authorized_representative: typing_extensions.Annotated[
+        typing.Optional[typing.List[UserDetails]], FieldMetadata(alias="authorizedRepresentative")
     ] = None
     date_of_birth: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dateOfBirth")] = (
         pydantic.Field(default=None)

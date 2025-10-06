@@ -18,11 +18,13 @@ from .card_status import CardStatus
 from .card_type import CardType
 from .check_delivery_status import CheckDeliveryStatus
 from .consumer_name import ConsumerName
+from .correspondence_bank_details import CorrespondenceBankDetails
 from .country_code import CountryCode
 from .email_id import EmailId
 from .mpesa_transaction_type import MpesaTransactionType
 from .pos_details import PosDetails
 from .tag import Tag
+from .user_details import UserDetails
 from .wallet_network import WalletNetwork
 
 
@@ -166,6 +168,9 @@ class BusinessWithRulesResultSavedPaymentDetailsItem_Swift(UniversalBaseModel):
         typing.Optional[str], FieldMetadata(alias="specialInstructions")
     ] = None
     address: typing.Optional[Address] = None
+    correspondence_bank_details: typing_extensions.Annotated[
+        typing.Optional[typing.List[CorrespondenceBankDetails]], FieldMetadata(alias="correspondenceBankDetails")
+    ] = None
     tags: typing.Optional[typing.List[Tag]] = None
 
     if IS_PYDANTIC_V2:
@@ -236,6 +241,9 @@ class BusinessWithRulesResultSavedPaymentDetailsItem_Wallet(UniversalBaseModel):
     address: typing.Optional[Address] = None
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    authorized_representative: typing_extensions.Annotated[
+        typing.Optional[typing.List[UserDetails]], FieldMetadata(alias="authorizedRepresentative")
     ] = None
     date_of_birth: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dateOfBirth")] = None
     transaction_hash: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="transactionHash")] = None
