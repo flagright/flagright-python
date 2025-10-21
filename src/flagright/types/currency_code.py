@@ -500,6 +500,7 @@ CurrencyCode = typing.Union[
         "VIC",
         "XAI",
         "SLE",
+        "UDI",
     ],
     typing.Any,
 ]
