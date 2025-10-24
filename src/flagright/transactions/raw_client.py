@@ -57,6 +57,7 @@ class RawTransactionsClient:
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        payment_approval_timestamp: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[TransactionsVerifyResponse]:
         """
@@ -139,6 +140,8 @@ class RawTransactionsClient:
 
         update_count : typing.Optional[float]
 
+        payment_approval_timestamp : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -192,6 +195,7 @@ class RawTransactionsClient:
                     object_=tags, annotation=typing.Sequence[Tag], direction="write"
                 ),
                 "updateCount": update_count,
+                "paymentApprovalTimestamp": payment_approval_timestamp,
             },
             headers={
                 "content-type": "application/json",
@@ -352,6 +356,7 @@ class AsyncRawTransactionsClient:
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        payment_approval_timestamp: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[TransactionsVerifyResponse]:
         """
@@ -434,6 +439,8 @@ class AsyncRawTransactionsClient:
 
         update_count : typing.Optional[float]
 
+        payment_approval_timestamp : typing.Optional[float]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -487,6 +494,7 @@ class AsyncRawTransactionsClient:
                     object_=tags, annotation=typing.Sequence[Tag], direction="write"
                 ),
                 "updateCount": update_count,
+                "paymentApprovalTimestamp": payment_approval_timestamp,
             },
             headers={
                 "content-type": "application/json",

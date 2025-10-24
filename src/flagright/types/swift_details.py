@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address import Address
 from .amount import Amount
-from .correspondence_bank_details import CorrespondenceBankDetails
+from .correspondent_bank_details import CorrespondentBankDetails
 from .email_id import EmailId
 from .tag import Tag
 
@@ -69,8 +69,8 @@ class SwiftDetails(UniversalBaseModel):
     """
 
     address: typing.Optional[Address] = None
-    correspondence_bank_details: typing_extensions.Annotated[
-        typing.Optional[typing.List[CorrespondenceBankDetails]], FieldMetadata(alias="correspondenceBankDetails")
+    correspondent_bank_details: typing_extensions.Annotated[
+        typing.Optional[typing.List[CorrespondentBankDetails]], FieldMetadata(alias="correspondentBankDetails")
     ] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """

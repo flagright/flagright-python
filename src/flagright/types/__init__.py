@@ -138,7 +138,7 @@ if typing.TYPE_CHECKING:
     from .consumer_user_monitoring_result import ConsumerUserMonitoringResult
     from .consumer_user_segment import ConsumerUserSegment
     from .contact_details import ContactDetails
-    from .correspondence_bank_details import CorrespondenceBankDetails
+    from .correspondent_bank_details import CorrespondentBankDetails
     from .country_code import CountryCode
     from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
     from .currency_code import CurrencyCode
@@ -505,7 +505,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ConsumerUserMonitoringResult": ".consumer_user_monitoring_result",
     "ConsumerUserSegment": ".consumer_user_segment",
     "ContactDetails": ".contact_details",
-    "CorrespondenceBankDetails": ".correspondence_bank_details",
+    "CorrespondentBankDetails": ".correspondent_bank_details",
     "CountryCode": ".country_code",
     "CraRiskLevelUpdatedDetails": ".cra_risk_level_updated_details",
     "CurrencyCode": ".currency_code",
@@ -878,7 +878,7 @@ __all__ = [
     "ConsumerUserMonitoringResult",
     "ConsumerUserSegment",
     "ContactDetails",
-    "CorrespondenceBankDetails",
+    "CorrespondentBankDetails",
     "CountryCode",
     "CraRiskLevelUpdatedDetails",
     "CurrencyCode",

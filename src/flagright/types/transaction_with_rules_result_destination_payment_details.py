@@ -18,7 +18,7 @@ from .card_status import CardStatus
 from .card_type import CardType
 from .check_delivery_status import CheckDeliveryStatus
 from .consumer_name import ConsumerName
-from .correspondence_bank_details import CorrespondenceBankDetails
+from .correspondent_bank_details import CorrespondentBankDetails
 from .country_code import CountryCode
 from .email_id import EmailId
 from .mpesa_transaction_type import MpesaTransactionType
@@ -223,8 +223,8 @@ class TransactionWithRulesResultDestinationPaymentDetails_Swift(UniversalBaseMod
         typing.Optional[str], FieldMetadata(alias="specialInstructions")
     ] = None
     address: typing.Optional[Address] = None
-    correspondence_bank_details: typing_extensions.Annotated[
-        typing.Optional[typing.List[CorrespondenceBankDetails]], FieldMetadata(alias="correspondenceBankDetails")
+    correspondent_bank_details: typing_extensions.Annotated[
+        typing.Optional[typing.List[CorrespondentBankDetails]], FieldMetadata(alias="correspondentBankDetails")
     ] = None
     tags: typing.Optional[typing.List[Tag]] = None
 

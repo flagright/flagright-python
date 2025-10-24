@@ -59,6 +59,7 @@ class TransactionsClient:
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        payment_approval_timestamp: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -140,6 +141,8 @@ class TransactionsClient:
             Additional information that can be added via tags
 
         update_count : typing.Optional[float]
+
+        payment_approval_timestamp : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -251,6 +254,7 @@ class TransactionsClient:
             destination_device_data=destination_device_data,
             tags=tags,
             update_count=update_count,
+            payment_approval_timestamp=payment_approval_timestamp,
             request_options=request_options,
         )
         return _response.data
@@ -332,6 +336,7 @@ class AsyncTransactionsClient:
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        payment_approval_timestamp: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -413,6 +418,8 @@ class AsyncTransactionsClient:
             Additional information that can be added via tags
 
         update_count : typing.Optional[float]
+
+        payment_approval_timestamp : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -532,6 +539,7 @@ class AsyncTransactionsClient:
             destination_device_data=destination_device_data,
             tags=tags,
             update_count=update_count,
+            payment_approval_timestamp=payment_approval_timestamp,
             request_options=request_options,
         )
         return _response.data

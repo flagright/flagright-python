@@ -307,6 +307,14 @@ client.transactions.verify(
 <dl>
 <dd>
 
+**payment_approval_timestamp:** `typing.Optional[float]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>

@@ -9,9 +9,9 @@ from ..core.serialization import FieldMetadata
 from .tag import Tag
 
 
-class CorrespondenceBankDetails(UniversalBaseModel):
+class CorrespondentBankDetails(UniversalBaseModel):
     """
-    Model for Correspondence bank details
+    Model for Correspondent bank details
     """
 
     bank_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankName")] = pydantic.Field(

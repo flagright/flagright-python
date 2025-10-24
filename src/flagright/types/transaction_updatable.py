@@ -76,6 +76,9 @@ class TransactionUpdatable(UniversalBaseModel):
     """
 
     update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
+    payment_approval_timestamp: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="paymentApprovalTimestamp")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
