@@ -329,7 +329,7 @@ class ConsumerUsersClient:
             api_key="YOUR_API_KEY",
         )
         client.consumer_users.get(
-            user_id="userId",
+            user_id="96647cfd9e8fe66ee0f3362e011e34e8",
         )
         """
         _response = self._raw_client.get(user_id, request_options=request_options)
@@ -646,7 +646,7 @@ class AsyncConsumerUsersClient:
 
         async def main() -> None:
             await client.consumer_users.get(
-                user_id="userId",
+                user_id="96647cfd9e8fe66ee0f3362e011e34e8",
             )
 
 

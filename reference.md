@@ -425,9 +425,9 @@ client.batch.verify_transaction(
     validate_destination_user_id="true",
     data=[
         Transaction(
-            type="type",
-            transaction_id="transactionId",
-            timestamp=1.1,
+            type="DEPOSIT",
+            transaction_id="7b80a539eea6e78acbd6d458e5971482",
+            timestamp=1641654664000.0,
         )
     ],
 )
@@ -585,9 +585,9 @@ client = Flagright(
 client.batch.create_transaction_events(
     data=[
         TransactionEvent(
-            transaction_state="CREATED",
-            timestamp=1.1,
-            transaction_id="transactionId",
+            transaction_state="SUCCESSFUL",
+            timestamp=1641654664000.0,
+            transaction_id="443dea26147a406b957d9ee3a1247b11",
         )
     ],
 )
@@ -657,8 +657,8 @@ client.batch.create_consumer_users(
     lock_kyc_risk_level="true",
     data=[
         User(
-            user_id="userId",
-            created_timestamp=1.1,
+            user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+            created_timestamp=1641654664000.0,
         )
     ],
 )
@@ -744,8 +744,8 @@ client.batch.create_business_users(
     lock_kyc_risk_level="true",
     data=[
         Business(
-            user_id="userId",
-            created_timestamp=1.1,
+            user_id="BU-1",
+            created_timestamp=1641654664000.0,
             legal_entity=LegalEntity(
                 company_general_details=CompanyGeneralDetails(
                     legal_name="Ozkan Hazelnut Export JSC",
@@ -838,8 +838,8 @@ client.batch.create_consumer_user_events(
     lock_kyc_risk_level="true",
     data=[
         ConsumerUserEvent(
-            timestamp=1.1,
-            user_id="userId",
+            timestamp=1641654664000.0,
+            user_id="96647cfd9e8fe66ee0f3362e011e34e8",
         )
     ],
 )
@@ -925,8 +925,8 @@ client.batch.create_business_user_events(
     lock_kyc_risk_level="true",
     data=[
         BusinessUserEvent(
-            timestamp=1.1,
-            user_id="userId",
+            timestamp=1641654664000.0,
+            user_id="BU-1",
         )
     ],
 )
@@ -1667,7 +1667,7 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.consumer_users.get(
-    user_id="userId",
+    user_id="96647cfd9e8fe66ee0f3362e011e34e8",
 )
 
 ```
@@ -1754,8 +1754,8 @@ client.business_users.create(
     lock_cra_risk_level="true",
     lock_kyc_risk_level="true",
     validate_user_id="true",
-    user_id="userId",
-    created_timestamp=1.1,
+    user_id="BU-1",
+    created_timestamp=1641654664000.0,
     legal_entity=LegalEntity(
         company_general_details=CompanyGeneralDetails(
             legal_name="Ozkan Hazelnut Export JSC",
@@ -2020,7 +2020,7 @@ client = Flagright(
     api_key="YOUR_API_KEY",
 )
 client.business_users.get(
-    user_id="userId",
+    user_id="BU-1",
 )
 
 ```
@@ -2112,8 +2112,8 @@ client.consumer_user_events.create(
     allow_user_type_conversion="true",
     lock_kyc_risk_level="true",
     lock_cra_risk_level="true",
-    timestamp=1.1,
-    user_id="userId",
+    timestamp=1641654664000.0,
+    user_id="96647cfd9e8fe66ee0f3362e011e34e8",
 )
 
 ```
@@ -2348,8 +2348,11 @@ client.business_user_events.create(
     allow_user_type_conversion="true",
     lock_kyc_risk_level="true",
     lock_cra_risk_level="true",
-    timestamp=1.1,
-    user_id="userId",
+    timestamp=1641654664000.0,
+    user_id="BU-1",
+    event_id="event-123",
+    reason="User status update",
+    event_description="Business user status changed",
 )
 
 ```

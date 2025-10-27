@@ -167,8 +167,8 @@ class BusinessUsersClient:
             lock_cra_risk_level="true",
             lock_kyc_risk_level="true",
             validate_user_id="true",
-            user_id="userId",
-            created_timestamp=1.1,
+            user_id="BU-1",
+            created_timestamp=1641654664000.0,
             legal_entity=LegalEntity(
                 company_general_details=CompanyGeneralDetails(
                     legal_name="Ozkan Hazelnut Export JSC",
@@ -236,7 +236,7 @@ class BusinessUsersClient:
             api_key="YOUR_API_KEY",
         )
         client.business_users.get(
-            user_id="userId",
+            user_id="BU-1",
         )
         """
         _response = self._raw_client.get(user_id, request_options=request_options)
@@ -388,8 +388,8 @@ class AsyncBusinessUsersClient:
                 lock_cra_risk_level="true",
                 lock_kyc_risk_level="true",
                 validate_user_id="true",
-                user_id="userId",
-                created_timestamp=1.1,
+                user_id="BU-1",
+                created_timestamp=1641654664000.0,
                 legal_entity=LegalEntity(
                     company_general_details=CompanyGeneralDetails(
                         legal_name="Ozkan Hazelnut Export JSC",
@@ -467,7 +467,7 @@ class AsyncBusinessUsersClient:
 
         async def main() -> None:
             await client.business_users.get(
-                user_id="userId",
+                user_id="BU-1",
             )
 
 
