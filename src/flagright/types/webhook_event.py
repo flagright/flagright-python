@@ -29,6 +29,11 @@ class WebhookEvent(UniversalBaseModel):
     Time at which the event was created. Measured in ms since the Unix epoch.
     """
 
+    account: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Email ID associated with the event
+    """
+
     type: WebhookEventType
     data: WebhookEventData
 

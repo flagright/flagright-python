@@ -111,6 +111,11 @@ class TransactionWithRulesResult(UniversalBaseModel):
     Additional information that can be added via tags
     """
 
+    jurisdiction: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Legal authority or region governing the transaction
+    """
+
     update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
     payment_approval_timestamp: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="paymentApprovalTimestamp")

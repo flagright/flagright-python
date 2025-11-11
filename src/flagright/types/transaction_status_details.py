@@ -11,14 +11,13 @@ from .rule_action import RuleAction
 
 class TransactionStatusDetails(UniversalBaseModel):
     transaction_id: typing_extensions.Annotated[str, FieldMetadata(alias="transactionId")]
+    reasons: typing.List[str]
+    status: RuleAction
+    comment: typing.Optional[str] = None
     type: typing.Optional[str] = pydantic.Field(default=None)
     """
     Type of transaction (ex: DEPOSIT, WITHDRAWAL, TRANSFER, EXTERNAL_PAYMENT, REFUND, OTHER)
     """
-
-    reasons: typing.List[str]
-    status: RuleAction
-    comment: typing.Optional[str] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

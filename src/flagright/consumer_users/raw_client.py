@@ -82,6 +82,7 @@ class RawConsumerUsersClient:
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[ConsumerUsersCreateResponse]:
@@ -175,6 +176,9 @@ class RawConsumerUsersClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        jurisdiction : typing.Optional[str]
+            Legal authority or region governing the transaction
+
         update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
@@ -253,6 +257,7 @@ class RawConsumerUsersClient:
                 "metaData": convert_and_respect_annotation_metadata(
                     object_=meta_data, annotation=DeviceData, direction="write"
                 ),
+                "jurisdiction": jurisdiction,
                 "updateCount": update_count,
             },
             headers={
@@ -425,6 +430,7 @@ class AsyncRawConsumerUsersClient:
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[ConsumerUsersCreateResponse]:
@@ -518,6 +524,9 @@ class AsyncRawConsumerUsersClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        jurisdiction : typing.Optional[str]
+            Legal authority or region governing the transaction
+
         update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
@@ -596,6 +605,7 @@ class AsyncRawConsumerUsersClient:
                 "metaData": convert_and_respect_annotation_metadata(
                     object_=meta_data, annotation=DeviceData, direction="write"
                 ),
+                "jurisdiction": jurisdiction,
                 "updateCount": update_count,
             },
             headers={

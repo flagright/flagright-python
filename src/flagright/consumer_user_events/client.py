@@ -114,8 +114,8 @@ class ConsumerUserEventsClient:
             allow_user_type_conversion="true",
             lock_kyc_risk_level="true",
             lock_cra_risk_level="true",
-            timestamp=1641654664000.0,
-            user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+            timestamp=1.1,
+            user_id="userId",
         )
         """
         _response = self._raw_client.create(
@@ -273,8 +273,8 @@ class AsyncConsumerUserEventsClient:
                 allow_user_type_conversion="true",
                 lock_kyc_risk_level="true",
                 lock_cra_risk_level="true",
-                timestamp=1641654664000.0,
-                user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+                timestamp=1.1,
+                user_id="userId",
             )
 
 

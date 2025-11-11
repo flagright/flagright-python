@@ -78,9 +78,9 @@ class BatchClient:
             validate_destination_user_id="true",
             data=[
                 Transaction(
-                    type="DEPOSIT",
-                    transaction_id="7b80a539eea6e78acbd6d458e5971482",
-                    timestamp=1641654664000.0,
+                    type="type",
+                    transaction_id="transactionId",
+                    timestamp=1.1,
                 )
             ],
         )
@@ -170,9 +170,9 @@ class BatchClient:
         client.batch.create_transaction_events(
             data=[
                 TransactionEvent(
-                    transaction_state="SUCCESSFUL",
-                    timestamp=1641654664000.0,
-                    transaction_id="443dea26147a406b957d9ee3a1247b11",
+                    transaction_state="CREATED",
+                    timestamp=1.1,
+                    transaction_id="transactionId",
                 )
             ],
         )
@@ -224,8 +224,8 @@ class BatchClient:
             lock_kyc_risk_level="true",
             data=[
                 User(
-                    user_id="96647cfd9e8fe66ee0f3362e011e34e8",
-                    created_timestamp=1641654664000.0,
+                    user_id="userId",
+                    created_timestamp=1.1,
                 )
             ],
         )
@@ -281,8 +281,8 @@ class BatchClient:
             lock_kyc_risk_level="true",
             data=[
                 Business(
-                    user_id="BU-1",
-                    created_timestamp=1641654664000.0,
+                    user_id="userId",
+                    created_timestamp=1.1,
                     legal_entity=LegalEntity(
                         company_general_details=CompanyGeneralDetails(
                             legal_name="Ozkan Hazelnut Export JSC",
@@ -345,8 +345,8 @@ class BatchClient:
             lock_kyc_risk_level="true",
             data=[
                 ConsumerUserEvent(
-                    timestamp=1641654664000.0,
-                    user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+                    timestamp=1.1,
+                    user_id="userId",
                 )
             ],
         )
@@ -402,8 +402,8 @@ class BatchClient:
             lock_kyc_risk_level="true",
             data=[
                 BusinessUserEvent(
-                    timestamp=1641654664000.0,
-                    user_id="BU-1",
+                    timestamp=1.1,
+                    user_id="userId",
                 )
             ],
         )
@@ -480,9 +480,9 @@ class AsyncBatchClient:
                 validate_destination_user_id="true",
                 data=[
                     Transaction(
-                        type="DEPOSIT",
-                        transaction_id="7b80a539eea6e78acbd6d458e5971482",
-                        timestamp=1641654664000.0,
+                        type="type",
+                        transaction_id="transactionId",
+                        timestamp=1.1,
                     )
                 ],
             )
@@ -590,9 +590,9 @@ class AsyncBatchClient:
             await client.batch.create_transaction_events(
                 data=[
                     TransactionEvent(
-                        transaction_state="SUCCESSFUL",
-                        timestamp=1641654664000.0,
-                        transaction_id="443dea26147a406b957d9ee3a1247b11",
+                        transaction_state="CREATED",
+                        timestamp=1.1,
+                        transaction_id="transactionId",
                     )
                 ],
             )
@@ -652,8 +652,8 @@ class AsyncBatchClient:
                 lock_kyc_risk_level="true",
                 data=[
                     User(
-                        user_id="96647cfd9e8fe66ee0f3362e011e34e8",
-                        created_timestamp=1641654664000.0,
+                        user_id="userId",
+                        created_timestamp=1.1,
                     )
                 ],
             )
@@ -722,8 +722,8 @@ class AsyncBatchClient:
                 lock_kyc_risk_level="true",
                 data=[
                     Business(
-                        user_id="BU-1",
-                        created_timestamp=1641654664000.0,
+                        user_id="userId",
+                        created_timestamp=1.1,
                         legal_entity=LegalEntity(
                             company_general_details=CompanyGeneralDetails(
                                 legal_name="Ozkan Hazelnut Export JSC",
@@ -794,8 +794,8 @@ class AsyncBatchClient:
                 lock_kyc_risk_level="true",
                 data=[
                     ConsumerUserEvent(
-                        timestamp=1641654664000.0,
-                        user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+                        timestamp=1.1,
+                        user_id="userId",
                     )
                 ],
             )
@@ -859,8 +859,8 @@ class AsyncBatchClient:
                 lock_kyc_risk_level="true",
                 data=[
                     BusinessUserEvent(
-                        timestamp=1641654664000.0,
-                        user_id="BU-1",
+                        timestamp=1.1,
+                        user_id="userId",
                     )
                 ],
             )

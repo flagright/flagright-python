@@ -90,6 +90,11 @@ class BusinessOptional(UniversalBaseModel):
     """
 
     meta_data: typing_extensions.Annotated[typing.Optional[DeviceData], FieldMetadata(alias="metaData")] = None
+    jurisdiction: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Legal authority or region governing the transaction
+    """
+
     update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
 
     if IS_PYDANTIC_V2:

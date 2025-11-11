@@ -58,6 +58,7 @@ class TransactionsClient:
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
+        jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         payment_approval_timestamp: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -139,6 +140,9 @@ class TransactionsClient:
 
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
+
+        jurisdiction : typing.Optional[str]
+            Legal authority or region governing the transaction
 
         update_count : typing.Optional[float]
 
@@ -253,6 +257,7 @@ class TransactionsClient:
             origin_device_data=origin_device_data,
             destination_device_data=destination_device_data,
             tags=tags,
+            jurisdiction=jurisdiction,
             update_count=update_count,
             payment_approval_timestamp=payment_approval_timestamp,
             request_options=request_options,
@@ -335,6 +340,7 @@ class AsyncTransactionsClient:
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
+        jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         payment_approval_timestamp: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -416,6 +422,9 @@ class AsyncTransactionsClient:
 
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
+
+        jurisdiction : typing.Optional[str]
+            Legal authority or region governing the transaction
 
         update_count : typing.Optional[float]
 
@@ -538,6 +547,7 @@ class AsyncTransactionsClient:
             origin_device_data=origin_device_data,
             destination_device_data=destination_device_data,
             tags=tags,
+            jurisdiction=jurisdiction,
             update_count=update_count,
             payment_approval_timestamp=payment_approval_timestamp,
             request_options=request_options,

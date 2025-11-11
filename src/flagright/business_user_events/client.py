@@ -114,11 +114,8 @@ class BusinessUserEventsClient:
             allow_user_type_conversion="true",
             lock_kyc_risk_level="true",
             lock_cra_risk_level="true",
-            timestamp=1641654664000.0,
-            user_id="BU-1",
-            event_id="event-123",
-            reason="User status update",
-            event_description="Business user status changed",
+            timestamp=1.1,
+            user_id="userId",
         )
         """
         _response = self._raw_client.create(
@@ -276,11 +273,8 @@ class AsyncBusinessUserEventsClient:
                 allow_user_type_conversion="true",
                 lock_kyc_risk_level="true",
                 lock_cra_risk_level="true",
-                timestamp=1641654664000.0,
-                user_id="BU-1",
-                event_id="event-123",
-                reason="User status update",
-                event_description="Business user status changed",
+                timestamp=1.1,
+                user_id="userId",
             )
 
 

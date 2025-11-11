@@ -68,6 +68,7 @@ class BusinessUsersClient:
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
@@ -146,6 +147,9 @@ class BusinessUsersClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        jurisdiction : typing.Optional[str]
+            Legal authority or region governing the transaction
+
         update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
@@ -167,8 +171,8 @@ class BusinessUsersClient:
             lock_cra_risk_level="true",
             lock_kyc_risk_level="true",
             validate_user_id="true",
-            user_id="BU-1",
-            created_timestamp=1641654664000.0,
+            user_id="userId",
+            created_timestamp=1.1,
             legal_entity=LegalEntity(
                 company_general_details=CompanyGeneralDetails(
                     legal_name="Ozkan Hazelnut Export JSC",
@@ -202,6 +206,7 @@ class BusinessUsersClient:
             tags=tags,
             attachments=attachments,
             meta_data=meta_data,
+            jurisdiction=jurisdiction,
             update_count=update_count,
             request_options=request_options,
         )
@@ -236,7 +241,7 @@ class BusinessUsersClient:
             api_key="YOUR_API_KEY",
         )
         client.business_users.get(
-            user_id="BU-1",
+            user_id="userId",
         )
         """
         _response = self._raw_client.get(user_id, request_options=request_options)
@@ -284,6 +289,7 @@ class AsyncBusinessUsersClient:
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
@@ -362,6 +368,9 @@ class AsyncBusinessUsersClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        jurisdiction : typing.Optional[str]
+            Legal authority or region governing the transaction
+
         update_count : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
@@ -388,8 +397,8 @@ class AsyncBusinessUsersClient:
                 lock_cra_risk_level="true",
                 lock_kyc_risk_level="true",
                 validate_user_id="true",
-                user_id="BU-1",
-                created_timestamp=1641654664000.0,
+                user_id="userId",
+                created_timestamp=1.1,
                 legal_entity=LegalEntity(
                     company_general_details=CompanyGeneralDetails(
                         legal_name="Ozkan Hazelnut Export JSC",
@@ -426,6 +435,7 @@ class AsyncBusinessUsersClient:
             tags=tags,
             attachments=attachments,
             meta_data=meta_data,
+            jurisdiction=jurisdiction,
             update_count=update_count,
             request_options=request_options,
         )
@@ -467,7 +477,7 @@ class AsyncBusinessUsersClient:
 
         async def main() -> None:
             await client.business_users.get(
-                user_id="BU-1",
+                user_id="userId",
             )
 
 

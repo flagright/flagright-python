@@ -84,6 +84,7 @@ class ConsumerUsersClient:
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
@@ -176,6 +177,9 @@ class ConsumerUsersClient:
             Uploaded user's attachment
 
         meta_data : typing.Optional[DeviceData]
+
+        jurisdiction : typing.Optional[str]
+            Legal authority or region governing the transaction
 
         update_count : typing.Optional[float]
 
@@ -295,6 +299,7 @@ class ConsumerUsersClient:
             tags=tags,
             attachments=attachments,
             meta_data=meta_data,
+            jurisdiction=jurisdiction,
             update_count=update_count,
             request_options=request_options,
         )
@@ -329,7 +334,7 @@ class ConsumerUsersClient:
             api_key="YOUR_API_KEY",
         )
         client.consumer_users.get(
-            user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+            user_id="userId",
         )
         """
         _response = self._raw_client.get(user_id, request_options=request_options)
@@ -386,6 +391,7 @@ class AsyncConsumerUsersClient:
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
@@ -478,6 +484,9 @@ class AsyncConsumerUsersClient:
             Uploaded user's attachment
 
         meta_data : typing.Optional[DeviceData]
+
+        jurisdiction : typing.Optional[str]
+            Legal authority or region governing the transaction
 
         update_count : typing.Optional[float]
 
@@ -605,6 +614,7 @@ class AsyncConsumerUsersClient:
             tags=tags,
             attachments=attachments,
             meta_data=meta_data,
+            jurisdiction=jurisdiction,
             update_count=update_count,
             request_options=request_options,
         )
@@ -646,7 +656,7 @@ class AsyncConsumerUsersClient:
 
         async def main() -> None:
             await client.consumer_users.get(
-                user_id="96647cfd9e8fe66ee0f3362e011e34e8",
+                user_id="userId",
             )
 
 
