@@ -20,6 +20,7 @@ from .kyc_status_details import KycStatusDetails
 from .legal_document import LegalDocument
 from .pep_status import PepStatus
 from .person_attachment import PersonAttachment
+from .products_enabled import ProductsEnabled
 from .risk_level import RiskLevel
 from .sanctions_status import SanctionsStatus
 from .source_of_funds import SourceOfFunds
@@ -135,6 +136,9 @@ class UserWithRulesResult(UniversalBaseModel):
     """
 
     update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
+    products_enabled: typing_extensions.Annotated[
+        typing.Optional[typing.List[ProductsEnabled]], FieldMetadata(alias="productsEnabled")
+    ] = None
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None

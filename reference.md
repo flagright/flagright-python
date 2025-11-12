@@ -1634,6 +1634,14 @@ client.consumer_users.create(
 <dl>
 <dd>
 
+**products_enabled:** `typing.Optional[typing.Sequence[ProductsEnabled]]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -1988,6 +1996,14 @@ client.business_users.create(
 <dd>
 
 **update_count:** `typing.Optional[float]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**products_enabled:** `typing.Optional[typing.Sequence[ProductsEnabled]]` 
     
 </dd>
 </dl>

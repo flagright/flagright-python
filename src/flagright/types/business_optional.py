@@ -15,6 +15,7 @@ from .mcc_details import MccDetails
 from .payment_method import PaymentMethod
 from .person import Person
 from .person_attachment import PersonAttachment
+from .products_enabled import ProductsEnabled
 from .risk_level import RiskLevel
 from .transaction_limits import TransactionLimits
 from .user_entity_link import UserEntityLink
@@ -96,6 +97,9 @@ class BusinessOptional(UniversalBaseModel):
     """
 
     update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
+    products_enabled: typing_extensions.Annotated[
+        typing.Optional[typing.List[ProductsEnabled]], FieldMetadata(alias="productsEnabled")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

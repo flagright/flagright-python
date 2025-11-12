@@ -25,6 +25,7 @@ from ..types.mcc_details import MccDetails
 from ..types.payment_method import PaymentMethod
 from ..types.person import Person
 from ..types.person_attachment import PersonAttachment
+from ..types.products_enabled import ProductsEnabled
 from ..types.risk_level import RiskLevel
 from ..types.transaction_limits import TransactionLimits
 from ..types.user_entity_link import UserEntityLink
@@ -68,6 +69,7 @@ class RawBusinessUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BusinessUsersCreateResponse]:
         """
@@ -150,6 +152,8 @@ class RawBusinessUsersClient:
 
         update_count : typing.Optional[float]
 
+        products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -215,6 +219,9 @@ class RawBusinessUsersClient:
                 ),
                 "jurisdiction": jurisdiction,
                 "updateCount": update_count,
+                "productsEnabled": convert_and_respect_annotation_metadata(
+                    object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -379,6 +386,7 @@ class AsyncRawBusinessUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BusinessUsersCreateResponse]:
         """
@@ -461,6 +469,8 @@ class AsyncRawBusinessUsersClient:
 
         update_count : typing.Optional[float]
 
+        products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -526,6 +536,9 @@ class AsyncRawBusinessUsersClient:
                 ),
                 "jurisdiction": jurisdiction,
                 "updateCount": update_count,
+                "productsEnabled": convert_and_respect_annotation_metadata(
+                    object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",

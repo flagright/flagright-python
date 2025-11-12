@@ -15,6 +15,7 @@ from ..types.mcc_details import MccDetails
 from ..types.payment_method import PaymentMethod
 from ..types.person import Person
 from ..types.person_attachment import PersonAttachment
+from ..types.products_enabled import ProductsEnabled
 from ..types.risk_level import RiskLevel
 from ..types.transaction_limits import TransactionLimits
 from ..types.user_entity_link import UserEntityLink
@@ -70,6 +71,7 @@ class BusinessUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -152,6 +154,8 @@ class BusinessUsersClient:
 
         update_count : typing.Optional[float]
 
+        products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -208,6 +212,7 @@ class BusinessUsersClient:
             meta_data=meta_data,
             jurisdiction=jurisdiction,
             update_count=update_count,
+            products_enabled=products_enabled,
             request_options=request_options,
         )
         return _response.data
@@ -291,6 +296,7 @@ class AsyncBusinessUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -373,6 +379,8 @@ class AsyncBusinessUsersClient:
 
         update_count : typing.Optional[float]
 
+        products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -437,6 +445,7 @@ class AsyncBusinessUsersClient:
             meta_data=meta_data,
             jurisdiction=jurisdiction,
             update_count=update_count,
+            products_enabled=products_enabled,
             request_options=request_options,
         )
         return _response.data

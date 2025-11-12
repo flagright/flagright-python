@@ -27,6 +27,7 @@ from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_document import LegalDocument
 from ..types.pep_status import PepStatus
 from ..types.person_attachment import PersonAttachment
+from ..types.products_enabled import ProductsEnabled
 from ..types.risk_level import RiskLevel
 from ..types.sanctions_status import SanctionsStatus
 from ..types.source_of_funds import SourceOfFunds
@@ -84,6 +85,7 @@ class RawConsumerUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -181,6 +183,8 @@ class RawConsumerUsersClient:
 
         update_count : typing.Optional[float]
 
+        products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -259,6 +263,9 @@ class RawConsumerUsersClient:
                 ),
                 "jurisdiction": jurisdiction,
                 "updateCount": update_count,
+                "productsEnabled": convert_and_respect_annotation_metadata(
+                    object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -432,6 +439,7 @@ class AsyncRawConsumerUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -529,6 +537,8 @@ class AsyncRawConsumerUsersClient:
 
         update_count : typing.Optional[float]
 
+        products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -607,6 +617,9 @@ class AsyncRawConsumerUsersClient:
                 ),
                 "jurisdiction": jurisdiction,
                 "updateCount": update_count,
+                "productsEnabled": convert_and_respect_annotation_metadata(
+                    object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",

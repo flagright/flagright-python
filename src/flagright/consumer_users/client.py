@@ -17,6 +17,7 @@ from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_document import LegalDocument
 from ..types.pep_status import PepStatus
 from ..types.person_attachment import PersonAttachment
+from ..types.products_enabled import ProductsEnabled
 from ..types.risk_level import RiskLevel
 from ..types.sanctions_status import SanctionsStatus
 from ..types.source_of_funds import SourceOfFunds
@@ -86,6 +87,7 @@ class ConsumerUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -182,6 +184,8 @@ class ConsumerUsersClient:
             Legal authority or region governing the transaction
 
         update_count : typing.Optional[float]
+
+        products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -301,6 +305,7 @@ class ConsumerUsersClient:
             meta_data=meta_data,
             jurisdiction=jurisdiction,
             update_count=update_count,
+            products_enabled=products_enabled,
             request_options=request_options,
         )
         return _response.data
@@ -393,6 +398,7 @@ class AsyncConsumerUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
+        products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -489,6 +495,8 @@ class AsyncConsumerUsersClient:
             Legal authority or region governing the transaction
 
         update_count : typing.Optional[float]
+
+        products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -616,6 +624,7 @@ class AsyncConsumerUsersClient:
             meta_data=meta_data,
             jurisdiction=jurisdiction,
             update_count=update_count,
+            products_enabled=products_enabled,
             request_options=request_options,
         )
         return _response.data

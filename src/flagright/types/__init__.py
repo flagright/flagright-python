@@ -195,6 +195,7 @@ if typing.TYPE_CHECKING:
     from .place_of_birth import PlaceOfBirth
     from .pos_details import PosDetails
     from .pos_entry_mode import PosEntryMode
+    from .products_enabled import ProductsEnabled
     from .risk_level import RiskLevel
     from .rule_action import RuleAction
     from .rule_execution_sanctions_details import RuleExecutionSanctionsDetails
@@ -562,6 +563,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PlaceOfBirth": ".place_of_birth",
     "PosDetails": ".pos_details",
     "PosEntryMode": ".pos_entry_mode",
+    "ProductsEnabled": ".products_enabled",
     "RiskLevel": ".risk_level",
     "RuleAction": ".rule_action",
     "RuleExecutionSanctionsDetails": ".rule_execution_sanctions_details",
@@ -935,6 +937,7 @@ __all__ = [
     "PlaceOfBirth",
     "PosDetails",
     "PosEntryMode",
+    "ProductsEnabled",
     "RiskLevel",
     "RuleAction",
     "RuleExecutionSanctionsDetails",

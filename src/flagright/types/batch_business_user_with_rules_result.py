@@ -18,6 +18,7 @@ from .mcc_details import MccDetails
 from .payment_method import PaymentMethod
 from .person import Person
 from .person_attachment import PersonAttachment
+from .products_enabled import ProductsEnabled
 from .risk_level import RiskLevel
 from .transaction_limits import TransactionLimits
 from .user_entity_link import UserEntityLink
@@ -106,6 +107,9 @@ class BatchBusinessUserWithRulesResult(UniversalBaseModel):
     """
 
     update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
+    products_enabled: typing_extensions.Annotated[
+        typing.Optional[typing.List[ProductsEnabled]], FieldMetadata(alias="productsEnabled")
+    ] = None
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None
