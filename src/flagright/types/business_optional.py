@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .acquisition_channel import AcquisitionChannel
 from .business_optional_saved_payment_details_item import BusinessOptionalSavedPaymentDetailsItem
+from .business_optional_share_holders_item import BusinessOptionalShareHoldersItem
 from .device_data import DeviceData
 from .kyc_status_details import KycStatusDetails
 from .legal_entity import LegalEntity
@@ -43,7 +44,7 @@ class BusinessOptional(UniversalBaseModel):
     ] = None
     legal_entity: typing_extensions.Annotated[typing.Optional[LegalEntity], FieldMetadata(alias="legalEntity")] = None
     share_holders: typing_extensions.Annotated[
-        typing.Optional[typing.List[Person]], FieldMetadata(alias="shareHolders")
+        typing.Optional[typing.List[BusinessOptionalShareHoldersItem]], FieldMetadata(alias="shareHolders")
     ] = pydantic.Field(default=None)
     """
     Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual

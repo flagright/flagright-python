@@ -32,6 +32,9 @@ if typing.TYPE_CHECKING:
         BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Upi,
         BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Wallet,
     )
+    from .batch_business_user_with_rules_result_share_holders_item import (
+        BatchBusinessUserWithRulesResultShareHoldersItem,
+    )
     from .batch_business_users_with_rules_results import BatchBusinessUsersWithRulesResults
     from .batch_consumer_user_event_with_rules_result import BatchConsumerUserEventWithRulesResult
     from .batch_consumer_user_events_rules_result import BatchConsumerUserEventsRulesResult
@@ -77,6 +80,7 @@ if typing.TYPE_CHECKING:
         BusinessOptionalSavedPaymentDetailsItem_Upi,
         BusinessOptionalSavedPaymentDetailsItem_Wallet,
     )
+    from .business_optional_share_holders_item import BusinessOptionalShareHoldersItem
     from .business_saved_payment_details_item import (
         BusinessSavedPaymentDetailsItem,
         BusinessSavedPaymentDetailsItem_Ach,
@@ -91,6 +95,7 @@ if typing.TYPE_CHECKING:
         BusinessSavedPaymentDetailsItem_Upi,
         BusinessSavedPaymentDetailsItem_Wallet,
     )
+    from .business_share_holders_item import BusinessShareHoldersItem
     from .business_user_event import BusinessUserEvent
     from .business_user_event_with_rules_result import BusinessUserEventWithRulesResult
     from .business_user_monitoring_result import BusinessUserMonitoringResult
@@ -110,6 +115,7 @@ if typing.TYPE_CHECKING:
         BusinessWithRulesResultSavedPaymentDetailsItem_Upi,
         BusinessWithRulesResultSavedPaymentDetailsItem_Wallet,
     )
+    from .business_with_rules_result_share_holders_item import BusinessWithRulesResultShareHoldersItem
     from .card_brand import CardBrand
     from .card_details import CardDetails
     from .card_expiry import CardExpiry
@@ -408,6 +414,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Swift": ".batch_business_user_with_rules_result_saved_payment_details_item",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Upi": ".batch_business_user_with_rules_result_saved_payment_details_item",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Wallet": ".batch_business_user_with_rules_result_saved_payment_details_item",
+    "BatchBusinessUserWithRulesResultShareHoldersItem": ".batch_business_user_with_rules_result_share_holders_item",
     "BatchBusinessUsersWithRulesResults": ".batch_business_users_with_rules_results",
     "BatchConsumerUserEventWithRulesResult": ".batch_consumer_user_event_with_rules_result",
     "BatchConsumerUserEventsRulesResult": ".batch_consumer_user_events_rules_result",
@@ -449,6 +456,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BusinessOptionalSavedPaymentDetailsItem_Swift": ".business_optional_saved_payment_details_item",
     "BusinessOptionalSavedPaymentDetailsItem_Upi": ".business_optional_saved_payment_details_item",
     "BusinessOptionalSavedPaymentDetailsItem_Wallet": ".business_optional_saved_payment_details_item",
+    "BusinessOptionalShareHoldersItem": ".business_optional_share_holders_item",
     "BusinessSavedPaymentDetailsItem": ".business_saved_payment_details_item",
     "BusinessSavedPaymentDetailsItem_Ach": ".business_saved_payment_details_item",
     "BusinessSavedPaymentDetailsItem_Card": ".business_saved_payment_details_item",
@@ -461,6 +469,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BusinessSavedPaymentDetailsItem_Swift": ".business_saved_payment_details_item",
     "BusinessSavedPaymentDetailsItem_Upi": ".business_saved_payment_details_item",
     "BusinessSavedPaymentDetailsItem_Wallet": ".business_saved_payment_details_item",
+    "BusinessShareHoldersItem": ".business_share_holders_item",
     "BusinessUserEvent": ".business_user_event",
     "BusinessUserEventWithRulesResult": ".business_user_event_with_rules_result",
     "BusinessUserMonitoringResult": ".business_user_monitoring_result",
@@ -478,6 +487,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BusinessWithRulesResultSavedPaymentDetailsItem_Swift": ".business_with_rules_result_saved_payment_details_item",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Upi": ".business_with_rules_result_saved_payment_details_item",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Wallet": ".business_with_rules_result_saved_payment_details_item",
+    "BusinessWithRulesResultShareHoldersItem": ".business_with_rules_result_share_holders_item",
     "CardBrand": ".card_brand",
     "CardDetails": ".card_details",
     "CardExpiry": ".card_expiry",
@@ -782,6 +792,7 @@ __all__ = [
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Swift",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Upi",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Wallet",
+    "BatchBusinessUserWithRulesResultShareHoldersItem",
     "BatchBusinessUsersWithRulesResults",
     "BatchConsumerUserEventWithRulesResult",
     "BatchConsumerUserEventsRulesResult",
@@ -823,6 +834,7 @@ __all__ = [
     "BusinessOptionalSavedPaymentDetailsItem_Swift",
     "BusinessOptionalSavedPaymentDetailsItem_Upi",
     "BusinessOptionalSavedPaymentDetailsItem_Wallet",
+    "BusinessOptionalShareHoldersItem",
     "BusinessSavedPaymentDetailsItem",
     "BusinessSavedPaymentDetailsItem_Ach",
     "BusinessSavedPaymentDetailsItem_Card",
@@ -835,6 +847,7 @@ __all__ = [
     "BusinessSavedPaymentDetailsItem_Swift",
     "BusinessSavedPaymentDetailsItem_Upi",
     "BusinessSavedPaymentDetailsItem_Wallet",
+    "BusinessShareHoldersItem",
     "BusinessUserEvent",
     "BusinessUserEventWithRulesResult",
     "BusinessUserMonitoringResult",
@@ -852,6 +865,7 @@ __all__ = [
     "BusinessWithRulesResultSavedPaymentDetailsItem_Swift",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Upi",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Wallet",
+    "BusinessWithRulesResultShareHoldersItem",
     "CardBrand",
     "CardDetails",
     "CardExpiry",

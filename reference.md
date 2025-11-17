@@ -1875,7 +1875,7 @@ client.business_users.create(
 <dl>
 <dd>
 
-**share_holders:** `typing.Optional[typing.Sequence[Person]]` — Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
+**share_holders:** `typing.Optional[typing.Sequence[BusinessShareHoldersItem]]` — Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
     
 </dd>
 </dl>
