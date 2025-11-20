@@ -61,6 +61,13 @@ class BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Card(UniversalBase
         typing.Optional[float], FieldMetadata(alias="networkProviderRiskScore")
     ] = None
     address: typing.Optional[Address] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
+    bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
     tags: typing.Optional[typing.List[Tag]] = None
 
     if IS_PYDANTIC_V2:
@@ -119,6 +126,12 @@ class BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Iban(UniversalBase
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     bank_branch_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankBranchCode")] = None
     payment_channel: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="paymentChannel")] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
     tags: typing.Optional[typing.List[Tag]] = None
 
     if IS_PYDANTIC_V2:
@@ -139,6 +152,12 @@ class BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Ach(UniversalBaseM
     bank_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankName")] = None
     name: typing.Optional[str] = None
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
     beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     tags: typing.Optional[typing.List[Tag]] = None
@@ -163,6 +182,12 @@ class BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Swift(UniversalBas
     bank_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankName")] = None
     name: typing.Optional[str] = None
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     special_instructions: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="specialInstructions")
@@ -242,6 +267,10 @@ class BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Wallet(UniversalBa
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
     ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
+    bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
     authorized_representative: typing_extensions.Annotated[
         typing.Optional[typing.List[UserDetails]], FieldMetadata(alias="authorizedRepresentative")
     ] = None
@@ -272,6 +301,13 @@ class BatchConsumerUserWithRulesResultSavedPaymentDetailsItem_Check(UniversalBas
         None
     )
     account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
+    bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
     tags: typing.Optional[typing.List[Tag]] = None
 
     if IS_PYDANTIC_V2:

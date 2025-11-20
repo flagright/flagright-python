@@ -9,6 +9,7 @@ from ..core.serialization import FieldMetadata
 from .address import Address
 from .amount import Amount
 from .correspondent_bank_details import CorrespondentBankDetails
+from .country_code import CountryCode
 from .email_id import EmailId
 from .tag import Tag
 
@@ -60,6 +61,12 @@ class SwiftDetails(UniversalBaseModel):
     """
 
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     special_instructions: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="specialInstructions")

@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address import Address
 from .amount import Amount
+from .country_code import CountryCode
 from .email_id import EmailId
 from .tag import Tag
 
@@ -45,6 +46,12 @@ class AchDetails(UniversalBaseModel):
     """
 
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
     beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = (
         pydantic.Field(default=None)
     )

@@ -52,6 +52,12 @@ class IbanDetails(UniversalBaseModel):
     """
 
     payment_channel: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="paymentChannel")] = None
+    country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
+    ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags

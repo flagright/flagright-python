@@ -65,6 +65,10 @@ class WalletDetails(UniversalBaseModel):
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
     ] = None
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = None
+    bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
     authorized_representative: typing_extensions.Annotated[
         typing.Optional[typing.List[UserDetails]], FieldMetadata(alias="authorizedRepresentative")
     ] = None
