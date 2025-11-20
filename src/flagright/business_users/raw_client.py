@@ -24,6 +24,7 @@ from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_entity import LegalEntity
 from ..types.mcc_details import MccDetails
 from ..types.payment_method import PaymentMethod
+from ..types.pep_status import PepStatus
 from ..types.person import Person
 from ..types.person_attachment import PersonAttachment
 from ..types.products_enabled import ProductsEnabled
@@ -71,6 +72,9 @@ class RawBusinessUsersClient:
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
+        pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
+        sanctions_status: typing.Optional[bool] = OMIT,
+        adverse_media_status: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BusinessUsersCreateResponse]:
         """
@@ -155,6 +159,14 @@ class RawBusinessUsersClient:
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
+        pep_status : typing.Optional[typing.Sequence[PepStatus]]
+
+        sanctions_status : typing.Optional[bool]
+            Whether the user is sanctioned
+
+        adverse_media_status : typing.Optional[bool]
+            Whether the user is in the adverse media list
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -223,6 +235,11 @@ class RawBusinessUsersClient:
                 "productsEnabled": convert_and_respect_annotation_metadata(
                     object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
                 ),
+                "pepStatus": convert_and_respect_annotation_metadata(
+                    object_=pep_status, annotation=typing.Sequence[PepStatus], direction="write"
+                ),
+                "sanctionsStatus": sanctions_status,
+                "adverseMediaStatus": adverse_media_status,
             },
             headers={
                 "content-type": "application/json",
@@ -388,6 +405,9 @@ class AsyncRawBusinessUsersClient:
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
+        pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
+        sanctions_status: typing.Optional[bool] = OMIT,
+        adverse_media_status: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BusinessUsersCreateResponse]:
         """
@@ -472,6 +492,14 @@ class AsyncRawBusinessUsersClient:
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
+        pep_status : typing.Optional[typing.Sequence[PepStatus]]
+
+        sanctions_status : typing.Optional[bool]
+            Whether the user is sanctioned
+
+        adverse_media_status : typing.Optional[bool]
+            Whether the user is in the adverse media list
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -540,6 +568,11 @@ class AsyncRawBusinessUsersClient:
                 "productsEnabled": convert_and_respect_annotation_metadata(
                     object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
                 ),
+                "pepStatus": convert_and_respect_annotation_metadata(
+                    object_=pep_status, annotation=typing.Sequence[PepStatus], direction="write"
+                ),
+                "sanctionsStatus": sanctions_status,
+                "adverseMediaStatus": adverse_media_status,
             },
             headers={
                 "content-type": "application/json",

@@ -14,6 +14,7 @@ from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_entity import LegalEntity
 from ..types.mcc_details import MccDetails
 from ..types.payment_method import PaymentMethod
+from ..types.pep_status import PepStatus
 from ..types.person import Person
 from ..types.person_attachment import PersonAttachment
 from ..types.products_enabled import ProductsEnabled
@@ -73,6 +74,9 @@ class BusinessUsersClient:
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
+        pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
+        sanctions_status: typing.Optional[bool] = OMIT,
+        adverse_media_status: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -157,6 +161,14 @@ class BusinessUsersClient:
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
+        pep_status : typing.Optional[typing.Sequence[PepStatus]]
+
+        sanctions_status : typing.Optional[bool]
+            Whether the user is sanctioned
+
+        adverse_media_status : typing.Optional[bool]
+            Whether the user is in the adverse media list
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -214,6 +226,9 @@ class BusinessUsersClient:
             jurisdiction=jurisdiction,
             update_count=update_count,
             products_enabled=products_enabled,
+            pep_status=pep_status,
+            sanctions_status=sanctions_status,
+            adverse_media_status=adverse_media_status,
             request_options=request_options,
         )
         return _response.data
@@ -298,6 +313,9 @@ class AsyncBusinessUsersClient:
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
+        pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
+        sanctions_status: typing.Optional[bool] = OMIT,
+        adverse_media_status: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -382,6 +400,14 @@ class AsyncBusinessUsersClient:
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
+        pep_status : typing.Optional[typing.Sequence[PepStatus]]
+
+        sanctions_status : typing.Optional[bool]
+            Whether the user is sanctioned
+
+        adverse_media_status : typing.Optional[bool]
+            Whether the user is in the adverse media list
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -447,6 +473,9 @@ class AsyncBusinessUsersClient:
             jurisdiction=jurisdiction,
             update_count=update_count,
             products_enabled=products_enabled,
+            pep_status=pep_status,
+            sanctions_status=sanctions_status,
+            adverse_media_status=adverse_media_status,
             request_options=request_options,
         )
         return _response.data

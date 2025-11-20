@@ -2011,6 +2011,30 @@ client.business_users.create(
 <dl>
 <dd>
 
+**pep_status:** `typing.Optional[typing.Sequence[PepStatus]]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sanctions_status:** `typing.Optional[bool]` — Whether the user is sanctioned
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**adverse_media_status:** `typing.Optional[bool]` — Whether the user is in the adverse media list
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>

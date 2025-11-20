@@ -17,6 +17,7 @@ from .kyc_status_details import KycStatusDetails
 from .legal_entity import LegalEntity
 from .mcc_details import MccDetails
 from .payment_method import PaymentMethod
+from .pep_status import PepStatus
 from .person import Person
 from .person_attachment import PersonAttachment
 from .products_enabled import ProductsEnabled
@@ -112,6 +113,23 @@ class BatchBusinessUserWithRulesResult(UniversalBaseModel):
     products_enabled: typing_extensions.Annotated[
         typing.Optional[typing.List[ProductsEnabled]], FieldMetadata(alias="productsEnabled")
     ] = None
+    pep_status: typing_extensions.Annotated[
+        typing.Optional[typing.List[PepStatus]], FieldMetadata(alias="pepStatus")
+    ] = None
+    sanctions_status: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="sanctionsStatus")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Whether the user is sanctioned
+    """
+
+    adverse_media_status: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="adverseMediaStatus")
+    ] = pydantic.Field(default=None)
+    """
+    Whether the user is in the adverse media list
+    """
+
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None
