@@ -119,6 +119,7 @@ class BusinessOptionalSavedPaymentDetailsItem_Iban(UniversalBaseModel):
     bic: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="BIC")] = None
     bank_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankName")] = None
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
+    address: typing.Optional[Address] = None
     country: typing.Optional[CountryCode] = None
     iban: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="IBAN")] = None
     account_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="accountBalance")] = None
@@ -152,6 +153,7 @@ class BusinessOptionalSavedPaymentDetailsItem_Ach(UniversalBaseModel):
     bank_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankName")] = None
     name: typing.Optional[str] = None
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
+    address: typing.Optional[Address] = None
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
     ] = None
@@ -300,7 +302,9 @@ class BusinessOptionalSavedPaymentDetailsItem_Check(UniversalBaseModel):
     shipping_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="shippingAddress")] = (
         None
     )
+    address: typing.Optional[Address] = None
     account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
+    email_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="emailId")] = None
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
     ] = None
@@ -325,6 +329,7 @@ class BusinessOptionalSavedPaymentDetailsItem_Cash(UniversalBaseModel):
     identifier: typing.Optional[str] = None
     address: typing.Optional[Address] = None
     name: typing.Optional[str] = None
+    email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

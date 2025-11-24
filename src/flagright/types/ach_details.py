@@ -46,6 +46,11 @@ class AchDetails(UniversalBaseModel):
     """
 
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
+    address: typing.Optional[Address] = pydantic.Field(default=None)
+    """
+    Address of the account holder
+    """
+
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
     ] = None

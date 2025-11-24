@@ -3,8 +3,11 @@
 import typing
 
 import pydantic
+import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 from .address import Address
+from .email_id import EmailId
 
 
 class CashDetails(UniversalBaseModel):
@@ -15,6 +18,7 @@ class CashDetails(UniversalBaseModel):
 
     address: typing.Optional[Address] = None
     name: typing.Optional[str] = None
+    email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
