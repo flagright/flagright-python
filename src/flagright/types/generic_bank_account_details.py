@@ -60,6 +60,13 @@ class GenericBankAccountDetails(UniversalBaseModel):
     Country of nationality of the account holder
     """
 
+    country_of_residence: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
+    ] = pydantic.Field(default=None)
+    """
+    Country of residence of the account holder
+    """
+
     date_of_birth: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dateOfBirth")] = (
         pydantic.Field(default=None)
     )
