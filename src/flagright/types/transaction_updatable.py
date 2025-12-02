@@ -11,6 +11,7 @@ from .device_data import DeviceData
 from .origin_funds_info import OriginFundsInfo
 from .tag import Tag
 from .transaction_amount_details import TransactionAmountDetails
+from .transaction_metadata import TransactionMetadata
 from .transaction_updatable_destination_payment_details import TransactionUpdatableDestinationPaymentDetails
 from .transaction_updatable_origin_payment_details import TransactionUpdatableOriginPaymentDetails
 
@@ -74,6 +75,7 @@ class TransactionUpdatable(UniversalBaseModel):
     destination_device_data: typing_extensions.Annotated[
         typing.Optional[DeviceData], FieldMetadata(alias="destinationDeviceData")
     ] = None
+    metadata: typing.Optional[TransactionMetadata] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags

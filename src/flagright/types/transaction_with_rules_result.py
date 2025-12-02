@@ -14,6 +14,7 @@ from .origin_funds_info import OriginFundsInfo
 from .rule_action import RuleAction
 from .tag import Tag
 from .transaction_amount_details import TransactionAmountDetails
+from .transaction_metadata import TransactionMetadata
 from .transaction_risk_scoring_result import TransactionRiskScoringResult
 from .transaction_state import TransactionState
 from .transaction_with_rules_result_destination_payment_details import (
@@ -110,6 +111,7 @@ class TransactionWithRulesResult(UniversalBaseModel):
     destination_device_data: typing_extensions.Annotated[
         typing.Optional[DeviceData], FieldMetadata(alias="destinationDeviceData")
     ] = None
+    metadata: typing.Optional[TransactionMetadata] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags

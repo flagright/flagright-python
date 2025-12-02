@@ -11,6 +11,7 @@ from ..types.origin_funds_info import OriginFundsInfo
 from ..types.tag import Tag
 from ..types.transaction_amount_details import TransactionAmountDetails
 from ..types.transaction_destination_payment_details import TransactionDestinationPaymentDetails
+from ..types.transaction_metadata import TransactionMetadata
 from ..types.transaction_origin_payment_details import TransactionOriginPaymentDetails
 from ..types.transaction_state import TransactionState
 from ..types.transaction_with_rules_result import TransactionWithRulesResult
@@ -59,6 +60,7 @@ class TransactionsClient:
         reference: typing.Optional[str] = OMIT,
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
+        metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
@@ -141,6 +143,8 @@ class TransactionsClient:
         origin_device_data : typing.Optional[DeviceData]
 
         destination_device_data : typing.Optional[DeviceData]
+
+        metadata : typing.Optional[TransactionMetadata]
 
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
@@ -261,6 +265,7 @@ class TransactionsClient:
             reference=reference,
             origin_device_data=origin_device_data,
             destination_device_data=destination_device_data,
+            metadata=metadata,
             tags=tags,
             jurisdiction=jurisdiction,
             update_count=update_count,
@@ -345,6 +350,7 @@ class AsyncTransactionsClient:
         reference: typing.Optional[str] = OMIT,
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
+        metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
@@ -427,6 +433,8 @@ class AsyncTransactionsClient:
         origin_device_data : typing.Optional[DeviceData]
 
         destination_device_data : typing.Optional[DeviceData]
+
+        metadata : typing.Optional[TransactionMetadata]
 
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
@@ -555,6 +563,7 @@ class AsyncTransactionsClient:
             reference=reference,
             origin_device_data=origin_device_data,
             destination_device_data=destination_device_data,
+            metadata=metadata,
             tags=tags,
             jurisdiction=jurisdiction,
             update_count=update_count,

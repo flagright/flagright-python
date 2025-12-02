@@ -299,6 +299,14 @@ client.transactions.verify(
 <dl>
 <dd>
 
+**metadata:** `typing.Optional[TransactionMetadata]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **tags:** `typing.Optional[typing.Sequence[Tag]]` — Additional information that can be added via tags
     
 </dd>

@@ -21,6 +21,7 @@ from ..types.origin_funds_info import OriginFundsInfo
 from ..types.tag import Tag
 from ..types.transaction_amount_details import TransactionAmountDetails
 from ..types.transaction_destination_payment_details import TransactionDestinationPaymentDetails
+from ..types.transaction_metadata import TransactionMetadata
 from ..types.transaction_origin_payment_details import TransactionOriginPaymentDetails
 from ..types.transaction_state import TransactionState
 from ..types.transaction_with_rules_result import TransactionWithRulesResult
@@ -57,6 +58,7 @@ class RawTransactionsClient:
         reference: typing.Optional[str] = OMIT,
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
+        metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
@@ -140,6 +142,8 @@ class RawTransactionsClient:
 
         destination_device_data : typing.Optional[DeviceData]
 
+        metadata : typing.Optional[TransactionMetadata]
+
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
 
@@ -201,6 +205,9 @@ class RawTransactionsClient:
                 ),
                 "destinationDeviceData": convert_and_respect_annotation_metadata(
                     object_=destination_device_data, annotation=DeviceData, direction="write"
+                ),
+                "metadata": convert_and_respect_annotation_metadata(
+                    object_=metadata, annotation=TransactionMetadata, direction="write"
                 ),
                 "tags": convert_and_respect_annotation_metadata(
                     object_=tags, annotation=typing.Sequence[Tag], direction="write"
@@ -367,6 +374,7 @@ class AsyncRawTransactionsClient:
         reference: typing.Optional[str] = OMIT,
         origin_device_data: typing.Optional[DeviceData] = OMIT,
         destination_device_data: typing.Optional[DeviceData] = OMIT,
+        metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         update_count: typing.Optional[float] = OMIT,
@@ -450,6 +458,8 @@ class AsyncRawTransactionsClient:
 
         destination_device_data : typing.Optional[DeviceData]
 
+        metadata : typing.Optional[TransactionMetadata]
+
         tags : typing.Optional[typing.Sequence[Tag]]
             Additional information that can be added via tags
 
@@ -511,6 +521,9 @@ class AsyncRawTransactionsClient:
                 ),
                 "destinationDeviceData": convert_and_respect_annotation_metadata(
                     object_=destination_device_data, annotation=DeviceData, direction="write"
+                ),
+                "metadata": convert_and_respect_annotation_metadata(
+                    object_=metadata, annotation=TransactionMetadata, direction="write"
                 ),
                 "tags": convert_and_respect_annotation_metadata(
                     object_=tags, annotation=typing.Sequence[Tag], direction="write"
