@@ -19,6 +19,7 @@ from ..types.api_error_response import ApiErrorResponse
 from ..types.boolean_string import BooleanString
 from ..types.consumer_user_segment import ConsumerUserSegment
 from ..types.contact_details import ContactDetails
+from ..types.corporate_entity_details import CorporateEntityDetails
 from ..types.device_data import DeviceData
 from ..types.employment_details import EmploymentDetails
 from ..types.employment_status import EmploymentStatus
@@ -78,6 +79,7 @@ class RawConsumerUsersClient:
         sanctions_status: typing.Optional[SanctionsStatus] = OMIT,
         adverse_media_status: typing.Optional[AdverseMediaStatus] = OMIT,
         last_transaction_timestamp: typing.Optional[float] = OMIT,
+        corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
@@ -166,6 +168,9 @@ class RawConsumerUsersClient:
         last_transaction_timestamp : typing.Optional[float]
             Timestamp of the last successful transaction of the user
 
+        corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
+            Corporate entities of the user
+
         linked_entities : typing.Optional[UserEntityLink]
 
         saved_payment_details : typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]]
@@ -244,6 +249,9 @@ class RawConsumerUsersClient:
                 "sanctionsStatus": sanctions_status,
                 "adverseMediaStatus": adverse_media_status,
                 "lastTransactionTimestamp": last_transaction_timestamp,
+                "corporateEntities": convert_and_respect_annotation_metadata(
+                    object_=corporate_entities, annotation=typing.Sequence[CorporateEntityDetails], direction="write"
+                ),
                 "linkedEntities": convert_and_respect_annotation_metadata(
                     object_=linked_entities, annotation=UserEntityLink, direction="write"
                 ),
@@ -432,6 +440,7 @@ class AsyncRawConsumerUsersClient:
         sanctions_status: typing.Optional[SanctionsStatus] = OMIT,
         adverse_media_status: typing.Optional[AdverseMediaStatus] = OMIT,
         last_transaction_timestamp: typing.Optional[float] = OMIT,
+        corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
@@ -520,6 +529,9 @@ class AsyncRawConsumerUsersClient:
         last_transaction_timestamp : typing.Optional[float]
             Timestamp of the last successful transaction of the user
 
+        corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
+            Corporate entities of the user
+
         linked_entities : typing.Optional[UserEntityLink]
 
         saved_payment_details : typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]]
@@ -598,6 +610,9 @@ class AsyncRawConsumerUsersClient:
                 "sanctionsStatus": sanctions_status,
                 "adverseMediaStatus": adverse_media_status,
                 "lastTransactionTimestamp": last_transaction_timestamp,
+                "corporateEntities": convert_and_respect_annotation_metadata(
+                    object_=corporate_entities, annotation=typing.Sequence[CorporateEntityDetails], direction="write"
+                ),
                 "linkedEntities": convert_and_respect_annotation_metadata(
                     object_=linked_entities, annotation=UserEntityLink, direction="write"
                 ),

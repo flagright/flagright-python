@@ -243,6 +243,14 @@ client.transactions.verify(
 <dl>
 <dd>
 
+**origin_corporate_entity:** `typing.Optional[CorporateEntityDetails]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **related_transaction_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of transactions related to this transaction. Ex: refund, split bills
     
 </dd>
@@ -1578,6 +1586,14 @@ client.consumer_users.create(
 <dl>
 <dd>
 
+**corporate_entities:** `typing.Optional[typing.Sequence[CorporateEntityDetails]]` — Corporate entities of the user
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **linked_entities:** `typing.Optional[UserEntityLink]` 
     
 </dd>
@@ -1868,6 +1884,14 @@ client.business_users.create(
 <dd>
 
 **kyc_status_details:** `typing.Optional[KycStatusDetails]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**corporate_entities:** `typing.Optional[typing.Sequence[CorporateEntityDetails]]` — Corporate entities of the user
     
 </dd>
 </dl>

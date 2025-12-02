@@ -9,6 +9,7 @@ from ..types.boolean_string import BooleanString
 from ..types.business_saved_payment_details_item import BusinessSavedPaymentDetailsItem
 from ..types.business_share_holders_item import BusinessShareHoldersItem
 from ..types.business_with_rules_result import BusinessWithRulesResult
+from ..types.corporate_entity_details import CorporateEntityDetails
 from ..types.device_data import DeviceData
 from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_entity import LegalEntity
@@ -57,6 +58,7 @@ class BusinessUsersClient:
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
@@ -120,6 +122,9 @@ class BusinessUsersClient:
         user_state_details : typing.Optional[UserStateDetails]
 
         kyc_status_details : typing.Optional[KycStatusDetails]
+
+        corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
+            Corporate entities of the user
 
         share_holders : typing.Optional[typing.Sequence[BusinessShareHoldersItem]]
             Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
@@ -209,6 +214,7 @@ class BusinessUsersClient:
             activated_timestamp=activated_timestamp,
             user_state_details=user_state_details,
             kyc_status_details=kyc_status_details,
+            corporate_entities=corporate_entities,
             share_holders=share_holders,
             directors=directors,
             transaction_limits=transaction_limits,
@@ -296,6 +302,7 @@ class AsyncBusinessUsersClient:
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
@@ -359,6 +366,9 @@ class AsyncBusinessUsersClient:
         user_state_details : typing.Optional[UserStateDetails]
 
         kyc_status_details : typing.Optional[KycStatusDetails]
+
+        corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
+            Corporate entities of the user
 
         share_holders : typing.Optional[typing.Sequence[BusinessShareHoldersItem]]
             Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
@@ -456,6 +466,7 @@ class AsyncBusinessUsersClient:
             activated_timestamp=activated_timestamp,
             user_state_details=user_state_details,
             kyc_status_details=kyc_status_details,
+            corporate_entities=corporate_entities,
             share_holders=share_holders,
             directors=directors,
             transaction_limits=transaction_limits,

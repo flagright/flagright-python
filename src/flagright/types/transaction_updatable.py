@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .corporate_entity_details import CorporateEntityDetails
 from .device_data import DeviceData
 from .origin_funds_info import OriginFundsInfo
 from .tag import Tag
@@ -37,6 +38,9 @@ class TransactionUpdatable(UniversalBaseModel):
     ] = None
     origin_funds_info: typing_extensions.Annotated[
         typing.Optional[OriginFundsInfo], FieldMetadata(alias="originFundsInfo")
+    ] = None
+    origin_corporate_entity: typing_extensions.Annotated[
+        typing.Optional[CorporateEntityDetails], FieldMetadata(alias="originCorporateEntity")
     ] = None
     related_transaction_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="relatedTransactionIds")

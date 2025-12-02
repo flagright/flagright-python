@@ -10,6 +10,7 @@ from .acquisition_channel import AcquisitionChannel
 from .adverse_media_status import AdverseMediaStatus
 from .consumer_user_segment import ConsumerUserSegment
 from .contact_details import ContactDetails
+from .corporate_entity_details import CorporateEntityDetails
 from .device_data import DeviceData
 from .employment_details import EmploymentDetails
 from .employment_status import EmploymentStatus
@@ -101,6 +102,13 @@ class UserOptional(UniversalBaseModel):
     ] = pydantic.Field(default=None)
     """
     Timestamp of the last successful transaction of the user
+    """
+
+    corporate_entities: typing_extensions.Annotated[
+        typing.Optional[typing.List[CorporateEntityDetails]], FieldMetadata(alias="corporateEntities")
+    ] = pydantic.Field(default=None)
+    """
+    Corporate entities of the user
     """
 
     linked_entities: typing_extensions.Annotated[

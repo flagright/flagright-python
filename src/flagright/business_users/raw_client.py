@@ -19,6 +19,7 @@ from ..types.boolean_string import BooleanString
 from ..types.business_saved_payment_details_item import BusinessSavedPaymentDetailsItem
 from ..types.business_share_holders_item import BusinessShareHoldersItem
 from ..types.business_with_rules_result import BusinessWithRulesResult
+from ..types.corporate_entity_details import CorporateEntityDetails
 from ..types.device_data import DeviceData
 from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_entity import LegalEntity
@@ -55,6 +56,7 @@ class RawBusinessUsersClient:
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
@@ -118,6 +120,9 @@ class RawBusinessUsersClient:
         user_state_details : typing.Optional[UserStateDetails]
 
         kyc_status_details : typing.Optional[KycStatusDetails]
+
+        corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
+            Corporate entities of the user
 
         share_holders : typing.Optional[typing.Sequence[BusinessShareHoldersItem]]
             Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
@@ -195,6 +200,9 @@ class RawBusinessUsersClient:
                 ),
                 "kycStatusDetails": convert_and_respect_annotation_metadata(
                     object_=kyc_status_details, annotation=KycStatusDetails, direction="write"
+                ),
+                "corporateEntities": convert_and_respect_annotation_metadata(
+                    object_=corporate_entities, annotation=typing.Sequence[CorporateEntityDetails], direction="write"
                 ),
                 "shareHolders": convert_and_respect_annotation_metadata(
                     object_=share_holders, annotation=typing.Sequence[BusinessShareHoldersItem], direction="write"
@@ -388,6 +396,7 @@ class AsyncRawBusinessUsersClient:
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
@@ -451,6 +460,9 @@ class AsyncRawBusinessUsersClient:
         user_state_details : typing.Optional[UserStateDetails]
 
         kyc_status_details : typing.Optional[KycStatusDetails]
+
+        corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
+            Corporate entities of the user
 
         share_holders : typing.Optional[typing.Sequence[BusinessShareHoldersItem]]
             Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
@@ -528,6 +540,9 @@ class AsyncRawBusinessUsersClient:
                 ),
                 "kycStatusDetails": convert_and_respect_annotation_metadata(
                     object_=kyc_status_details, annotation=KycStatusDetails, direction="write"
+                ),
+                "corporateEntities": convert_and_respect_annotation_metadata(
+                    object_=corporate_entities, annotation=typing.Sequence[CorporateEntityDetails], direction="write"
                 ),
                 "shareHolders": convert_and_respect_annotation_metadata(
                     object_=share_holders, annotation=typing.Sequence[BusinessShareHoldersItem], direction="write"

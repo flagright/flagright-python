@@ -15,6 +15,7 @@ from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
 from ..types.api_error_response import ApiErrorResponse
 from ..types.boolean_string import BooleanString
+from ..types.corporate_entity_details import CorporateEntityDetails
 from ..types.device_data import DeviceData
 from ..types.origin_funds_info import OriginFundsInfo
 from ..types.tag import Tag
@@ -49,6 +50,7 @@ class RawTransactionsClient:
         origin_payment_details: typing.Optional[TransactionOriginPaymentDetails] = OMIT,
         destination_payment_details: typing.Optional[TransactionDestinationPaymentDetails] = OMIT,
         origin_funds_info: typing.Optional[OriginFundsInfo] = OMIT,
+        origin_corporate_entity: typing.Optional[CorporateEntityDetails] = OMIT,
         related_transaction_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         product_type: typing.Optional[str] = OMIT,
         promotion_code_used: typing.Optional[bool] = OMIT,
@@ -120,6 +122,8 @@ class RawTransactionsClient:
 
         origin_funds_info : typing.Optional[OriginFundsInfo]
 
+        origin_corporate_entity : typing.Optional[CorporateEntityDetails]
+
         related_transaction_ids : typing.Optional[typing.Sequence[str]]
             IDs of transactions related to this transaction. Ex: refund, split bills
 
@@ -184,6 +188,9 @@ class RawTransactionsClient:
                 ),
                 "originFundsInfo": convert_and_respect_annotation_metadata(
                     object_=origin_funds_info, annotation=OriginFundsInfo, direction="write"
+                ),
+                "originCorporateEntity": convert_and_respect_annotation_metadata(
+                    object_=origin_corporate_entity, annotation=CorporateEntityDetails, direction="write"
                 ),
                 "relatedTransactionIds": related_transaction_ids,
                 "productType": product_type,
@@ -353,6 +360,7 @@ class AsyncRawTransactionsClient:
         origin_payment_details: typing.Optional[TransactionOriginPaymentDetails] = OMIT,
         destination_payment_details: typing.Optional[TransactionDestinationPaymentDetails] = OMIT,
         origin_funds_info: typing.Optional[OriginFundsInfo] = OMIT,
+        origin_corporate_entity: typing.Optional[CorporateEntityDetails] = OMIT,
         related_transaction_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         product_type: typing.Optional[str] = OMIT,
         promotion_code_used: typing.Optional[bool] = OMIT,
@@ -424,6 +432,8 @@ class AsyncRawTransactionsClient:
 
         origin_funds_info : typing.Optional[OriginFundsInfo]
 
+        origin_corporate_entity : typing.Optional[CorporateEntityDetails]
+
         related_transaction_ids : typing.Optional[typing.Sequence[str]]
             IDs of transactions related to this transaction. Ex: refund, split bills
 
@@ -488,6 +498,9 @@ class AsyncRawTransactionsClient:
                 ),
                 "originFundsInfo": convert_and_respect_annotation_metadata(
                     object_=origin_funds_info, annotation=OriginFundsInfo, direction="write"
+                ),
+                "originCorporateEntity": convert_and_respect_annotation_metadata(
+                    object_=origin_corporate_entity, annotation=CorporateEntityDetails, direction="write"
                 ),
                 "relatedTransactionIds": related_transaction_ids,
                 "productType": product_type,

@@ -5,6 +5,7 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.boolean_string import BooleanString
+from ..types.corporate_entity_details import CorporateEntityDetails
 from ..types.device_data import DeviceData
 from ..types.origin_funds_info import OriginFundsInfo
 from ..types.tag import Tag
@@ -51,6 +52,7 @@ class TransactionsClient:
         origin_payment_details: typing.Optional[TransactionOriginPaymentDetails] = OMIT,
         destination_payment_details: typing.Optional[TransactionDestinationPaymentDetails] = OMIT,
         origin_funds_info: typing.Optional[OriginFundsInfo] = OMIT,
+        origin_corporate_entity: typing.Optional[CorporateEntityDetails] = OMIT,
         related_transaction_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         product_type: typing.Optional[str] = OMIT,
         promotion_code_used: typing.Optional[bool] = OMIT,
@@ -121,6 +123,8 @@ class TransactionsClient:
         destination_payment_details : typing.Optional[TransactionDestinationPaymentDetails]
 
         origin_funds_info : typing.Optional[OriginFundsInfo]
+
+        origin_corporate_entity : typing.Optional[CorporateEntityDetails]
 
         related_transaction_ids : typing.Optional[typing.Sequence[str]]
             IDs of transactions related to this transaction. Ex: refund, split bills
@@ -250,6 +254,7 @@ class TransactionsClient:
             origin_payment_details=origin_payment_details,
             destination_payment_details=destination_payment_details,
             origin_funds_info=origin_funds_info,
+            origin_corporate_entity=origin_corporate_entity,
             related_transaction_ids=related_transaction_ids,
             product_type=product_type,
             promotion_code_used=promotion_code_used,
@@ -333,6 +338,7 @@ class AsyncTransactionsClient:
         origin_payment_details: typing.Optional[TransactionOriginPaymentDetails] = OMIT,
         destination_payment_details: typing.Optional[TransactionDestinationPaymentDetails] = OMIT,
         origin_funds_info: typing.Optional[OriginFundsInfo] = OMIT,
+        origin_corporate_entity: typing.Optional[CorporateEntityDetails] = OMIT,
         related_transaction_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         product_type: typing.Optional[str] = OMIT,
         promotion_code_used: typing.Optional[bool] = OMIT,
@@ -403,6 +409,8 @@ class AsyncTransactionsClient:
         destination_payment_details : typing.Optional[TransactionDestinationPaymentDetails]
 
         origin_funds_info : typing.Optional[OriginFundsInfo]
+
+        origin_corporate_entity : typing.Optional[CorporateEntityDetails]
 
         related_transaction_ids : typing.Optional[typing.Sequence[str]]
             IDs of transactions related to this transaction. Ex: refund, split bills
@@ -540,6 +548,7 @@ class AsyncTransactionsClient:
             origin_payment_details=origin_payment_details,
             destination_payment_details=destination_payment_details,
             origin_funds_info=origin_funds_info,
+            origin_corporate_entity=origin_corporate_entity,
             related_transaction_ids=related_transaction_ids,
             product_type=product_type,
             promotion_code_used=promotion_code_used,

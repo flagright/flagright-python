@@ -11,6 +11,7 @@ from .batch_business_user_with_rules_result_saved_payment_details_item import (
     BatchBusinessUserWithRulesResultSavedPaymentDetailsItem,
 )
 from .batch_business_user_with_rules_result_share_holders_item import BatchBusinessUserWithRulesResultShareHoldersItem
+from .corporate_entity_details import CorporateEntityDetails
 from .device_data import DeviceData
 from .executed_rules_result import ExecutedRulesResult
 from .kyc_status_details import KycStatusDetails
@@ -54,6 +55,13 @@ class BatchBusinessUserWithRulesResult(UniversalBaseModel):
     kyc_status_details: typing_extensions.Annotated[
         typing.Optional[KycStatusDetails], FieldMetadata(alias="kycStatusDetails")
     ] = None
+    corporate_entities: typing_extensions.Annotated[
+        typing.Optional[typing.List[CorporateEntityDetails]], FieldMetadata(alias="corporateEntities")
+    ] = pydantic.Field(default=None)
+    """
+    Corporate entities of the user
+    """
+
     share_holders: typing_extensions.Annotated[
         typing.Optional[typing.List[BatchBusinessUserWithRulesResultShareHoldersItem]],
         FieldMetadata(alias="shareHolders"),

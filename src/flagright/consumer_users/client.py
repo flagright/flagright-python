@@ -9,6 +9,7 @@ from ..types.adverse_media_status import AdverseMediaStatus
 from ..types.boolean_string import BooleanString
 from ..types.consumer_user_segment import ConsumerUserSegment
 from ..types.contact_details import ContactDetails
+from ..types.corporate_entity_details import CorporateEntityDetails
 from ..types.device_data import DeviceData
 from ..types.employment_details import EmploymentDetails
 from ..types.employment_status import EmploymentStatus
@@ -80,6 +81,7 @@ class ConsumerUsersClient:
         sanctions_status: typing.Optional[SanctionsStatus] = OMIT,
         adverse_media_status: typing.Optional[AdverseMediaStatus] = OMIT,
         last_transaction_timestamp: typing.Optional[float] = OMIT,
+        corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
@@ -167,6 +169,9 @@ class ConsumerUsersClient:
 
         last_transaction_timestamp : typing.Optional[float]
             Timestamp of the last successful transaction of the user
+
+        corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
+            Corporate entities of the user
 
         linked_entities : typing.Optional[UserEntityLink]
 
@@ -298,6 +303,7 @@ class ConsumerUsersClient:
             sanctions_status=sanctions_status,
             adverse_media_status=adverse_media_status,
             last_transaction_timestamp=last_transaction_timestamp,
+            corporate_entities=corporate_entities,
             linked_entities=linked_entities,
             saved_payment_details=saved_payment_details,
             tags=tags,
@@ -391,6 +397,7 @@ class AsyncConsumerUsersClient:
         sanctions_status: typing.Optional[SanctionsStatus] = OMIT,
         adverse_media_status: typing.Optional[AdverseMediaStatus] = OMIT,
         last_transaction_timestamp: typing.Optional[float] = OMIT,
+        corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
         tags: typing.Optional[typing.Sequence[UserTag]] = OMIT,
@@ -478,6 +485,9 @@ class AsyncConsumerUsersClient:
 
         last_transaction_timestamp : typing.Optional[float]
             Timestamp of the last successful transaction of the user
+
+        corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
+            Corporate entities of the user
 
         linked_entities : typing.Optional[UserEntityLink]
 
@@ -617,6 +627,7 @@ class AsyncConsumerUsersClient:
             sanctions_status=sanctions_status,
             adverse_media_status=adverse_media_status,
             last_transaction_timestamp=last_transaction_timestamp,
+            corporate_entities=corporate_entities,
             linked_entities=linked_entities,
             saved_payment_details=saved_payment_details,
             tags=tags,

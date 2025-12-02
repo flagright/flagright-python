@@ -15,14 +15,16 @@ class CompanyRegistrationDetails(UniversalBaseModel):
     Model for business user company registration details
     """
 
-    registration_identifier: typing_extensions.Annotated[str, FieldMetadata(alias="registrationIdentifier")] = (
-        pydantic.Field()
-    )
+    registration_identifier: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="registrationIdentifier")
+    ] = pydantic.Field(default=None)
     """
     Commercial registry registration number for the company in its registration country
     """
 
-    registration_country: typing_extensions.Annotated[CountryCode, FieldMetadata(alias="registrationCountry")]
+    registration_country: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="registrationCountry")
+    ] = None
     tax_residence_country: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="taxResidenceCountry")
     ] = None
