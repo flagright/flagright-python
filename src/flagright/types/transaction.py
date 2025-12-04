@@ -69,8 +69,8 @@ class Transaction(UniversalBaseModel):
     origin_funds_info: typing_extensions.Annotated[
         typing.Optional[OriginFundsInfo], FieldMetadata(alias="originFundsInfo")
     ] = None
-    origin_corporate_entity: typing_extensions.Annotated[
-        typing.Optional[CorporateEntityDetails], FieldMetadata(alias="originCorporateEntity")
+    corporate_entity: typing_extensions.Annotated[
+        typing.Optional[CorporateEntityDetails], FieldMetadata(alias="corporateEntity")
     ] = None
     related_transaction_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="relatedTransactionIds")

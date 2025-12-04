@@ -243,7 +243,7 @@ client.transactions.verify(
 <dl>
 <dd>
 
-**origin_corporate_entity:** `typing.Optional[CorporateEntityDetails]` 
+**corporate_entity:** `typing.Optional[CorporateEntityDetails]` 
     
 </dd>
 </dl>
