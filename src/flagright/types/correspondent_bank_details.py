@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .address import Address
 from .tag import Tag
 
 
@@ -19,6 +20,14 @@ class CorrespondentBankDetails(UniversalBaseModel):
     )
     """
     Name of the bank
+    """
+
+    bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
+    swift_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="swiftCode")] = pydantic.Field(
+        default=None
+    )
+    """
+    SWIFT code of the correspondent bank
     """
 
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
