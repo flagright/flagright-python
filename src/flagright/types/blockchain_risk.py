@@ -10,6 +10,7 @@ from .blockchain_counterparty import BlockchainCounterparty
 from .blockchain_risk_detail import BlockchainRiskDetail
 from .blockchain_risk_subject import BlockchainRiskSubject
 from .risk_level import RiskLevel
+from .tag import Tag
 
 
 class BlockchainRisk(UniversalBaseModel):
@@ -20,6 +21,11 @@ class BlockchainRisk(UniversalBaseModel):
     provider: typing.Optional[str] = pydantic.Field(default=None)
     """
     Risk analysis provider (e.g., chainalysis)
+    """
+
+    timestamp: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Unix timestamp of when the risk analysis was performed
     """
 
     risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="riskLevel")] = (
@@ -49,6 +55,11 @@ class BlockchainRisk(UniversalBaseModel):
     risks: typing.Optional[typing.List[BlockchainRiskDetail]] = pydantic.Field(default=None)
     """
     Detailed risk categories and their analysis
+    """
+
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
+    """
+    Additional information that can be added via tags
     """
 
     if IS_PYDANTIC_V2:

@@ -6,24 +6,27 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .currency_code import CurrencyCode
+from .risk_exposure_type import RiskExposureType
 from .tag import Tag
 
 
-class BlockchainCounterparty(UniversalBaseModel):
+class BlockchainRiskExposure(UniversalBaseModel):
     """
-    Information about a counterparty in a blockchain transaction
-    """
-
-    name: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    Name of the counterparty (e.g., exchange name)
+    Exposure information for a blockchain risk category
     """
 
-    category_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="categoryId")] = pydantic.Field(
-        default=None
-    )
+    amount: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Category identifier for the counterparty
+    Amount exposed to this risk (fraction of transaction amount)
+    """
+
+    currency: typing.Optional[CurrencyCode] = None
+    exposure_type: typing_extensions.Annotated[
+        typing.Optional[RiskExposureType], FieldMetadata(alias="exposureType")
+    ] = pydantic.Field(default=None)
+    """
+    Type of exposure (direct or indirect)
     """
 
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)

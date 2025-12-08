@@ -6,6 +6,7 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from .blockchain_risk_subject_direction import BlockchainRiskSubjectDirection
 from .blockchain_risk_subject_type import BlockchainRiskSubjectType
+from .tag import Tag
 
 
 class BlockchainRiskSubject(UniversalBaseModel):
@@ -26,6 +27,11 @@ class BlockchainRiskSubject(UniversalBaseModel):
     direction: typing.Optional[BlockchainRiskSubjectDirection] = pydantic.Field(default=None)
     """
     Direction of the subject in the transaction (maps to origin/destination)
+    """
+
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
+    """
+    Additional information that can be added via tags
     """
 
     if IS_PYDANTIC_V2:

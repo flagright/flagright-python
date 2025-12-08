@@ -6,9 +6,10 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .risk_exposure_type import RiskExposureType
-from .risk_level import RiskLevel
-from .transaction_amount_details import TransactionAmountDetails
+from .block_chain_entity import BlockChainEntity
+from .blockchain_risk_category import BlockchainRiskCategory
+from .blockchain_risk_exposure import BlockchainRiskExposure
+from .tag import Tag
 
 
 class BlockchainRiskDetail(UniversalBaseModel):
@@ -23,51 +24,16 @@ class BlockchainRiskDetail(UniversalBaseModel):
     Optional alert identifier (alerts don't always exist)
     """
 
-    category_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="categoryId")] = pydantic.Field(
-        default=None
-    )
+    category: typing.Optional[BlockchainRiskCategory] = None
+    entity: typing.Optional[BlockChainEntity] = None
+    exposure: typing.Optional[BlockchainRiskExposure] = pydantic.Field(default=None)
     """
-    Unique identifier for the risk category
-    """
-
-    category_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="categoryName")] = (
-        pydantic.Field(default=None)
-    )
-    """
-    Human-readable name of the risk category
+    Exposure details for this risk category
     """
 
-    category_risk_level: typing_extensions.Annotated[
-        typing.Optional[RiskLevel], FieldMetadata(alias="categoryRiskLevel")
-    ] = pydantic.Field(default=None)
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
-    Risk level specific to this category
-    """
-
-    category_risk_score: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="categoryRiskScore")
-    ] = pydantic.Field(default=None)
-    """
-    Numeric risk score for this specific category
-    """
-
-    exposure_type: typing_extensions.Annotated[
-        typing.Optional[RiskExposureType], FieldMetadata(alias="exposureType")
-    ] = pydantic.Field(default=None)
-    """
-    Type of exposure to the risk entity
-    """
-
-    entity: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    Name of the specific entity that poses the risk
-    """
-
-    exposure_amount: typing_extensions.Annotated[
-        typing.Optional[TransactionAmountDetails], FieldMetadata(alias="exposureAmount")
-    ] = pydantic.Field(default=None)
-    """
-    Amount of the transaction exposed to this risk
+    Additional information that can be added via tags
     """
 
     if IS_PYDANTIC_V2:

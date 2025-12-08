@@ -6,29 +6,47 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .risk_level import RiskLevel
 from .tag import Tag
 
 
-class BlockchainCounterparty(UniversalBaseModel):
+class BlockchainRiskCategory(UniversalBaseModel):
     """
-    Information about a counterparty in a blockchain transaction
+    Category of the blockchain risk
+    """
+
+    id: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Unique identifier for the risk category
     """
 
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Name of the counterparty (e.g., exchange name)
+    Human-readable name of the risk category
     """
 
-    category_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="categoryId")] = pydantic.Field(
-        default=None
-    )
+    description: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Category identifier for the counterparty
+    Description of the risk category
     """
 
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags
+    """
+
+    risk_score: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="riskScore")] = pydantic.Field(
+        default=None
+    )
+    """
+    Numeric risk score for this category
+    """
+
+    risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="riskLevel")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Risk level of this category
     """
 
     if IS_PYDANTIC_V2:

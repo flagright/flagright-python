@@ -61,6 +61,7 @@ class BusinessUsersClient:
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -131,6 +132,9 @@ class BusinessUsersClient:
 
         directors : typing.Optional[typing.Sequence[Person]]
             Director(s) of the company. Must be at least one
+
+        business_partners : typing.Optional[typing.Sequence[LegalEntity]]
+            Business partners of the company
 
         transaction_limits : typing.Optional[TransactionLimits]
 
@@ -217,6 +221,7 @@ class BusinessUsersClient:
             corporate_entities=corporate_entities,
             share_holders=share_holders,
             directors=directors,
+            business_partners=business_partners,
             transaction_limits=transaction_limits,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
@@ -305,6 +310,7 @@ class AsyncBusinessUsersClient:
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -375,6 +381,9 @@ class AsyncBusinessUsersClient:
 
         directors : typing.Optional[typing.Sequence[Person]]
             Director(s) of the company. Must be at least one
+
+        business_partners : typing.Optional[typing.Sequence[LegalEntity]]
+            Business partners of the company
 
         transaction_limits : typing.Optional[TransactionLimits]
 
@@ -469,6 +478,7 @@ class AsyncBusinessUsersClient:
             corporate_entities=corporate_entities,
             share_holders=share_holders,
             directors=directors,
+            business_partners=business_partners,
             transaction_limits=transaction_limits,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,

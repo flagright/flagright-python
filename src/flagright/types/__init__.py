@@ -62,9 +62,12 @@ if typing.TYPE_CHECKING:
     from .batch_transaction_monitoring_result import BatchTransactionMonitoringResult
     from .batch_transaction_monitoring_results import BatchTransactionMonitoringResults
     from .batch_user_rules_result import BatchUserRulesResult
+    from .block_chain_entity import BlockChainEntity
     from .blockchain_counterparty import BlockchainCounterparty
     from .blockchain_risk import BlockchainRisk
+    from .blockchain_risk_category import BlockchainRiskCategory
     from .blockchain_risk_detail import BlockchainRiskDetail
+    from .blockchain_risk_exposure import BlockchainRiskExposure
     from .blockchain_risk_subject import BlockchainRiskSubject
     from .blockchain_risk_subject_direction import BlockchainRiskSubjectDirection
     from .blockchain_risk_subject_type import BlockchainRiskSubjectType
@@ -449,9 +452,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BatchTransactionMonitoringResult": ".batch_transaction_monitoring_result",
     "BatchTransactionMonitoringResults": ".batch_transaction_monitoring_results",
     "BatchUserRulesResult": ".batch_user_rules_result",
+    "BlockChainEntity": ".block_chain_entity",
     "BlockchainCounterparty": ".blockchain_counterparty",
     "BlockchainRisk": ".blockchain_risk",
+    "BlockchainRiskCategory": ".blockchain_risk_category",
     "BlockchainRiskDetail": ".blockchain_risk_detail",
+    "BlockchainRiskExposure": ".blockchain_risk_exposure",
     "BlockchainRiskSubject": ".blockchain_risk_subject",
     "BlockchainRiskSubjectDirection": ".blockchain_risk_subject_direction",
     "BlockchainRiskSubjectType": ".blockchain_risk_subject_type",
@@ -836,9 +842,12 @@ __all__ = [
     "BatchTransactionMonitoringResult",
     "BatchTransactionMonitoringResults",
     "BatchUserRulesResult",
+    "BlockChainEntity",
     "BlockchainCounterparty",
     "BlockchainRisk",
+    "BlockchainRiskCategory",
     "BlockchainRiskDetail",
+    "BlockchainRiskExposure",
     "BlockchainRiskSubject",
     "BlockchainRiskSubjectDirection",
     "BlockchainRiskSubjectType",

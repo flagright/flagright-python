@@ -59,6 +59,7 @@ class RawBusinessUsersClient:
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -129,6 +130,9 @@ class RawBusinessUsersClient:
 
         directors : typing.Optional[typing.Sequence[Person]]
             Director(s) of the company. Must be at least one
+
+        business_partners : typing.Optional[typing.Sequence[LegalEntity]]
+            Business partners of the company
 
         transaction_limits : typing.Optional[TransactionLimits]
 
@@ -209,6 +213,9 @@ class RawBusinessUsersClient:
                 ),
                 "directors": convert_and_respect_annotation_metadata(
                     object_=directors, annotation=typing.Sequence[Person], direction="write"
+                ),
+                "businessPartners": convert_and_respect_annotation_metadata(
+                    object_=business_partners, annotation=typing.Sequence[LegalEntity], direction="write"
                 ),
                 "transactionLimits": convert_and_respect_annotation_metadata(
                     object_=transaction_limits, annotation=TransactionLimits, direction="write"
@@ -399,6 +406,7 @@ class AsyncRawBusinessUsersClient:
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -469,6 +477,9 @@ class AsyncRawBusinessUsersClient:
 
         directors : typing.Optional[typing.Sequence[Person]]
             Director(s) of the company. Must be at least one
+
+        business_partners : typing.Optional[typing.Sequence[LegalEntity]]
+            Business partners of the company
 
         transaction_limits : typing.Optional[TransactionLimits]
 
@@ -549,6 +560,9 @@ class AsyncRawBusinessUsersClient:
                 ),
                 "directors": convert_and_respect_annotation_metadata(
                     object_=directors, annotation=typing.Sequence[Person], direction="write"
+                ),
+                "businessPartners": convert_and_respect_annotation_metadata(
+                    object_=business_partners, annotation=typing.Sequence[LegalEntity], direction="write"
                 ),
                 "transactionLimits": convert_and_respect_annotation_metadata(
                     object_=transaction_limits, annotation=TransactionLimits, direction="write"

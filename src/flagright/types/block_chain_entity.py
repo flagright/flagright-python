@@ -3,27 +3,18 @@
 import typing
 
 import pydantic
-import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from ..core.serialization import FieldMetadata
 from .tag import Tag
 
 
-class BlockchainCounterparty(UniversalBaseModel):
+class BlockChainEntity(UniversalBaseModel):
     """
-    Information about a counterparty in a blockchain transaction
+    Entity of the blockchain risk
     """
 
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Name of the counterparty (e.g., exchange name)
-    """
-
-    category_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="categoryId")] = pydantic.Field(
-        default=None
-    )
-    """
-    Category identifier for the counterparty
+    Name of the entity
     """
 
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)

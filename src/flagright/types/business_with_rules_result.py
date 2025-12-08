@@ -73,6 +73,13 @@ class BusinessWithRulesResult(UniversalBaseModel):
     Director(s) of the company. Must be at least one
     """
 
+    business_partners: typing_extensions.Annotated[
+        typing.Optional[typing.List[LegalEntity]], FieldMetadata(alias="businessPartners")
+    ] = pydantic.Field(default=None)
+    """
+    Business partners of the company
+    """
+
     transaction_limits: typing_extensions.Annotated[
         typing.Optional[TransactionLimits], FieldMetadata(alias="transactionLimits")
     ] = None

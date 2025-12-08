@@ -10,12 +10,14 @@ from .risk_level import RiskLevel
 
 
 class TransactionRiskScoringResult(UniversalBaseModel):
-    trs_score: typing_extensions.Annotated[float, FieldMetadata(alias="trsScore")] = pydantic.Field()
+    trs_score: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="trsScore")] = pydantic.Field(
+        default=None
+    )
     """
     Transaction risk scoring score
     """
 
-    trs_risk_level: typing_extensions.Annotated[RiskLevel, FieldMetadata(alias="trsRiskLevel")]
+    trs_risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="trsRiskLevel")] = None
     origin_user_cra_risk_score: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="originUserCraRiskScore")
     ] = pydantic.Field(default=None)

@@ -1923,6 +1923,14 @@ client.business_users.create(
 <dl>
 <dd>
 
+**business_partners:** `typing.Optional[typing.Sequence[LegalEntity]]` — Business partners of the company
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **transaction_limits:** `typing.Optional[TransactionLimits]` 
     
 </dd>
