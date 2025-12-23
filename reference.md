@@ -1899,6 +1899,14 @@ client.business_users.create(
 <dl>
 <dd>
 
+**eodd_date:** `typing.Optional[float]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **corporate_entities:** `typing.Optional[typing.Sequence[CorporateEntityDetails]]` — Corporate entities of the user
     
 </dd>

@@ -44,6 +44,7 @@ class BusinessOptional(UniversalBaseModel):
     kyc_status_details: typing_extensions.Annotated[
         typing.Optional[KycStatusDetails], FieldMetadata(alias="kycStatusDetails")
     ] = None
+    eodd_date: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="eoddDate")] = None
     legal_entity: typing_extensions.Annotated[typing.Optional[LegalEntity], FieldMetadata(alias="legalEntity")] = None
     corporate_entities: typing_extensions.Annotated[
         typing.Optional[typing.List[CorporateEntityDetails]], FieldMetadata(alias="corporateEntities")

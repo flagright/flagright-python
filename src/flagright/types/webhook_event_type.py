@@ -20,6 +20,7 @@ WebhookEventType = typing.Union[
         "ADVERSE_MEDIA_STATUS_UPDATED",
         "CASE_ESCALATED",
         "ALERT_ESCALATED",
+        "BATCH_COMPLETED",
     ],
     typing.Any,
 ]

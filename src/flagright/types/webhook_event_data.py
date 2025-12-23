@@ -4,6 +4,7 @@ import typing
 
 from .alert_opened_details import AlertOpenedDetails
 from .alert_status_details import AlertStatusDetails
+from .batch_completed_details import BatchCompletedDetails
 from .case_opened_details import CaseOpenedDetails
 from .case_status_details import CaseStatusDetails
 from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
@@ -22,4 +23,5 @@ WebhookEventData = typing.Union[
     KycStatusDetails,
     UserTagsUpdate,
     CraRiskLevelUpdatedDetails,
+    BatchCompletedDetails,
 ]

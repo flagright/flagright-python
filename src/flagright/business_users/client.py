@@ -58,6 +58,7 @@ class BusinessUsersClient:
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        eodd_date: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
@@ -123,6 +124,8 @@ class BusinessUsersClient:
         user_state_details : typing.Optional[UserStateDetails]
 
         kyc_status_details : typing.Optional[KycStatusDetails]
+
+        eodd_date : typing.Optional[float]
 
         corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
             Corporate entities of the user
@@ -218,6 +221,7 @@ class BusinessUsersClient:
             activated_timestamp=activated_timestamp,
             user_state_details=user_state_details,
             kyc_status_details=kyc_status_details,
+            eodd_date=eodd_date,
             corporate_entities=corporate_entities,
             share_holders=share_holders,
             directors=directors,
@@ -307,6 +311,7 @@ class AsyncBusinessUsersClient:
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        eodd_date: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
@@ -372,6 +377,8 @@ class AsyncBusinessUsersClient:
         user_state_details : typing.Optional[UserStateDetails]
 
         kyc_status_details : typing.Optional[KycStatusDetails]
+
+        eodd_date : typing.Optional[float]
 
         corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
             Corporate entities of the user
@@ -475,6 +482,7 @@ class AsyncBusinessUsersClient:
             activated_timestamp=activated_timestamp,
             user_state_details=user_state_details,
             kyc_status_details=kyc_status_details,
+            eodd_date=eodd_date,
             corporate_entities=corporate_entities,
             share_holders=share_holders,
             directors=directors,

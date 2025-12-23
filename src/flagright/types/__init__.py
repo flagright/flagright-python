@@ -36,6 +36,8 @@ if typing.TYPE_CHECKING:
         BatchBusinessUserWithRulesResultShareHoldersItem,
     )
     from .batch_business_users_with_rules_results import BatchBusinessUsersWithRulesResults
+    from .batch_completed_details import BatchCompletedDetails
+    from .batch_completed_details_type import BatchCompletedDetailsType
     from .batch_consumer_user_event_with_rules_result import BatchConsumerUserEventWithRulesResult
     from .batch_consumer_user_events_rules_result import BatchConsumerUserEventsRulesResult
     from .batch_consumer_user_with_rules_result import BatchConsumerUserWithRulesResult
@@ -428,6 +430,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Wallet": ".batch_business_user_with_rules_result_saved_payment_details_item",
     "BatchBusinessUserWithRulesResultShareHoldersItem": ".batch_business_user_with_rules_result_share_holders_item",
     "BatchBusinessUsersWithRulesResults": ".batch_business_users_with_rules_results",
+    "BatchCompletedDetails": ".batch_completed_details",
+    "BatchCompletedDetailsType": ".batch_completed_details_type",
     "BatchConsumerUserEventWithRulesResult": ".batch_consumer_user_event_with_rules_result",
     "BatchConsumerUserEventsRulesResult": ".batch_consumer_user_events_rules_result",
     "BatchConsumerUserWithRulesResult": ".batch_consumer_user_with_rules_result",
@@ -818,6 +822,8 @@ __all__ = [
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Wallet",
     "BatchBusinessUserWithRulesResultShareHoldersItem",
     "BatchBusinessUsersWithRulesResults",
+    "BatchCompletedDetails",
+    "BatchCompletedDetailsType",
     "BatchConsumerUserEventWithRulesResult",
     "BatchConsumerUserEventsRulesResult",
     "BatchConsumerUserWithRulesResult",

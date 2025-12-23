@@ -56,6 +56,7 @@ class RawBusinessUsersClient:
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        eodd_date: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
@@ -121,6 +122,8 @@ class RawBusinessUsersClient:
         user_state_details : typing.Optional[UserStateDetails]
 
         kyc_status_details : typing.Optional[KycStatusDetails]
+
+        eodd_date : typing.Optional[float]
 
         corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
             Corporate entities of the user
@@ -205,6 +208,7 @@ class RawBusinessUsersClient:
                 "kycStatusDetails": convert_and_respect_annotation_metadata(
                     object_=kyc_status_details, annotation=KycStatusDetails, direction="write"
                 ),
+                "eoddDate": eodd_date,
                 "corporateEntities": convert_and_respect_annotation_metadata(
                     object_=corporate_entities, annotation=typing.Sequence[CorporateEntityDetails], direction="write"
                 ),
@@ -403,6 +407,7 @@ class AsyncRawBusinessUsersClient:
         activated_timestamp: typing.Optional[float] = OMIT,
         user_state_details: typing.Optional[UserStateDetails] = OMIT,
         kyc_status_details: typing.Optional[KycStatusDetails] = OMIT,
+        eodd_date: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
@@ -468,6 +473,8 @@ class AsyncRawBusinessUsersClient:
         user_state_details : typing.Optional[UserStateDetails]
 
         kyc_status_details : typing.Optional[KycStatusDetails]
+
+        eodd_date : typing.Optional[float]
 
         corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
             Corporate entities of the user
@@ -552,6 +559,7 @@ class AsyncRawBusinessUsersClient:
                 "kycStatusDetails": convert_and_respect_annotation_metadata(
                     object_=kyc_status_details, annotation=KycStatusDetails, direction="write"
                 ),
+                "eoddDate": eodd_date,
                 "corporateEntities": convert_and_respect_annotation_metadata(
                     object_=corporate_entities, annotation=typing.Sequence[CorporateEntityDetails], direction="write"
                 ),
