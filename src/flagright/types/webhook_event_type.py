@@ -21,6 +21,8 @@ WebhookEventType = typing.Union[
         "CASE_ESCALATED",
         "ALERT_ESCALATED",
         "BATCH_COMPLETED",
+        "CASE_INTERIM_STATUS_UPDATE",
+        "ALERT_INTERIM_STATUS_UPDATE",
     ],
     typing.Any,
 ]
