@@ -68,7 +68,7 @@ client.transactions.verify(
     origin_user_id="8650a2611d0771cba03310f74bf6",
     destination_user_id="9350a2611e0771cba03310f74bf6",
     origin_amount_details=TransactionAmountDetails(
-        transaction_amount=800.0,
+        transaction_amount=2000.0,
         transaction_currency="EUR",
         country="DE",
     ),

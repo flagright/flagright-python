@@ -10,7 +10,9 @@ from .company_financial_details import CompanyFinancialDetails
 from .company_general_details import CompanyGeneralDetails
 from .company_registration_details import CompanyRegistrationDetails
 from .contact_details import ContactDetails
+from .pep_status import PepStatus
 from .source_of_funds import SourceOfFunds
+from .tag import Tag
 
 
 class LegalEntity(UniversalBaseModel):
@@ -35,6 +37,14 @@ class LegalEntity(UniversalBaseModel):
     ] = None
     contact_details: typing_extensions.Annotated[
         typing.Optional[ContactDetails], FieldMetadata(alias="contactDetails")
+    ] = None
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
+    """
+    Additional information that can be added via tags
+    """
+
+    pep_status: typing_extensions.Annotated[
+        typing.Optional[typing.List[PepStatus]], FieldMetadata(alias="pepStatus")
     ] = None
 
     if IS_PYDANTIC_V2:
