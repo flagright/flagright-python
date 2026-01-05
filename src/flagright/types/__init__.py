@@ -18,6 +18,9 @@ if typing.TYPE_CHECKING:
     from .batch_business_user_event_with_rules_result import BatchBusinessUserEventWithRulesResult
     from .batch_business_user_events_with_rules_result import BatchBusinessUserEventsWithRulesResult
     from .batch_business_user_with_rules_result import BatchBusinessUserWithRulesResult
+    from .batch_business_user_with_rules_result_associated_parties_item import (
+        BatchBusinessUserWithRulesResultAssociatedPartiesItem,
+    )
     from .batch_business_user_with_rules_result_saved_payment_details_item import (
         BatchBusinessUserWithRulesResultSavedPaymentDetailsItem,
         BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach,
@@ -75,8 +78,10 @@ if typing.TYPE_CHECKING:
     from .blockchain_risk_subject_type import BlockchainRiskSubjectType
     from .boolean_string import BooleanString
     from .business import Business
+    from .business_associated_parties_item import BusinessAssociatedPartiesItem
     from .business_base import BusinessBase
     from .business_optional import BusinessOptional
+    from .business_optional_associated_parties_item import BusinessOptionalAssociatedPartiesItem
     from .business_optional_saved_payment_details_item import (
         BusinessOptionalSavedPaymentDetailsItem,
         BusinessOptionalSavedPaymentDetailsItem_Ach,
@@ -112,6 +117,7 @@ if typing.TYPE_CHECKING:
     from .business_user_monitoring_result import BusinessUserMonitoringResult
     from .business_user_segment import BusinessUserSegment
     from .business_with_rules_result import BusinessWithRulesResult
+    from .business_with_rules_result_associated_parties_item import BusinessWithRulesResultAssociatedPartiesItem
     from .business_with_rules_result_saved_payment_details_item import (
         BusinessWithRulesResultSavedPaymentDetailsItem,
         BusinessWithRulesResultSavedPaymentDetailsItem_Ach,
@@ -183,6 +189,7 @@ if typing.TYPE_CHECKING:
     from .kyc_status_details import KycStatusDetails
     from .legal_document import LegalDocument
     from .legal_entity import LegalEntity
+    from .legal_entity_with_role import LegalEntityWithRole
     from .list_data import ListData
     from .list_existed import ListExisted
     from .list_header import ListHeader
@@ -210,6 +217,7 @@ if typing.TYPE_CHECKING:
     from .pep_status import PepStatus
     from .person import Person
     from .person_attachment import PersonAttachment
+    from .person_with_role import PersonWithRole
     from .place_of_birth import PlaceOfBirth
     from .pos_details import PosDetails
     from .pos_entry_mode import PosEntryMode
@@ -416,6 +424,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BatchBusinessUserEventWithRulesResult": ".batch_business_user_event_with_rules_result",
     "BatchBusinessUserEventsWithRulesResult": ".batch_business_user_events_with_rules_result",
     "BatchBusinessUserWithRulesResult": ".batch_business_user_with_rules_result",
+    "BatchBusinessUserWithRulesResultAssociatedPartiesItem": ".batch_business_user_with_rules_result_associated_parties_item",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem": ".batch_business_user_with_rules_result_saved_payment_details_item",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach": ".batch_business_user_with_rules_result_saved_payment_details_item",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Card": ".batch_business_user_with_rules_result_saved_payment_details_item",
@@ -467,8 +476,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BlockchainRiskSubjectType": ".blockchain_risk_subject_type",
     "BooleanString": ".boolean_string",
     "Business": ".business",
+    "BusinessAssociatedPartiesItem": ".business_associated_parties_item",
     "BusinessBase": ".business_base",
     "BusinessOptional": ".business_optional",
+    "BusinessOptionalAssociatedPartiesItem": ".business_optional_associated_parties_item",
     "BusinessOptionalSavedPaymentDetailsItem": ".business_optional_saved_payment_details_item",
     "BusinessOptionalSavedPaymentDetailsItem_Ach": ".business_optional_saved_payment_details_item",
     "BusinessOptionalSavedPaymentDetailsItem_Card": ".business_optional_saved_payment_details_item",
@@ -500,6 +511,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BusinessUserMonitoringResult": ".business_user_monitoring_result",
     "BusinessUserSegment": ".business_user_segment",
     "BusinessWithRulesResult": ".business_with_rules_result",
+    "BusinessWithRulesResultAssociatedPartiesItem": ".business_with_rules_result_associated_parties_item",
     "BusinessWithRulesResultSavedPaymentDetailsItem": ".business_with_rules_result_saved_payment_details_item",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Ach": ".business_with_rules_result_saved_payment_details_item",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Card": ".business_with_rules_result_saved_payment_details_item",
@@ -569,6 +581,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "KycStatusDetails": ".kyc_status_details",
     "LegalDocument": ".legal_document",
     "LegalEntity": ".legal_entity",
+    "LegalEntityWithRole": ".legal_entity_with_role",
     "ListData": ".list_data",
     "ListExisted": ".list_existed",
     "ListHeader": ".list_header",
@@ -596,6 +609,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PepStatus": ".pep_status",
     "Person": ".person",
     "PersonAttachment": ".person_attachment",
+    "PersonWithRole": ".person_with_role",
     "PlaceOfBirth": ".place_of_birth",
     "PosDetails": ".pos_details",
     "PosEntryMode": ".pos_entry_mode",
@@ -808,6 +822,7 @@ __all__ = [
     "BatchBusinessUserEventWithRulesResult",
     "BatchBusinessUserEventsWithRulesResult",
     "BatchBusinessUserWithRulesResult",
+    "BatchBusinessUserWithRulesResultAssociatedPartiesItem",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Card",
@@ -859,8 +874,10 @@ __all__ = [
     "BlockchainRiskSubjectType",
     "BooleanString",
     "Business",
+    "BusinessAssociatedPartiesItem",
     "BusinessBase",
     "BusinessOptional",
+    "BusinessOptionalAssociatedPartiesItem",
     "BusinessOptionalSavedPaymentDetailsItem",
     "BusinessOptionalSavedPaymentDetailsItem_Ach",
     "BusinessOptionalSavedPaymentDetailsItem_Card",
@@ -892,6 +909,7 @@ __all__ = [
     "BusinessUserMonitoringResult",
     "BusinessUserSegment",
     "BusinessWithRulesResult",
+    "BusinessWithRulesResultAssociatedPartiesItem",
     "BusinessWithRulesResultSavedPaymentDetailsItem",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Ach",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Card",
@@ -961,6 +979,7 @@ __all__ = [
     "KycStatusDetails",
     "LegalDocument",
     "LegalEntity",
+    "LegalEntityWithRole",
     "ListData",
     "ListExisted",
     "ListHeader",
@@ -988,6 +1007,7 @@ __all__ = [
     "PepStatus",
     "Person",
     "PersonAttachment",
+    "PersonWithRole",
     "PlaceOfBirth",
     "PosDetails",
     "PosEntryMode",

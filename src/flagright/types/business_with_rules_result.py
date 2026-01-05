@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .acquisition_channel import AcquisitionChannel
+from .business_with_rules_result_associated_parties_item import BusinessWithRulesResultAssociatedPartiesItem
 from .business_with_rules_result_saved_payment_details_item import BusinessWithRulesResultSavedPaymentDetailsItem
 from .business_with_rules_result_share_holders_item import BusinessWithRulesResultShareHoldersItem
 from .corporate_entity_details import CorporateEntityDetails
@@ -72,6 +73,14 @@ class BusinessWithRulesResult(UniversalBaseModel):
     directors: typing.Optional[typing.List[Person]] = pydantic.Field(default=None)
     """
     Director(s) of the company. Must be at least one
+    """
+
+    associated_parties: typing_extensions.Annotated[
+        typing.Optional[typing.List[BusinessWithRulesResultAssociatedPartiesItem]],
+        FieldMetadata(alias="associatedParties"),
+    ] = pydantic.Field(default=None)
+    """
+    Parties associated with the company. Can be another company or an individual
     """
 
     business_partners: typing_extensions.Annotated[

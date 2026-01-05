@@ -6,6 +6,7 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.acquisition_channel import AcquisitionChannel
 from ..types.boolean_string import BooleanString
+from ..types.business_associated_parties_item import BusinessAssociatedPartiesItem
 from ..types.business_saved_payment_details_item import BusinessSavedPaymentDetailsItem
 from ..types.business_share_holders_item import BusinessShareHoldersItem
 from ..types.business_with_rules_result import BusinessWithRulesResult
@@ -62,6 +63,7 @@ class BusinessUsersClient:
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        associated_parties: typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]] = OMIT,
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -135,6 +137,9 @@ class BusinessUsersClient:
 
         directors : typing.Optional[typing.Sequence[Person]]
             Director(s) of the company. Must be at least one
+
+        associated_parties : typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]]
+            Parties associated with the company. Can be another company or an individual
 
         business_partners : typing.Optional[typing.Sequence[LegalEntity]]
             Business partners of the company
@@ -225,6 +230,7 @@ class BusinessUsersClient:
             corporate_entities=corporate_entities,
             share_holders=share_holders,
             directors=directors,
+            associated_parties=associated_parties,
             business_partners=business_partners,
             transaction_limits=transaction_limits,
             risk_level=risk_level,
@@ -315,6 +321,7 @@ class AsyncBusinessUsersClient:
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        associated_parties: typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]] = OMIT,
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -388,6 +395,9 @@ class AsyncBusinessUsersClient:
 
         directors : typing.Optional[typing.Sequence[Person]]
             Director(s) of the company. Must be at least one
+
+        associated_parties : typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]]
+            Parties associated with the company. Can be another company or an individual
 
         business_partners : typing.Optional[typing.Sequence[LegalEntity]]
             Business partners of the company
@@ -486,6 +496,7 @@ class AsyncBusinessUsersClient:
             corporate_entities=corporate_entities,
             share_holders=share_holders,
             directors=directors,
+            associated_parties=associated_parties,
             business_partners=business_partners,
             transaction_limits=transaction_limits,
             risk_level=risk_level,

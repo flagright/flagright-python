@@ -16,6 +16,7 @@ from ..errors.unauthorized_error import UnauthorizedError
 from ..types.acquisition_channel import AcquisitionChannel
 from ..types.api_error_response import ApiErrorResponse
 from ..types.boolean_string import BooleanString
+from ..types.business_associated_parties_item import BusinessAssociatedPartiesItem
 from ..types.business_saved_payment_details_item import BusinessSavedPaymentDetailsItem
 from ..types.business_share_holders_item import BusinessShareHoldersItem
 from ..types.business_with_rules_result import BusinessWithRulesResult
@@ -60,6 +61,7 @@ class RawBusinessUsersClient:
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        associated_parties: typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]] = OMIT,
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -133,6 +135,9 @@ class RawBusinessUsersClient:
 
         directors : typing.Optional[typing.Sequence[Person]]
             Director(s) of the company. Must be at least one
+
+        associated_parties : typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]]
+            Parties associated with the company. Can be another company or an individual
 
         business_partners : typing.Optional[typing.Sequence[LegalEntity]]
             Business partners of the company
@@ -217,6 +222,11 @@ class RawBusinessUsersClient:
                 ),
                 "directors": convert_and_respect_annotation_metadata(
                     object_=directors, annotation=typing.Sequence[Person], direction="write"
+                ),
+                "associatedParties": convert_and_respect_annotation_metadata(
+                    object_=associated_parties,
+                    annotation=typing.Sequence[BusinessAssociatedPartiesItem],
+                    direction="write",
                 ),
                 "businessPartners": convert_and_respect_annotation_metadata(
                     object_=business_partners, annotation=typing.Sequence[LegalEntity], direction="write"
@@ -411,6 +421,7 @@ class AsyncRawBusinessUsersClient:
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
         directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        associated_parties: typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]] = OMIT,
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
@@ -484,6 +495,9 @@ class AsyncRawBusinessUsersClient:
 
         directors : typing.Optional[typing.Sequence[Person]]
             Director(s) of the company. Must be at least one
+
+        associated_parties : typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]]
+            Parties associated with the company. Can be another company or an individual
 
         business_partners : typing.Optional[typing.Sequence[LegalEntity]]
             Business partners of the company
@@ -568,6 +582,11 @@ class AsyncRawBusinessUsersClient:
                 ),
                 "directors": convert_and_respect_annotation_metadata(
                     object_=directors, annotation=typing.Sequence[Person], direction="write"
+                ),
+                "associatedParties": convert_and_respect_annotation_metadata(
+                    object_=associated_parties,
+                    annotation=typing.Sequence[BusinessAssociatedPartiesItem],
+                    direction="write",
                 ),
                 "businessPartners": convert_and_respect_annotation_metadata(
                     object_=business_partners, annotation=typing.Sequence[LegalEntity], direction="write"

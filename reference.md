@@ -1931,6 +1931,14 @@ client.business_users.create(
 <dl>
 <dd>
 
+**associated_parties:** `typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]]` — Parties associated with the company. Can be another company or an individual
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **business_partners:** `typing.Optional[typing.Sequence[LegalEntity]]` — Business partners of the company
     
 </dd>

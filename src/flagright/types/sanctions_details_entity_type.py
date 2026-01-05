@@ -13,6 +13,8 @@ SanctionsDetailsEntityType = typing.Union[
         "PAYMENT_BENEFICIARY_NAME",
         "BANK_NAME",
         "BANK_ACCOUNT_HOLDER_NAME",
+        "BUSINESS_PARTNER",
+        "ASSOCIATED_PARTY",
     ],
     typing.Any,
 ]
