@@ -17,6 +17,7 @@ from ..types.acquisition_channel import AcquisitionChannel
 from ..types.api_error_response import ApiErrorResponse
 from ..types.boolean_string import BooleanString
 from ..types.business_associated_parties_item import BusinessAssociatedPartiesItem
+from ..types.business_directors_item import BusinessDirectorsItem
 from ..types.business_saved_payment_details_item import BusinessSavedPaymentDetailsItem
 from ..types.business_share_holders_item import BusinessShareHoldersItem
 from ..types.business_with_rules_result import BusinessWithRulesResult
@@ -27,7 +28,6 @@ from ..types.legal_entity import LegalEntity
 from ..types.mcc_details import MccDetails
 from ..types.payment_method import PaymentMethod
 from ..types.pep_status import PepStatus
-from ..types.person import Person
 from ..types.person_attachment import PersonAttachment
 from ..types.products_enabled import ProductsEnabled
 from ..types.risk_level import RiskLevel
@@ -60,7 +60,7 @@ class RawBusinessUsersClient:
         eodd_date: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
-        directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        directors: typing.Optional[typing.Sequence[BusinessDirectorsItem]] = OMIT,
         associated_parties: typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]] = OMIT,
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
@@ -133,7 +133,7 @@ class RawBusinessUsersClient:
         share_holders : typing.Optional[typing.Sequence[BusinessShareHoldersItem]]
             Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
 
-        directors : typing.Optional[typing.Sequence[Person]]
+        directors : typing.Optional[typing.Sequence[BusinessDirectorsItem]]
             Director(s) of the company. Must be at least one
 
         associated_parties : typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]]
@@ -221,7 +221,7 @@ class RawBusinessUsersClient:
                     object_=share_holders, annotation=typing.Sequence[BusinessShareHoldersItem], direction="write"
                 ),
                 "directors": convert_and_respect_annotation_metadata(
-                    object_=directors, annotation=typing.Sequence[Person], direction="write"
+                    object_=directors, annotation=typing.Sequence[BusinessDirectorsItem], direction="write"
                 ),
                 "associatedParties": convert_and_respect_annotation_metadata(
                     object_=associated_parties,
@@ -420,7 +420,7 @@ class AsyncRawBusinessUsersClient:
         eodd_date: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         share_holders: typing.Optional[typing.Sequence[BusinessShareHoldersItem]] = OMIT,
-        directors: typing.Optional[typing.Sequence[Person]] = OMIT,
+        directors: typing.Optional[typing.Sequence[BusinessDirectorsItem]] = OMIT,
         associated_parties: typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]] = OMIT,
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
@@ -493,7 +493,7 @@ class AsyncRawBusinessUsersClient:
         share_holders : typing.Optional[typing.Sequence[BusinessShareHoldersItem]]
             Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
 
-        directors : typing.Optional[typing.Sequence[Person]]
+        directors : typing.Optional[typing.Sequence[BusinessDirectorsItem]]
             Director(s) of the company. Must be at least one
 
         associated_parties : typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]]
@@ -581,7 +581,7 @@ class AsyncRawBusinessUsersClient:
                     object_=share_holders, annotation=typing.Sequence[BusinessShareHoldersItem], direction="write"
                 ),
                 "directors": convert_and_respect_annotation_metadata(
-                    object_=directors, annotation=typing.Sequence[Person], direction="write"
+                    object_=directors, annotation=typing.Sequence[BusinessDirectorsItem], direction="write"
                 ),
                 "associatedParties": convert_and_respect_annotation_metadata(
                     object_=associated_parties,

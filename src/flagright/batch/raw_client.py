@@ -17,7 +17,12 @@ from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
 from ..types.api_error_response import ApiErrorResponse
 from ..types.batch_business_user_events_with_rules_result import BatchBusinessUserEventsWithRulesResult
+from ..types.batch_business_users_with_rules_results import BatchBusinessUsersWithRulesResults
+from ..types.batch_consumer_user_events_rules_result import BatchConsumerUserEventsRulesResult
+from ..types.batch_consumer_users_with_rules_result import BatchConsumerUsersWithRulesResult
 from ..types.batch_response import BatchResponse
+from ..types.batch_transaction_event_monitoring_results import BatchTransactionEventMonitoringResults
+from ..types.batch_transaction_monitoring_results import BatchTransactionMonitoringResults
 from ..types.boolean_string import BooleanString
 from ..types.business import Business
 from ..types.business_user_event import BusinessUserEvent
@@ -133,14 +138,14 @@ class RawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def get(
+    def get_transactions(
         self,
         batch_id: str,
         *,
         page_size: typing.Optional[PageSize] = None,
         page: typing.Optional[Page] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[BatchBusinessUserEventsWithRulesResult]:
+    ) -> HttpResponse[BatchTransactionMonitoringResults]:
         """
         Parameters
         ----------
@@ -158,11 +163,11 @@ class RawBatchClient:
 
         Returns
         -------
-        HttpResponse[BatchBusinessUserEventsWithRulesResult]
+        HttpResponse[BatchTransactionMonitoringResults]
             OK
         """
         _response = self._client_wrapper.httpx_client.request(
-            f"batch/events/business/user/{jsonable_encoder(batch_id)}",
+            f"batch/transactions/{jsonable_encoder(batch_id)}",
             method="GET",
             params={
                 "pageSize": page_size,
@@ -173,9 +178,9 @@ class RawBatchClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    BatchBusinessUserEventsWithRulesResult,
+                    BatchTransactionMonitoringResults,
                     parse_obj_as(
-                        type_=BatchBusinessUserEventsWithRulesResult,  # type: ignore
+                        type_=BatchTransactionMonitoringResults,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -314,6 +319,91 @@ class RawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def get_transaction_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[BatchTransactionEventMonitoringResults]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[BatchTransactionEventMonitoringResults]
+            OK
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"batch/events/transaction/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchTransactionEventMonitoringResults,
+                    parse_obj_as(
+                        type_=BatchTransactionEventMonitoringResults,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     def create_consumer_users(
         self,
         *,
@@ -411,6 +501,176 @@ class RawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def get_consumer_users(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[BatchConsumerUsersWithRulesResult]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[BatchConsumerUsersWithRulesResult]
+            OK
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"batch/consumer/users/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchConsumerUsersWithRulesResult,
+                    parse_obj_as(
+                        type_=BatchConsumerUsersWithRulesResult,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def get_business_users(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[BatchBusinessUsersWithRulesResults]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[BatchBusinessUsersWithRulesResults]
+            OK
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"batch/business/users/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchBusinessUsersWithRulesResults,
+                    parse_obj_as(
+                        type_=BatchBusinessUsersWithRulesResults,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     def create_business_users(
         self,
         *,
@@ -483,6 +743,176 @@ class RawBatchClient:
                 )
             if _response.status_code == 401:
                 raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def get_consumer_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[BatchConsumerUserEventsRulesResult]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[BatchConsumerUserEventsRulesResult]
+            OK
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"batch/events/consumer/user/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchConsumerUserEventsRulesResult,
+                    parse_obj_as(
+                        type_=BatchConsumerUserEventsRulesResult,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def get_business_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[BatchBusinessUserEventsWithRulesResult]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[BatchBusinessUserEventsWithRulesResult]
+            OK
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"batch/events/business/user/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchBusinessUserEventsWithRulesResult,
+                    parse_obj_as(
+                        type_=BatchBusinessUserEventsWithRulesResult,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         ApiErrorResponse,
@@ -804,14 +1234,14 @@ class AsyncRawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def get(
+    async def get_transactions(
         self,
         batch_id: str,
         *,
         page_size: typing.Optional[PageSize] = None,
         page: typing.Optional[Page] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[BatchBusinessUserEventsWithRulesResult]:
+    ) -> AsyncHttpResponse[BatchTransactionMonitoringResults]:
         """
         Parameters
         ----------
@@ -829,11 +1259,11 @@ class AsyncRawBatchClient:
 
         Returns
         -------
-        AsyncHttpResponse[BatchBusinessUserEventsWithRulesResult]
+        AsyncHttpResponse[BatchTransactionMonitoringResults]
             OK
         """
         _response = await self._client_wrapper.httpx_client.request(
-            f"batch/events/business/user/{jsonable_encoder(batch_id)}",
+            f"batch/transactions/{jsonable_encoder(batch_id)}",
             method="GET",
             params={
                 "pageSize": page_size,
@@ -844,9 +1274,9 @@ class AsyncRawBatchClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    BatchBusinessUserEventsWithRulesResult,
+                    BatchTransactionMonitoringResults,
                     parse_obj_as(
-                        type_=BatchBusinessUserEventsWithRulesResult,  # type: ignore
+                        type_=BatchTransactionMonitoringResults,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -985,6 +1415,91 @@ class AsyncRawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def get_transaction_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[BatchTransactionEventMonitoringResults]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[BatchTransactionEventMonitoringResults]
+            OK
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"batch/events/transaction/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchTransactionEventMonitoringResults,
+                    parse_obj_as(
+                        type_=BatchTransactionEventMonitoringResults,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def create_consumer_users(
         self,
         *,
@@ -1082,6 +1597,176 @@ class AsyncRawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def get_consumer_users(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[BatchConsumerUsersWithRulesResult]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[BatchConsumerUsersWithRulesResult]
+            OK
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"batch/consumer/users/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchConsumerUsersWithRulesResult,
+                    parse_obj_as(
+                        type_=BatchConsumerUsersWithRulesResult,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get_business_users(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[BatchBusinessUsersWithRulesResults]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[BatchBusinessUsersWithRulesResults]
+            OK
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"batch/business/users/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchBusinessUsersWithRulesResults,
+                    parse_obj_as(
+                        type_=BatchBusinessUsersWithRulesResults,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def create_business_users(
         self,
         *,
@@ -1154,6 +1839,176 @@ class AsyncRawBatchClient:
                 )
             if _response.status_code == 401:
                 raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get_consumer_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[BatchConsumerUserEventsRulesResult]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[BatchConsumerUserEventsRulesResult]
+            OK
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"batch/events/consumer/user/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchConsumerUserEventsRulesResult,
+                    parse_obj_as(
+                        type_=BatchConsumerUserEventsRulesResult,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get_business_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[BatchBusinessUserEventsWithRulesResult]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[BatchBusinessUserEventsWithRulesResult]
+            OK
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"batch/events/business/user/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchBusinessUserEventsWithRulesResult,
+                    parse_obj_as(
+                        type_=BatchBusinessUserEventsWithRulesResult,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         ApiErrorResponse,

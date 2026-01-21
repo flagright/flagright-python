@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address import Address
 from .consumer_name import ConsumerName
+from .counterparty_type import CounterpartyType
 from .email_id import EmailId
 from .tag import Tag
 
@@ -17,6 +18,9 @@ class NppDetails(UniversalBaseModel):
     New Payment Platform Details for Australia
     """
 
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = (
         pydantic.Field(default=None)
     )

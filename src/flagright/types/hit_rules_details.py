@@ -35,6 +35,7 @@ class HitRulesDetails(UniversalBaseModel):
     Description of the rule
     """
 
+    version_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="versionId")] = None
     executed_at: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="executedAt")] = (
         pydantic.Field(default=None)
     )

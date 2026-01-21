@@ -8,11 +8,15 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address import Address
 from .check_delivery_status import CheckDeliveryStatus
+from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .tag import Tag
 
 
 class CheckDetails(UniversalBaseModel):
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     check_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="checkNumber")] = None
     check_identifier: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="checkIdentifier")] = None
     routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = (

@@ -5,7 +5,12 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.batch_business_user_events_with_rules_result import BatchBusinessUserEventsWithRulesResult
+from ..types.batch_business_users_with_rules_results import BatchBusinessUsersWithRulesResults
+from ..types.batch_consumer_user_events_rules_result import BatchConsumerUserEventsRulesResult
+from ..types.batch_consumer_users_with_rules_result import BatchConsumerUsersWithRulesResult
 from ..types.batch_response import BatchResponse
+from ..types.batch_transaction_event_monitoring_results import BatchTransactionEventMonitoringResults
+from ..types.batch_transaction_monitoring_results import BatchTransactionMonitoringResults
 from ..types.boolean_string import BooleanString
 from ..types.business import Business
 from ..types.business_user_event import BusinessUserEvent
@@ -94,14 +99,14 @@ class BatchClient:
         )
         return _response.data
 
-    def get(
+    def get_transactions(
         self,
         batch_id: str,
         *,
         page_size: typing.Optional[PageSize] = None,
         page: typing.Optional[Page] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BatchBusinessUserEventsWithRulesResult:
+    ) -> BatchTransactionMonitoringResults:
         """
         Parameters
         ----------
@@ -119,7 +124,7 @@ class BatchClient:
 
         Returns
         -------
-        BatchBusinessUserEventsWithRulesResult
+        BatchTransactionMonitoringResults
             OK
 
         Examples
@@ -129,13 +134,15 @@ class BatchClient:
         client = Flagright(
             api_key="YOUR_API_KEY",
         )
-        client.batch.get(
+        client.batch.get_transactions(
             batch_id="batchId",
             page_size=1.1,
             page=1.1,
         )
         """
-        _response = self._raw_client.get(batch_id, page_size=page_size, page=page, request_options=request_options)
+        _response = self._raw_client.get_transactions(
+            batch_id, page_size=page_size, page=page, request_options=request_options
+        )
         return _response.data
 
     def create_transaction_events(
@@ -179,6 +186,52 @@ class BatchClient:
         """
         _response = self._raw_client.create_transaction_events(
             data=data, batch_id=batch_id, request_options=request_options
+        )
+        return _response.data
+
+    def get_transaction_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchTransactionEventMonitoringResults:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchTransactionEventMonitoringResults
+            OK
+
+        Examples
+        --------
+        from flagright import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.batch.get_transaction_events(
+            batch_id="batchId",
+            page_size=1.1,
+            page=1.1,
+        )
+        """
+        _response = self._raw_client.get_transaction_events(
+            batch_id, page_size=page_size, page=page, request_options=request_options
         )
         return _response.data
 
@@ -236,6 +289,98 @@ class BatchClient:
             lock_kyc_risk_level=lock_kyc_risk_level,
             batch_id=batch_id,
             request_options=request_options,
+        )
+        return _response.data
+
+    def get_consumer_users(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchConsumerUsersWithRulesResult:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchConsumerUsersWithRulesResult
+            OK
+
+        Examples
+        --------
+        from flagright import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.batch.get_consumer_users(
+            batch_id="batchId",
+            page_size=1.1,
+            page=1.1,
+        )
+        """
+        _response = self._raw_client.get_consumer_users(
+            batch_id, page_size=page_size, page=page, request_options=request_options
+        )
+        return _response.data
+
+    def get_business_users(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchBusinessUsersWithRulesResults:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchBusinessUsersWithRulesResults
+            OK
+
+        Examples
+        --------
+        from flagright import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.batch.get_business_users(
+            batch_id="batchId",
+            page_size=1.1,
+            page=1.1,
+        )
+        """
+        _response = self._raw_client.get_business_users(
+            batch_id, page_size=page_size, page=page, request_options=request_options
         )
         return _response.data
 
@@ -300,6 +445,98 @@ class BatchClient:
             lock_kyc_risk_level=lock_kyc_risk_level,
             batch_id=batch_id,
             request_options=request_options,
+        )
+        return _response.data
+
+    def get_consumer_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchConsumerUserEventsRulesResult:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchConsumerUserEventsRulesResult
+            OK
+
+        Examples
+        --------
+        from flagright import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.batch.get_consumer_user_events(
+            batch_id="batchId",
+            page_size=1.1,
+            page=1.1,
+        )
+        """
+        _response = self._raw_client.get_consumer_user_events(
+            batch_id, page_size=page_size, page=page, request_options=request_options
+        )
+        return _response.data
+
+    def get_business_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchBusinessUserEventsWithRulesResult:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchBusinessUserEventsWithRulesResult
+            OK
+
+        Examples
+        --------
+        from flagright import Flagright
+
+        client = Flagright(
+            api_key="YOUR_API_KEY",
+        )
+        client.batch.get_business_user_events(
+            batch_id="batchId",
+            page_size=1.1,
+            page=1.1,
+        )
+        """
+        _response = self._raw_client.get_business_user_events(
+            batch_id, page_size=page_size, page=page, request_options=request_options
         )
         return _response.data
 
@@ -499,14 +736,14 @@ class AsyncBatchClient:
         )
         return _response.data
 
-    async def get(
+    async def get_transactions(
         self,
         batch_id: str,
         *,
         page_size: typing.Optional[PageSize] = None,
         page: typing.Optional[Page] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BatchBusinessUserEventsWithRulesResult:
+    ) -> BatchTransactionMonitoringResults:
         """
         Parameters
         ----------
@@ -524,7 +761,7 @@ class AsyncBatchClient:
 
         Returns
         -------
-        BatchBusinessUserEventsWithRulesResult
+        BatchTransactionMonitoringResults
             OK
 
         Examples
@@ -539,7 +776,7 @@ class AsyncBatchClient:
 
 
         async def main() -> None:
-            await client.batch.get(
+            await client.batch.get_transactions(
                 batch_id="batchId",
                 page_size=1.1,
                 page=1.1,
@@ -548,7 +785,7 @@ class AsyncBatchClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(
+        _response = await self._raw_client.get_transactions(
             batch_id, page_size=page_size, page=page, request_options=request_options
         )
         return _response.data
@@ -602,6 +839,60 @@ class AsyncBatchClient:
         """
         _response = await self._raw_client.create_transaction_events(
             data=data, batch_id=batch_id, request_options=request_options
+        )
+        return _response.data
+
+    async def get_transaction_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchTransactionEventMonitoringResults:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchTransactionEventMonitoringResults
+            OK
+
+        Examples
+        --------
+        import asyncio
+
+        from flagright import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+
+
+        async def main() -> None:
+            await client.batch.get_transaction_events(
+                batch_id="batchId",
+                page_size=1.1,
+                page=1.1,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_transaction_events(
+            batch_id, page_size=page_size, page=page, request_options=request_options
         )
         return _response.data
 
@@ -667,6 +958,114 @@ class AsyncBatchClient:
             lock_kyc_risk_level=lock_kyc_risk_level,
             batch_id=batch_id,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def get_consumer_users(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchConsumerUsersWithRulesResult:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchConsumerUsersWithRulesResult
+            OK
+
+        Examples
+        --------
+        import asyncio
+
+        from flagright import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+
+
+        async def main() -> None:
+            await client.batch.get_consumer_users(
+                batch_id="batchId",
+                page_size=1.1,
+                page=1.1,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_consumer_users(
+            batch_id, page_size=page_size, page=page, request_options=request_options
+        )
+        return _response.data
+
+    async def get_business_users(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchBusinessUsersWithRulesResults:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchBusinessUsersWithRulesResults
+            OK
+
+        Examples
+        --------
+        import asyncio
+
+        from flagright import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+
+
+        async def main() -> None:
+            await client.batch.get_business_users(
+                batch_id="batchId",
+                page_size=1.1,
+                page=1.1,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_business_users(
+            batch_id, page_size=page_size, page=page, request_options=request_options
         )
         return _response.data
 
@@ -744,6 +1143,114 @@ class AsyncBatchClient:
             lock_kyc_risk_level=lock_kyc_risk_level,
             batch_id=batch_id,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def get_consumer_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchConsumerUserEventsRulesResult:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchConsumerUserEventsRulesResult
+            OK
+
+        Examples
+        --------
+        import asyncio
+
+        from flagright import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+
+
+        async def main() -> None:
+            await client.batch.get_consumer_user_events(
+                batch_id="batchId",
+                page_size=1.1,
+                page=1.1,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_consumer_user_events(
+            batch_id, page_size=page_size, page=page, request_options=request_options
+        )
+        return _response.data
+
+    async def get_business_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BatchBusinessUserEventsWithRulesResult:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BatchBusinessUserEventsWithRulesResult
+            OK
+
+        Examples
+        --------
+        import asyncio
+
+        from flagright import AsyncFlagright
+
+        client = AsyncFlagright(
+            api_key="YOUR_API_KEY",
+        )
+
+
+        async def main() -> None:
+            await client.batch.get_business_user_events(
+                batch_id="batchId",
+                page_size=1.1,
+                page=1.1,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_business_user_events(
+            batch_id, page_size=page_size, page=page, request_options=request_options
         )
         return _response.data
 

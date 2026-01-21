@@ -9,6 +9,7 @@ from ..core.serialization import FieldMetadata
 from .address import Address
 from .amount import Amount
 from .correspondent_bank_details import CorrespondentBankDetails
+from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .email_id import EmailId
 from .tag import Tag
@@ -19,6 +20,9 @@ class SwiftDetails(UniversalBaseModel):
     Model for SWIFT payment method
     """
 
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     swift_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="swiftCode")] = pydantic.Field(
         default=None
     )

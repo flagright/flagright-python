@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address import Address
+from .counterparty_type import CounterpartyType
 from .email_id import EmailId
 from .mpesa_transaction_type import MpesaTransactionType
 from .tag import Tag
@@ -17,6 +18,9 @@ class MpesaDetails(UniversalBaseModel):
     Model for Mpesa payment method
     """
 
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     business_short_code: typing_extensions.Annotated[str, FieldMetadata(alias="businessShortCode")] = pydantic.Field()
     """
     Business code

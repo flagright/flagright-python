@@ -15,6 +15,7 @@ from .card_merchant_details import CardMerchantDetails
 from .card_status import CardStatus
 from .card_type import CardType
 from .consumer_name import ConsumerName
+from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .email_id import EmailId
 from .pos_details import PosDetails
@@ -26,6 +27,9 @@ class CardDetails(UniversalBaseModel):
     Model for credit or debit card details
     """
 
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     card_fingerprint: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cardFingerprint")] = (
         pydantic.Field(default=None)
     )

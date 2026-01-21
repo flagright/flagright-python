@@ -19,6 +19,7 @@ from .card_type import CardType
 from .check_delivery_status import CheckDeliveryStatus
 from .consumer_name import ConsumerName
 from .correspondent_bank_details import CorrespondentBankDetails
+from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .email_id import EmailId
 from .mpesa_transaction_type import MpesaTransactionType
@@ -30,6 +31,9 @@ from .wallet_network import WalletNetwork
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Card(UniversalBaseModel):
     method: typing.Literal["CARD"] = "CARD"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     card_fingerprint: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cardFingerprint")] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     card_status: typing_extensions.Annotated[typing.Optional[CardStatus], FieldMetadata(alias="cardStatus")] = None
@@ -82,6 +86,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Card(UniversalBase
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount(UniversalBaseModel):
     method: typing.Literal["GENERIC_BANK_ACCOUNT"] = "GENERIC_BANK_ACCOUNT"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
     account_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountType")] = None
     account_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="accountBalance")] = None
@@ -119,6 +126,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_GenericBankAccount
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Iban(UniversalBaseModel):
     method: typing.Literal["IBAN"] = "IBAN"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     bic: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="BIC")] = None
     bank_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankName")] = None
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
@@ -150,6 +160,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Iban(UniversalBase
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach(UniversalBaseModel):
     method: typing.Literal["ACH"] = "ACH"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = None
     account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
     account_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="accountBalance")] = None
@@ -179,6 +192,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach(UniversalBaseM
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Swift(UniversalBaseModel):
     method: typing.Literal["SWIFT"] = "SWIFT"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     swift_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="swiftCode")] = None
     account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
     routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = None
@@ -215,6 +231,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Swift(UniversalBas
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Mpesa(UniversalBaseModel):
     method: typing.Literal["MPESA"] = "MPESA"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     business_short_code: typing_extensions.Annotated[str, FieldMetadata(alias="businessShortCode")]
     transaction_type: typing_extensions.Annotated[MpesaTransactionType, FieldMetadata(alias="transactionType")]
     phone_number: typing_extensions.Annotated[str, FieldMetadata(alias="phoneNumber")]
@@ -235,6 +254,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Mpesa(UniversalBas
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Upi(UniversalBaseModel):
     method: typing.Literal["UPI"] = "UPI"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     upi_id: typing_extensions.Annotated[str, FieldMetadata(alias="upiID")]
     bank_provider: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankProvider")] = None
     interface_provider: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="interfaceProvider")] = (
@@ -257,6 +279,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Upi(UniversalBaseM
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Wallet(UniversalBaseModel):
     method: typing.Literal["WALLET"] = "WALLET"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     wallet_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="walletType")] = None
     wallet_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="walletId")] = None
     payment_channel: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="paymentChannel")] = None
@@ -294,6 +319,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Wallet(UniversalBa
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Check(UniversalBaseModel):
     method: typing.Literal["CHECK"] = "CHECK"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     check_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="checkNumber")] = None
     check_identifier: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="checkIdentifier")] = None
     routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = None
@@ -329,6 +357,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Check(UniversalBas
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Cash(UniversalBaseModel):
     method: typing.Literal["CASH"] = "CASH"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     identifier: typing.Optional[str] = None
     address: typing.Optional[Address] = None
     name: typing.Optional[str] = None
@@ -346,6 +377,9 @@ class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Cash(UniversalBase
 
 class BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Npp(UniversalBaseModel):
     method: typing.Literal["NPP"] = "NPP"
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     account_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="accountNumber")] = None
     name: typing.Optional[ConsumerName] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None

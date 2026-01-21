@@ -514,7 +514,7 @@ client.batch.verify_transaction(
 </dl>
 </details>
 
-<details><summary><code>client.batch.<a href="src/flagright/batch/client.py">get</a>(...)</code></summary>
+<details><summary><code>client.batch.<a href="src/flagright/batch/client.py">get_transactions</a>(...)</code></summary>
 <dl>
 <dd>
 
@@ -532,7 +532,7 @@ from flagright import Flagright
 client = Flagright(
     api_key="YOUR_API_KEY",
 )
-client.batch.get(
+client.batch.get_transactions(
     batch_id="batchId",
     page_size=1.1,
     page=1.1,
@@ -658,6 +658,80 @@ client.batch.create_transaction_events(
 </dl>
 </details>
 
+<details><summary><code>client.batch.<a href="src/flagright/batch/client.py">get_transaction_events</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from flagright import Flagright
+
+client = Flagright(
+    api_key="YOUR_API_KEY",
+)
+client.batch.get_transaction_events(
+    batch_id="batchId",
+    page_size=1.1,
+    page=1.1,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batch_id:** `str` — Unique Batch Identifier
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `typing.Optional[PageSize]` — Page size (default 20)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page:** `typing.Optional[Page]` — Page
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.batch.<a href="src/flagright/batch/client.py">create_consumer_users</a>(...)</code></summary>
 <dl>
 <dd>
@@ -726,6 +800,154 @@ client.batch.create_consumer_users(
 <dd>
 
 **batch_id:** `typing.Optional[str]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.batch.<a href="src/flagright/batch/client.py">get_consumer_users</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from flagright import Flagright
+
+client = Flagright(
+    api_key="YOUR_API_KEY",
+)
+client.batch.get_consumer_users(
+    batch_id="batchId",
+    page_size=1.1,
+    page=1.1,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batch_id:** `str` — Unique Batch Identifier
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `typing.Optional[PageSize]` — Page size (default 20)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page:** `typing.Optional[Page]` — Page
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.batch.<a href="src/flagright/batch/client.py">get_business_users</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from flagright import Flagright
+
+client = Flagright(
+    api_key="YOUR_API_KEY",
+)
+client.batch.get_business_users(
+    batch_id="batchId",
+    page_size=1.1,
+    page=1.1,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batch_id:** `str` — Unique Batch Identifier
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `typing.Optional[PageSize]` — Page size (default 20)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page:** `typing.Optional[Page]` — Page
     
 </dd>
 </dl>
@@ -820,6 +1042,154 @@ client.batch.create_business_users(
 <dd>
 
 **batch_id:** `typing.Optional[str]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.batch.<a href="src/flagright/batch/client.py">get_consumer_user_events</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from flagright import Flagright
+
+client = Flagright(
+    api_key="YOUR_API_KEY",
+)
+client.batch.get_consumer_user_events(
+    batch_id="batchId",
+    page_size=1.1,
+    page=1.1,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batch_id:** `str` — Unique Batch Identifier
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `typing.Optional[PageSize]` — Page size (default 20)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page:** `typing.Optional[Page]` — Page
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.batch.<a href="src/flagright/batch/client.py">get_business_user_events</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from flagright import Flagright
+
+client = Flagright(
+    api_key="YOUR_API_KEY",
+)
+client.batch.get_business_user_events(
+    batch_id="batchId",
+    page_size=1.1,
+    page=1.1,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**batch_id:** `str` — Unique Batch Identifier
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `typing.Optional[PageSize]` — Page size (default 20)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page:** `typing.Optional[Page]` — Page
     
 </dd>
 </dl>
@@ -1923,7 +2293,7 @@ client.business_users.create(
 <dl>
 <dd>
 
-**directors:** `typing.Optional[typing.Sequence[Person]]` — Director(s) of the company. Must be at least one
+**directors:** `typing.Optional[typing.Sequence[BusinessDirectorsItem]]` — Director(s) of the company. Must be at least one
     
 </dd>
 </dl>

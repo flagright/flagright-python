@@ -21,6 +21,7 @@ if typing.TYPE_CHECKING:
     from .batch_business_user_with_rules_result_associated_parties_item import (
         BatchBusinessUserWithRulesResultAssociatedPartiesItem,
     )
+    from .batch_business_user_with_rules_result_directors_item import BatchBusinessUserWithRulesResultDirectorsItem
     from .batch_business_user_with_rules_result_saved_payment_details_item import (
         BatchBusinessUserWithRulesResultSavedPaymentDetailsItem,
         BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach,
@@ -80,8 +81,10 @@ if typing.TYPE_CHECKING:
     from .business import Business
     from .business_associated_parties_item import BusinessAssociatedPartiesItem
     from .business_base import BusinessBase
+    from .business_directors_item import BusinessDirectorsItem
     from .business_optional import BusinessOptional
     from .business_optional_associated_parties_item import BusinessOptionalAssociatedPartiesItem
+    from .business_optional_directors_item import BusinessOptionalDirectorsItem
     from .business_optional_saved_payment_details_item import (
         BusinessOptionalSavedPaymentDetailsItem,
         BusinessOptionalSavedPaymentDetailsItem_Ach,
@@ -118,6 +121,7 @@ if typing.TYPE_CHECKING:
     from .business_user_segment import BusinessUserSegment
     from .business_with_rules_result import BusinessWithRulesResult
     from .business_with_rules_result_associated_parties_item import BusinessWithRulesResultAssociatedPartiesItem
+    from .business_with_rules_result_directors_item import BusinessWithRulesResultDirectorsItem
     from .business_with_rules_result_saved_payment_details_item import (
         BusinessWithRulesResultSavedPaymentDetailsItem,
         BusinessWithRulesResultSavedPaymentDetailsItem_Ach,
@@ -163,6 +167,7 @@ if typing.TYPE_CHECKING:
     from .contact_details import ContactDetails
     from .corporate_entity_details import CorporateEntityDetails
     from .correspondent_bank_details import CorrespondentBankDetails
+    from .counterparty_type import CounterpartyType
     from .country_code import CountryCode
     from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
     from .currency_code import CurrencyCode
@@ -425,6 +430,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BatchBusinessUserEventsWithRulesResult": ".batch_business_user_events_with_rules_result",
     "BatchBusinessUserWithRulesResult": ".batch_business_user_with_rules_result",
     "BatchBusinessUserWithRulesResultAssociatedPartiesItem": ".batch_business_user_with_rules_result_associated_parties_item",
+    "BatchBusinessUserWithRulesResultDirectorsItem": ".batch_business_user_with_rules_result_directors_item",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem": ".batch_business_user_with_rules_result_saved_payment_details_item",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach": ".batch_business_user_with_rules_result_saved_payment_details_item",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Card": ".batch_business_user_with_rules_result_saved_payment_details_item",
@@ -478,8 +484,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "Business": ".business",
     "BusinessAssociatedPartiesItem": ".business_associated_parties_item",
     "BusinessBase": ".business_base",
+    "BusinessDirectorsItem": ".business_directors_item",
     "BusinessOptional": ".business_optional",
     "BusinessOptionalAssociatedPartiesItem": ".business_optional_associated_parties_item",
+    "BusinessOptionalDirectorsItem": ".business_optional_directors_item",
     "BusinessOptionalSavedPaymentDetailsItem": ".business_optional_saved_payment_details_item",
     "BusinessOptionalSavedPaymentDetailsItem_Ach": ".business_optional_saved_payment_details_item",
     "BusinessOptionalSavedPaymentDetailsItem_Card": ".business_optional_saved_payment_details_item",
@@ -512,6 +520,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BusinessUserSegment": ".business_user_segment",
     "BusinessWithRulesResult": ".business_with_rules_result",
     "BusinessWithRulesResultAssociatedPartiesItem": ".business_with_rules_result_associated_parties_item",
+    "BusinessWithRulesResultDirectorsItem": ".business_with_rules_result_directors_item",
     "BusinessWithRulesResultSavedPaymentDetailsItem": ".business_with_rules_result_saved_payment_details_item",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Ach": ".business_with_rules_result_saved_payment_details_item",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Card": ".business_with_rules_result_saved_payment_details_item",
@@ -555,6 +564,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ContactDetails": ".contact_details",
     "CorporateEntityDetails": ".corporate_entity_details",
     "CorrespondentBankDetails": ".correspondent_bank_details",
+    "CounterpartyType": ".counterparty_type",
     "CountryCode": ".country_code",
     "CraRiskLevelUpdatedDetails": ".cra_risk_level_updated_details",
     "CurrencyCode": ".currency_code",
@@ -823,6 +833,7 @@ __all__ = [
     "BatchBusinessUserEventsWithRulesResult",
     "BatchBusinessUserWithRulesResult",
     "BatchBusinessUserWithRulesResultAssociatedPartiesItem",
+    "BatchBusinessUserWithRulesResultDirectorsItem",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Ach",
     "BatchBusinessUserWithRulesResultSavedPaymentDetailsItem_Card",
@@ -876,8 +887,10 @@ __all__ = [
     "Business",
     "BusinessAssociatedPartiesItem",
     "BusinessBase",
+    "BusinessDirectorsItem",
     "BusinessOptional",
     "BusinessOptionalAssociatedPartiesItem",
+    "BusinessOptionalDirectorsItem",
     "BusinessOptionalSavedPaymentDetailsItem",
     "BusinessOptionalSavedPaymentDetailsItem_Ach",
     "BusinessOptionalSavedPaymentDetailsItem_Card",
@@ -910,6 +923,7 @@ __all__ = [
     "BusinessUserSegment",
     "BusinessWithRulesResult",
     "BusinessWithRulesResultAssociatedPartiesItem",
+    "BusinessWithRulesResultDirectorsItem",
     "BusinessWithRulesResultSavedPaymentDetailsItem",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Ach",
     "BusinessWithRulesResultSavedPaymentDetailsItem_Card",
@@ -953,6 +967,7 @@ __all__ = [
     "ContactDetails",
     "CorporateEntityDetails",
     "CorrespondentBankDetails",
+    "CounterpartyType",
     "CountryCode",
     "CraRiskLevelUpdatedDetails",
     "CurrencyCode",

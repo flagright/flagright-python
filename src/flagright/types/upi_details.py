@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address import Address
+from .counterparty_type import CounterpartyType
 from .email_id import EmailId
 from .tag import Tag
 
@@ -16,6 +17,9 @@ class UpiDetails(UniversalBaseModel):
     Model for UPI payment method
     """
 
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     upi_id: typing_extensions.Annotated[str, FieldMetadata(alias="upiID")] = pydantic.Field()
     """
     UPI Id number

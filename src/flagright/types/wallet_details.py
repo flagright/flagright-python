@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address import Address
 from .amount import Amount
+from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .email_id import EmailId
 from .tag import Tag
@@ -20,6 +21,9 @@ class WalletDetails(UniversalBaseModel):
     Standardized model for a Generic wallet transaction
     """
 
+    counterparty_type: typing_extensions.Annotated[
+        typing.Optional[CounterpartyType], FieldMetadata(alias="counterpartyType")
+    ] = None
     wallet_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="walletType")] = pydantic.Field(
         default=None
     )

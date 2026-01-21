@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .acquisition_channel import AcquisitionChannel
 from .business_associated_parties_item import BusinessAssociatedPartiesItem
+from .business_directors_item import BusinessDirectorsItem
 from .business_saved_payment_details_item import BusinessSavedPaymentDetailsItem
 from .business_share_holders_item import BusinessShareHoldersItem
 from .corporate_entity_details import CorporateEntityDetails
@@ -17,7 +18,6 @@ from .legal_entity import LegalEntity
 from .mcc_details import MccDetails
 from .payment_method import PaymentMethod
 from .pep_status import PepStatus
-from .person import Person
 from .person_attachment import PersonAttachment
 from .products_enabled import ProductsEnabled
 from .risk_level import RiskLevel
@@ -67,7 +67,7 @@ class Business(UniversalBaseModel):
     Shareholders (beneficiaries) of the company that hold at least 25% ownership. Can be another company or an individual
     """
 
-    directors: typing.Optional[typing.List[Person]] = pydantic.Field(default=None)
+    directors: typing.Optional[typing.List[BusinessDirectorsItem]] = pydantic.Field(default=None)
     """
     Director(s) of the company. Must be at least one
     """
