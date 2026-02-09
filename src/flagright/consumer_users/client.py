@@ -14,6 +14,7 @@ from ..types.device_data import DeviceData
 from ..types.employment_details import EmploymentDetails
 from ..types.employment_status import EmploymentStatus
 from ..types.expected_income import ExpectedIncome
+from ..types.expected_transaction_countries import ExpectedTransactionCountries
 from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_document import LegalDocument
 from ..types.pep_status import PepStatus
@@ -71,6 +72,7 @@ class ConsumerUsersClient:
         employment_details: typing.Optional[EmploymentDetails] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_income: typing.Optional[ExpectedIncome] = OMIT,
+        expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
@@ -149,6 +151,8 @@ class ConsumerUsersClient:
 
         expected_income : typing.Optional[ExpectedIncome]
 
+        expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
         risk_level : typing.Optional[RiskLevel]
 
         kyc_risk_level : typing.Optional[RiskLevel]
@@ -214,6 +218,7 @@ class ConsumerUsersClient:
         )
 
         client = Flagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.consumer_users.create(
@@ -293,6 +298,7 @@ class ConsumerUsersClient:
             employment_details=employment_details,
             transaction_limits=transaction_limits,
             expected_income=expected_income,
+            expected_transaction_countries=expected_transaction_countries,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             acquisition_channel=acquisition_channel,
@@ -342,6 +348,7 @@ class ConsumerUsersClient:
         from flagright import Flagright
 
         client = Flagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.consumer_users.get(
@@ -387,6 +394,7 @@ class AsyncConsumerUsersClient:
         employment_details: typing.Optional[EmploymentDetails] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_income: typing.Optional[ExpectedIncome] = OMIT,
+        expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
@@ -465,6 +473,8 @@ class AsyncConsumerUsersClient:
 
         expected_income : typing.Optional[ExpectedIncome]
 
+        expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
         risk_level : typing.Optional[RiskLevel]
 
         kyc_risk_level : typing.Optional[RiskLevel]
@@ -532,6 +542,7 @@ class AsyncConsumerUsersClient:
         )
 
         client = AsyncFlagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -617,6 +628,7 @@ class AsyncConsumerUsersClient:
             employment_details=employment_details,
             transaction_limits=transaction_limits,
             expected_income=expected_income,
+            expected_transaction_countries=expected_transaction_countries,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             acquisition_channel=acquisition_channel,
@@ -670,6 +682,7 @@ class AsyncConsumerUsersClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 

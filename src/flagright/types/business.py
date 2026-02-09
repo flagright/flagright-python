@@ -13,6 +13,7 @@ from .business_saved_payment_details_item import BusinessSavedPaymentDetailsItem
 from .business_share_holders_item import BusinessShareHoldersItem
 from .corporate_entity_details import CorporateEntityDetails
 from .device_data import DeviceData
+from .expected_transaction_countries import ExpectedTransactionCountries
 from .kyc_status_details import KycStatusDetails
 from .legal_entity import LegalEntity
 from .mcc_details import MccDetails
@@ -88,6 +89,9 @@ class Business(UniversalBaseModel):
 
     transaction_limits: typing_extensions.Annotated[
         typing.Optional[TransactionLimits], FieldMetadata(alias="transactionLimits")
+    ] = None
+    expected_transaction_countries: typing_extensions.Annotated[
+        typing.Optional[ExpectedTransactionCountries], FieldMetadata(alias="expectedTransactionCountries")
     ] = None
     risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="riskLevel")] = None
     kyc_risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="kycRiskLevel")] = None

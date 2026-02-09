@@ -586,6 +586,103 @@ class RawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def create_business_users(
+        self,
+        *,
+        data: typing.Sequence[Business],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
+        batch_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[BatchResponse]:
+        """
+        Parameters
+        ----------
+        data : typing.Sequence[Business]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
+
+        batch_id : typing.Optional[str]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[BatchResponse]
+            Created
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "batch/business/users",
+            method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
+            json={
+                "batchId": batch_id,
+                "data": convert_and_respect_annotation_metadata(
+                    object_=data, annotation=typing.Sequence[Business], direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchResponse,
+                    parse_obj_as(
+                        type_=BatchResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     def get_business_users(
         self,
         batch_id: str,
@@ -671,10 +768,10 @@ class RawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def create_business_users(
+    def create_consumer_user_events(
         self,
         *,
-        data: typing.Sequence[Business],
+        data: typing.Sequence[ConsumerUserEvent],
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
@@ -683,7 +780,7 @@ class RawBatchClient:
         """
         Parameters
         ----------
-        data : typing.Sequence[Business]
+        data : typing.Sequence[ConsumerUserEvent]
 
         lock_cra_risk_level : typing.Optional[BooleanString]
             Boolean string whether Flagright should lock the CRA risk level for the user.
@@ -702,7 +799,7 @@ class RawBatchClient:
             Created
         """
         _response = self._client_wrapper.httpx_client.request(
-            "batch/business/users",
+            "batch/events/consumer/user",
             method="POST",
             params={
                 "lockCraRiskLevel": lock_cra_risk_level,
@@ -711,7 +808,7 @@ class RawBatchClient:
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(
-                    object_=data, annotation=typing.Sequence[Business], direction="write"
+                    object_=data, annotation=typing.Sequence[ConsumerUserEvent], direction="write"
                 ),
             },
             headers={
@@ -853,188 +950,6 @@ class RawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def get_business_user_events(
-        self,
-        batch_id: str,
-        *,
-        page_size: typing.Optional[PageSize] = None,
-        page: typing.Optional[Page] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[BatchBusinessUserEventsWithRulesResult]:
-        """
-        Parameters
-        ----------
-        batch_id : str
-            Unique Batch Identifier
-
-        page_size : typing.Optional[PageSize]
-            Page size (default 20)
-
-        page : typing.Optional[Page]
-            Page
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[BatchBusinessUserEventsWithRulesResult]
-            OK
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            f"batch/events/business/user/{jsonable_encoder(batch_id)}",
-            method="GET",
-            params={
-                "pageSize": page_size,
-                "page": page,
-            },
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    BatchBusinessUserEventsWithRulesResult,
-                    parse_obj_as(
-                        type_=BatchBusinessUserEventsWithRulesResult,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    def create_consumer_user_events(
-        self,
-        *,
-        data: typing.Sequence[ConsumerUserEvent],
-        lock_cra_risk_level: typing.Optional[BooleanString] = None,
-        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
-        batch_id: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[BatchResponse]:
-        """
-        Parameters
-        ----------
-        data : typing.Sequence[ConsumerUserEvent]
-
-        lock_cra_risk_level : typing.Optional[BooleanString]
-            Boolean string whether Flagright should lock the CRA risk level for the user.
-
-        lock_kyc_risk_level : typing.Optional[BooleanString]
-            Boolean string whether Flagright should lock the KYC risk level for the user.
-
-        batch_id : typing.Optional[str]
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[BatchResponse]
-            Created
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            "batch/events/consumer/user",
-            method="POST",
-            params={
-                "lockCraRiskLevel": lock_cra_risk_level,
-                "lockKycRiskLevel": lock_kyc_risk_level,
-            },
-            json={
-                "batchId": batch_id,
-                "data": convert_and_respect_annotation_metadata(
-                    object_=data, annotation=typing.Sequence[ConsumerUserEvent], direction="write"
-                ),
-            },
-            headers={
-                "content-type": "application/json",
-            },
-            request_options=request_options,
-            omit=OMIT,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    BatchResponse,
-                    parse_obj_as(
-                        type_=BatchResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            if _response.status_code == 400:
-                raise BadRequestError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
     def create_business_user_events(
         self,
         *,
@@ -1107,6 +1022,91 @@ class RawBatchClient:
                 )
             if _response.status_code == 401:
                 raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def get_business_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[BatchBusinessUserEventsWithRulesResult]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[BatchBusinessUserEventsWithRulesResult]
+            OK
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"batch/events/business/user/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchBusinessUserEventsWithRulesResult,
+                    parse_obj_as(
+                        type_=BatchBusinessUserEventsWithRulesResult,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         ApiErrorResponse,
@@ -1682,6 +1682,103 @@ class AsyncRawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def create_business_users(
+        self,
+        *,
+        data: typing.Sequence[Business],
+        lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
+        batch_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[BatchResponse]:
+        """
+        Parameters
+        ----------
+        data : typing.Sequence[Business]
+
+        lock_cra_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the CRA risk level for the user.
+
+        lock_kyc_risk_level : typing.Optional[BooleanString]
+            Boolean string whether Flagright should lock the KYC risk level for the user.
+
+        batch_id : typing.Optional[str]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[BatchResponse]
+            Created
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "batch/business/users",
+            method="POST",
+            params={
+                "lockCraRiskLevel": lock_cra_risk_level,
+                "lockKycRiskLevel": lock_kyc_risk_level,
+            },
+            json={
+                "batchId": batch_id,
+                "data": convert_and_respect_annotation_metadata(
+                    object_=data, annotation=typing.Sequence[Business], direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchResponse,
+                    parse_obj_as(
+                        type_=BatchResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def get_business_users(
         self,
         batch_id: str,
@@ -1767,10 +1864,10 @@ class AsyncRawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def create_business_users(
+    async def create_consumer_user_events(
         self,
         *,
-        data: typing.Sequence[Business],
+        data: typing.Sequence[ConsumerUserEvent],
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         batch_id: typing.Optional[str] = OMIT,
@@ -1779,7 +1876,7 @@ class AsyncRawBatchClient:
         """
         Parameters
         ----------
-        data : typing.Sequence[Business]
+        data : typing.Sequence[ConsumerUserEvent]
 
         lock_cra_risk_level : typing.Optional[BooleanString]
             Boolean string whether Flagright should lock the CRA risk level for the user.
@@ -1798,7 +1895,7 @@ class AsyncRawBatchClient:
             Created
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "batch/business/users",
+            "batch/events/consumer/user",
             method="POST",
             params={
                 "lockCraRiskLevel": lock_cra_risk_level,
@@ -1807,7 +1904,7 @@ class AsyncRawBatchClient:
             json={
                 "batchId": batch_id,
                 "data": convert_and_respect_annotation_metadata(
-                    object_=data, annotation=typing.Sequence[Business], direction="write"
+                    object_=data, annotation=typing.Sequence[ConsumerUserEvent], direction="write"
                 ),
             },
             headers={
@@ -1949,188 +2046,6 @@ class AsyncRawBatchClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def get_business_user_events(
-        self,
-        batch_id: str,
-        *,
-        page_size: typing.Optional[PageSize] = None,
-        page: typing.Optional[Page] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[BatchBusinessUserEventsWithRulesResult]:
-        """
-        Parameters
-        ----------
-        batch_id : str
-            Unique Batch Identifier
-
-        page_size : typing.Optional[PageSize]
-            Page size (default 20)
-
-        page : typing.Optional[Page]
-            Page
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[BatchBusinessUserEventsWithRulesResult]
-            OK
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            f"batch/events/business/user/{jsonable_encoder(batch_id)}",
-            method="GET",
-            params={
-                "pageSize": page_size,
-                "page": page,
-            },
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    BatchBusinessUserEventsWithRulesResult,
-                    parse_obj_as(
-                        type_=BatchBusinessUserEventsWithRulesResult,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def create_consumer_user_events(
-        self,
-        *,
-        data: typing.Sequence[ConsumerUserEvent],
-        lock_cra_risk_level: typing.Optional[BooleanString] = None,
-        lock_kyc_risk_level: typing.Optional[BooleanString] = None,
-        batch_id: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[BatchResponse]:
-        """
-        Parameters
-        ----------
-        data : typing.Sequence[ConsumerUserEvent]
-
-        lock_cra_risk_level : typing.Optional[BooleanString]
-            Boolean string whether Flagright should lock the CRA risk level for the user.
-
-        lock_kyc_risk_level : typing.Optional[BooleanString]
-            Boolean string whether Flagright should lock the KYC risk level for the user.
-
-        batch_id : typing.Optional[str]
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[BatchResponse]
-            Created
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            "batch/events/consumer/user",
-            method="POST",
-            params={
-                "lockCraRiskLevel": lock_cra_risk_level,
-                "lockKycRiskLevel": lock_kyc_risk_level,
-            },
-            json={
-                "batchId": batch_id,
-                "data": convert_and_respect_annotation_metadata(
-                    object_=data, annotation=typing.Sequence[ConsumerUserEvent], direction="write"
-                ),
-            },
-            headers={
-                "content-type": "application/json",
-            },
-            request_options=request_options,
-            omit=OMIT,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    BatchResponse,
-                    parse_obj_as(
-                        type_=BatchResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            if _response.status_code == 400:
-                raise BadRequestError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
     async def create_business_user_events(
         self,
         *,
@@ -2203,6 +2118,91 @@ class AsyncRawBatchClient:
                 )
             if _response.status_code == 401:
                 raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get_business_user_events(
+        self,
+        batch_id: str,
+        *,
+        page_size: typing.Optional[PageSize] = None,
+        page: typing.Optional[Page] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[BatchBusinessUserEventsWithRulesResult]:
+        """
+        Parameters
+        ----------
+        batch_id : str
+            Unique Batch Identifier
+
+        page_size : typing.Optional[PageSize]
+            Page size (default 20)
+
+        page : typing.Optional[Page]
+            Page
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[BatchBusinessUserEventsWithRulesResult]
+            OK
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"batch/events/business/user/{jsonable_encoder(batch_id)}",
+            method="GET",
+            params={
+                "pageSize": page_size,
+                "page": page,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BatchBusinessUserEventsWithRulesResult,
+                    parse_obj_as(
+                        type_=BatchBusinessUserEventsWithRulesResult,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         ApiErrorResponse,

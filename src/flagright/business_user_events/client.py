@@ -108,6 +108,7 @@ class BusinessUserEventsClient:
         from flagright import Flagright
 
         client = Flagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.business_user_events.create(
@@ -158,6 +159,7 @@ class BusinessUserEventsClient:
         from flagright import Flagright
 
         client = Flagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.business_user_events.get(
@@ -264,6 +266,7 @@ class AsyncBusinessUserEventsClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -322,6 +325,7 @@ class AsyncBusinessUserEventsClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 

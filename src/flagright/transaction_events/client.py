@@ -104,6 +104,7 @@ class TransactionEventsClient:
         from flagright import DeviceData, Flagright
 
         client = Flagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.transaction_events.create(
@@ -163,6 +164,7 @@ class TransactionEventsClient:
         from flagright import Flagright
 
         client = Flagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.transaction_events.get(
@@ -264,6 +266,7 @@ class AsyncTransactionEventsClient:
         from flagright import AsyncFlagright, DeviceData
 
         client = AsyncFlagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -331,6 +334,7 @@ class AsyncTransactionEventsClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 

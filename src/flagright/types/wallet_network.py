@@ -31,6 +31,7 @@ WalletNetwork = typing.Union[
         "ALGORAND",
         "CELESTIA",
         "BASE",
+        "SUI",
     ],
     typing.Any,
 ]

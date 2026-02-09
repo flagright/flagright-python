@@ -15,6 +15,7 @@ from .device_data import DeviceData
 from .employment_details import EmploymentDetails
 from .employment_status import EmploymentStatus
 from .expected_income import ExpectedIncome
+from .expected_transaction_countries import ExpectedTransactionCountries
 from .kyc_status_details import KycStatusDetails
 from .legal_document import LegalDocument
 from .pep_status import PepStatus
@@ -79,6 +80,9 @@ class User(UniversalBaseModel):
     ] = None
     expected_income: typing_extensions.Annotated[
         typing.Optional[ExpectedIncome], FieldMetadata(alias="expectedIncome")
+    ] = None
+    expected_transaction_countries: typing_extensions.Annotated[
+        typing.Optional[ExpectedTransactionCountries], FieldMetadata(alias="expectedTransactionCountries")
     ] = None
     risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="riskLevel")] = None
     kyc_risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="kycRiskLevel")] = None

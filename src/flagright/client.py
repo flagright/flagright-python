@@ -36,6 +36,7 @@ class Flagright:
 
 
 
+    authorization : str
     api_key : str
     headers : typing.Optional[typing.Dict[str, str]]
         Additional headers to send with every request.
@@ -54,6 +55,7 @@ class Flagright:
     from flagright import Flagright
 
     client = Flagright(
+        authorization="YOUR_AUTHORIZATION",
         api_key="YOUR_API_KEY",
     )
     """
@@ -63,6 +65,7 @@ class Flagright:
         *,
         base_url: typing.Optional[str] = None,
         environment: FlagrightEnvironment = FlagrightEnvironment.SANDBOX_API_SERVER_EU_1,
+        authorization: str,
         api_key: str,
         headers: typing.Optional[typing.Dict[str, str]] = None,
         timeout: typing.Optional[float] = None,
@@ -74,6 +77,7 @@ class Flagright:
         )
         self._client_wrapper = SyncClientWrapper(
             base_url=_get_base_url(base_url=base_url, environment=environment),
+            authorization=authorization,
             api_key=api_key,
             headers=headers,
             httpx_client=httpx_client
@@ -166,6 +170,7 @@ class AsyncFlagright:
 
 
 
+    authorization : str
     api_key : str
     headers : typing.Optional[typing.Dict[str, str]]
         Additional headers to send with every request.
@@ -184,6 +189,7 @@ class AsyncFlagright:
     from flagright import AsyncFlagright
 
     client = AsyncFlagright(
+        authorization="YOUR_AUTHORIZATION",
         api_key="YOUR_API_KEY",
     )
     """
@@ -193,6 +199,7 @@ class AsyncFlagright:
         *,
         base_url: typing.Optional[str] = None,
         environment: FlagrightEnvironment = FlagrightEnvironment.SANDBOX_API_SERVER_EU_1,
+        authorization: str,
         api_key: str,
         headers: typing.Optional[typing.Dict[str, str]] = None,
         timeout: typing.Optional[float] = None,
@@ -204,6 +211,7 @@ class AsyncFlagright:
         )
         self._client_wrapper = AsyncClientWrapper(
             base_url=_get_base_url(base_url=base_url, environment=environment),
+            authorization=authorization,
             api_key=api_key,
             headers=headers,
             httpx_client=httpx_client

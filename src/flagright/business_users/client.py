@@ -13,6 +13,7 @@ from ..types.business_share_holders_item import BusinessShareHoldersItem
 from ..types.business_with_rules_result import BusinessWithRulesResult
 from ..types.corporate_entity_details import CorporateEntityDetails
 from ..types.device_data import DeviceData
+from ..types.expected_transaction_countries import ExpectedTransactionCountries
 from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_entity import LegalEntity
 from ..types.mcc_details import MccDetails
@@ -66,6 +67,7 @@ class BusinessUsersClient:
         associated_parties: typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]] = OMIT,
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
+        expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.Sequence[PaymentMethod]] = OMIT,
@@ -145,6 +147,8 @@ class BusinessUsersClient:
             Business partners of the company
 
         transaction_limits : typing.Optional[TransactionLimits]
+
+        expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -199,6 +203,7 @@ class BusinessUsersClient:
         from flagright import CompanyGeneralDetails, Flagright, LegalEntity
 
         client = Flagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.business_users.create(
@@ -233,6 +238,7 @@ class BusinessUsersClient:
             associated_parties=associated_parties,
             business_partners=business_partners,
             transaction_limits=transaction_limits,
+            expected_transaction_countries=expected_transaction_countries,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             allowed_payment_methods=allowed_payment_methods,
@@ -280,6 +286,7 @@ class BusinessUsersClient:
         from flagright import Flagright
 
         client = Flagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.business_users.get(
@@ -324,6 +331,7 @@ class AsyncBusinessUsersClient:
         associated_parties: typing.Optional[typing.Sequence[BusinessAssociatedPartiesItem]] = OMIT,
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
+        expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.Sequence[PaymentMethod]] = OMIT,
@@ -403,6 +411,8 @@ class AsyncBusinessUsersClient:
             Business partners of the company
 
         transaction_limits : typing.Optional[TransactionLimits]
+
+        expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -459,6 +469,7 @@ class AsyncBusinessUsersClient:
         from flagright import AsyncFlagright, CompanyGeneralDetails, LegalEntity
 
         client = AsyncFlagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -499,6 +510,7 @@ class AsyncBusinessUsersClient:
             associated_parties=associated_parties,
             business_partners=business_partners,
             transaction_limits=transaction_limits,
+            expected_transaction_countries=expected_transaction_countries,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             allowed_payment_methods=allowed_payment_methods,
@@ -550,6 +562,7 @@ class AsyncBusinessUsersClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
+            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 

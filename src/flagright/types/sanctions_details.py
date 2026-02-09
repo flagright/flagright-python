@@ -27,6 +27,7 @@ class SanctionsDetails(UniversalBaseModel):
     hit_direction: typing_extensions.Annotated[
         typing.Optional[RuleHitDirection], FieldMetadata(alias="hitDirection")
     ] = None
+    is_rule_hit: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isRuleHit")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
