@@ -8,7 +8,6 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .executed_logic_vars import ExecutedLogicVars
 from .rule_action import RuleAction
-from .rule_execution_sanctions_details import RuleExecutionSanctionsDetails
 from .rule_hit_meta import RuleHitMeta
 from .rule_labels import RuleLabels
 from .rule_nature import RuleNature
@@ -52,9 +51,6 @@ class ExecutedRulesResult(UniversalBaseModel):
     labels: typing.Optional[typing.List[RuleLabels]] = None
     nature: typing.Optional[RuleNature] = None
     is_shadow: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isShadow")] = None
-    sanctions_details: typing_extensions.Annotated[
-        typing.Optional[typing.List[RuleExecutionSanctionsDetails]], FieldMetadata(alias="sanctionsDetails")
-    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

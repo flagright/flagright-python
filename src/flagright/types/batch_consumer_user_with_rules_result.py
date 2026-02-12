@@ -111,13 +111,6 @@ class BatchConsumerUserWithRulesResult(UniversalBaseModel):
     adverse_media_status: typing_extensions.Annotated[
         typing.Optional[AdverseMediaStatus], FieldMetadata(alias="adverseMediaStatus")
     ] = None
-    last_transaction_timestamp: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="lastTransactionTimestamp")
-    ] = pydantic.Field(default=None)
-    """
-    Timestamp of the last successful transaction of the user
-    """
-
     corporate_entities: typing_extensions.Annotated[
         typing.Optional[typing.List[CorporateEntityDetails]], FieldMetadata(alias="corporateEntities")
     ] = pydantic.Field(default=None)
@@ -148,7 +141,6 @@ class BatchConsumerUserWithRulesResult(UniversalBaseModel):
     Legal authority or region governing the transaction
     """
 
-    update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
     products_enabled: typing_extensions.Annotated[
         typing.Optional[typing.List[ProductsEnabled]], FieldMetadata(alias="productsEnabled")
     ] = None

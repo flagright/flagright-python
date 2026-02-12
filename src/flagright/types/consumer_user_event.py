@@ -46,7 +46,6 @@ class ConsumerUserEvent(UniversalBaseModel):
     updated_consumer_user_attributes: typing_extensions.Annotated[
         typing.Optional[UserOptional], FieldMetadata(alias="updatedConsumerUserAttributes")
     ] = None
-    update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

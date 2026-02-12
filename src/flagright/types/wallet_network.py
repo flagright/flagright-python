@@ -17,6 +17,7 @@ WalletNetwork = typing.Union[
         "LITECOIN",
         "BITCOIN_CASH",
         "RIPPLE",
+        "HYPERLIQUID",
         "STELLAR",
         "EOS_PUBLIC",
         "TRON",

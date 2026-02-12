@@ -324,22 +324,6 @@ client.transactions.verify(
 <dl>
 <dd>
 
-**update_count:** `typing.Optional[float]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**payment_approval_timestamp:** `typing.Optional[float]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -1543,14 +1527,6 @@ client.transaction_events.create(
 <dl>
 <dd>
 
-**update_count:** `typing.Optional[float]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -1981,14 +1957,6 @@ client.consumer_users.create(
 <dl>
 <dd>
 
-**last_transaction_timestamp:** `typing.Optional[float]` — Timestamp of the last successful transaction of the user
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **corporate_entities:** `typing.Optional[typing.Sequence[CorporateEntityDetails]]` — Corporate entities of the user
     
 </dd>
@@ -2038,14 +2006,6 @@ client.consumer_users.create(
 <dd>
 
 **jurisdiction:** `typing.Optional[str]` — Legal authority or region governing the transaction
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**update_count:** `typing.Optional[float]` 
     
 </dd>
 </dl>
@@ -2384,14 +2344,6 @@ client.business_users.create(
 <dl>
 <dd>
 
-**last_transaction_timestamp:** `typing.Optional[float]` — Timestamp of the last successful transaction of the user
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **linked_entities:** `typing.Optional[UserEntityLink]` 
     
 </dd>
@@ -2449,14 +2401,6 @@ client.business_users.create(
 <dd>
 
 **jurisdiction:** `typing.Optional[str]` — Legal authority or region governing the transaction
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**update_count:** `typing.Optional[float]` 
     
 </dd>
 </dl>
@@ -2729,14 +2673,6 @@ client.consumer_user_events.create(
 <dl>
 <dd>
 
-**update_count:** `typing.Optional[float]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2960,14 +2896,6 @@ client.business_user_events.create(
 <dd>
 
 **updated_business_user_attributes:** `typing.Optional[BusinessOptional]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**update_count:** `typing.Optional[float]` 
     
 </dd>
 </dl>

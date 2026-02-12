@@ -40,7 +40,6 @@ class RawBusinessUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BusinessWithRulesResult]:
         """
@@ -92,8 +91,6 @@ class RawBusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
-        update_count : typing.Optional[float]
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -119,7 +116,6 @@ class RawBusinessUserEventsClient:
                 "updatedBusinessUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_business_user_attributes, annotation=BusinessOptional, direction="write"
                 ),
-                "updateCount": update_count,
             },
             headers={
                 "content-type": "application/json",
@@ -276,7 +272,6 @@ class AsyncRawBusinessUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BusinessWithRulesResult]:
         """
@@ -328,8 +323,6 @@ class AsyncRawBusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
-        update_count : typing.Optional[float]
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -355,7 +348,6 @@ class AsyncRawBusinessUserEventsClient:
                 "updatedBusinessUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_business_user_attributes, annotation=BusinessOptional, direction="write"
                 ),
-                "updateCount": update_count,
             },
             headers={
                 "content-type": "application/json",

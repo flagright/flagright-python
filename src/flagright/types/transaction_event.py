@@ -50,7 +50,6 @@ class TransactionEvent(UniversalBaseModel):
         typing.Optional[TransactionUpdatable], FieldMetadata(alias="updatedTransactionAttributes")
     ] = None
     meta_data: typing_extensions.Annotated[typing.Optional[DeviceData], FieldMetadata(alias="metaData")] = None
-    update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

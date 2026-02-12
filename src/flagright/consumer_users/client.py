@@ -82,7 +82,6 @@ class ConsumerUsersClient:
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[SanctionsStatus] = OMIT,
         adverse_media_status: typing.Optional[AdverseMediaStatus] = OMIT,
-        last_transaction_timestamp: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
@@ -90,7 +89,6 @@ class ConsumerUsersClient:
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
@@ -171,9 +169,6 @@ class ConsumerUsersClient:
 
         adverse_media_status : typing.Optional[AdverseMediaStatus]
 
-        last_transaction_timestamp : typing.Optional[float]
-            Timestamp of the last successful transaction of the user
-
         corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
             Corporate entities of the user
 
@@ -191,8 +186,6 @@ class ConsumerUsersClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
-
-        update_count : typing.Optional[float]
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
@@ -308,7 +301,6 @@ class ConsumerUsersClient:
             pep_status=pep_status,
             sanctions_status=sanctions_status,
             adverse_media_status=adverse_media_status,
-            last_transaction_timestamp=last_transaction_timestamp,
             corporate_entities=corporate_entities,
             linked_entities=linked_entities,
             saved_payment_details=saved_payment_details,
@@ -316,7 +308,6 @@ class ConsumerUsersClient:
             attachments=attachments,
             meta_data=meta_data,
             jurisdiction=jurisdiction,
-            update_count=update_count,
             products_enabled=products_enabled,
             request_options=request_options,
         )
@@ -404,7 +395,6 @@ class AsyncConsumerUsersClient:
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[SanctionsStatus] = OMIT,
         adverse_media_status: typing.Optional[AdverseMediaStatus] = OMIT,
-        last_transaction_timestamp: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
@@ -412,7 +402,6 @@ class AsyncConsumerUsersClient:
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
@@ -493,9 +482,6 @@ class AsyncConsumerUsersClient:
 
         adverse_media_status : typing.Optional[AdverseMediaStatus]
 
-        last_transaction_timestamp : typing.Optional[float]
-            Timestamp of the last successful transaction of the user
-
         corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
             Corporate entities of the user
 
@@ -513,8 +499,6 @@ class AsyncConsumerUsersClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
-
-        update_count : typing.Optional[float]
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
@@ -638,7 +622,6 @@ class AsyncConsumerUsersClient:
             pep_status=pep_status,
             sanctions_status=sanctions_status,
             adverse_media_status=adverse_media_status,
-            last_transaction_timestamp=last_transaction_timestamp,
             corporate_entities=corporate_entities,
             linked_entities=linked_entities,
             saved_payment_details=saved_payment_details,
@@ -646,7 +629,6 @@ class AsyncConsumerUsersClient:
             attachments=attachments,
             meta_data=meta_data,
             jurisdiction=jurisdiction,
-            update_count=update_count,
             products_enabled=products_enabled,
             request_options=request_options,
         )

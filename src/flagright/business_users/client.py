@@ -71,7 +71,6 @@ class BusinessUsersClient:
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.Sequence[PaymentMethod]] = OMIT,
-        last_transaction_timestamp: typing.Optional[float] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[BusinessSavedPaymentDetailsItem]] = OMIT,
@@ -80,7 +79,6 @@ class BusinessUsersClient:
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[bool] = OMIT,
@@ -156,9 +154,6 @@ class BusinessUsersClient:
 
         allowed_payment_methods : typing.Optional[typing.Sequence[PaymentMethod]]
 
-        last_transaction_timestamp : typing.Optional[float]
-            Timestamp of the last successful transaction of the user
-
         linked_entities : typing.Optional[UserEntityLink]
 
         acquisition_channel : typing.Optional[AcquisitionChannel]
@@ -177,8 +172,6 @@ class BusinessUsersClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
-
-        update_count : typing.Optional[float]
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
@@ -242,7 +235,6 @@ class BusinessUsersClient:
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             allowed_payment_methods=allowed_payment_methods,
-            last_transaction_timestamp=last_transaction_timestamp,
             linked_entities=linked_entities,
             acquisition_channel=acquisition_channel,
             saved_payment_details=saved_payment_details,
@@ -251,7 +243,6 @@ class BusinessUsersClient:
             attachments=attachments,
             meta_data=meta_data,
             jurisdiction=jurisdiction,
-            update_count=update_count,
             products_enabled=products_enabled,
             pep_status=pep_status,
             sanctions_status=sanctions_status,
@@ -335,7 +326,6 @@ class AsyncBusinessUsersClient:
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.Sequence[PaymentMethod]] = OMIT,
-        last_transaction_timestamp: typing.Optional[float] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[BusinessSavedPaymentDetailsItem]] = OMIT,
@@ -344,7 +334,6 @@ class AsyncBusinessUsersClient:
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[bool] = OMIT,
@@ -420,9 +409,6 @@ class AsyncBusinessUsersClient:
 
         allowed_payment_methods : typing.Optional[typing.Sequence[PaymentMethod]]
 
-        last_transaction_timestamp : typing.Optional[float]
-            Timestamp of the last successful transaction of the user
-
         linked_entities : typing.Optional[UserEntityLink]
 
         acquisition_channel : typing.Optional[AcquisitionChannel]
@@ -441,8 +427,6 @@ class AsyncBusinessUsersClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
-
-        update_count : typing.Optional[float]
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
@@ -514,7 +498,6 @@ class AsyncBusinessUsersClient:
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             allowed_payment_methods=allowed_payment_methods,
-            last_transaction_timestamp=last_transaction_timestamp,
             linked_entities=linked_entities,
             acquisition_channel=acquisition_channel,
             saved_payment_details=saved_payment_details,
@@ -523,7 +506,6 @@ class AsyncBusinessUsersClient:
             attachments=attachments,
             meta_data=meta_data,
             jurisdiction=jurisdiction,
-            update_count=update_count,
             products_enabled=products_enabled,
             pep_status=pep_status,
             sanctions_status=sanctions_status,

@@ -98,13 +98,6 @@ class Business(UniversalBaseModel):
     allowed_payment_methods: typing_extensions.Annotated[
         typing.Optional[typing.List[PaymentMethod]], FieldMetadata(alias="allowedPaymentMethods")
     ] = None
-    last_transaction_timestamp: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="lastTransactionTimestamp")
-    ] = pydantic.Field(default=None)
-    """
-    Timestamp of the last successful transaction of the user
-    """
-
     linked_entities: typing_extensions.Annotated[
         typing.Optional[UserEntityLink], FieldMetadata(alias="linkedEntities")
     ] = None
@@ -131,7 +124,6 @@ class Business(UniversalBaseModel):
     Legal authority or region governing the transaction
     """
 
-    update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
     products_enabled: typing_extensions.Annotated[
         typing.Optional[typing.List[ProductsEnabled]], FieldMetadata(alias="productsEnabled")
     ] = None

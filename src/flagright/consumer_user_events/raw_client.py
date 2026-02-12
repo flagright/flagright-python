@@ -40,7 +40,6 @@ class RawConsumerUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[UserWithRulesResult]:
         """
@@ -92,8 +91,6 @@ class RawConsumerUserEventsClient:
 
         updated_consumer_user_attributes : typing.Optional[UserOptional]
 
-        update_count : typing.Optional[float]
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -119,7 +116,6 @@ class RawConsumerUserEventsClient:
                 "updatedConsumerUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_consumer_user_attributes, annotation=UserOptional, direction="write"
                 ),
-                "updateCount": update_count,
             },
             headers={
                 "content-type": "application/json",
@@ -276,7 +272,6 @@ class AsyncRawConsumerUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[UserWithRulesResult]:
         """
@@ -328,8 +323,6 @@ class AsyncRawConsumerUserEventsClient:
 
         updated_consumer_user_attributes : typing.Optional[UserOptional]
 
-        update_count : typing.Optional[float]
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -355,7 +348,6 @@ class AsyncRawConsumerUserEventsClient:
                 "updatedConsumerUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_consumer_user_attributes, annotation=UserOptional, direction="write"
                 ),
-                "updateCount": update_count,
             },
             headers={
                 "content-type": "application/json",

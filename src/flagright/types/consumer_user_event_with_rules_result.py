@@ -45,7 +45,6 @@ class ConsumerUserEventWithRulesResult(UniversalBaseModel):
     updated_consumer_user_attributes: typing_extensions.Annotated[
         typing.Optional[UserOptional], FieldMetadata(alias="updatedConsumerUserAttributes")
     ] = None
-    update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None

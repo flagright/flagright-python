@@ -63,8 +63,6 @@ class TransactionsClient:
         metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
-        payment_approval_timestamp: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -151,10 +149,6 @@ class TransactionsClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
-
-        update_count : typing.Optional[float]
-
-        payment_approval_timestamp : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -269,8 +263,6 @@ class TransactionsClient:
             metadata=metadata,
             tags=tags,
             jurisdiction=jurisdiction,
-            update_count=update_count,
-            payment_approval_timestamp=payment_approval_timestamp,
             request_options=request_options,
         )
         return _response.data
@@ -355,8 +347,6 @@ class AsyncTransactionsClient:
         metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
-        payment_approval_timestamp: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -443,10 +433,6 @@ class AsyncTransactionsClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
-
-        update_count : typing.Optional[float]
-
-        payment_approval_timestamp : typing.Optional[float]
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -569,8 +555,6 @@ class AsyncTransactionsClient:
             metadata=metadata,
             tags=tags,
             jurisdiction=jurisdiction,
-            update_count=update_count,
-            payment_approval_timestamp=payment_approval_timestamp,
             request_options=request_options,
         )
         return _response.data

@@ -194,6 +194,7 @@ CurrencyCode = typing.Union[
         "HRK",
         "HTG",
         "HUF",
+        "HYPE",
         "ICP",
         "IDEX",
         "IDR",

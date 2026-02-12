@@ -80,7 +80,6 @@ class RawConsumerUsersClient:
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[SanctionsStatus] = OMIT,
         adverse_media_status: typing.Optional[AdverseMediaStatus] = OMIT,
-        last_transaction_timestamp: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
@@ -88,7 +87,6 @@ class RawConsumerUsersClient:
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[ConsumerUsersCreateResponse]:
@@ -169,9 +167,6 @@ class RawConsumerUsersClient:
 
         adverse_media_status : typing.Optional[AdverseMediaStatus]
 
-        last_transaction_timestamp : typing.Optional[float]
-            Timestamp of the last successful transaction of the user
-
         corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
             Corporate entities of the user
 
@@ -189,8 +184,6 @@ class RawConsumerUsersClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
-
-        update_count : typing.Optional[float]
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
@@ -255,7 +248,6 @@ class RawConsumerUsersClient:
                 ),
                 "sanctionsStatus": sanctions_status,
                 "adverseMediaStatus": adverse_media_status,
-                "lastTransactionTimestamp": last_transaction_timestamp,
                 "corporateEntities": convert_and_respect_annotation_metadata(
                     object_=corporate_entities, annotation=typing.Sequence[CorporateEntityDetails], direction="write"
                 ),
@@ -277,7 +269,6 @@ class RawConsumerUsersClient:
                     object_=meta_data, annotation=DeviceData, direction="write"
                 ),
                 "jurisdiction": jurisdiction,
-                "updateCount": update_count,
                 "productsEnabled": convert_and_respect_annotation_metadata(
                     object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
                 ),
@@ -447,7 +438,6 @@ class AsyncRawConsumerUsersClient:
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[SanctionsStatus] = OMIT,
         adverse_media_status: typing.Optional[AdverseMediaStatus] = OMIT,
-        last_transaction_timestamp: typing.Optional[float] = OMIT,
         corporate_entities: typing.Optional[typing.Sequence[CorporateEntityDetails]] = OMIT,
         linked_entities: typing.Optional[UserEntityLink] = OMIT,
         saved_payment_details: typing.Optional[typing.Sequence[UserSavedPaymentDetailsItem]] = OMIT,
@@ -455,7 +445,6 @@ class AsyncRawConsumerUsersClient:
         attachments: typing.Optional[typing.Sequence[PersonAttachment]] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[ConsumerUsersCreateResponse]:
@@ -536,9 +525,6 @@ class AsyncRawConsumerUsersClient:
 
         adverse_media_status : typing.Optional[AdverseMediaStatus]
 
-        last_transaction_timestamp : typing.Optional[float]
-            Timestamp of the last successful transaction of the user
-
         corporate_entities : typing.Optional[typing.Sequence[CorporateEntityDetails]]
             Corporate entities of the user
 
@@ -556,8 +542,6 @@ class AsyncRawConsumerUsersClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
-
-        update_count : typing.Optional[float]
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
@@ -622,7 +606,6 @@ class AsyncRawConsumerUsersClient:
                 ),
                 "sanctionsStatus": sanctions_status,
                 "adverseMediaStatus": adverse_media_status,
-                "lastTransactionTimestamp": last_transaction_timestamp,
                 "corporateEntities": convert_and_respect_annotation_metadata(
                     object_=corporate_entities, annotation=typing.Sequence[CorporateEntityDetails], direction="write"
                 ),
@@ -644,7 +627,6 @@ class AsyncRawConsumerUsersClient:
                     object_=meta_data, annotation=DeviceData, direction="write"
                 ),
                 "jurisdiction": jurisdiction,
-                "updateCount": update_count,
                 "productsEnabled": convert_and_respect_annotation_metadata(
                     object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
                 ),

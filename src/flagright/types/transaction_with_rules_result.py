@@ -122,10 +122,6 @@ class TransactionWithRulesResult(UniversalBaseModel):
     Legal authority or region governing the transaction
     """
 
-    update_count: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="updateCount")] = None
-    payment_approval_timestamp: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="paymentApprovalTimestamp")
-    ] = None
     executed_rules: typing_extensions.Annotated[typing.List[ExecutedRulesResult], FieldMetadata(alias="executedRules")]
     hit_rules: typing_extensions.Annotated[typing.List[HitRulesDetails], FieldMetadata(alias="hitRules")]
     status: RuleAction

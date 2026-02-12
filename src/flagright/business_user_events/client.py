@@ -41,7 +41,6 @@ class BusinessUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessWithRulesResult:
         """
@@ -93,8 +92,6 @@ class BusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
-        update_count : typing.Optional[float]
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -129,7 +126,6 @@ class BusinessUserEventsClient:
             reason=reason,
             event_description=event_description,
             updated_business_user_attributes=updated_business_user_attributes,
-            update_count=update_count,
             request_options=request_options,
         )
         return _response.data
@@ -197,7 +193,6 @@ class AsyncBusinessUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
-        update_count: typing.Optional[float] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessWithRulesResult:
         """
@@ -249,8 +244,6 @@ class AsyncBusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
-        update_count : typing.Optional[float]
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -293,7 +286,6 @@ class AsyncBusinessUserEventsClient:
             reason=reason,
             event_description=event_description,
             updated_business_user_attributes=updated_business_user_attributes,
-            update_count=update_count,
             request_options=request_options,
         )
         return _response.data
