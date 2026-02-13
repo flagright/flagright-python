@@ -57,7 +57,6 @@ from flagright import (
 )
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.transactions.verify(
@@ -370,7 +369,6 @@ Calling `GET /transactions/{transactionId}` will return the entire transaction p
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.transactions.get(
@@ -428,7 +426,6 @@ client.transactions.get(
 from flagright import Flagright, Transaction
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.verify_transaction(
@@ -517,7 +514,6 @@ client.batch.verify_transaction(
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.get_transactions(
@@ -592,7 +588,6 @@ client.batch.get_transactions(
 from flagright import Flagright, TransactionEvent
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.create_transaction_events(
@@ -663,7 +658,6 @@ client.batch.create_transaction_events(
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.get_transaction_events(
@@ -738,7 +732,6 @@ client.batch.get_transaction_events(
 from flagright import Flagright, User
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.create_consumer_users(
@@ -826,7 +819,6 @@ client.batch.create_consumer_users(
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.get_consumer_users(
@@ -901,7 +893,6 @@ client.batch.get_consumer_users(
 from flagright import Business, CompanyGeneralDetails, Flagright, LegalEntity
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.create_business_users(
@@ -996,7 +987,6 @@ client.batch.create_business_users(
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.get_business_users(
@@ -1071,7 +1061,6 @@ client.batch.get_business_users(
 from flagright import ConsumerUserEvent, Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.create_consumer_user_events(
@@ -1159,7 +1148,6 @@ client.batch.create_consumer_user_events(
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.get_consumer_user_events(
@@ -1234,7 +1222,6 @@ client.batch.get_consumer_user_events(
 from flagright import BusinessUserEvent, Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.create_business_user_events(
@@ -1322,7 +1309,6 @@ client.batch.create_business_user_events(
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.batch.get_business_user_events(
@@ -1431,7 +1417,6 @@ In order to make individual events retrievable, you also need to pass in a uniqu
 from flagright import DeviceData, Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.transaction_events.create(
@@ -1573,7 +1558,6 @@ You can retrieve any transaction event you created using the [POST Transaction E
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.transaction_events.get(
@@ -1665,7 +1649,6 @@ from flagright import (
 )
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.consumer_users.create(
@@ -2067,7 +2050,6 @@ Calling `GET /consumer/user/{userId}` will return the entire user payload and ru
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.consumer_users.get(
@@ -2152,7 +2134,6 @@ Each business user needs three mandatory fields:
 from flagright import CompanyGeneralDetails, Flagright, LegalEntity
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.business_users.create(
@@ -2486,7 +2467,6 @@ Calling `GET /business/user/{userId}` will return the entire User payload and ru
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.business_users.get(
@@ -2576,7 +2556,6 @@ In order to make individual events retrievable, you also need to pass in a uniqu
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.consumer_user_events.create(
@@ -2716,7 +2695,6 @@ You can retrieve any consumer user event you created using the [POST Consumer Us
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.consumer_user_events.get(
@@ -2806,7 +2784,6 @@ In order to make individual events retrievable, you also need to pass in a uniqu
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.business_user_events.create(
@@ -2946,7 +2923,6 @@ You can retrieve any business user event you created using the [POST Business Us
 from flagright import Flagright
 
 client = Flagright(
-    authorization="YOUR_AUTHORIZATION",
     api_key="YOUR_API_KEY",
 )
 client.business_user_events.get(

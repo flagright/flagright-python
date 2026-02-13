@@ -211,7 +211,6 @@ class ConsumerUsersClient:
         )
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.consumer_users.create(
@@ -339,7 +338,6 @@ class ConsumerUsersClient:
         from flagright import Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.consumer_users.get(
@@ -526,7 +524,6 @@ class AsyncConsumerUsersClient:
         )
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -664,7 +661,6 @@ class AsyncConsumerUsersClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 

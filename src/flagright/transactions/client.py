@@ -170,7 +170,6 @@ class TransactionsClient:
         )
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.transactions.verify(
@@ -295,7 +294,6 @@ class TransactionsClient:
         from flagright import Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.transactions.get(
@@ -456,7 +454,6 @@ class AsyncTransactionsClient:
         )
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -589,7 +586,6 @@ class AsyncTransactionsClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 

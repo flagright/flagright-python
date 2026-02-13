@@ -196,7 +196,6 @@ class BusinessUsersClient:
         from flagright import CompanyGeneralDetails, Flagright, LegalEntity
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.business_users.create(
@@ -277,7 +276,6 @@ class BusinessUsersClient:
         from flagright import Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.business_users.get(
@@ -453,7 +451,6 @@ class AsyncBusinessUsersClient:
         from flagright import AsyncFlagright, CompanyGeneralDetails, LegalEntity
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -544,7 +541,6 @@ class AsyncBusinessUsersClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 

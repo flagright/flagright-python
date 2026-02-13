@@ -76,7 +76,6 @@ class BatchClient:
         from flagright import Flagright, Transaction
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.verify_transaction(
@@ -133,7 +132,6 @@ class BatchClient:
         from flagright import Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.get_transactions(
@@ -174,7 +172,6 @@ class BatchClient:
         from flagright import Flagright, TransactionEvent
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.create_transaction_events(
@@ -225,7 +222,6 @@ class BatchClient:
         from flagright import Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.get_transaction_events(
@@ -274,7 +270,6 @@ class BatchClient:
         from flagright import Flagright, User
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.create_consumer_users(
@@ -330,7 +325,6 @@ class BatchClient:
         from flagright import Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.get_consumer_users(
@@ -379,7 +373,6 @@ class BatchClient:
         from flagright import Business, CompanyGeneralDetails, Flagright, LegalEntity
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.create_business_users(
@@ -442,7 +435,6 @@ class BatchClient:
         from flagright import Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.get_business_users(
@@ -491,7 +483,6 @@ class BatchClient:
         from flagright import ConsumerUserEvent, Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.create_consumer_user_events(
@@ -547,7 +538,6 @@ class BatchClient:
         from flagright import Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.get_consumer_user_events(
@@ -596,7 +586,6 @@ class BatchClient:
         from flagright import BusinessUserEvent, Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.create_business_user_events(
@@ -652,7 +641,6 @@ class BatchClient:
         from flagright import Flagright
 
         client = Flagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
         client.batch.get_business_user_events(
@@ -719,7 +707,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright, Transaction
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -784,7 +771,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -833,7 +819,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright, TransactionEvent
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -892,7 +877,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -949,7 +933,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright, User
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -1013,7 +996,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -1075,7 +1057,6 @@ class AsyncBatchClient:
         )
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -1146,7 +1127,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -1203,7 +1183,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright, ConsumerUserEvent
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -1267,7 +1246,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -1324,7 +1302,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright, BusinessUserEvent
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
@@ -1388,7 +1365,6 @@ class AsyncBatchClient:
         from flagright import AsyncFlagright
 
         client = AsyncFlagright(
-            authorization="YOUR_AUTHORIZATION",
             api_key="YOUR_API_KEY",
         )
 
