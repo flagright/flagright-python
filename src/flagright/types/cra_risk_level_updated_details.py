@@ -10,7 +10,6 @@ from ..core.serialization import FieldMetadata
 
 class CraRiskLevelUpdatedDetails(UniversalBaseModel):
     risk_level: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="riskLevel")] = None
-    risk_score: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="riskScore")] = None
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
 
     if IS_PYDANTIC_V2:

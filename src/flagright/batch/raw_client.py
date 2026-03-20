@@ -11,7 +11,6 @@ from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..errors.bad_request_error import BadRequestError
-from ..errors.conflict_error import ConflictError
 from ..errors.not_found_error import NotFoundError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
@@ -283,17 +282,6 @@ class RawBatchClient:
                 )
             if _response.status_code == 401:
                 raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 409:
-                raise ConflictError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         ApiErrorResponse,
@@ -1379,17 +1367,6 @@ class AsyncRawBatchClient:
                 )
             if _response.status_code == 401:
                 raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        ApiErrorResponse,
-                        parse_obj_as(
-                            type_=ApiErrorResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 409:
-                raise ConflictError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         ApiErrorResponse,

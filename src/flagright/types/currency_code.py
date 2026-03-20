@@ -163,6 +163,7 @@ CurrencyCode = typing.Union[
         "GAL",
         "GALA",
         "GBP",
+        "GBPA",
         "GEL",
         "GFI",
         "GGP",
