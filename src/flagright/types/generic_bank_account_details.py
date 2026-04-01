@@ -88,6 +88,13 @@ class GenericBankAccountDetails(UniversalBaseModel):
     """
 
     payment_channel: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="paymentChannel")] = None
+    beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Beneficiary name of the account
+    """
+
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags

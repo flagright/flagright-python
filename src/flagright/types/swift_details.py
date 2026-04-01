@@ -72,6 +72,13 @@ class SwiftDetails(UniversalBaseModel):
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
     ] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
+    beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Beneficiary name of the account
+    """
+
     special_instructions: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="specialInstructions")
     ] = pydantic.Field(default=None)

@@ -117,6 +117,7 @@ class TransactionWithRulesResultOriginPaymentDetails_GenericBankAccount(Universa
         typing.Optional[str], FieldMetadata(alias="specialInstructions")
     ] = None
     payment_channel: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="paymentChannel")] = None
+    beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = None
     tags: typing.Optional[typing.List[Tag]] = None
     transit_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="transitNumber")] = None
     address: typing.Optional[Address] = None
@@ -151,6 +152,7 @@ class TransactionWithRulesResultOriginPaymentDetails_Iban(UniversalBaseModel):
     name: typing.Optional[str] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     bank_branch_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankBranchCode")] = None
+    beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = None
     payment_channel: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="paymentChannel")] = None
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
@@ -230,6 +232,7 @@ class TransactionWithRulesResultOriginPaymentDetails_Swift(UniversalBaseModel):
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
     ] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
+    beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = None
     special_instructions: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="specialInstructions")
     ] = None
@@ -332,6 +335,7 @@ class TransactionWithRulesResultOriginPaymentDetails_Wallet(UniversalBaseModel):
     country_of_residence: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
     ] = None
+    beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = None
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
     authorized_representative: typing_extensions.Annotated[
         typing.Optional[typing.List[UserDetails]], FieldMetadata(alias="authorizedRepresentative")

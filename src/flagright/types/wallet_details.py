@@ -72,6 +72,13 @@ class WalletDetails(UniversalBaseModel):
     country_of_residence: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
     ] = None
+    beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Beneficiary name of the account
+    """
+
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
     authorized_representative: typing_extensions.Annotated[
         typing.Optional[typing.List[UserDetails]], FieldMetadata(alias="authorizedRepresentative")

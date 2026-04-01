@@ -60,6 +60,13 @@ class IbanDetails(UniversalBaseModel):
     Branch code of the bank. In some countries, this can be the same as the bank's SWIFT code
     """
 
+    beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Beneficiary name of the account
+    """
+
     payment_channel: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="paymentChannel")] = None
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
