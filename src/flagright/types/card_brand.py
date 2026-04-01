@@ -3,5 +3,6 @@
 import typing
 
 CardBrand = typing.Union[
-    typing.Literal["VISA", "MASTERCARD", "AMERICAN_EXPRESS", "DISCOVER", "UNIONPAY", "RUPAY", "JCB"], typing.Any
+    typing.Literal["VISA", "MASTERCARD", "AMERICAN_EXPRESS", "DISCOVER", "UNIONPAY", "RUPAY", "JCB", "DINERS_CLUB"],
+    typing.Any,
 ]

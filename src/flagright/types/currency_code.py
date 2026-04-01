@@ -140,6 +140,7 @@ CurrencyCode = typing.Union[
         "ETC",
         "ETH",
         "ETH2",
+        "ETHB",
         "EUR",
         "EURA",
         "EURC",

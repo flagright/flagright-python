@@ -25,6 +25,7 @@ from ..types.employment_details import EmploymentDetails
 from ..types.employment_status import EmploymentStatus
 from ..types.expected_income import ExpectedIncome
 from ..types.expected_transaction_countries import ExpectedTransactionCountries
+from ..types.expected_transaction_currencies import ExpectedTransactionCurrencies
 from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_document import LegalDocument
 from ..types.pep_status import PepStatus
@@ -71,6 +72,7 @@ class RawConsumerUsersClient:
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_income: typing.Optional[ExpectedIncome] = OMIT,
         expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
+        expected_transaction_currencies: typing.Optional[ExpectedTransactionCurrencies] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
@@ -148,6 +150,8 @@ class RawConsumerUsersClient:
         expected_income : typing.Optional[ExpectedIncome]
 
         expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
+        expected_transaction_currencies : typing.Optional[ExpectedTransactionCurrencies]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -236,6 +240,9 @@ class RawConsumerUsersClient:
                 ),
                 "expectedTransactionCountries": convert_and_respect_annotation_metadata(
                     object_=expected_transaction_countries, annotation=ExpectedTransactionCountries, direction="write"
+                ),
+                "expectedTransactionCurrencies": convert_and_respect_annotation_metadata(
+                    object_=expected_transaction_currencies, annotation=ExpectedTransactionCurrencies, direction="write"
                 ),
                 "riskLevel": risk_level,
                 "kycRiskLevel": kyc_risk_level,
@@ -429,6 +436,7 @@ class AsyncRawConsumerUsersClient:
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_income: typing.Optional[ExpectedIncome] = OMIT,
         expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
+        expected_transaction_currencies: typing.Optional[ExpectedTransactionCurrencies] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
@@ -506,6 +514,8 @@ class AsyncRawConsumerUsersClient:
         expected_income : typing.Optional[ExpectedIncome]
 
         expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
+        expected_transaction_currencies : typing.Optional[ExpectedTransactionCurrencies]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -594,6 +604,9 @@ class AsyncRawConsumerUsersClient:
                 ),
                 "expectedTransactionCountries": convert_and_respect_annotation_metadata(
                     object_=expected_transaction_countries, annotation=ExpectedTransactionCountries, direction="write"
+                ),
+                "expectedTransactionCurrencies": convert_and_respect_annotation_metadata(
+                    object_=expected_transaction_currencies, annotation=ExpectedTransactionCurrencies, direction="write"
                 ),
                 "riskLevel": risk_level,
                 "kycRiskLevel": kyc_risk_level,

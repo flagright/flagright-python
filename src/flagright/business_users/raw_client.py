@@ -24,6 +24,7 @@ from ..types.business_with_rules_result import BusinessWithRulesResult
 from ..types.corporate_entity_details import CorporateEntityDetails
 from ..types.device_data import DeviceData
 from ..types.expected_transaction_countries import ExpectedTransactionCountries
+from ..types.expected_transaction_currencies import ExpectedTransactionCurrencies
 from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_entity import LegalEntity
 from ..types.mcc_details import MccDetails
@@ -66,6 +67,7 @@ class RawBusinessUsersClient:
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
+        expected_transaction_currencies: typing.Optional[ExpectedTransactionCurrencies] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.Sequence[PaymentMethod]] = OMIT,
@@ -145,6 +147,8 @@ class RawBusinessUsersClient:
         transaction_limits : typing.Optional[TransactionLimits]
 
         expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
+        expected_transaction_currencies : typing.Optional[ExpectedTransactionCurrencies]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -233,6 +237,9 @@ class RawBusinessUsersClient:
                 ),
                 "expectedTransactionCountries": convert_and_respect_annotation_metadata(
                     object_=expected_transaction_countries, annotation=ExpectedTransactionCountries, direction="write"
+                ),
+                "expectedTransactionCurrencies": convert_and_respect_annotation_metadata(
+                    object_=expected_transaction_currencies, annotation=ExpectedTransactionCurrencies, direction="write"
                 ),
                 "riskLevel": risk_level,
                 "kycRiskLevel": kyc_risk_level,
@@ -423,6 +430,7 @@ class AsyncRawBusinessUsersClient:
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
+        expected_transaction_currencies: typing.Optional[ExpectedTransactionCurrencies] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.Sequence[PaymentMethod]] = OMIT,
@@ -502,6 +510,8 @@ class AsyncRawBusinessUsersClient:
         transaction_limits : typing.Optional[TransactionLimits]
 
         expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
+        expected_transaction_currencies : typing.Optional[ExpectedTransactionCurrencies]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -590,6 +600,9 @@ class AsyncRawBusinessUsersClient:
                 ),
                 "expectedTransactionCountries": convert_and_respect_annotation_metadata(
                     object_=expected_transaction_countries, annotation=ExpectedTransactionCountries, direction="write"
+                ),
+                "expectedTransactionCurrencies": convert_and_respect_annotation_metadata(
+                    object_=expected_transaction_currencies, annotation=ExpectedTransactionCurrencies, direction="write"
                 ),
                 "riskLevel": risk_level,
                 "kycRiskLevel": kyc_risk_level,

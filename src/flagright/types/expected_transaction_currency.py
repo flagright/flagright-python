@@ -6,13 +6,15 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .currency_code import CurrencyCode
 
 
-class CraRiskLevelUpdatedDetails(UniversalBaseModel):
-    risk_level: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="riskLevel")] = None
-    risk_score: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="riskScore")] = None
-    type: typing.Optional[typing.Literal["CRA_RISK_SCORE_UPDATED"]] = None
-    user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
+class ExpectedTransactionCurrency(UniversalBaseModel):
+    """
+    Model for a single expected transaction currency
+    """
+
+    currency_code: typing_extensions.Annotated[CurrencyCode, FieldMetadata(alias="currencyCode")]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
