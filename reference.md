@@ -1868,6 +1868,14 @@ client.consumer_users.create(
 <dl>
 <dd>
 
+**expected_transaction_currencies:** `typing.Optional[ExpectedTransactionCurrencies]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **risk_level:** `typing.Optional[RiskLevel]` 
     
 </dd>
@@ -2294,6 +2302,14 @@ client.business_users.create(
 <dd>
 
 **expected_transaction_countries:** `typing.Optional[ExpectedTransactionCountries]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**expected_transaction_currencies:** `typing.Optional[ExpectedTransactionCurrencies]` 
     
 </dd>
 </dl>

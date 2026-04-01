@@ -182,6 +182,8 @@ if typing.TYPE_CHECKING:
     from .expected_income import ExpectedIncome
     from .expected_transaction_countries import ExpectedTransactionCountries
     from .expected_transaction_country import ExpectedTransactionCountry
+    from .expected_transaction_currencies import ExpectedTransactionCurrencies
+    from .expected_transaction_currency import ExpectedTransactionCurrency
     from .failed_rules_result import FailedRulesResult
     from .false_positive_details import FalsePositiveDetails
     from .file_info import FileInfo
@@ -581,6 +583,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ExpectedIncome": ".expected_income",
     "ExpectedTransactionCountries": ".expected_transaction_countries",
     "ExpectedTransactionCountry": ".expected_transaction_country",
+    "ExpectedTransactionCurrencies": ".expected_transaction_currencies",
+    "ExpectedTransactionCurrency": ".expected_transaction_currency",
     "FailedRulesResult": ".failed_rules_result",
     "FalsePositiveDetails": ".false_positive_details",
     "FileInfo": ".file_info",
@@ -986,6 +990,8 @@ __all__ = [
     "ExpectedIncome",
     "ExpectedTransactionCountries",
     "ExpectedTransactionCountry",
+    "ExpectedTransactionCurrencies",
+    "ExpectedTransactionCurrency",
     "FailedRulesResult",
     "FalsePositiveDetails",
     "FileInfo",

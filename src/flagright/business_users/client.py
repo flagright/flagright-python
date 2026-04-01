@@ -14,6 +14,7 @@ from ..types.business_with_rules_result import BusinessWithRulesResult
 from ..types.corporate_entity_details import CorporateEntityDetails
 from ..types.device_data import DeviceData
 from ..types.expected_transaction_countries import ExpectedTransactionCountries
+from ..types.expected_transaction_currencies import ExpectedTransactionCurrencies
 from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_entity import LegalEntity
 from ..types.mcc_details import MccDetails
@@ -68,6 +69,7 @@ class BusinessUsersClient:
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
+        expected_transaction_currencies: typing.Optional[ExpectedTransactionCurrencies] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.Sequence[PaymentMethod]] = OMIT,
@@ -147,6 +149,8 @@ class BusinessUsersClient:
         transaction_limits : typing.Optional[TransactionLimits]
 
         expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
+        expected_transaction_currencies : typing.Optional[ExpectedTransactionCurrencies]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -231,6 +235,7 @@ class BusinessUsersClient:
             business_partners=business_partners,
             transaction_limits=transaction_limits,
             expected_transaction_countries=expected_transaction_countries,
+            expected_transaction_currencies=expected_transaction_currencies,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             allowed_payment_methods=allowed_payment_methods,
@@ -321,6 +326,7 @@ class AsyncBusinessUsersClient:
         business_partners: typing.Optional[typing.Sequence[LegalEntity]] = OMIT,
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
+        expected_transaction_currencies: typing.Optional[ExpectedTransactionCurrencies] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         allowed_payment_methods: typing.Optional[typing.Sequence[PaymentMethod]] = OMIT,
@@ -400,6 +406,8 @@ class AsyncBusinessUsersClient:
         transaction_limits : typing.Optional[TransactionLimits]
 
         expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
+        expected_transaction_currencies : typing.Optional[ExpectedTransactionCurrencies]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -492,6 +500,7 @@ class AsyncBusinessUsersClient:
             business_partners=business_partners,
             transaction_limits=transaction_limits,
             expected_transaction_countries=expected_transaction_countries,
+            expected_transaction_currencies=expected_transaction_currencies,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             allowed_payment_methods=allowed_payment_methods,

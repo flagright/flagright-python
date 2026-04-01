@@ -15,6 +15,7 @@ from ..types.employment_details import EmploymentDetails
 from ..types.employment_status import EmploymentStatus
 from ..types.expected_income import ExpectedIncome
 from ..types.expected_transaction_countries import ExpectedTransactionCountries
+from ..types.expected_transaction_currencies import ExpectedTransactionCurrencies
 from ..types.kyc_status_details import KycStatusDetails
 from ..types.legal_document import LegalDocument
 from ..types.pep_status import PepStatus
@@ -73,6 +74,7 @@ class ConsumerUsersClient:
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_income: typing.Optional[ExpectedIncome] = OMIT,
         expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
+        expected_transaction_currencies: typing.Optional[ExpectedTransactionCurrencies] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
@@ -150,6 +152,8 @@ class ConsumerUsersClient:
         expected_income : typing.Optional[ExpectedIncome]
 
         expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
+        expected_transaction_currencies : typing.Optional[ExpectedTransactionCurrencies]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -291,6 +295,7 @@ class ConsumerUsersClient:
             transaction_limits=transaction_limits,
             expected_income=expected_income,
             expected_transaction_countries=expected_transaction_countries,
+            expected_transaction_currencies=expected_transaction_currencies,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             acquisition_channel=acquisition_channel,
@@ -384,6 +389,7 @@ class AsyncConsumerUsersClient:
         transaction_limits: typing.Optional[TransactionLimits] = OMIT,
         expected_income: typing.Optional[ExpectedIncome] = OMIT,
         expected_transaction_countries: typing.Optional[ExpectedTransactionCountries] = OMIT,
+        expected_transaction_currencies: typing.Optional[ExpectedTransactionCurrencies] = OMIT,
         risk_level: typing.Optional[RiskLevel] = OMIT,
         kyc_risk_level: typing.Optional[RiskLevel] = OMIT,
         acquisition_channel: typing.Optional[AcquisitionChannel] = OMIT,
@@ -461,6 +467,8 @@ class AsyncConsumerUsersClient:
         expected_income : typing.Optional[ExpectedIncome]
 
         expected_transaction_countries : typing.Optional[ExpectedTransactionCountries]
+
+        expected_transaction_currencies : typing.Optional[ExpectedTransactionCurrencies]
 
         risk_level : typing.Optional[RiskLevel]
 
@@ -610,6 +618,7 @@ class AsyncConsumerUsersClient:
             transaction_limits=transaction_limits,
             expected_income=expected_income,
             expected_transaction_countries=expected_transaction_countries,
+            expected_transaction_currencies=expected_transaction_currencies,
             risk_level=risk_level,
             kyc_risk_level=kyc_risk_level,
             acquisition_channel=acquisition_channel,

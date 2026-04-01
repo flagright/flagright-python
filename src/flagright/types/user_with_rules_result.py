@@ -17,6 +17,7 @@ from .employment_status import EmploymentStatus
 from .executed_rules_result import ExecutedRulesResult
 from .expected_income import ExpectedIncome
 from .expected_transaction_countries import ExpectedTransactionCountries
+from .expected_transaction_currencies import ExpectedTransactionCurrencies
 from .hit_rules_details import HitRulesDetails
 from .kyc_status_details import KycStatusDetails
 from .legal_document import LegalDocument
@@ -86,6 +87,9 @@ class UserWithRulesResult(UniversalBaseModel):
     ] = None
     expected_transaction_countries: typing_extensions.Annotated[
         typing.Optional[ExpectedTransactionCountries], FieldMetadata(alias="expectedTransactionCountries")
+    ] = None
+    expected_transaction_currencies: typing_extensions.Annotated[
+        typing.Optional[ExpectedTransactionCurrencies], FieldMetadata(alias="expectedTransactionCurrencies")
     ] = None
     risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="riskLevel")] = None
     kyc_risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="kycRiskLevel")] = None

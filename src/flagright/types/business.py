@@ -14,6 +14,7 @@ from .business_share_holders_item import BusinessShareHoldersItem
 from .corporate_entity_details import CorporateEntityDetails
 from .device_data import DeviceData
 from .expected_transaction_countries import ExpectedTransactionCountries
+from .expected_transaction_currencies import ExpectedTransactionCurrencies
 from .kyc_status_details import KycStatusDetails
 from .legal_entity import LegalEntity
 from .mcc_details import MccDetails
@@ -92,6 +93,9 @@ class Business(UniversalBaseModel):
     ] = None
     expected_transaction_countries: typing_extensions.Annotated[
         typing.Optional[ExpectedTransactionCountries], FieldMetadata(alias="expectedTransactionCountries")
+    ] = None
+    expected_transaction_currencies: typing_extensions.Annotated[
+        typing.Optional[ExpectedTransactionCurrencies], FieldMetadata(alias="expectedTransactionCurrencies")
     ] = None
     risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="riskLevel")] = None
     kyc_risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="kycRiskLevel")] = None

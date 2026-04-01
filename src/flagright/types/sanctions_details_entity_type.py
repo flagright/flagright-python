@@ -16,6 +16,7 @@ SanctionsDetailsEntityType = typing.Union[
         "BUSINESS_PARTNER",
         "ASSOCIATED_PARTY",
         "CONSUMER_ALIAS",
+        "LEGAL_ENTITY_ALIAS",
         "TRANSACTION_REFERENCE",
         "TRANSACTION_TAG",
     ],
