@@ -66,6 +66,13 @@ class CardDetails(UniversalBaseModel):
     Last 4 digits of Card
     """
 
+    card_first_6_digits: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cardFirst6Digits")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    First 6 digits of Card
+    """
+
     card_brand: typing_extensions.Annotated[typing.Optional[CardBrand], FieldMetadata(alias="cardBrand")] = None
     card_funding: typing_extensions.Annotated[typing.Optional[CardFunding], FieldMetadata(alias="cardFunding")] = None
     card_authenticated: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="cardAuthenticated")] = (

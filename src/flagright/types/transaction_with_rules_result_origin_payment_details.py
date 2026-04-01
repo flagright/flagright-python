@@ -52,6 +52,9 @@ class TransactionWithRulesResultOriginPaymentDetails_Card(UniversalBaseModel):
     card_expiry: typing_extensions.Annotated[typing.Optional[CardExpiry], FieldMetadata(alias="cardExpiry")] = None
     pos_details: typing_extensions.Annotated[typing.Optional[PosDetails], FieldMetadata(alias="posDetails")] = None
     card_last_4_digits: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cardLast4Digits")] = None
+    card_first_6_digits: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cardFirst6Digits")] = (
+        None
+    )
     card_brand: typing_extensions.Annotated[typing.Optional[CardBrand], FieldMetadata(alias="cardBrand")] = None
     card_funding: typing_extensions.Annotated[typing.Optional[CardFunding], FieldMetadata(alias="cardFunding")] = None
     card_authenticated: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="cardAuthenticated")] = (

@@ -40,7 +40,9 @@ class LegalDocument(UniversalBaseModel):
     User's identity document expiration date (UNIX timestamp in milliseconds)
     """
 
-    document_issued_country: typing_extensions.Annotated[CountryCode, FieldMetadata(alias="documentIssuedCountry")]
+    document_issued_country: typing_extensions.Annotated[
+        typing.Optional[CountryCode], FieldMetadata(alias="documentIssuedCountry")
+    ] = None
     tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
     """
     Additional information that can be added via tags
