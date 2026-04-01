@@ -51,6 +51,7 @@ CurrencyCode = typing.Union[
         "BAL",
         "BAM",
         "BAND",
+        "BASE",
         "BAT",
         "BBD",
         "BCH",
