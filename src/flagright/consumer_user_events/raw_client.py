@@ -40,6 +40,7 @@ class RawConsumerUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[UserWithRulesResult]:
         """
@@ -91,6 +92,9 @@ class RawConsumerUserEventsClient:
 
         updated_consumer_user_attributes : typing.Optional[UserOptional]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the consumer user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -116,6 +120,7 @@ class RawConsumerUserEventsClient:
                 "updatedConsumerUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_consumer_user_attributes, annotation=UserOptional, direction="write"
                 ),
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",
@@ -272,6 +277,7 @@ class AsyncRawConsumerUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[UserWithRulesResult]:
         """
@@ -323,6 +329,9 @@ class AsyncRawConsumerUserEventsClient:
 
         updated_consumer_user_attributes : typing.Optional[UserOptional]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the consumer user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -348,6 +357,7 @@ class AsyncRawConsumerUserEventsClient:
                 "updatedConsumerUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_consumer_user_attributes, annotation=UserOptional, direction="write"
                 ),
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",

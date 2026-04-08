@@ -41,6 +41,7 @@ class BusinessUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessWithRulesResult:
         """
@@ -92,6 +93,9 @@ class BusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the business user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -125,6 +129,7 @@ class BusinessUserEventsClient:
             reason=reason,
             event_description=event_description,
             updated_business_user_attributes=updated_business_user_attributes,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data
@@ -191,6 +196,7 @@ class AsyncBusinessUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessWithRulesResult:
         """
@@ -242,6 +248,9 @@ class AsyncBusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the business user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -283,6 +292,7 @@ class AsyncBusinessUserEventsClient:
             reason=reason,
             event_description=event_description,
             updated_business_user_attributes=updated_business_user_attributes,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data

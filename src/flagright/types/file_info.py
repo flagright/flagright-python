@@ -12,7 +12,11 @@ class FileInfo(UniversalBaseModel):
     s_3_key: typing_extensions.Annotated[str, FieldMetadata(alias="s3Key")]
     bucket: typing.Optional[str] = None
     filename: str
-    size: float
+    size: float = pydantic.Field()
+    """
+    File size in bytes
+    """
+
     download_link: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="downloadLink")] = None
     ai_summary: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="aiSummary")] = None
 

@@ -40,6 +40,7 @@ class RawBusinessUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BusinessWithRulesResult]:
         """
@@ -91,6 +92,9 @@ class RawBusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the business user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -116,6 +120,7 @@ class RawBusinessUserEventsClient:
                 "updatedBusinessUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_business_user_attributes, annotation=BusinessOptional, direction="write"
                 ),
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",
@@ -272,6 +277,7 @@ class AsyncRawBusinessUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BusinessWithRulesResult]:
         """
@@ -323,6 +329,9 @@ class AsyncRawBusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the business user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -348,6 +357,7 @@ class AsyncRawBusinessUserEventsClient:
                 "updatedBusinessUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_business_user_attributes, annotation=BusinessOptional, direction="write"
                 ),
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",

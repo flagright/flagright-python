@@ -41,6 +41,7 @@ class TransactionEventsClient:
         event_description: typing.Optional[str] = OMIT,
         updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionEventMonitoringResult:
         """
@@ -88,6 +89,9 @@ class TransactionEventsClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the transaction
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -127,6 +131,7 @@ class TransactionEventsClient:
             event_description=event_description,
             updated_transaction_attributes=updated_transaction_attributes,
             meta_data=meta_data,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data
@@ -195,6 +200,7 @@ class AsyncTransactionEventsClient:
         event_description: typing.Optional[str] = OMIT,
         updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionEventMonitoringResult:
         """
@@ -241,6 +247,9 @@ class AsyncTransactionEventsClient:
         updated_transaction_attributes : typing.Optional[TransactionUpdatable]
 
         meta_data : typing.Optional[DeviceData]
+
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the transaction
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -289,6 +298,7 @@ class AsyncTransactionEventsClient:
             event_description=event_description,
             updated_transaction_attributes=updated_transaction_attributes,
             meta_data=meta_data,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data

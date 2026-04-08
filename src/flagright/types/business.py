@@ -148,6 +148,13 @@ class Business(UniversalBaseModel):
     Whether the user is in the adverse media list
     """
 
+    external_links: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="externalLinks")
+    ] = pydantic.Field(default=None)
+    """
+    External links related to the business user
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

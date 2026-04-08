@@ -159,6 +159,13 @@ class BatchBusinessUserWithRulesResult(UniversalBaseModel):
     Whether the user is in the adverse media list
     """
 
+    external_links: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="externalLinks")
+    ] = pydantic.Field(default=None)
+    """
+    External links related to the business user
+    """
+
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None

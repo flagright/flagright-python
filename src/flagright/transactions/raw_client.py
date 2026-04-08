@@ -61,6 +61,7 @@ class RawTransactionsClient:
         metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[TransactionsVerifyResponse]:
         """
@@ -148,6 +149,9 @@ class RawTransactionsClient:
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the transaction
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -207,6 +211,7 @@ class RawTransactionsClient:
                     object_=tags, annotation=typing.Sequence[Tag], direction="write"
                 ),
                 "jurisdiction": jurisdiction,
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",
@@ -369,6 +374,7 @@ class AsyncRawTransactionsClient:
         metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[TransactionsVerifyResponse]:
         """
@@ -456,6 +462,9 @@ class AsyncRawTransactionsClient:
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the transaction
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -515,6 +524,7 @@ class AsyncRawTransactionsClient:
                     object_=tags, annotation=typing.Sequence[Tag], direction="write"
                 ),
                 "jurisdiction": jurisdiction,
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",

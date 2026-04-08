@@ -16,7 +16,7 @@ class Amount(UniversalBaseModel):
 
     amount_value: typing_extensions.Annotated[float, FieldMetadata(alias="amountValue")] = pydantic.Field()
     """
-    Numerical value of the transaction
+    Numerical value of the transaction in major currency units (within IEEE 754 safe integer range for exact JSON representation)
     """
 
     amount_currency: typing_extensions.Annotated[CurrencyCode, FieldMetadata(alias="amountCurrency")]

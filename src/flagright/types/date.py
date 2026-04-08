@@ -11,17 +11,17 @@ class Date(UniversalBaseModel):
     Model for date
     """
 
-    day: float = pydantic.Field()
+    day: int = pydantic.Field()
     """
     Day of date
     """
 
-    month: float = pydantic.Field()
+    month: int = pydantic.Field()
     """
     Month of date
     """
 
-    year: float = pydantic.Field()
+    year: int = pydantic.Field()
     """
     Year of date
     """

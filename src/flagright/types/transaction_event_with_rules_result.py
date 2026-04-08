@@ -50,6 +50,13 @@ class TransactionEventWithRulesResult(UniversalBaseModel):
         typing.Optional[TransactionUpdatable], FieldMetadata(alias="updatedTransactionAttributes")
     ] = None
     meta_data: typing_extensions.Annotated[typing.Optional[DeviceData], FieldMetadata(alias="metaData")] = None
+    external_links: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="externalLinks")
+    ] = pydantic.Field(default=None)
+    """
+    External links related to the transaction
+    """
+
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None

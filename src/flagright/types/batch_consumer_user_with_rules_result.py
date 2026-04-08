@@ -148,6 +148,13 @@ class BatchConsumerUserWithRulesResult(UniversalBaseModel):
     products_enabled: typing_extensions.Annotated[
         typing.Optional[typing.List[ProductsEnabled]], FieldMetadata(alias="productsEnabled")
     ] = None
+    external_links: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="externalLinks")
+    ] = pydantic.Field(default=None)
+    """
+    External links related to the consumer user
+    """
+
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None

@@ -40,6 +40,7 @@ class RawTransactionEventsClient:
         event_description: typing.Optional[str] = OMIT,
         updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[TransactionEventMonitoringResult]:
         """
@@ -87,6 +88,9 @@ class RawTransactionEventsClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the transaction
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -111,6 +115,7 @@ class RawTransactionEventsClient:
                 "metaData": convert_and_respect_annotation_metadata(
                     object_=meta_data, annotation=DeviceData, direction="write"
                 ),
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",
@@ -269,6 +274,7 @@ class AsyncRawTransactionEventsClient:
         event_description: typing.Optional[str] = OMIT,
         updated_transaction_attributes: typing.Optional[TransactionUpdatable] = OMIT,
         meta_data: typing.Optional[DeviceData] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[TransactionEventMonitoringResult]:
         """
@@ -316,6 +322,9 @@ class AsyncRawTransactionEventsClient:
 
         meta_data : typing.Optional[DeviceData]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the transaction
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -340,6 +349,7 @@ class AsyncRawTransactionEventsClient:
                 "metaData": convert_and_respect_annotation_metadata(
                     object_=meta_data, annotation=DeviceData, direction="write"
                 ),
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",

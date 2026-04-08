@@ -46,6 +46,12 @@ class BusinessUserEvent(UniversalBaseModel):
     updated_business_user_attributes: typing_extensions.Annotated[
         typing.Optional[BusinessOptional], FieldMetadata(alias="updatedBusinessUserAttributes")
     ] = None
+    external_links: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="externalLinks")
+    ] = pydantic.Field(default=None)
+    """
+    External links related to the business user
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

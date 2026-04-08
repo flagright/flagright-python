@@ -17,7 +17,11 @@ class ListHeader(UniversalBaseModel):
     subtype: ListSubtype
     metadata: typing.Optional[ListMetadata] = None
     created_timestamp: typing_extensions.Annotated[float, FieldMetadata(alias="createdTimestamp")]
-    size: typing.Optional[float] = None
+    size: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Approximate number of entries in the list
+    """
+
     version: typing.Optional[float] = None
 
     if IS_PYDANTIC_V2:

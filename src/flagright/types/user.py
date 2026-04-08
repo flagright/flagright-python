@@ -143,6 +143,12 @@ class User(UniversalBaseModel):
     products_enabled: typing_extensions.Annotated[
         typing.Optional[typing.List[ProductsEnabled]], FieldMetadata(alias="productsEnabled")
     ] = None
+    external_links: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="externalLinks")
+    ] = pydantic.Field(default=None)
+    """
+    External links related to the consumer user
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -7,10 +7,25 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
 class TransactionCountLimit(UniversalBaseModel):
-    day: typing.Optional[float] = None
-    week: typing.Optional[float] = None
-    month: typing.Optional[float] = None
-    year: typing.Optional[float] = None
+    day: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Maximum transaction count allowed per calendar day
+    """
+
+    week: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Maximum transaction count allowed per calendar week
+    """
+
+    month: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Maximum transaction count allowed per calendar month
+    """
+
+    year: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Maximum transaction count allowed per calendar year
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

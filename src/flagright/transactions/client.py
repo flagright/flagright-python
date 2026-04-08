@@ -63,6 +63,7 @@ class TransactionsClient:
         metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -149,6 +150,9 @@ class TransactionsClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
+
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the transaction
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -262,6 +266,7 @@ class TransactionsClient:
             metadata=metadata,
             tags=tags,
             jurisdiction=jurisdiction,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data
@@ -345,6 +350,7 @@ class AsyncTransactionsClient:
         metadata: typing.Optional[TransactionMetadata] = OMIT,
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -431,6 +437,9 @@ class AsyncTransactionsClient:
 
         jurisdiction : typing.Optional[str]
             Legal authority or region governing the transaction
+
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the transaction
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -552,6 +561,7 @@ class AsyncTransactionsClient:
             metadata=metadata,
             tags=tags,
             jurisdiction=jurisdiction,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data

@@ -323,6 +323,14 @@ client.transactions.verify(
 <dl>
 <dd>
 
+**external_links:** `typing.Optional[typing.Sequence[str]]` — External links related to the transaction
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -1512,6 +1520,14 @@ client.transaction_events.create(
 <dl>
 <dd>
 
+**external_links:** `typing.Optional[typing.Sequence[str]]` — External links related to the transaction
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2012,6 +2028,14 @@ client.consumer_users.create(
 <dl>
 <dd>
 
+**external_links:** `typing.Optional[typing.Sequence[str]]` — External links related to the consumer user
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2437,6 +2461,14 @@ client.business_users.create(
 <dl>
 <dd>
 
+**external_links:** `typing.Optional[typing.Sequence[str]]` — External links related to the business user
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2668,6 +2700,14 @@ client.consumer_user_events.create(
 <dl>
 <dd>
 
+**external_links:** `typing.Optional[typing.Sequence[str]]` — External links related to the consumer user
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2889,6 +2929,14 @@ client.business_user_events.create(
 <dd>
 
 **updated_business_user_attributes:** `typing.Optional[BusinessOptional]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_links:** `typing.Optional[typing.Sequence[str]]` — External links related to the business user
     
 </dd>
 </dl>

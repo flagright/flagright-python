@@ -92,6 +92,7 @@ class ConsumerUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -192,6 +193,9 @@ class ConsumerUsersClient:
             Legal authority or region governing the transaction
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
+
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the consumer user
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -313,6 +317,7 @@ class ConsumerUsersClient:
             meta_data=meta_data,
             jurisdiction=jurisdiction,
             products_enabled=products_enabled,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data
@@ -407,6 +412,7 @@ class AsyncConsumerUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -507,6 +513,9 @@ class AsyncConsumerUsersClient:
             Legal authority or region governing the transaction
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
+
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the consumer user
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -636,6 +645,7 @@ class AsyncConsumerUsersClient:
             meta_data=meta_data,
             jurisdiction=jurisdiction,
             products_enabled=products_enabled,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data

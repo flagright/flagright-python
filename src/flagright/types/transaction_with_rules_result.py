@@ -122,6 +122,13 @@ class TransactionWithRulesResult(UniversalBaseModel):
     Legal authority or region governing the transaction
     """
 
+    external_links: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="externalLinks")
+    ] = pydantic.Field(default=None)
+    """
+    External links related to the transaction
+    """
+
     executed_rules: typing_extensions.Annotated[typing.List[ExecutedRulesResult], FieldMetadata(alias="executedRules")]
     hit_rules: typing_extensions.Annotated[typing.List[HitRulesDetails], FieldMetadata(alias="hitRules")]
     status: RuleAction

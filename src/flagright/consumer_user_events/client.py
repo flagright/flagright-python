@@ -41,6 +41,7 @@ class ConsumerUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UserWithRulesResult:
         """
@@ -92,6 +93,9 @@ class ConsumerUserEventsClient:
 
         updated_consumer_user_attributes : typing.Optional[UserOptional]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the consumer user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -125,6 +129,7 @@ class ConsumerUserEventsClient:
             reason=reason,
             event_description=event_description,
             updated_consumer_user_attributes=updated_consumer_user_attributes,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data
@@ -191,6 +196,7 @@ class AsyncConsumerUserEventsClient:
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_consumer_user_attributes: typing.Optional[UserOptional] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UserWithRulesResult:
         """
@@ -242,6 +248,9 @@ class AsyncConsumerUserEventsClient:
 
         updated_consumer_user_attributes : typing.Optional[UserOptional]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the consumer user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -283,6 +292,7 @@ class AsyncConsumerUserEventsClient:
             reason=reason,
             event_description=event_description,
             updated_consumer_user_attributes=updated_consumer_user_attributes,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data

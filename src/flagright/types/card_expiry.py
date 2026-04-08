@@ -7,7 +7,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
 class CardExpiry(UniversalBaseModel):
-    month: typing.Optional[float] = None
+    month: typing.Optional[int] = None
     year: typing.Optional[float] = None
 
     if IS_PYDANTIC_V2:

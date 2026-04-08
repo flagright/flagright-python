@@ -83,6 +83,7 @@ class RawBusinessUsersClient:
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[bool] = OMIT,
         adverse_media_status: typing.Optional[bool] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BusinessUsersCreateResponse]:
         """
@@ -185,6 +186,9 @@ class RawBusinessUsersClient:
         adverse_media_status : typing.Optional[bool]
             Whether the user is in the adverse media list
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the business user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -274,6 +278,7 @@ class RawBusinessUsersClient:
                 ),
                 "sanctionsStatus": sanctions_status,
                 "adverseMediaStatus": adverse_media_status,
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",
@@ -446,6 +451,7 @@ class AsyncRawBusinessUsersClient:
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[bool] = OMIT,
         adverse_media_status: typing.Optional[bool] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BusinessUsersCreateResponse]:
         """
@@ -548,6 +554,9 @@ class AsyncRawBusinessUsersClient:
         adverse_media_status : typing.Optional[bool]
             Whether the user is in the adverse media list
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the business user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -637,6 +646,7 @@ class AsyncRawBusinessUsersClient:
                 ),
                 "sanctionsStatus": sanctions_status,
                 "adverseMediaStatus": adverse_media_status,
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",

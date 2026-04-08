@@ -85,6 +85,7 @@ class BusinessUsersClient:
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[bool] = OMIT,
         adverse_media_status: typing.Optional[bool] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -187,6 +188,9 @@ class BusinessUsersClient:
         adverse_media_status : typing.Optional[bool]
             Whether the user is in the adverse media list
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the business user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -251,6 +255,7 @@ class BusinessUsersClient:
             pep_status=pep_status,
             sanctions_status=sanctions_status,
             adverse_media_status=adverse_media_status,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data
@@ -342,6 +347,7 @@ class AsyncBusinessUsersClient:
         pep_status: typing.Optional[typing.Sequence[PepStatus]] = OMIT,
         sanctions_status: typing.Optional[bool] = OMIT,
         adverse_media_status: typing.Optional[bool] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -444,6 +450,9 @@ class AsyncBusinessUsersClient:
         adverse_media_status : typing.Optional[bool]
             Whether the user is in the adverse media list
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the business user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -516,6 +525,7 @@ class AsyncBusinessUsersClient:
             pep_status=pep_status,
             sanctions_status=sanctions_status,
             adverse_media_status=adverse_media_status,
+            external_links=external_links,
             request_options=request_options,
         )
         return _response.data

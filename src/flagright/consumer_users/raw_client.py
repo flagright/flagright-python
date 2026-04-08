@@ -90,6 +90,7 @@ class RawConsumerUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -191,6 +192,9 @@ class RawConsumerUsersClient:
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the consumer user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -279,6 +283,7 @@ class RawConsumerUsersClient:
                 "productsEnabled": convert_and_respect_annotation_metadata(
                     object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
                 ),
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",
@@ -454,6 +459,7 @@ class AsyncRawConsumerUsersClient:
         meta_data: typing.Optional[DeviceData] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
+        external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -555,6 +561,9 @@ class AsyncRawConsumerUsersClient:
 
         products_enabled : typing.Optional[typing.Sequence[ProductsEnabled]]
 
+        external_links : typing.Optional[typing.Sequence[str]]
+            External links related to the consumer user
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -643,6 +652,7 @@ class AsyncRawConsumerUsersClient:
                 "productsEnabled": convert_and_respect_annotation_metadata(
                     object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
                 ),
+                "externalLinks": external_links,
             },
             headers={
                 "content-type": "application/json",
