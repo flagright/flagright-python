@@ -14,6 +14,7 @@ from .sanctions_hit_context import SanctionsHitContext
 class SanctionsDetails(UniversalBaseModel):
     name: str
     search_id: typing_extensions.Annotated[str, FieldMetadata(alias="searchId")]
+    request_hash: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="requestHash")] = None
     iban: typing.Optional[str] = None
     entity_type: typing_extensions.Annotated[
         typing.Optional[SanctionsDetailsEntityType], FieldMetadata(alias="entityType")

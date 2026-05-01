@@ -170,6 +170,7 @@ if typing.TYPE_CHECKING:
     from .counterparty_type import CounterpartyType
     from .country_code import CountryCode
     from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
+    from .cra_risk_level_updated_risk_factor import CraRiskLevelUpdatedRiskFactor
     from .currency_code import CurrencyCode
     from .custom_column import CustomColumn
     from .date import Date
@@ -571,6 +572,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CounterpartyType": ".counterparty_type",
     "CountryCode": ".country_code",
     "CraRiskLevelUpdatedDetails": ".cra_risk_level_updated_details",
+    "CraRiskLevelUpdatedRiskFactor": ".cra_risk_level_updated_risk_factor",
     "CurrencyCode": ".currency_code",
     "CustomColumn": ".custom_column",
     "Date": ".date",
@@ -978,6 +980,7 @@ __all__ = [
     "CounterpartyType",
     "CountryCode",
     "CraRiskLevelUpdatedDetails",
+    "CraRiskLevelUpdatedRiskFactor",
     "CurrencyCode",
     "CustomColumn",
     "Date",

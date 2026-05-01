@@ -6,11 +6,39 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .cra_risk_level_updated_risk_factor import CraRiskLevelUpdatedRiskFactor
 
 
 class CraRiskLevelUpdatedDetails(UniversalBaseModel):
     risk_level: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="riskLevel")] = None
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
+    risk_score: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="riskScore")] = pydantic.Field(
+        default=None
+    )
+    """
+    Current CRA (DRS) risk score for the user
+    """
+
+    kyc_risk_score: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="kycRiskScore")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    KRS score when a KRS record exists for the user
+    """
+
+    kyc_risk_level: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="kycRiskLevel")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Risk level derived from the KRS score
+    """
+
+    risk_factors: typing_extensions.Annotated[
+        typing.Optional[typing.List[CraRiskLevelUpdatedRiskFactor]], FieldMetadata(alias="riskFactors")
+    ] = pydantic.Field(default=None)
+    """
+    Per-factor or component breakdown from KRS when present; omitted when there is no KRS data or no breakdown rows
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
