@@ -9,6 +9,8 @@ from .case_opened_details import CaseOpenedDetails
 from .case_status_details import CaseStatusDetails
 from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
 from .kyc_status_details import KycStatusDetails
+from .sar_message_received_details import SarMessageReceivedDetails
+from .sar_webhook_details import SarWebhookDetails
 from .transaction_status_details import TransactionStatusDetails
 from .user_state_details import UserStateDetails
 from .user_tags_update import UserTagsUpdate
@@ -24,4 +26,6 @@ WebhookEventData = typing.Union[
     UserTagsUpdate,
     CraRiskLevelUpdatedDetails,
     BatchCompletedDetails,
+    SarWebhookDetails,
+    SarMessageReceivedDetails,
 ]

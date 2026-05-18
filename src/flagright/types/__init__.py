@@ -247,6 +247,10 @@ if typing.TYPE_CHECKING:
     from .sanctions_hit_context import SanctionsHitContext
     from .sanctions_screening_entity import SanctionsScreeningEntity
     from .sanctions_status import SanctionsStatus
+    from .sar_message_attachment import SarMessageAttachment
+    from .sar_message_received_details import SarMessageReceivedDetails
+    from .sar_report_status import SarReportStatus
+    from .sar_webhook_details import SarWebhookDetails
     from .source_of_funds import SourceOfFunds
     from .swift_details import SwiftDetails
     from .swift_payment_method import SwiftPaymentMethod
@@ -649,6 +653,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SanctionsHitContext": ".sanctions_hit_context",
     "SanctionsScreeningEntity": ".sanctions_screening_entity",
     "SanctionsStatus": ".sanctions_status",
+    "SarMessageAttachment": ".sar_message_attachment",
+    "SarMessageReceivedDetails": ".sar_message_received_details",
+    "SarReportStatus": ".sar_report_status",
+    "SarWebhookDetails": ".sar_webhook_details",
     "SourceOfFunds": ".source_of_funds",
     "SwiftDetails": ".swift_details",
     "SwiftPaymentMethod": ".swift_payment_method",
@@ -1057,6 +1065,10 @@ __all__ = [
     "SanctionsHitContext",
     "SanctionsScreeningEntity",
     "SanctionsStatus",
+    "SarMessageAttachment",
+    "SarMessageReceivedDetails",
+    "SarReportStatus",
+    "SarWebhookDetails",
     "SourceOfFunds",
     "SwiftDetails",
     "SwiftPaymentMethod",
