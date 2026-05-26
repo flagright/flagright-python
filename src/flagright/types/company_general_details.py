@@ -31,6 +31,13 @@ class CompanyGeneralDetails(UniversalBaseModel):
     The industry in which the business operates for a business customer
     """
 
+    secondary_business_industry: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="secondaryBusinessIndustry")
+    ] = pydantic.Field(default=None)
+    """
+    Additional industries in which the business operates for a business customer
+    """
+
     main_products_services_sold: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="mainProductsServicesSold")
     ] = pydantic.Field(default=None)

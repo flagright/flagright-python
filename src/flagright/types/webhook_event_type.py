@@ -23,10 +23,6 @@ WebhookEventType = typing.Union[
         "BATCH_COMPLETED",
         "CASE_INTERIM_STATUS_UPDATE",
         "ALERT_INTERIM_STATUS_UPDATE",
-        "SAR_CREATED",
-        "SAR_SUBMITTED",
-        "SAR_SUBMISSION_ACCEPTED",
-        "SAR_MESSAGE_RECEIVED",
     ],
     typing.Any,
 ]

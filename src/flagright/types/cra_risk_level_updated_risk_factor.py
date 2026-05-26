@@ -14,6 +14,7 @@ class CraRiskLevelUpdatedRiskFactor(UniversalBaseModel):
     """
 
     risk_factor_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="riskFactorId")] = None
+    risk_factor_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="riskFactorName")] = None
     risk_factor_version_id: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="riskFactorVersionId")
     ] = pydantic.Field(default=None)

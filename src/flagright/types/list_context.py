@@ -6,14 +6,15 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .list_context import ListContext
+from .list_matched_entity import ListMatchedEntity
 from .rule_hit_direction import RuleHitDirection
 
 
-class ExecutedLogicVars(UniversalBaseModel):
-    direction: typing.Optional[RuleHitDirection] = None
-    value: typing.Dict[str, typing.Optional[typing.Any]]
-    list_context: typing_extensions.Annotated[typing.Optional[ListContext], FieldMetadata(alias="listContext")] = None
+class ListContext(UniversalBaseModel):
+    direction: RuleHitDirection
+    matched_entities: typing_extensions.Annotated[
+        typing.List[ListMatchedEntity], FieldMetadata(alias="matchedEntities")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

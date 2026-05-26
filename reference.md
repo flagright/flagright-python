@@ -914,6 +914,7 @@ client.batch.create_business_users(
                 company_general_details=CompanyGeneralDetails(
                     legal_name="Ozkan Hazelnut Export JSC",
                     business_industry=["Farming"],
+                    secondary_business_industry=["Food Processing"],
                     main_products_services_sold=["Hazelnut"],
                 ),
             ),
@@ -2178,6 +2179,7 @@ client.business_users.create(
         company_general_details=CompanyGeneralDetails(
             legal_name="Ozkan Hazelnut Export JSC",
             business_industry=["Farming"],
+            secondary_business_industry=["Food Processing"],
             main_products_services_sold=["Hazelnut"],
         ),
     ),

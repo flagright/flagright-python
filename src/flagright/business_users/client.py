@@ -216,6 +216,7 @@ class BusinessUsersClient:
                 company_general_details=CompanyGeneralDetails(
                     legal_name="Ozkan Hazelnut Export JSC",
                     business_industry=["Farming"],
+                    secondary_business_industry=["Food Processing"],
                     main_products_services_sold=["Hazelnut"],
                 ),
             ),
@@ -483,6 +484,7 @@ class AsyncBusinessUsersClient:
                     company_general_details=CompanyGeneralDetails(
                         legal_name="Ozkan Hazelnut Export JSC",
                         business_industry=["Farming"],
+                        secondary_business_industry=["Food Processing"],
                         main_products_services_sold=["Hazelnut"],
                     ),
                 ),

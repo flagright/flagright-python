@@ -6,20 +6,16 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .list_matched_entity_matched_values_item import ListMatchedEntityMatchedValuesItem
 
 
-class SarMessageAttachment(UniversalBaseModel):
-    """
-    Attachment included with an inbound SAR message
-    """
-
-    file_name: typing_extensions.Annotated[str, FieldMetadata(alias="fileName")]
-    url: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    Time-limited URL to download the attachment
-    """
-
-    content_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="contentType")] = None
+class ListMatchedEntity(UniversalBaseModel):
+    value: str
+    list_id: typing_extensions.Annotated[str, FieldMetadata(alias="listId")]
+    matched_values: typing_extensions.Annotated[
+        typing.List[ListMatchedEntityMatchedValuesItem], FieldMetadata(alias="matchedValues")
+    ]
+    settings: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

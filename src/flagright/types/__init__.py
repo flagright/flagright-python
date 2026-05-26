@@ -200,11 +200,14 @@ if typing.TYPE_CHECKING:
     from .legal_document import LegalDocument
     from .legal_entity import LegalEntity
     from .legal_entity_with_role import LegalEntityWithRole
+    from .list_context import ListContext
     from .list_data import ListData
     from .list_existed import ListExisted
     from .list_header import ListHeader
     from .list_item import ListItem
     from .list_key_metadata import ListKeyMetadata
+    from .list_matched_entity import ListMatchedEntity
+    from .list_matched_entity_matched_values_item import ListMatchedEntityMatchedValuesItem
     from .list_metadata import ListMetadata
     from .list_metadata_ttl import ListMetadataTtl
     from .list_metadata_ttl_unit import ListMetadataTtlUnit
@@ -247,10 +250,6 @@ if typing.TYPE_CHECKING:
     from .sanctions_hit_context import SanctionsHitContext
     from .sanctions_screening_entity import SanctionsScreeningEntity
     from .sanctions_status import SanctionsStatus
-    from .sar_message_attachment import SarMessageAttachment
-    from .sar_message_received_details import SarMessageReceivedDetails
-    from .sar_report_status import SarReportStatus
-    from .sar_webhook_details import SarWebhookDetails
     from .source_of_funds import SourceOfFunds
     from .swift_details import SwiftDetails
     from .swift_payment_method import SwiftPaymentMethod
@@ -606,11 +605,14 @@ _dynamic_imports: typing.Dict[str, str] = {
     "LegalDocument": ".legal_document",
     "LegalEntity": ".legal_entity",
     "LegalEntityWithRole": ".legal_entity_with_role",
+    "ListContext": ".list_context",
     "ListData": ".list_data",
     "ListExisted": ".list_existed",
     "ListHeader": ".list_header",
     "ListItem": ".list_item",
     "ListKeyMetadata": ".list_key_metadata",
+    "ListMatchedEntity": ".list_matched_entity",
+    "ListMatchedEntityMatchedValuesItem": ".list_matched_entity_matched_values_item",
     "ListMetadata": ".list_metadata",
     "ListMetadataTtl": ".list_metadata_ttl",
     "ListMetadataTtlUnit": ".list_metadata_ttl_unit",
@@ -653,10 +655,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SanctionsHitContext": ".sanctions_hit_context",
     "SanctionsScreeningEntity": ".sanctions_screening_entity",
     "SanctionsStatus": ".sanctions_status",
-    "SarMessageAttachment": ".sar_message_attachment",
-    "SarMessageReceivedDetails": ".sar_message_received_details",
-    "SarReportStatus": ".sar_report_status",
-    "SarWebhookDetails": ".sar_webhook_details",
     "SourceOfFunds": ".source_of_funds",
     "SwiftDetails": ".swift_details",
     "SwiftPaymentMethod": ".swift_payment_method",
@@ -1018,11 +1016,14 @@ __all__ = [
     "LegalDocument",
     "LegalEntity",
     "LegalEntityWithRole",
+    "ListContext",
     "ListData",
     "ListExisted",
     "ListHeader",
     "ListItem",
     "ListKeyMetadata",
+    "ListMatchedEntity",
+    "ListMatchedEntityMatchedValuesItem",
     "ListMetadata",
     "ListMetadataTtl",
     "ListMetadataTtlUnit",
@@ -1065,10 +1066,6 @@ __all__ = [
     "SanctionsHitContext",
     "SanctionsScreeningEntity",
     "SanctionsStatus",
-    "SarMessageAttachment",
-    "SarMessageReceivedDetails",
-    "SarReportStatus",
-    "SarWebhookDetails",
     "SourceOfFunds",
     "SwiftDetails",
     "SwiftPaymentMethod",
