@@ -238,6 +238,7 @@ if typing.TYPE_CHECKING:
     from .risk_exposure_type import RiskExposureType
     from .risk_level import RiskLevel
     from .rule_action import RuleAction
+    from .rule_execution_metric import RuleExecutionMetric
     from .rule_execution_sanctions_details import RuleExecutionSanctionsDetails
     from .rule_failure_exception import RuleFailureException
     from .rule_hit_direction import RuleHitDirection
@@ -643,6 +644,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RiskExposureType": ".risk_exposure_type",
     "RiskLevel": ".risk_level",
     "RuleAction": ".rule_action",
+    "RuleExecutionMetric": ".rule_execution_metric",
     "RuleExecutionSanctionsDetails": ".rule_execution_sanctions_details",
     "RuleFailureException": ".rule_failure_exception",
     "RuleHitDirection": ".rule_hit_direction",
@@ -1054,6 +1056,7 @@ __all__ = [
     "RiskExposureType",
     "RiskLevel",
     "RuleAction",
+    "RuleExecutionMetric",
     "RuleExecutionSanctionsDetails",
     "RuleFailureException",
     "RuleHitDirection",
