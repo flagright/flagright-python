@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .country_code import CountryCode
 from .tag import Tag
+from .tax_identification import TaxIdentification
 
 
 class CompanyRegistrationDetails(UniversalBaseModel):
@@ -25,9 +26,23 @@ class CompanyRegistrationDetails(UniversalBaseModel):
     registration_country: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="registrationCountry")
     ] = None
+    secondary_registration_country: typing_extensions.Annotated[
+        typing.Optional[typing.List[CountryCode]], FieldMetadata(alias="secondaryRegistrationCountry")
+    ] = pydantic.Field(default=None)
+    """
+    Additional registration countries for the company
+    """
+
     tax_residence_country: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="taxResidenceCountry")
     ] = None
+    secondary_tax_identifications: typing_extensions.Annotated[
+        typing.Optional[typing.List[TaxIdentification]], FieldMetadata(alias="secondaryTaxIdentifications")
+    ] = pydantic.Field(default=None)
+    """
+    Additional tax residence countries for the company with their tax identification details
+    """
+
     tax_identifier: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="taxIdentifier")] = (
         pydantic.Field(default=None)
     )

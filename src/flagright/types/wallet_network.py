@@ -33,6 +33,8 @@ WalletNetwork = typing.Union[
         "CELESTIA",
         "BASE",
         "SUI",
+        "TEMPO",
+        "TEMPO_TESTNET",
     ],
     typing.Any,
 ]

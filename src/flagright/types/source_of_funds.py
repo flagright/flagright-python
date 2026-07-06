@@ -27,6 +27,9 @@ SourceOfFunds = typing.Union[
         "Real Estate Sale",
         "Real Estate Rental",
         "Company Exit",
+        "Loan",
+        "Other",
+        "Dividends",
     ],
     typing.Any,
 ]

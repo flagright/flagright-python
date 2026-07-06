@@ -42,6 +42,13 @@ class UserDetails(UniversalBaseModel):
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
     ] = None
+    secondary_country_of_nationality: typing_extensions.Annotated[
+        typing.Optional[typing.List[CountryCode]], FieldMetadata(alias="secondaryCountryOfNationality")
+    ] = pydantic.Field(default=None)
+    """
+    Additional nationalities of the user
+    """
+
     gender: typing.Optional[Gender] = None
     marital_status: typing_extensions.Annotated[
         typing.Optional[MaritalStatus], FieldMetadata(alias="maritalStatus")

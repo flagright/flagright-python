@@ -255,6 +255,7 @@ if typing.TYPE_CHECKING:
     from .swift_details import SwiftDetails
     from .swift_payment_method import SwiftPaymentMethod
     from .tag import Tag
+    from .tax_identification import TaxIdentification
     from .transaction import Transaction
     from .transaction_amount_details import TransactionAmountDetails
     from .transaction_amount_limit import TransactionAmountLimit
@@ -661,6 +662,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SwiftDetails": ".swift_details",
     "SwiftPaymentMethod": ".swift_payment_method",
     "Tag": ".tag",
+    "TaxIdentification": ".tax_identification",
     "Transaction": ".transaction",
     "TransactionAmountDetails": ".transaction_amount_details",
     "TransactionAmountLimit": ".transaction_amount_limit",
@@ -1073,6 +1075,7 @@ __all__ = [
     "SwiftDetails",
     "SwiftPaymentMethod",
     "Tag",
+    "TaxIdentification",
     "Transaction",
     "TransactionAmountDetails",
     "TransactionAmountLimit",
