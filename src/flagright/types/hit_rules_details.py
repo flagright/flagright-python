@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .risk_level import RiskLevel
 from .rule_action import RuleAction
 from .rule_hit_meta import RuleHitMeta
 from .rule_labels import RuleLabels
@@ -41,6 +42,13 @@ class HitRulesDetails(UniversalBaseModel):
     )
     """
     Timestamp when the rule was hit
+    """
+
+    executed_risk_level: typing_extensions.Annotated[
+        typing.Optional[RiskLevel], FieldMetadata(alias="executedRiskLevel")
+    ] = pydantic.Field(default=None)
+    """
+    Risk level used to select the rule logic, parameters, and action.
     """
 
     rule_action: typing_extensions.Annotated[RuleAction, FieldMetadata(alias="ruleAction")]
