@@ -45,6 +45,13 @@ class BusinessUserEventWithRulesResult(UniversalBaseModel):
     updated_business_user_attributes: typing_extensions.Annotated[
         typing.Optional[BusinessOptional], FieldMetadata(alias="updatedBusinessUserAttributes")
     ] = None
+    new_user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="newUserId")] = pydantic.Field(
+        default=None
+    )
+    """
+    New userId for the existing user (keep in mind all of the future requests for this user will now reference this userId). Requires the `changeUserId` query param to come in affect.
+    """
+
     external_links: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="externalLinks")
     ] = pydantic.Field(default=None)

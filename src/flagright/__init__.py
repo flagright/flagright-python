@@ -406,8 +406,10 @@ if typing.TYPE_CHECKING:
         transaction_events,
         transactions,
     )
+    from .business_user_events import BusinessUserEventsCreateResponse
     from .business_users import BusinessUsersCreateResponse
     from .client import AsyncFlagright, Flagright
+    from .consumer_user_events import ConsumerUserEventsCreateResponse
     from .consumer_users import ConsumerUsersCreateResponse
     from .environment import FlagrightEnvironment
     from .transactions import TransactionsVerifyResponse
@@ -514,6 +516,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BusinessShareHoldersItem": ".types",
     "BusinessUserEvent": ".types",
     "BusinessUserEventWithRulesResult": ".types",
+    "BusinessUserEventsCreateResponse": ".business_user_events",
     "BusinessUserMonitoringResult": ".types",
     "BusinessUserSegment": ".types",
     "BusinessUsersCreateResponse": ".business_users",
@@ -559,6 +562,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ConsumerName": ".types",
     "ConsumerUserEvent": ".types",
     "ConsumerUserEventWithRulesResult": ".types",
+    "ConsumerUserEventsCreateResponse": ".consumer_user_events",
     "ConsumerUserMonitoringResult": ".types",
     "ConsumerUserSegment": ".types",
     "ConsumerUsersCreateResponse": ".consumer_users",
@@ -946,6 +950,7 @@ __all__ = [
     "BusinessShareHoldersItem",
     "BusinessUserEvent",
     "BusinessUserEventWithRulesResult",
+    "BusinessUserEventsCreateResponse",
     "BusinessUserMonitoringResult",
     "BusinessUserSegment",
     "BusinessUsersCreateResponse",
@@ -991,6 +996,7 @@ __all__ = [
     "ConsumerName",
     "ConsumerUserEvent",
     "ConsumerUserEventWithRulesResult",
+    "ConsumerUserEventsCreateResponse",
     "ConsumerUserMonitoringResult",
     "ConsumerUserSegment",
     "ConsumerUsersCreateResponse",

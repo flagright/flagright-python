@@ -12,13 +12,14 @@ from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..errors.bad_request_error import BadRequestError
 from ..errors.conflict_error import ConflictError
+from ..errors.not_found_error import NotFoundError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
 from ..types.api_error_response import ApiErrorResponse
 from ..types.boolean_string import BooleanString
 from ..types.business_optional import BusinessOptional
 from ..types.business_user_event_with_rules_result import BusinessUserEventWithRulesResult
-from ..types.business_with_rules_result import BusinessWithRulesResult
+from .types.business_user_events_create_response import BusinessUserEventsCreateResponse
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -36,13 +37,15 @@ class RawBusinessUserEventsClient:
         allow_user_type_conversion: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        change_user_id: typing.Optional[BooleanString] = None,
         event_id: typing.Optional[str] = OMIT,
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        new_user_id: typing.Optional[str] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[BusinessWithRulesResult]:
+    ) -> HttpResponse[BusinessUserEventsCreateResponse]:
         """
         ## POST Business User Events
 
@@ -81,6 +84,10 @@ class RawBusinessUserEventsClient:
         lock_cra_risk_level : typing.Optional[BooleanString]
             Boolean string whether Flagright should lock the CRA risk level for the user.
 
+        change_user_id : typing.Optional[BooleanString]
+            Boolean string whether Flagright should change userId of the user.
+            (Note: Only allowed for users with no associated transactions).
+
         event_id : typing.Optional[str]
             Unique event ID
 
@@ -92,6 +99,9 @@ class RawBusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
+        new_user_id : typing.Optional[str]
+            New userId for the existing user (keep in mind all of the future requests for this user will now reference this userId). Requires the `changeUserId` query param to come in affect.
+
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the business user
 
@@ -100,7 +110,7 @@ class RawBusinessUserEventsClient:
 
         Returns
         -------
-        HttpResponse[BusinessWithRulesResult]
+        HttpResponse[BusinessUserEventsCreateResponse]
             Created
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -110,6 +120,7 @@ class RawBusinessUserEventsClient:
                 "allowUserTypeConversion": allow_user_type_conversion,
                 "lockKycRiskLevel": lock_kyc_risk_level,
                 "lockCraRiskLevel": lock_cra_risk_level,
+                "changeUserId": change_user_id,
             },
             json={
                 "timestamp": timestamp,
@@ -120,6 +131,7 @@ class RawBusinessUserEventsClient:
                 "updatedBusinessUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_business_user_attributes, annotation=BusinessOptional, direction="write"
                 ),
+                "newUserId": new_user_id,
                 "externalLinks": external_links,
             },
             headers={
@@ -131,9 +143,9 @@ class RawBusinessUserEventsClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    BusinessWithRulesResult,
+                    BusinessUserEventsCreateResponse,
                     parse_obj_as(
-                        type_=BusinessWithRulesResult,  # type: ignore
+                        type_=BusinessUserEventsCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -151,6 +163,17 @@ class RawBusinessUserEventsClient:
                 )
             if _response.status_code == 401:
                 raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         ApiErrorResponse,
@@ -273,13 +296,15 @@ class AsyncRawBusinessUserEventsClient:
         allow_user_type_conversion: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        change_user_id: typing.Optional[BooleanString] = None,
         event_id: typing.Optional[str] = OMIT,
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        new_user_id: typing.Optional[str] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[BusinessWithRulesResult]:
+    ) -> AsyncHttpResponse[BusinessUserEventsCreateResponse]:
         """
         ## POST Business User Events
 
@@ -318,6 +343,10 @@ class AsyncRawBusinessUserEventsClient:
         lock_cra_risk_level : typing.Optional[BooleanString]
             Boolean string whether Flagright should lock the CRA risk level for the user.
 
+        change_user_id : typing.Optional[BooleanString]
+            Boolean string whether Flagright should change userId of the user.
+            (Note: Only allowed for users with no associated transactions).
+
         event_id : typing.Optional[str]
             Unique event ID
 
@@ -329,6 +358,9 @@ class AsyncRawBusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
+        new_user_id : typing.Optional[str]
+            New userId for the existing user (keep in mind all of the future requests for this user will now reference this userId). Requires the `changeUserId` query param to come in affect.
+
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the business user
 
@@ -337,7 +369,7 @@ class AsyncRawBusinessUserEventsClient:
 
         Returns
         -------
-        AsyncHttpResponse[BusinessWithRulesResult]
+        AsyncHttpResponse[BusinessUserEventsCreateResponse]
             Created
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -347,6 +379,7 @@ class AsyncRawBusinessUserEventsClient:
                 "allowUserTypeConversion": allow_user_type_conversion,
                 "lockKycRiskLevel": lock_kyc_risk_level,
                 "lockCraRiskLevel": lock_cra_risk_level,
+                "changeUserId": change_user_id,
             },
             json={
                 "timestamp": timestamp,
@@ -357,6 +390,7 @@ class AsyncRawBusinessUserEventsClient:
                 "updatedBusinessUserAttributes": convert_and_respect_annotation_metadata(
                     object_=updated_business_user_attributes, annotation=BusinessOptional, direction="write"
                 ),
+                "newUserId": new_user_id,
                 "externalLinks": external_links,
             },
             headers={
@@ -368,9 +402,9 @@ class AsyncRawBusinessUserEventsClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    BusinessWithRulesResult,
+                    BusinessUserEventsCreateResponse,
                     parse_obj_as(
-                        type_=BusinessWithRulesResult,  # type: ignore
+                        type_=BusinessUserEventsCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -388,6 +422,17 @@ class AsyncRawBusinessUserEventsClient:
                 )
             if _response.status_code == 401:
                 raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ApiErrorResponse,
+                        parse_obj_as(
+                            type_=ApiErrorResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         ApiErrorResponse,

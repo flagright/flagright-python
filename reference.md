@@ -2612,6 +2612,7 @@ client.consumer_user_events.create(
     allow_user_type_conversion="true",
     lock_kyc_risk_level="true",
     lock_cra_risk_level="true",
+    change_user_id="true",
     timestamp=1.1,
     user_id="userId",
 )
@@ -2670,6 +2671,17 @@ client.consumer_user_events.create(
 <dl>
 <dd>
 
+**change_user_id:** `typing.Optional[BooleanString]` 
+
+Boolean string whether Flagright should change userId of the user.
+(Note: Only allowed for users with no associated transactions).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **event_id:** `typing.Optional[str]` — Unique event ID
     
 </dd>
@@ -2695,6 +2707,14 @@ client.consumer_user_events.create(
 <dd>
 
 **updated_consumer_user_attributes:** `typing.Optional[UserOptional]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**new_user_id:** `typing.Optional[str]` — New userId for the existing user (keep in mind all of the future requests for this user will now reference this userId). Requires the `changeUserId` queryparam to come in affect.
     
 </dd>
 </dl>
@@ -2848,6 +2868,7 @@ client.business_user_events.create(
     allow_user_type_conversion="true",
     lock_kyc_risk_level="true",
     lock_cra_risk_level="true",
+    change_user_id="true",
     timestamp=1.1,
     user_id="userId",
 )
@@ -2906,6 +2927,17 @@ client.business_user_events.create(
 <dl>
 <dd>
 
+**change_user_id:** `typing.Optional[BooleanString]` 
+
+Boolean string whether Flagright should change userId of the user.
+(Note: Only allowed for users with no associated transactions).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **event_id:** `typing.Optional[str]` — Unique event ID
     
 </dd>
@@ -2931,6 +2963,14 @@ client.business_user_events.create(
 <dd>
 
 **updated_business_user_attributes:** `typing.Optional[BusinessOptional]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**new_user_id:** `typing.Optional[str]` — New userId for the existing user (keep in mind all of the future requests for this user will now reference this userId). Requires the `changeUserId` query param to come in affect.
     
 </dd>
 </dl>

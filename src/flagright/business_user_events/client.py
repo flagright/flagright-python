@@ -7,8 +7,8 @@ from ..core.request_options import RequestOptions
 from ..types.boolean_string import BooleanString
 from ..types.business_optional import BusinessOptional
 from ..types.business_user_event_with_rules_result import BusinessUserEventWithRulesResult
-from ..types.business_with_rules_result import BusinessWithRulesResult
 from .raw_client import AsyncRawBusinessUserEventsClient, RawBusinessUserEventsClient
+from .types.business_user_events_create_response import BusinessUserEventsCreateResponse
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -37,13 +37,15 @@ class BusinessUserEventsClient:
         allow_user_type_conversion: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        change_user_id: typing.Optional[BooleanString] = None,
         event_id: typing.Optional[str] = OMIT,
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        new_user_id: typing.Optional[str] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BusinessWithRulesResult:
+    ) -> BusinessUserEventsCreateResponse:
         """
         ## POST Business User Events
 
@@ -82,6 +84,10 @@ class BusinessUserEventsClient:
         lock_cra_risk_level : typing.Optional[BooleanString]
             Boolean string whether Flagright should lock the CRA risk level for the user.
 
+        change_user_id : typing.Optional[BooleanString]
+            Boolean string whether Flagright should change userId of the user.
+            (Note: Only allowed for users with no associated transactions).
+
         event_id : typing.Optional[str]
             Unique event ID
 
@@ -93,6 +99,9 @@ class BusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
+        new_user_id : typing.Optional[str]
+            New userId for the existing user (keep in mind all of the future requests for this user will now reference this userId). Requires the `changeUserId` query param to come in affect.
+
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the business user
 
@@ -101,7 +110,7 @@ class BusinessUserEventsClient:
 
         Returns
         -------
-        BusinessWithRulesResult
+        BusinessUserEventsCreateResponse
             Created
 
         Examples
@@ -115,6 +124,7 @@ class BusinessUserEventsClient:
             allow_user_type_conversion="true",
             lock_kyc_risk_level="true",
             lock_cra_risk_level="true",
+            change_user_id="true",
             timestamp=1.1,
             user_id="userId",
         )
@@ -125,10 +135,12 @@ class BusinessUserEventsClient:
             allow_user_type_conversion=allow_user_type_conversion,
             lock_kyc_risk_level=lock_kyc_risk_level,
             lock_cra_risk_level=lock_cra_risk_level,
+            change_user_id=change_user_id,
             event_id=event_id,
             reason=reason,
             event_description=event_description,
             updated_business_user_attributes=updated_business_user_attributes,
+            new_user_id=new_user_id,
             external_links=external_links,
             request_options=request_options,
         )
@@ -192,13 +204,15 @@ class AsyncBusinessUserEventsClient:
         allow_user_type_conversion: typing.Optional[BooleanString] = None,
         lock_kyc_risk_level: typing.Optional[BooleanString] = None,
         lock_cra_risk_level: typing.Optional[BooleanString] = None,
+        change_user_id: typing.Optional[BooleanString] = None,
         event_id: typing.Optional[str] = OMIT,
         reason: typing.Optional[str] = OMIT,
         event_description: typing.Optional[str] = OMIT,
         updated_business_user_attributes: typing.Optional[BusinessOptional] = OMIT,
+        new_user_id: typing.Optional[str] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BusinessWithRulesResult:
+    ) -> BusinessUserEventsCreateResponse:
         """
         ## POST Business User Events
 
@@ -237,6 +251,10 @@ class AsyncBusinessUserEventsClient:
         lock_cra_risk_level : typing.Optional[BooleanString]
             Boolean string whether Flagright should lock the CRA risk level for the user.
 
+        change_user_id : typing.Optional[BooleanString]
+            Boolean string whether Flagright should change userId of the user.
+            (Note: Only allowed for users with no associated transactions).
+
         event_id : typing.Optional[str]
             Unique event ID
 
@@ -248,6 +266,9 @@ class AsyncBusinessUserEventsClient:
 
         updated_business_user_attributes : typing.Optional[BusinessOptional]
 
+        new_user_id : typing.Optional[str]
+            New userId for the existing user (keep in mind all of the future requests for this user will now reference this userId). Requires the `changeUserId` query param to come in affect.
+
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the business user
 
@@ -256,7 +277,7 @@ class AsyncBusinessUserEventsClient:
 
         Returns
         -------
-        BusinessWithRulesResult
+        BusinessUserEventsCreateResponse
             Created
 
         Examples
@@ -275,6 +296,7 @@ class AsyncBusinessUserEventsClient:
                 allow_user_type_conversion="true",
                 lock_kyc_risk_level="true",
                 lock_cra_risk_level="true",
+                change_user_id="true",
                 timestamp=1.1,
                 user_id="userId",
             )
@@ -288,10 +310,12 @@ class AsyncBusinessUserEventsClient:
             allow_user_type_conversion=allow_user_type_conversion,
             lock_kyc_risk_level=lock_kyc_risk_level,
             lock_cra_risk_level=lock_cra_risk_level,
+            change_user_id=change_user_id,
             event_id=event_id,
             reason=reason,
             event_description=event_description,
             updated_business_user_attributes=updated_business_user_attributes,
+            new_user_id=new_user_id,
             external_links=external_links,
             request_options=request_options,
         )
