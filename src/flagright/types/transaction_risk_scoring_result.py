@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .risk_factor_breakdown import RiskFactorBreakdown
 from .risk_level import RiskLevel
 
 
@@ -38,6 +39,40 @@ class TransactionRiskScoringResult(UniversalBaseModel):
     destination_user_cra_risk_level: typing_extensions.Annotated[
         typing.Optional[RiskLevel], FieldMetadata(alias="destinationUserCraRiskLevel")
     ] = None
+    trs_risk_factors: typing_extensions.Annotated[
+        typing.Optional[typing.List[RiskFactorBreakdown]], FieldMetadata(alias="trsRiskFactors")
+    ] = pydantic.Field(default=None)
+    """
+    Per-factor TRS breakdown; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled
+    """
+
+    origin_user_avg_trs_score: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="originUserAvgTrsScore")
+    ] = pydantic.Field(default=None)
+    """
+    Origin user's average TRS after this transaction; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled
+    """
+
+    destination_user_avg_trs_score: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="destinationUserAvgTrsScore")
+    ] = pydantic.Field(default=None)
+    """
+    Destination user's average TRS after this transaction; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled
+    """
+
+    krs_weight: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="krsWeight")] = pydantic.Field(
+        default=None
+    )
+    """
+    KRS weight in the CRA formula when using custom weighting; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled
+    """
+
+    avg_trs_weight: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="avgTrsWeight")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Average TRS weight in the CRA formula when using custom weighting; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

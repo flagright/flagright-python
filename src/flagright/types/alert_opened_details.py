@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .rule_nature import RuleNature
 
 
 class AlertOpenedDetails(UniversalBaseModel):
@@ -18,6 +19,7 @@ class AlertOpenedDetails(UniversalBaseModel):
     rule_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ruleDescription")] = None
     rule_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ruleId")] = None
     rule_instance_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ruleInstanceId")] = None
+    nature: typing.Optional[RuleNature] = None
     case_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="caseId")] = None
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
 

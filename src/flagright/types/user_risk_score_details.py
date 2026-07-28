@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .risk_factor_breakdown import RiskFactorBreakdown
 from .risk_level import RiskLevel
 
 
@@ -14,6 +15,33 @@ class UserRiskScoreDetails(UniversalBaseModel):
     cra_risk_score: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="craRiskScore")] = None
     kyc_risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="kycRiskLevel")] = None
     cra_risk_level: typing_extensions.Annotated[typing.Optional[RiskLevel], FieldMetadata(alias="craRiskLevel")] = None
+    kyc_risk_factors: typing_extensions.Annotated[
+        typing.Optional[typing.List[RiskFactorBreakdown]], FieldMetadata(alias="kycRiskFactors")
+    ] = pydantic.Field(default=None)
+    """
+    Per-factor KRS breakdown; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled
+    """
+
+    avg_trs_score: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="avgTrsScore")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    User average transaction risk score; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled
+    """
+
+    krs_weight: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="krsWeight")] = pydantic.Field(
+        default=None
+    )
+    """
+    KRS weight in the CRA formula when using custom weighting; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled
+    """
+
+    avg_trs_weight: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="avgTrsWeight")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Average TRS weight in the CRA formula when using custom weighting; omitted unless the RISK_SCORE_BREAKDOWN feature is enabled
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

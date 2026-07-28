@@ -236,6 +236,7 @@ if typing.TYPE_CHECKING:
     from .pos_entry_mode import PosEntryMode
     from .products_enabled import ProductsEnabled
     from .risk_exposure_type import RiskExposureType
+    from .risk_factor_breakdown import RiskFactorBreakdown
     from .risk_level import RiskLevel
     from .rule_action import RuleAction
     from .rule_execution_metric import RuleExecutionMetric
@@ -643,6 +644,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PosEntryMode": ".pos_entry_mode",
     "ProductsEnabled": ".products_enabled",
     "RiskExposureType": ".risk_exposure_type",
+    "RiskFactorBreakdown": ".risk_factor_breakdown",
     "RiskLevel": ".risk_level",
     "RuleAction": ".rule_action",
     "RuleExecutionMetric": ".rule_execution_metric",
@@ -1056,6 +1058,7 @@ __all__ = [
     "PosEntryMode",
     "ProductsEnabled",
     "RiskExposureType",
+    "RiskFactorBreakdown",
     "RiskLevel",
     "RuleAction",
     "RuleExecutionMetric",
