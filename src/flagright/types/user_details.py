@@ -39,6 +39,13 @@ class UserDetails(UniversalBaseModel):
     country_of_tax_residence: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfTaxResidence")
     ] = None
+    secondary_country_of_tax_residence: typing_extensions.Annotated[
+        typing.Optional[typing.List[CountryCode]], FieldMetadata(alias="secondaryCountryOfTaxResidence")
+    ] = pydantic.Field(default=None)
+    """
+    Additional tax residence countries of the user
+    """
+
     country_of_nationality: typing_extensions.Annotated[
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfNationality")
     ] = None

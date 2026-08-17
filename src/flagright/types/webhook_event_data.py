@@ -12,6 +12,9 @@ from .kyc_status_details import KycStatusDetails
 from .transaction_status_details import TransactionStatusDetails
 from .user_state_details import UserStateDetails
 from .user_tags_update import UserTagsUpdate
+from .webhook_adverse_media_status_details import WebhookAdverseMediaStatusDetails
+from .webhook_pep_status_details import WebhookPepStatusDetails
+from .webhook_sanctions_status_details import WebhookSanctionsStatusDetails
 
 WebhookEventData = typing.Union[
     UserStateDetails,
@@ -24,4 +27,7 @@ WebhookEventData = typing.Union[
     UserTagsUpdate,
     CraRiskLevelUpdatedDetails,
     BatchCompletedDetails,
+    WebhookPepStatusDetails,
+    WebhookSanctionsStatusDetails,
+    WebhookAdverseMediaStatusDetails,
 ]

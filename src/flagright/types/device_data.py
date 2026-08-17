@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .bot_detection_result import BotDetectionResult
 from .country_code import CountryCode
 
 
@@ -39,7 +40,7 @@ class DeviceData(UniversalBaseModel):
         default=None
     )
     """
-    IP address of the device at a given timestamp for an event or transaction
+    IP address of the device at a given timestamp for an event or transaction. Overwritten with a verified value when `deviceIntelligenceSealedResult` is provided and decrypts successfully
     """
 
     ip_country: typing_extensions.Annotated[typing.Optional[CountryCode], FieldMetadata(alias="ipCountry")] = None
@@ -47,14 +48,14 @@ class DeviceData(UniversalBaseModel):
         pydantic.Field(default=None)
     )
     """
-    Device identifier number
+    Device identifier number. Overwritten with a verified value when `deviceIntelligenceSealedResult` is provided and decrypts successfully
     """
 
     vpn_used: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="vpnUsed")] = pydantic.Field(
         default=None
     )
     """
-    Whether VPN was used at a given timestamp for an event or transaction
+    Whether VPN was used at a given timestamp for an event or transaction. Overwritten when `deviceIntelligenceSealedResult` is provided and decrypts successfully, with the configured provider's own aggregate VPN detection verdict
     """
 
     operating_system: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="operatingSystem")] = (
@@ -90,6 +91,314 @@ class DeviceData(UniversalBaseModel):
     )
     """
     The version of the app your user is using on their device at a given timestamp for an event or transaction
+    """
+
+    device_intelligence_sealed_result: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="deviceIntelligenceSealedResult")
+    ] = pydantic.Field(default=None)
+    """
+    Base64-encoded encrypted sealed result blob from your configured device intelligence provider. When provided, Flagright decrypts it server-side and populates the device intelligence fields below (and `deviceIdentifier`, `ipAddress`, `ipCountry`, `vpnUsed` above) with the resulting verified signals; any value passed directly in those fields is ignored when this field is present
+    """
+
+    tor: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Whether the request originated from a known TOR exit node
+    """
+
+    confidence: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Confidence score (0 to 1) that the device identity is correctly identified
+    """
+
+    incognito: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Whether the browser was in incognito/private mode
+    """
+
+    proxy: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Whether the request originated from a known public or residential proxy
+    """
+
+    tampering: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Whether browser tampering (e.g. anti-detect browser) was detected
+    """
+
+    bot_detection: typing_extensions.Annotated[
+        typing.Optional[BotDetectionResult], FieldMetadata(alias="botDetection")
+    ] = None
+    privacy_settings: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="privacySettings")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Whether privacy-focused browser settings were detected
+    """
+
+    suspect_score: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="suspectScore")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Weighted risk score (0 and up, no fixed upper bound)
+    """
+
+    velocity_5_m_events: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="velocity5mEvents")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Number of events from this device in the last 5 minutes
+    """
+
+    velocity_5_m_ips: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="velocity5mIps")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Number of distinct IPs used by this device in the last 5 minutes
+    """
+
+    velocity_5_m_countries: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="velocity5mCountries")
+    ] = pydantic.Field(default=None)
+    """
+    Number of distinct countries used by this device in the last 5 minutes
+    """
+
+    velocity_1_h_events: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="velocity1hEvents")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Number of events from this device in the last 1 hour
+    """
+
+    velocity_1_h_ips: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="velocity1hIps")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Number of distinct IPs used by this device in the last 1 hour
+    """
+
+    velocity_1_h_countries: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="velocity1hCountries")
+    ] = pydantic.Field(default=None)
+    """
+    Number of distinct countries used by this device in the last 1 hour
+    """
+
+    velocity_24_h_events: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="velocity24hEvents")
+    ] = pydantic.Field(default=None)
+    """
+    Number of events from this device in the last 24 hours
+    """
+
+    velocity_24_h_ips: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="velocity24hIps")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Number of distinct IPs used by this device in the last 24 hours
+    """
+
+    velocity_24_h_countries: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="velocity24hCountries")
+    ] = pydantic.Field(default=None)
+    """
+    Number of distinct countries used by this device in the last 24 hours
+    """
+
+    request_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="requestId")] = pydantic.Field(
+        default=None
+    )
+    """
+    Device intelligence provider's request identifier for the event, ties back to the provider's event for audit purposes
+    """
+
+    os_version: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="osVersion")] = pydantic.Field(
+        default=None
+    )
+    """
+    Operating system version of the device (e.g. "10.15.7")
+    """
+
+    browser: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Browser name (e.g. "Chrome", "Safari")
+    """
+
+    browser_version: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="browserVersion")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Browser version (e.g. "148.0.0")
+    """
+
+    rooted: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Android-specific rooted device detection (root management apps). False when checked and clean; unset if not evaluated
+    """
+
+    jailbroken: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    iOS-specific jailbreak detection. False when checked and clean; unset if not evaluated
+    """
+
+    frida: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Frida instrumentation framework detection. False when checked and clean; unset if not evaluated
+    """
+
+    cloned_app: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="clonedApp")] = pydantic.Field(
+        default=None
+    )
+    """
+    Android-specific cloned application detection. False when checked and clean; unset if not evaluated
+    """
+
+    emulator: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Android-specific emulator detection. False when checked and clean; unset if not evaluated
+    """
+
+    simulator: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    iOS-specific simulator detection. False when checked and clean; unset if not evaluated
+    """
+
+    developer_tools: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="developerTools")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Whether the browser DevTools (or mobile Developer Tools) were open
+    """
+
+    mitm_attack: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="mitmAttack")] = pydantic.Field(
+        default=None
+    )
+    """
+    Android-specific man-in-the-middle attack detection
+    """
+
+    ip_attack_source: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="ipAttackSource")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Whether the IP address was part of a known network attack (SSH/HTTPS)
+    """
+
+    ip_email_spam: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="ipEmailSpam")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Whether the IP address was part of a known email spam attack (SMTP)
+    """
+
+    replayed: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Whether the device intelligence provider determined this identification payload was replayed rather than freshly captured
+    """
+
+    virtual_machine: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="virtualMachine")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Whether the request came from a browser running inside a virtual machine (e.g. VMWare)
+    """
+
+    virtual_machine_confidence_score: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="virtualMachineConfidenceScore")
+    ] = pydantic.Field(default=None)
+    """
+    Confidence score (0 to 1) for the virtualMachine detection result
+    """
+
+    location_spoofing: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="locationSpoofing")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Mobile-specific GPS location spoofing detection
+    """
+
+    factory_reset_timestamp: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="factoryResetTimestamp")
+    ] = pydantic.Field(default=None)
+    """
+    Unix epoch time of the most recent factory reset detected on a mobile device; 0 if not detected or not a mobile device
+    """
+
+    high_activity_device: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="highActivityDevice")
+    ] = pydantic.Field(default=None)
+    """
+    Whether the request came from a device with unusually high identification activity
+    """
+
+    rare_device: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="rareDevice")] = pydantic.Field(
+        default=None
+    )
+    """
+    Whether the device is considered rare based on its combination of hardware and software attributes
+    """
+
+    rare_device_percentile_bucket: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="rareDevicePercentileBucket")
+    ] = pydantic.Field(default=None)
+    """
+    Rarity percentile bucket of the device (e.g. "<p95", "p99.9+", "not_seen")
+    """
+
+    vpn_confidence: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="vpnConfidence")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Confidence level of the VPN detection result (e.g. "low", "medium", "high")
+    """
+
+    vpn_origin_country: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="vpnOriginCountry")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Country the request appears to originate from per VPN detection (ISO 3166 format, or "unknown")
+    """
+
+    vpn_origin_timezone: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="vpnOriginTimezone")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Local timezone used by the VPN detection's timezone-mismatch method
+    """
+
+    bot_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="botType")] = pydantic.Field(
+        default=None
+    )
+    """
+    Additional classification of the bot type, if botDetection found one
+    """
+
+    proxy_confidence: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="proxyConfidence")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Confidence level of the proxy detection result (e.g. "low", "medium", "high")
+    """
+
+    proxy_confidence_score: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="proxyConfidenceScore")
+    ] = pydantic.Field(default=None)
+    """
+    Confidence score (0 to 1) for the proxy detection result
+    """
+
+    tampering_confidence: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="tamperingConfidence")
+    ] = pydantic.Field(default=None)
+    """
+    Confidence level of the tampering detection result (e.g. "low", "medium", "high")
+    """
+
+    tampering_confidence_score: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="tamperingConfidenceScore")
+    ] = pydantic.Field(default=None)
+    """
+    Confidence score (0 to 1) for the tampering detection result
     """
 
     if IS_PYDANTIC_V2:

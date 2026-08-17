@@ -78,6 +78,7 @@ if typing.TYPE_CHECKING:
     from .blockchain_risk_subject_direction import BlockchainRiskSubjectDirection
     from .blockchain_risk_subject_type import BlockchainRiskSubjectType
     from .boolean_string import BooleanString
+    from .bot_detection_result import BotDetectionResult
     from .business import Business
     from .business_associated_parties_item import BusinessAssociatedPartiesItem
     from .business_base import BusinessBase
@@ -419,6 +420,7 @@ if typing.TYPE_CHECKING:
     from .wallet_details import WalletDetails
     from .wallet_network import WalletNetwork
     from .wallet_payment_method import WalletPaymentMethod
+    from .webhook_adverse_media_status_details import WebhookAdverseMediaStatusDetails
     from .webhook_event import WebhookEvent
     from .webhook_event_base import WebhookEventBase
     from .webhook_event_base_triggered_by import WebhookEventBaseTriggeredBy
@@ -426,6 +428,8 @@ if typing.TYPE_CHECKING:
     from .webhook_event_triggered_by import WebhookEventTriggeredBy
     from .webhook_event_type import WebhookEventType
     from .webhook_kyc_status_details import WebhookKycStatusDetails
+    from .webhook_pep_status_details import WebhookPepStatusDetails
+    from .webhook_sanctions_status_details import WebhookSanctionsStatusDetails
     from .webhook_user_state_details import WebhookUserStateDetails
 _dynamic_imports: typing.Dict[str, str] = {
     "AchDetails": ".ach_details",
@@ -492,6 +496,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BlockchainRiskSubjectDirection": ".blockchain_risk_subject_direction",
     "BlockchainRiskSubjectType": ".blockchain_risk_subject_type",
     "BooleanString": ".boolean_string",
+    "BotDetectionResult": ".bot_detection_result",
     "Business": ".business",
     "BusinessAssociatedPartiesItem": ".business_associated_parties_item",
     "BusinessBase": ".business_base",
@@ -809,6 +814,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WalletDetails": ".wallet_details",
     "WalletNetwork": ".wallet_network",
     "WalletPaymentMethod": ".wallet_payment_method",
+    "WebhookAdverseMediaStatusDetails": ".webhook_adverse_media_status_details",
     "WebhookEvent": ".webhook_event",
     "WebhookEventBase": ".webhook_event_base",
     "WebhookEventBaseTriggeredBy": ".webhook_event_base_triggered_by",
@@ -816,6 +822,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WebhookEventTriggeredBy": ".webhook_event_triggered_by",
     "WebhookEventType": ".webhook_event_type",
     "WebhookKycStatusDetails": ".webhook_kyc_status_details",
+    "WebhookPepStatusDetails": ".webhook_pep_status_details",
+    "WebhookSanctionsStatusDetails": ".webhook_sanctions_status_details",
     "WebhookUserStateDetails": ".webhook_user_state_details",
 }
 
@@ -906,6 +914,7 @@ __all__ = [
     "BlockchainRiskSubjectDirection",
     "BlockchainRiskSubjectType",
     "BooleanString",
+    "BotDetectionResult",
     "Business",
     "BusinessAssociatedPartiesItem",
     "BusinessBase",
@@ -1223,6 +1232,7 @@ __all__ = [
     "WalletDetails",
     "WalletNetwork",
     "WalletPaymentMethod",
+    "WebhookAdverseMediaStatusDetails",
     "WebhookEvent",
     "WebhookEventBase",
     "WebhookEventBaseTriggeredBy",
@@ -1230,5 +1240,7 @@ __all__ = [
     "WebhookEventTriggeredBy",
     "WebhookEventType",
     "WebhookKycStatusDetails",
+    "WebhookPepStatusDetails",
+    "WebhookSanctionsStatusDetails",
     "WebhookUserStateDetails",
 ]
