@@ -10,6 +10,9 @@ from ..core.serialization import FieldMetadata
 
 class CaseOpenedDetails(UniversalBaseModel):
     case_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="caseId")] = None
+    case_object: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]], FieldMetadata(alias="caseObject")
+    ] = None
     status: typing.Optional[str] = None
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
     transaction_ids: typing_extensions.Annotated[

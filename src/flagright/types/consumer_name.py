@@ -25,6 +25,13 @@ class ConsumerName(UniversalBaseModel):
     Middle name of the user
     """
 
+    father_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="fatherName")] = pydantic.Field(
+        default=None
+    )
+    """
+    Name of the father of the user
+    """
+
     last_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="lastName")] = pydantic.Field(
         default=None
     )
