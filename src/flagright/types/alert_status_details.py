@@ -18,6 +18,7 @@ class AlertStatusDetails(UniversalBaseModel):
     ] = None
     comment: typing.Optional[str] = None
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
+    case_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="caseId")] = None
     transaction_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="transactionIds")
     ] = None

@@ -18,6 +18,11 @@ class CaseOpenedDetails(UniversalBaseModel):
     transaction_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="transactionIds")
     ] = None
+    reasons: typing.Optional[typing.List[str]] = None
+    reason_description_for_other: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="reasonDescriptionForOther")
+    ] = None
+    comment: typing.Optional[str] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

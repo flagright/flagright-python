@@ -15,6 +15,11 @@ class AlertOpenedDetails(UniversalBaseModel):
     transaction_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="transactionIds")
     ] = None
+    reasons: typing.Optional[typing.List[str]] = None
+    reason_description_for_other: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="reasonDescriptionForOther")
+    ] = None
+    comment: typing.Optional[str] = None
     rule_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ruleName")] = None
     rule_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ruleDescription")] = None
     rule_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ruleId")] = None
