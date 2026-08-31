@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .bot_detection_result import BotDetectionResult
 from .country_code import CountryCode
+from .tag import Tag
 
 
 class DeviceData(UniversalBaseModel):
@@ -399,6 +400,11 @@ class DeviceData(UniversalBaseModel):
     ] = pydantic.Field(default=None)
     """
     Confidence score (0 to 1) for the tampering detection result
+    """
+
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
+    """
+    Additional information that can be added via tags
     """
 
     if IS_PYDANTIC_V2:

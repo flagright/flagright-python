@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .blockchain_risk import BlockchainRisk
+from .tag import Tag
 
 
 class TransactionMetadata(UniversalBaseModel):
@@ -19,6 +20,11 @@ class TransactionMetadata(UniversalBaseModel):
     ] = pydantic.Field(default=None)
     """
     List of blockchain risk analyses from different providers
+    """
+
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
+    """
+    Additional information that can be added via tags
     """
 
     if IS_PYDANTIC_V2:
