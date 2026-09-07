@@ -6,10 +6,12 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .case_type import CaseType
 
 
 class CaseStatusDetails(UniversalBaseModel):
     case_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="caseId")] = None
+    case_type: typing_extensions.Annotated[typing.Optional[CaseType], FieldMetadata(alias="caseType")] = None
     status: typing.Optional[str] = None
     reasons: typing.Optional[typing.List[str]] = None
     reason_description_for_other: typing_extensions.Annotated[
@@ -20,6 +22,19 @@ class CaseStatusDetails(UniversalBaseModel):
     transaction_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="transactionIds")
     ] = None
+    case_group_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="caseGroupId")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Id of the case group this case belongs to. Absent when the case is not mapped to a case group.
+    """
+
+    case_group_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="caseGroupName")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Display name of the case group.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

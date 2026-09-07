@@ -151,6 +151,7 @@ if typing.TYPE_CHECKING:
     from .case_management_event_case_status_reason import CaseManagementEventCaseStatusReason
     from .case_opened_details import CaseOpenedDetails
     from .case_status_details import CaseStatusDetails
+    from .case_type import CaseType
     from .cash_details import CashDetails
     from .cash_payment_method import CashPaymentMethod
     from .check_delivery_status import CheckDeliveryStatus
@@ -563,6 +564,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CaseManagementEventCaseStatusReason": ".case_management_event_case_status_reason",
     "CaseOpenedDetails": ".case_opened_details",
     "CaseStatusDetails": ".case_status_details",
+    "CaseType": ".case_type",
     "CashDetails": ".cash_details",
     "CashPaymentMethod": ".cash_payment_method",
     "CheckDeliveryStatus": ".check_delivery_status",
@@ -981,6 +983,7 @@ __all__ = [
     "CaseManagementEventCaseStatusReason",
     "CaseOpenedDetails",
     "CaseStatusDetails",
+    "CaseType",
     "CashDetails",
     "CashPaymentMethod",
     "CheckDeliveryStatus",
