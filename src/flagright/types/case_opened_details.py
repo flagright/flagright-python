@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .case_type import CaseType
+from .tag import Tag
 
 
 class CaseOpenedDetails(UniversalBaseModel):
@@ -37,6 +38,13 @@ class CaseOpenedDetails(UniversalBaseModel):
     )
     """
     Display name of the case group.
+    """
+
+    case_tags: typing_extensions.Annotated[typing.Optional[typing.List[Tag]], FieldMetadata(alias="caseTags")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Tags attached to the case.
     """
 
     if IS_PYDANTIC_V2:
