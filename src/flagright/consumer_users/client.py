@@ -93,6 +93,7 @@ class ConsumerUsersClient:
         jurisdiction: typing.Optional[str] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -196,6 +197,9 @@ class ConsumerUsersClient:
 
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the consumer user
+
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -318,6 +322,7 @@ class ConsumerUsersClient:
             jurisdiction=jurisdiction,
             products_enabled=products_enabled,
             external_links=external_links,
+            custom_object=custom_object,
             request_options=request_options,
         )
         return _response.data
@@ -413,6 +418,7 @@ class AsyncConsumerUsersClient:
         jurisdiction: typing.Optional[str] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ConsumerUsersCreateResponse:
         """
@@ -516,6 +522,9 @@ class AsyncConsumerUsersClient:
 
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the consumer user
+
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -646,6 +655,7 @@ class AsyncConsumerUsersClient:
             jurisdiction=jurisdiction,
             products_enabled=products_enabled,
             external_links=external_links,
+            custom_object=custom_object,
             request_options=request_options,
         )
         return _response.data

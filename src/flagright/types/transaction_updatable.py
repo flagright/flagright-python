@@ -93,6 +93,13 @@ class TransactionUpdatable(UniversalBaseModel):
     External links related to the transaction
     """
 
+    custom_object: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]], FieldMetadata(alias="customObject")
+    ] = pydantic.Field(default=None)
+    """
+    Typed Object defined on the console for additional data
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

@@ -62,6 +62,7 @@ class RawTransactionsClient:
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[TransactionsVerifyResponse]:
         """
@@ -152,6 +153,9 @@ class RawTransactionsClient:
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the transaction
 
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -212,6 +216,7 @@ class RawTransactionsClient:
                 ),
                 "jurisdiction": jurisdiction,
                 "externalLinks": external_links,
+                "customObject": custom_object,
             },
             headers={
                 "content-type": "application/json",
@@ -375,6 +380,7 @@ class AsyncRawTransactionsClient:
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[TransactionsVerifyResponse]:
         """
@@ -465,6 +471,9 @@ class AsyncRawTransactionsClient:
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the transaction
 
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -525,6 +534,7 @@ class AsyncRawTransactionsClient:
                 ),
                 "jurisdiction": jurisdiction,
                 "externalLinks": external_links,
+                "customObject": custom_object,
             },
             headers={
                 "content-type": "application/json",

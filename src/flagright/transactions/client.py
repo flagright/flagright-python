@@ -64,6 +64,7 @@ class TransactionsClient:
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -153,6 +154,9 @@ class TransactionsClient:
 
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the transaction
+
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -267,6 +271,7 @@ class TransactionsClient:
             tags=tags,
             jurisdiction=jurisdiction,
             external_links=external_links,
+            custom_object=custom_object,
             request_options=request_options,
         )
         return _response.data
@@ -351,6 +356,7 @@ class AsyncTransactionsClient:
         tags: typing.Optional[typing.Sequence[Tag]] = OMIT,
         jurisdiction: typing.Optional[str] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TransactionsVerifyResponse:
         """
@@ -440,6 +446,9 @@ class AsyncTransactionsClient:
 
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the transaction
+
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -562,6 +571,7 @@ class AsyncTransactionsClient:
             tags=tags,
             jurisdiction=jurisdiction,
             external_links=external_links,
+            custom_object=custom_object,
             request_options=request_options,
         )
         return _response.data

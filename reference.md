@@ -331,6 +331,14 @@ client.transactions.verify(
 <dl>
 <dd>
 
+**custom_object:** `typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]` — Typed Object defined on the console for additional data
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2037,6 +2045,14 @@ client.consumer_users.create(
 <dl>
 <dd>
 
+**custom_object:** `typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]` — Typed Object defined on the console for additional data
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2464,6 +2480,14 @@ client.business_users.create(
 <dd>
 
 **external_links:** `typing.Optional[typing.Sequence[str]]` — External links related to the business user
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**custom_object:** `typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]` — Typed Object defined on the console for additional data
     
 </dd>
 </dl>

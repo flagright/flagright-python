@@ -129,6 +129,13 @@ class TransactionWithRulesResult(UniversalBaseModel):
     External links related to the transaction
     """
 
+    custom_object: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]], FieldMetadata(alias="customObject")
+    ] = pydantic.Field(default=None)
+    """
+    Typed Object defined on the console for additional data
+    """
+
     executed_rules: typing_extensions.Annotated[typing.List[ExecutedRulesResult], FieldMetadata(alias="executedRules")]
     hit_rules: typing_extensions.Annotated[typing.List[HitRulesDetails], FieldMetadata(alias="hitRules")]
     status: RuleAction

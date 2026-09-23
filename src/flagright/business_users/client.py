@@ -86,6 +86,7 @@ class BusinessUsersClient:
         sanctions_status: typing.Optional[bool] = OMIT,
         adverse_media_status: typing.Optional[bool] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -191,6 +192,9 @@ class BusinessUsersClient:
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the business user
 
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -257,6 +261,7 @@ class BusinessUsersClient:
             sanctions_status=sanctions_status,
             adverse_media_status=adverse_media_status,
             external_links=external_links,
+            custom_object=custom_object,
             request_options=request_options,
         )
         return _response.data
@@ -349,6 +354,7 @@ class AsyncBusinessUsersClient:
         sanctions_status: typing.Optional[bool] = OMIT,
         adverse_media_status: typing.Optional[bool] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BusinessUsersCreateResponse:
         """
@@ -454,6 +460,9 @@ class AsyncBusinessUsersClient:
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the business user
 
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -528,6 +537,7 @@ class AsyncBusinessUsersClient:
             sanctions_status=sanctions_status,
             adverse_media_status=adverse_media_status,
             external_links=external_links,
+            custom_object=custom_object,
             request_options=request_options,
         )
         return _response.data

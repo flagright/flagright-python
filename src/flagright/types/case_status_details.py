@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .case_type import CaseType
 from .tag import Tag
+from .user_type import UserType
 
 
 class CaseStatusDetails(UniversalBaseModel):
@@ -20,6 +21,7 @@ class CaseStatusDetails(UniversalBaseModel):
     ] = None
     comment: typing.Optional[str] = None
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
+    user_type: typing_extensions.Annotated[typing.Optional[UserType], FieldMetadata(alias="userType")] = None
     transaction_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="transactionIds")
     ] = None

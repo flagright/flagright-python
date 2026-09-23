@@ -4,9 +4,11 @@ import typing
 
 from .alert_opened_details import AlertOpenedDetails
 from .alert_status_details import AlertStatusDetails
+from .alert_tags_update import AlertTagsUpdate
 from .batch_completed_details import BatchCompletedDetails
 from .case_opened_details import CaseOpenedDetails
 from .case_status_details import CaseStatusDetails
+from .case_tags_update import CaseTagsUpdate
 from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
 from .kyc_status_details import KycStatusDetails
 from .transaction_status_details import TransactionStatusDetails
@@ -25,6 +27,8 @@ WebhookEventData = typing.Union[
     TransactionStatusDetails,
     KycStatusDetails,
     UserTagsUpdate,
+    CaseTagsUpdate,
+    AlertTagsUpdate,
     CraRiskLevelUpdatedDetails,
     BatchCompletedDetails,
     WebhookPepStatusDetails,

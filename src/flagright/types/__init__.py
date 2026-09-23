@@ -13,6 +13,7 @@ if typing.TYPE_CHECKING:
     from .adverse_media_status import AdverseMediaStatus
     from .alert_opened_details import AlertOpenedDetails
     from .alert_status_details import AlertStatusDetails
+    from .alert_tags_update import AlertTagsUpdate
     from .amount import Amount
     from .api_error_response import ApiErrorResponse
     from .batch_business_user_event_with_rules_result import BatchBusinessUserEventWithRulesResult
@@ -151,6 +152,7 @@ if typing.TYPE_CHECKING:
     from .case_management_event_case_status_reason import CaseManagementEventCaseStatusReason
     from .case_opened_details import CaseOpenedDetails
     from .case_status_details import CaseStatusDetails
+    from .case_tags_update import CaseTagsUpdate
     from .case_type import CaseType
     from .cash_details import CashDetails
     from .cash_payment_method import CashPaymentMethod
@@ -403,6 +405,7 @@ if typing.TYPE_CHECKING:
     from .user_state_details import UserStateDetails
     from .user_tag import UserTag
     from .user_tags_update import UserTagsUpdate
+    from .user_type import UserType
     from .user_with_rules_result import UserWithRulesResult
     from .user_with_rules_result_saved_payment_details_item import (
         UserWithRulesResultSavedPaymentDetailsItem,
@@ -440,6 +443,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AdverseMediaStatus": ".adverse_media_status",
     "AlertOpenedDetails": ".alert_opened_details",
     "AlertStatusDetails": ".alert_status_details",
+    "AlertTagsUpdate": ".alert_tags_update",
     "Amount": ".amount",
     "ApiErrorResponse": ".api_error_response",
     "BatchBusinessUserEventWithRulesResult": ".batch_business_user_event_with_rules_result",
@@ -564,6 +568,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CaseManagementEventCaseStatusReason": ".case_management_event_case_status_reason",
     "CaseOpenedDetails": ".case_opened_details",
     "CaseStatusDetails": ".case_status_details",
+    "CaseTagsUpdate": ".case_tags_update",
     "CaseType": ".case_type",
     "CashDetails": ".cash_details",
     "CashPaymentMethod": ".cash_payment_method",
@@ -800,6 +805,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UserStateDetails": ".user_state_details",
     "UserTag": ".user_tag",
     "UserTagsUpdate": ".user_tags_update",
+    "UserType": ".user_type",
     "UserWithRulesResult": ".user_with_rules_result",
     "UserWithRulesResultSavedPaymentDetailsItem": ".user_with_rules_result_saved_payment_details_item",
     "UserWithRulesResultSavedPaymentDetailsItem_Ach": ".user_with_rules_result_saved_payment_details_item",
@@ -859,6 +865,7 @@ __all__ = [
     "AdverseMediaStatus",
     "AlertOpenedDetails",
     "AlertStatusDetails",
+    "AlertTagsUpdate",
     "Amount",
     "ApiErrorResponse",
     "BatchBusinessUserEventWithRulesResult",
@@ -983,6 +990,7 @@ __all__ = [
     "CaseManagementEventCaseStatusReason",
     "CaseOpenedDetails",
     "CaseStatusDetails",
+    "CaseTagsUpdate",
     "CaseType",
     "CashDetails",
     "CashPaymentMethod",
@@ -1219,6 +1227,7 @@ __all__ = [
     "UserStateDetails",
     "UserTag",
     "UserTagsUpdate",
+    "UserType",
     "UserWithRulesResult",
     "UserWithRulesResultSavedPaymentDetailsItem",
     "UserWithRulesResultSavedPaymentDetailsItem_Ach",

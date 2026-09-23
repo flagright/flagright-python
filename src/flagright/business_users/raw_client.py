@@ -84,6 +84,7 @@ class RawBusinessUsersClient:
         sanctions_status: typing.Optional[bool] = OMIT,
         adverse_media_status: typing.Optional[bool] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BusinessUsersCreateResponse]:
         """
@@ -189,6 +190,9 @@ class RawBusinessUsersClient:
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the business user
 
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -279,6 +283,7 @@ class RawBusinessUsersClient:
                 "sanctionsStatus": sanctions_status,
                 "adverseMediaStatus": adverse_media_status,
                 "externalLinks": external_links,
+                "customObject": custom_object,
             },
             headers={
                 "content-type": "application/json",
@@ -452,6 +457,7 @@ class AsyncRawBusinessUsersClient:
         sanctions_status: typing.Optional[bool] = OMIT,
         adverse_media_status: typing.Optional[bool] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BusinessUsersCreateResponse]:
         """
@@ -557,6 +563,9 @@ class AsyncRawBusinessUsersClient:
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the business user
 
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -647,6 +656,7 @@ class AsyncRawBusinessUsersClient:
                 "sanctionsStatus": sanctions_status,
                 "adverseMediaStatus": adverse_media_status,
                 "externalLinks": external_links,
+                "customObject": custom_object,
             },
             headers={
                 "content-type": "application/json",

@@ -91,6 +91,7 @@ class RawConsumerUsersClient:
         jurisdiction: typing.Optional[str] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -195,6 +196,9 @@ class RawConsumerUsersClient:
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the consumer user
 
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -284,6 +288,7 @@ class RawConsumerUsersClient:
                     object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
                 ),
                 "externalLinks": external_links,
+                "customObject": custom_object,
             },
             headers={
                 "content-type": "application/json",
@@ -460,6 +465,7 @@ class AsyncRawConsumerUsersClient:
         jurisdiction: typing.Optional[str] = OMIT,
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
+        custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -564,6 +570,9 @@ class AsyncRawConsumerUsersClient:
         external_links : typing.Optional[typing.Sequence[str]]
             External links related to the consumer user
 
+        custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            Typed Object defined on the console for additional data
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -653,6 +662,7 @@ class AsyncRawConsumerUsersClient:
                     object_=products_enabled, annotation=typing.Sequence[ProductsEnabled], direction="write"
                 ),
                 "externalLinks": external_links,
+                "customObject": custom_object,
             },
             headers={
                 "content-type": "application/json",
