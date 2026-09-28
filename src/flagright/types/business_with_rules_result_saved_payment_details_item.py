@@ -371,6 +371,8 @@ class BusinessWithRulesResultSavedPaymentDetailsItem_Cash(UniversalBaseModel):
     address: typing.Optional[Address] = None
     name: typing.Optional[str] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
+    account_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="accountBalance")] = None
+    tags: typing.Optional[typing.List[Tag]] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -7,8 +7,10 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address import Address
+from .amount import Amount
 from .counterparty_type import CounterpartyType
 from .email_id import EmailId
+from .tag import Tag
 
 
 class CashDetails(UniversalBaseModel):
@@ -23,6 +25,11 @@ class CashDetails(UniversalBaseModel):
     address: typing.Optional[Address] = None
     name: typing.Optional[str] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
+    account_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="accountBalance")] = None
+    tags: typing.Optional[typing.List[Tag]] = pydantic.Field(default=None)
+    """
+    Additional information that can be added via tags
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
