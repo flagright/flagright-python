@@ -1705,6 +1705,7 @@ client.consumer_users.create(
                     value="wallet",
                 )
             ],
+            document_issued_state="Berlin",
         )
     ],
     contact_details=ContactDetails(

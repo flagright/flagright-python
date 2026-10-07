@@ -51,6 +51,12 @@ class LegalDocument(UniversalBaseModel):
     name_on_document: typing_extensions.Annotated[
         typing.Optional[ConsumerName], FieldMetadata(alias="nameOnDocument")
     ] = None
+    document_issued_state: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="documentIssuedState")
+    ] = pydantic.Field(default=None)
+    """
+    State or province that issued the user's identity document
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

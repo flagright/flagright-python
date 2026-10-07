@@ -254,6 +254,7 @@ class ConsumerUsersClient:
                             value="wallet",
                         )
                     ],
+                    document_issued_state="Berlin",
                 )
             ],
             contact_details=ContactDetails(
@@ -584,6 +585,7 @@ class AsyncConsumerUsersClient:
                                 value="wallet",
                             )
                         ],
+                        document_issued_state="Berlin",
                     )
                 ],
                 contact_details=ContactDetails(
