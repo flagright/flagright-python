@@ -19,6 +19,7 @@ from .card_type import CardType
 from .check_delivery_status import CheckDeliveryStatus
 from .consumer_name import ConsumerName
 from .correspondent_bank_details import CorrespondentBankDetails
+from .correspondent_generic_bank_details import CorrespondentGenericBankDetails
 from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .email_id import EmailId
@@ -117,6 +118,9 @@ class TransactionWithRulesResultDestinationPaymentDetails_GenericBankAccount(Uni
     transit_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="transitNumber")] = None
     address: typing.Optional[Address] = None
     routing_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routingNumber")] = None
+    correspondent_bank_details: typing_extensions.Annotated[
+        typing.Optional[typing.List[CorrespondentGenericBankDetails]], FieldMetadata(alias="correspondentBankDetails")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address import Address
 from .amount import Amount
+from .correspondent_generic_bank_details import CorrespondentGenericBankDetails
 from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .email_id import EmailId
@@ -114,6 +115,10 @@ class GenericBankAccountDetails(UniversalBaseModel):
     """
     Routing number of the bank
     """
+
+    correspondent_bank_details: typing_extensions.Annotated[
+        typing.Optional[typing.List[CorrespondentGenericBankDetails]], FieldMetadata(alias="correspondentBankDetails")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

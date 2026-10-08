@@ -171,6 +171,7 @@ if typing.TYPE_CHECKING:
     from .contact_details import ContactDetails
     from .corporate_entity_details import CorporateEntityDetails
     from .correspondent_bank_details import CorrespondentBankDetails
+    from .correspondent_generic_bank_details import CorrespondentGenericBankDetails
     from .counterparty_type import CounterpartyType
     from .country_code import CountryCode
     from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
@@ -587,6 +588,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ContactDetails": ".contact_details",
     "CorporateEntityDetails": ".corporate_entity_details",
     "CorrespondentBankDetails": ".correspondent_bank_details",
+    "CorrespondentGenericBankDetails": ".correspondent_generic_bank_details",
     "CounterpartyType": ".counterparty_type",
     "CountryCode": ".country_code",
     "CraRiskLevelUpdatedDetails": ".cra_risk_level_updated_details",
@@ -1009,6 +1011,7 @@ __all__ = [
     "ContactDetails",
     "CorporateEntityDetails",
     "CorrespondentBankDetails",
+    "CorrespondentGenericBankDetails",
     "CounterpartyType",
     "CountryCode",
     "CraRiskLevelUpdatedDetails",
