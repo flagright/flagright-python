@@ -7,10 +7,12 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .user_tag import UserTag
+from .user_type import UserType
 
 
 class UserTagsUpdate(UniversalBaseModel):
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
+    user_type: typing_extensions.Annotated[typing.Optional[UserType], FieldMetadata(alias="userType")] = None
     tags: typing.Optional[typing.List[UserTag]] = None
 
     if IS_PYDANTIC_V2:

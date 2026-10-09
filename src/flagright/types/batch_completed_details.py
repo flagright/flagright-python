@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .batch_completed_details_type import BatchCompletedDetailsType
+from .user_type import UserType
 
 
 class BatchCompletedDetails(UniversalBaseModel):
@@ -24,6 +25,7 @@ class BatchCompletedDetails(UniversalBaseModel):
     Type of batch entity
     """
 
+    user_type: typing_extensions.Annotated[typing.Optional[UserType], FieldMetadata(alias="userType")] = None
     total_count: typing_extensions.Annotated[int, FieldMetadata(alias="totalCount")] = pydantic.Field()
     """
     Total number of successfully validated records in the batch

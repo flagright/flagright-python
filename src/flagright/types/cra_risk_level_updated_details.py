@@ -7,11 +7,13 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .cra_risk_level_updated_risk_factor import CraRiskLevelUpdatedRiskFactor
+from .user_type import UserType
 
 
 class CraRiskLevelUpdatedDetails(UniversalBaseModel):
     risk_level: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="riskLevel")] = None
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = None
+    user_type: typing_extensions.Annotated[typing.Optional[UserType], FieldMetadata(alias="userType")] = None
     risk_score: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="riskScore")] = pydantic.Field(
         default=None
     )

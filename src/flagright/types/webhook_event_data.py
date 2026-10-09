@@ -10,22 +10,22 @@ from .case_opened_details import CaseOpenedDetails
 from .case_status_details import CaseStatusDetails
 from .case_tags_update import CaseTagsUpdate
 from .cra_risk_level_updated_details import CraRiskLevelUpdatedDetails
-from .kyc_status_details import KycStatusDetails
 from .transaction_status_details import TransactionStatusDetails
-from .user_state_details import UserStateDetails
 from .user_tags_update import UserTagsUpdate
 from .webhook_adverse_media_status_details import WebhookAdverseMediaStatusDetails
+from .webhook_kyc_status_details import WebhookKycStatusDetails
 from .webhook_pep_status_details import WebhookPepStatusDetails
 from .webhook_sanctions_status_details import WebhookSanctionsStatusDetails
+from .webhook_user_state_details import WebhookUserStateDetails
 
 WebhookEventData = typing.Union[
-    UserStateDetails,
+    WebhookUserStateDetails,
     CaseStatusDetails,
     CaseOpenedDetails,
     AlertStatusDetails,
     AlertOpenedDetails,
     TransactionStatusDetails,
-    KycStatusDetails,
+    WebhookKycStatusDetails,
     UserTagsUpdate,
     CaseTagsUpdate,
     AlertTagsUpdate,

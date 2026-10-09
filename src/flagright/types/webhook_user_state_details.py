@@ -7,12 +7,14 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .user_state import UserState
+from .user_type import UserType
 
 
 class WebhookUserStateDetails(UniversalBaseModel):
     reason: typing.Optional[str] = None
     state: UserState
     user_id: typing_extensions.Annotated[str, FieldMetadata(alias="userId")]
+    user_type: typing_extensions.Annotated[typing.Optional[UserType], FieldMetadata(alias="userType")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
