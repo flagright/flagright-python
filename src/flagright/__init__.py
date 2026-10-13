@@ -7,6 +7,8 @@ from importlib import import_module
 
 if typing.TYPE_CHECKING:
     from .types import (
+        AccountProductDetails,
+        AccountProductDetailsStatus,
         AchDetails,
         AchPaymentMethod,
         AcquisitionChannel,
@@ -187,6 +189,7 @@ if typing.TYPE_CHECKING:
         HitRulesResults,
         IbanDetails,
         IbanPaymentMethod,
+        JointEntity,
         KycStatus,
         KycStatusDetails,
         LegalDocument,
@@ -207,6 +210,8 @@ if typing.TYPE_CHECKING:
         ListType,
         ListUpdatedDetails,
         ListUpdatedDetailsAction,
+        LoanProductDetails,
+        LoanProductDetailsStatus,
         MaritalStatus,
         MccDetails,
         MpesaDetails,
@@ -227,6 +232,7 @@ if typing.TYPE_CHECKING:
         PosDetails,
         PosEntryMode,
         ProductsEnabled,
+        ProductsEnabledDetails,
         RiskExposureType,
         RiskFactorBreakdown,
         RiskLevel,
@@ -425,6 +431,8 @@ if typing.TYPE_CHECKING:
     from .transactions import TransactionsVerifyResponse
     from .version import __version__
 _dynamic_imports: typing.Dict[str, str] = {
+    "AccountProductDetails": ".types",
+    "AccountProductDetailsStatus": ".types",
     "AchDetails": ".types",
     "AchPaymentMethod": ".types",
     "AcquisitionChannel": ".types",
@@ -614,6 +622,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HitRulesResults": ".types",
     "IbanDetails": ".types",
     "IbanPaymentMethod": ".types",
+    "JointEntity": ".types",
     "KycStatus": ".types",
     "KycStatusDetails": ".types",
     "LegalDocument": ".types",
@@ -634,6 +643,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListType": ".types",
     "ListUpdatedDetails": ".types",
     "ListUpdatedDetailsAction": ".types",
+    "LoanProductDetails": ".types",
+    "LoanProductDetailsStatus": ".types",
     "MaritalStatus": ".types",
     "MccDetails": ".types",
     "MpesaDetails": ".types",
@@ -655,6 +666,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PosDetails": ".types",
     "PosEntryMode": ".types",
     "ProductsEnabled": ".types",
+    "ProductsEnabledDetails": ".types",
     "RiskExposureType": ".types",
     "RiskFactorBreakdown": ".types",
     "RiskLevel": ".types",
@@ -869,6 +881,8 @@ def __dir__():
 
 
 __all__ = [
+    "AccountProductDetails",
+    "AccountProductDetailsStatus",
     "AchDetails",
     "AchPaymentMethod",
     "AcquisitionChannel",
@@ -1058,6 +1072,7 @@ __all__ = [
     "HitRulesResults",
     "IbanDetails",
     "IbanPaymentMethod",
+    "JointEntity",
     "KycStatus",
     "KycStatusDetails",
     "LegalDocument",
@@ -1078,6 +1093,8 @@ __all__ = [
     "ListType",
     "ListUpdatedDetails",
     "ListUpdatedDetailsAction",
+    "LoanProductDetails",
+    "LoanProductDetailsStatus",
     "MaritalStatus",
     "MccDetails",
     "MpesaDetails",
@@ -1099,6 +1116,7 @@ __all__ = [
     "PosDetails",
     "PosEntryMode",
     "ProductsEnabled",
+    "ProductsEnabledDetails",
     "RiskExposureType",
     "RiskFactorBreakdown",
     "RiskLevel",

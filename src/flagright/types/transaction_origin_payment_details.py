@@ -23,6 +23,7 @@ from .correspondent_generic_bank_details import CorrespondentGenericBankDetails
 from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .email_id import EmailId
+from .joint_entity import JointEntity
 from .mpesa_transaction_type import MpesaTransactionType
 from .pos_details import PosDetails
 from .tag import Tag
@@ -81,6 +82,7 @@ class TransactionOriginPaymentDetails_Card(UniversalBaseModel):
     ] = None
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
     tags: typing.Optional[typing.List[Tag]] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -129,6 +131,7 @@ class TransactionOriginPaymentDetails_GenericBankAccount(UniversalBaseModel):
     correspondent_bank_details: typing_extensions.Annotated[
         typing.Optional[typing.List[CorrespondentGenericBankDetails]], FieldMetadata(alias="correspondentBankDetails")
     ] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -168,6 +171,7 @@ class TransactionOriginPaymentDetails_Iban(UniversalBaseModel):
         typing.Optional[CountryCode], FieldMetadata(alias="countryOfResidence")
     ] = None
     tags: typing.Optional[typing.List[Tag]] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -204,6 +208,7 @@ class TransactionOriginPaymentDetails_Ach(UniversalBaseModel):
     beneficiary_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="beneficiaryName")] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     tags: typing.Optional[typing.List[Tag]] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -248,6 +253,7 @@ class TransactionOriginPaymentDetails_Swift(UniversalBaseModel):
         typing.Optional[typing.List[CorrespondentBankDetails]], FieldMetadata(alias="correspondentBankDetails")
     ] = None
     tags: typing.Optional[typing.List[Tag]] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -275,6 +281,7 @@ class TransactionOriginPaymentDetails_Mpesa(UniversalBaseModel):
     name: typing.Optional[str] = None
     address: typing.Optional[Address] = None
     tags: typing.Optional[typing.List[Tag]] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -304,6 +311,7 @@ class TransactionOriginPaymentDetails_Upi(UniversalBaseModel):
     address: typing.Optional[Address] = None
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     tags: typing.Optional[typing.List[Tag]] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -349,6 +357,7 @@ class TransactionOriginPaymentDetails_Wallet(UniversalBaseModel):
     ] = None
     date_of_birth: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dateOfBirth")] = None
     transaction_hash: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="transactionHash")] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -391,6 +400,7 @@ class TransactionOriginPaymentDetails_Check(UniversalBaseModel):
     ] = None
     bank_address: typing_extensions.Annotated[typing.Optional[Address], FieldMetadata(alias="bankAddress")] = None
     tags: typing.Optional[typing.List[Tag]] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -417,6 +427,7 @@ class TransactionOriginPaymentDetails_Cash(UniversalBaseModel):
     email_id: typing_extensions.Annotated[typing.Optional[EmailId], FieldMetadata(alias="emailId")] = None
     account_balance: typing_extensions.Annotated[typing.Optional[Amount], FieldMetadata(alias="accountBalance")] = None
     tags: typing.Optional[typing.List[Tag]] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
@@ -459,6 +470,7 @@ class TransactionOriginPaymentDetails_Npp(UniversalBaseModel):
     message_format: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="messageFormat")] = None
     bank_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="bankName")] = None
     address: typing.Optional[Address] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

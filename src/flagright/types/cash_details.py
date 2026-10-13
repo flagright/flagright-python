@@ -10,6 +10,7 @@ from .address import Address
 from .amount import Amount
 from .counterparty_type import CounterpartyType
 from .email_id import EmailId
+from .joint_entity import JointEntity
 from .tag import Tag
 
 
@@ -30,6 +31,8 @@ class CashDetails(UniversalBaseModel):
     """
     Additional information that can be added via tags
     """
+
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

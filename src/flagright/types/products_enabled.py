@@ -6,10 +6,12 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .products_enabled_details import ProductsEnabledDetails
 
 
 class ProductsEnabled(UniversalBaseModel):
     product_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="productName")] = None
+    details: typing.Optional[ProductsEnabledDetails] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

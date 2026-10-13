@@ -6,6 +6,8 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
+    from .account_product_details import AccountProductDetails
+    from .account_product_details_status import AccountProductDetailsStatus
     from .ach_details import AchDetails
     from .ach_payment_method import AchPaymentMethod
     from .acquisition_channel import AcquisitionChannel
@@ -200,6 +202,7 @@ if typing.TYPE_CHECKING:
     from .hit_rules_results import HitRulesResults
     from .iban_details import IbanDetails
     from .iban_payment_method import IbanPaymentMethod
+    from .joint_entity import JointEntity
     from .kyc_status import KycStatus
     from .kyc_status_details import KycStatusDetails
     from .legal_document import LegalDocument
@@ -220,6 +223,8 @@ if typing.TYPE_CHECKING:
     from .list_type import ListType
     from .list_updated_details import ListUpdatedDetails
     from .list_updated_details_action import ListUpdatedDetailsAction
+    from .loan_product_details import LoanProductDetails
+    from .loan_product_details_status import LoanProductDetailsStatus
     from .marital_status import MaritalStatus
     from .mcc_details import MccDetails
     from .mpesa_details import MpesaDetails
@@ -240,6 +245,7 @@ if typing.TYPE_CHECKING:
     from .pos_details import PosDetails
     from .pos_entry_mode import PosEntryMode
     from .products_enabled import ProductsEnabled
+    from .products_enabled_details import ProductsEnabledDetails
     from .risk_exposure_type import RiskExposureType
     from .risk_factor_breakdown import RiskFactorBreakdown
     from .risk_level import RiskLevel
@@ -437,6 +443,8 @@ if typing.TYPE_CHECKING:
     from .webhook_sanctions_status_details import WebhookSanctionsStatusDetails
     from .webhook_user_state_details import WebhookUserStateDetails
 _dynamic_imports: typing.Dict[str, str] = {
+    "AccountProductDetails": ".account_product_details",
+    "AccountProductDetailsStatus": ".account_product_details_status",
     "AchDetails": ".ach_details",
     "AchPaymentMethod": ".ach_payment_method",
     "AcquisitionChannel": ".acquisition_channel",
@@ -617,6 +625,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HitRulesResults": ".hit_rules_results",
     "IbanDetails": ".iban_details",
     "IbanPaymentMethod": ".iban_payment_method",
+    "JointEntity": ".joint_entity",
     "KycStatus": ".kyc_status",
     "KycStatusDetails": ".kyc_status_details",
     "LegalDocument": ".legal_document",
@@ -637,6 +646,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListType": ".list_type",
     "ListUpdatedDetails": ".list_updated_details",
     "ListUpdatedDetailsAction": ".list_updated_details_action",
+    "LoanProductDetails": ".loan_product_details",
+    "LoanProductDetailsStatus": ".loan_product_details_status",
     "MaritalStatus": ".marital_status",
     "MccDetails": ".mcc_details",
     "MpesaDetails": ".mpesa_details",
@@ -657,6 +668,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PosDetails": ".pos_details",
     "PosEntryMode": ".pos_entry_mode",
     "ProductsEnabled": ".products_enabled",
+    "ProductsEnabledDetails": ".products_enabled_details",
     "RiskExposureType": ".risk_exposure_type",
     "RiskFactorBreakdown": ".risk_factor_breakdown",
     "RiskLevel": ".risk_level",
@@ -860,6 +872,8 @@ def __dir__():
 
 
 __all__ = [
+    "AccountProductDetails",
+    "AccountProductDetailsStatus",
     "AchDetails",
     "AchPaymentMethod",
     "AcquisitionChannel",
@@ -1040,6 +1054,7 @@ __all__ = [
     "HitRulesResults",
     "IbanDetails",
     "IbanPaymentMethod",
+    "JointEntity",
     "KycStatus",
     "KycStatusDetails",
     "LegalDocument",
@@ -1060,6 +1075,8 @@ __all__ = [
     "ListType",
     "ListUpdatedDetails",
     "ListUpdatedDetailsAction",
+    "LoanProductDetails",
+    "LoanProductDetailsStatus",
     "MaritalStatus",
     "MccDetails",
     "MpesaDetails",
@@ -1080,6 +1097,7 @@ __all__ = [
     "PosDetails",
     "PosEntryMode",
     "ProductsEnabled",
+    "ProductsEnabledDetails",
     "RiskExposureType",
     "RiskFactorBreakdown",
     "RiskLevel",

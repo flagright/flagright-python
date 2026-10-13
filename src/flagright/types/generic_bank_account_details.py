@@ -12,6 +12,7 @@ from .correspondent_generic_bank_details import CorrespondentGenericBankDetails
 from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .email_id import EmailId
+from .joint_entity import JointEntity
 from .tag import Tag
 
 
@@ -119,6 +120,7 @@ class GenericBankAccountDetails(UniversalBaseModel):
     correspondent_bank_details: typing_extensions.Annotated[
         typing.Optional[typing.List[CorrespondentGenericBankDetails]], FieldMetadata(alias="correspondentBankDetails")
     ] = None
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

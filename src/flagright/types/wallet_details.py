@@ -11,6 +11,7 @@ from .amount import Amount
 from .counterparty_type import CounterpartyType
 from .country_code import CountryCode
 from .email_id import EmailId
+from .joint_entity import JointEntity
 from .tag import Tag
 from .user_details import UserDetails
 from .wallet_network import WalletNetwork
@@ -96,6 +97,8 @@ class WalletDetails(UniversalBaseModel):
     """
     A hash is a cryptographic fingerprint that uniquely identifies a blockchain transaction on the network, whereas a transactionId is just an internal reference used by a wallet or platform to track the transaction in its own system.
     """
+
+    joint_entity: typing_extensions.Annotated[typing.Optional[JointEntity], FieldMetadata(alias="jointEntity")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
