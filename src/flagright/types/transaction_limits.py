@@ -36,6 +36,47 @@ class TransactionLimits(UniversalBaseModel):
     payment_method_limits: typing_extensions.Annotated[
         typing.Optional[TransactionLimitsPaymentMethodLimits], FieldMetadata(alias="paymentMethodLimits")
     ] = None
+    minimum_daily_transaction_limit: typing_extensions.Annotated[
+        typing.Optional[Amount], FieldMetadata(alias="minimumDailyTransactionLimit")
+    ] = pydantic.Field(default=None)
+    """
+    Minimum daily transaction limit. Must not be greater than `maximumDailyTransactionLimit` when both use the same currency
+    """
+
+    minimum_weekly_transaction_limit: typing_extensions.Annotated[
+        typing.Optional[Amount], FieldMetadata(alias="minimumWeeklyTransactionLimit")
+    ] = pydantic.Field(default=None)
+    """
+    Minimum weekly transaction limit. Must not be greater than `maximumWeeklyTransactionLimit` when both use the same currency
+    """
+
+    minimum_monthly_transaction_limit: typing_extensions.Annotated[
+        typing.Optional[Amount], FieldMetadata(alias="minimumMonthlyTransactionLimit")
+    ] = pydantic.Field(default=None)
+    """
+    Minimum monthly transaction limit. Must not be greater than `maximumMonthlyTransactionLimit` when both use the same currency
+    """
+
+    minimum_quarterly_transaction_limit: typing_extensions.Annotated[
+        typing.Optional[Amount], FieldMetadata(alias="minimumQuarterlyTransactionLimit")
+    ] = pydantic.Field(default=None)
+    """
+    Minimum quarterly transaction limit. Must not be greater than `maximumQuarterlyTransactionLimit` when both use the same currency
+    """
+
+    minimum_yearly_transaction_limit: typing_extensions.Annotated[
+        typing.Optional[Amount], FieldMetadata(alias="minimumYearlyTransactionLimit")
+    ] = pydantic.Field(default=None)
+    """
+    Minimum yearly transaction limit. Must not be greater than `maximumYearlyTransactionLimit` when both use the same currency
+    """
+
+    minimum_transaction_limit: typing_extensions.Annotated[
+        typing.Optional[Amount], FieldMetadata(alias="minimumTransactionLimit")
+    ] = pydantic.Field(default=None)
+    """
+    Minimum amount of a single transaction. Must not be greater than `maximumTransactionLimit` when both use the same currency
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
