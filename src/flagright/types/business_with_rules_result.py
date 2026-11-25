@@ -167,6 +167,13 @@ class BusinessWithRulesResult(UniversalBaseModel):
     Typed Object defined on the console for additional data
     """
 
+    re_run_risk_scoring: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="reRunRiskScoring")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Controls if user risk score should be calculated on risk scoring re-runs. If left unset risk scoring is calcuated need to be explicity set to false to stop calculations.
+    """
+
     executed_rules: typing_extensions.Annotated[
         typing.Optional[typing.List[ExecutedRulesResult]], FieldMetadata(alias="executedRules")
     ] = None

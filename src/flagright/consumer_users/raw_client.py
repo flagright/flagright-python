@@ -92,6 +92,7 @@ class RawConsumerUsersClient:
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
+        re_run_risk_scoring: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -199,6 +200,9 @@ class RawConsumerUsersClient:
         custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
             Typed Object defined on the console for additional data
 
+        re_run_risk_scoring : typing.Optional[bool]
+            Controls if user risk score should be calculated on risk scoring re-runs. If left unset risk scoring is calcuated need to be explicity set to false to stop calculations.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -289,6 +293,7 @@ class RawConsumerUsersClient:
                 ),
                 "externalLinks": external_links,
                 "customObject": custom_object,
+                "reRunRiskScoring": re_run_risk_scoring,
             },
             headers={
                 "content-type": "application/json",
@@ -466,6 +471,7 @@ class AsyncRawConsumerUsersClient:
         products_enabled: typing.Optional[typing.Sequence[ProductsEnabled]] = OMIT,
         external_links: typing.Optional[typing.Sequence[str]] = OMIT,
         custom_object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
+        re_run_risk_scoring: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[ConsumerUsersCreateResponse]:
         """
@@ -573,6 +579,9 @@ class AsyncRawConsumerUsersClient:
         custom_object : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
             Typed Object defined on the console for additional data
 
+        re_run_risk_scoring : typing.Optional[bool]
+            Controls if user risk score should be calculated on risk scoring re-runs. If left unset risk scoring is calcuated need to be explicity set to false to stop calculations.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -663,6 +672,7 @@ class AsyncRawConsumerUsersClient:
                 ),
                 "externalLinks": external_links,
                 "customObject": custom_object,
+                "reRunRiskScoring": re_run_risk_scoring,
             },
             headers={
                 "content-type": "application/json",

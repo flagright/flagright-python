@@ -2054,6 +2054,14 @@ client.consumer_users.create(
 <dl>
 <dd>
 
+**re_run_risk_scoring:** `typing.Optional[bool]` — Controls if user risk score should be calculated on risk scoring re-runs. If left unset risk scoring is calcuated need to be explicity set to false to stop calculations.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -2489,6 +2497,14 @@ client.business_users.create(
 <dd>
 
 **custom_object:** `typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]` — Typed Object defined on the console for additional data
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**re_run_risk_scoring:** `typing.Optional[bool]` — Controls if user risk score should be calculated on risk scoring re-runs. If left unset risk scoring is calcuated need to be explicity set to false to stop calculations.
     
 </dd>
 </dl>
